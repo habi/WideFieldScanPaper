@@ -1,0 +1,43 @@
+%\documentclass[a4paper,draft]{scrartcl}
+\documentclass[a4paper]{article}
+
+\usepackage[ansinew]{inputenc}
+\usepackage[small,bf,hang]{caption}
+\usepackage[format=hang]{subfig}
+\usepackage[disable]{todonotes} % disable
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{SIunits}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{mathpazo}
+\usepackage{helvet} 
+
+\newcommand{\imsize}{.618\textwidth}
+
+\title{Wide Field Scan Paper}
+\author{David Haberthür, Christoph Hintermüller, Johannes Schittny, Marco Stampanoni}
+
+\begin{document}
+\maketitle
+
+\listoftodos
+\begin{abstract}
+abstract
+\end{abstract}
+\input{wfs-introduction}
+\input{wfs-materials-and-methods}
+\input{wfs-results}
+\input{wfs-discussion}
+\input{wfs-summary}
+\input{wfs-acknowledgements}
+
+\bibliographystyle{unsrt}
+\bibliography{../references}
+
+\end{document}
