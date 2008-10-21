@@ -27,7 +27,10 @@
 \date{Version of \today}
 
 \begin{document}
+
 \maketitle
+
+\framebox{Author: \svnauthor; Rev: \svnrev; Last change: \svndate}% - URL: \url{\svnkw{HeadURL}}}
 
 \listoftodos
 
@@ -36,8 +39,6 @@ State-of-the-art synchrotron-based tomographic microscopy end-stations acquire v
 
 The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic imaging process in horizontal direction. It is the base for imaging of samples bigger than the size currently possible. Different image acquisition protocols have been implemented for the end-user at the beamline. We have shown that we can increase the lateral field of view of TOMCAT and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of his sample in an unattended, automatic way.
 \end{abstract}
-
-\footnote{Author: \svnauthor; Rev: \svnrev; Last change: \svndate; URL: \url{\svnkw{HeadURL}}}
 
 \input{wfs-introduction}
 \input{wfs-materials-and-methods}
@@ -48,7 +49,5 @@ The stacking of tomograms increases the field of view in vertical direction. The
 
 \bibliographystyle{unsrt}
 \bibliography{../references}
-
-
-
+^
 \end{document}
