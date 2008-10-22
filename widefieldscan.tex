@@ -1,25 +1,27 @@
-%\documentclass[a4paper,abstracton]{scrartcl}
-\documentclass[draft,a4paper,abstracton]{scrartcl}
+%\documentclass[a4paper,twoside,abstracton,bibtotoc]{scrartcl}
+\documentclass[draft,a4paper,twoside,abstracton,bibtotoc]{scrartcl}
 
-\usepackage[ansinew]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{svn-multi}
-\usepackage[small,bf,hang]{caption}
-\usepackage[format=hang]{subfig}
-\usepackage[disable]{todonotes} % disable is a good option
-\usepackage{graphicx}
-\usepackage[numbers,square,sort&compress]{natbib}
-\usepackage{SIunits}
-\usepackage{url}
-\usepackage{hyperref}
-\usepackage{flafter} % floats after their first instance
-\usepackage{hypernat}                        % make hyperref and natbib interwork
-\usepackage{booktabs}
-\usepackage{fancyhdr}
-\usepackage{tikz}
-\usepackage{microtype} % for nicer typography
-\usepackage{varioref} % for variable references with \vref
+\usepackage[ansinew]{inputenc}                    % so I can write my Name without \"{u}
+\usepackage[T1]{fontenc}                          % Standard Latex-Fonts
+\usepackage[english]{babel}                       % change [english] if written in other language
+\usepackage{svn-multi}                            % to add SVN-Versioning-Info
+\usepackage[numbers,square,sort&compress]{natbib} % nice biblography
+\usepackage[small,bf,hang]{caption}               % nicer caption
+\usepackage[format=hang]{subfig}                  % same for subfigs
+\usepackage[disable]{todonotes}                          % fancy-todo-lists in the document, disable to disable, \todo{do it!}
+\usepackage{graphicx}                             % needed for images
+\usepackage{SIunits}                              % typographically correct units (\milli\meter, \kilo\electronvolt)
+\usepackage{url}                                  % format URLs   
+\usepackage{hyperref}                             % links in PDF
+\usepackage{flafter}                              % floats after their first instance
+\usepackage{hypernat}                             % make hyperref and natbib interwork
+\usepackage{booktabs}                             % nice tables
+\usepackage{fancyhdr}                             % nice header
+\usepackage{tikz}                                 % extremely nice drawings
+\usepackage{microtype}                            % for nicer typography
+\usepackage{varioref}                             % for variable references with \vref (image on preceeding page)
+\usepackage{endfloat}							  % floats at the end
+\usepackage{numprint}                             % nice numbers with \numprint{1.234E3)
 
 %% Subversion Information
 %\svnidlong
@@ -28,14 +30,21 @@
 %{$LastChangedRevision$}
 %{$LastChangedBy$}
 %\svnid{$Id$} 
-
 \pagestyle{fancy}
 \lfoot{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
 \cfoot{}
 \rfoot{}
 %%%
+%\fancyhead[RO]{{\footnotesize\rightmark}}
+%\fancyfoot[RO]{\thepage}
+%\fancyhead[LE]{{\footnotesize\leftmark}}
+%\fancyfoot[LE]{\thepage}
+%\fancyfoot[C]{}
+%\renewcommand{\headrulewidth}{0.3pt}}
+
 
 \newcommand{\imsize}{.618\textwidth}
+\graphicspath{{img/}}  % so we can write \includegraphics{image} instead of \includegraphics{img/image}
 
 \title{Wide Field Scan Paper}
 \author{David Haberthür \and Christoph Hintermüller \and Johannes Schittny \and Marco Stampanoni}
@@ -46,6 +55,10 @@
 \maketitle
 
 \listoftodos
+
+%\tableofcontents
+
+\raggedbottom
 
 \begin{abstract}
 State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
@@ -60,7 +73,10 @@ The stacking of tomograms increases the field of view in vertical direction. The
 \include{wfs-summary}
 \include{wfs-acknowledgements}
 
-\bibliographystyle{unsrt}
+\bibliographystyle{unsrtnat}
 \bibliography{../references}
+
+\appendix
+\include{wfs-appendix}
 
 \end{document}

@@ -5,11 +5,13 @@
 {$LastChangedBy$}
 \framebox{Author: \svnauthor; Rev: \svnrev; Last change: \svndate}% - URL: \url{\svnkw{HeadURL}}}
 \section{Introduction}
-\subsection{Background}
+
 Synchrotron radiation based x-ray tomographic microscopy (SRXTM) is a powerful method for the non-destructive three-dimensional imaging of a broad kind of materials with a resolution on the micrometer scale.
 
 At TOMCAT -- the beamline for TOmographic Microscopy and Coherent rAdiology experimenTs~\cite{Stampanoni2007} at the Swiss Light Source at the Paul Scherrer Institute in Villigen, Switzerland -- more than 20 user groups are presently working in very different research areas, ranging from biology, medicine and palaeontology to materials science, geology and process engineering. SRXTM enables the user to have a qualitative and quantitative measurement and analysis of nearly any structure.
 
+\subsection{Background}
 Various applications depend on the availability of high resolution tomographic images of the studied sample. The available field of view (FOV) of microscopy based imaging methods like synchrotron based tomographic beamlines and micro-computed tomography stations is limited through the camera and microscope optics. To achieve a wider FOV one has to use lower magnifications for imaging the sample. The result of this constraint is, that to record tomographic datasets at TOMCAT\todo{Is TOMCAT already known or discussed for NF-Proposal?} with a resolution of around \unit{1}{\micro\meter}, the sample diameter has to be smaller than \unit{1}{\milli\meter}. This constraint can be overcome with so called local tomography, but this introduces image artifacts at the edges of the reconstructed slices.
 
+\subsection{Enhancing the Field of View}
 A vertical increase of the FOV can be achieved through the stacking of multiple scans on top of each other. This stacking has been achieved at TOMCAT through accurately controlling the end-station setup and sample position. This means that the final reconstructions can simply be stacked on top of each other, even if they have been acquired in different scans and the scanning time linearly increases with the sample size. For horizontally enlarging the FOV it is necessary to stitch together several projection images prior to reconstructing the sample. This leads to a linear increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV, since at the edges of the sample we have to record more projections than in the center of the sample to be able to correctly reconstruct it. 
