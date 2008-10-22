@@ -2,6 +2,8 @@
 \documentclass[draft,a4paper,abstracton]{scrartcl}
 
 \usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
 \usepackage{svn-multi}
 \usepackage[small,bf,hang]{caption}
 \usepackage[format=hang]{subfig}
@@ -11,18 +13,21 @@
 \usepackage{SIunits}
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage[T1]{fontenc}
+\usepackage{flafter} % floats after their first instance
+\usepackage{hypernat}                        % make hyperref and natbib interwork
 \usepackage{booktabs}
 \usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{microtype} % for nicer typography
+\usepackage{varioref} % for variable references with \vref
 
-
-%%% Subversion Information
-\svnidlong
-{$HeadURL$}
-{$LastChangedDate$}
-{$LastChangedRevision$}
-{$LastChangedBy$}
-\svnid{$Id$} 
+%% Subversion Information
+%\svnidlong
+%{$HeadURL$}
+%{$LastChangedDate$}
+%{$LastChangedRevision$}
+%{$LastChangedBy$}
+%\svnid{$Id$} 
 
 \pagestyle{fancy}
 \lfoot{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
