@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Wide Field Scan Paper</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html --> 
+<meta name="src" content="widefieldscan.tex"> 
+<meta name="date" content="2008-10-23 16:04:00"> 
+<link rel="stylesheet" type="text/css" href="widefieldscan.css"> 
+</head><body 
+>
+  <div class="maketitle">
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+<h2 class="titleHead">Wide Field Scan Paper</h2>
+ <div class="author" ><span 
+class="ecrm-1440">David Haberth</span><span 
+class="ecrm-1440">ür </span><br class="and" /><span 
+class="ecrm-1440">Christoph Hinterm</span><span 
+class="ecrm-1440">üller </span><br class="and" /><span 
+class="ecrm-1440">Johannes Schittny </span><br class="and" /><span 
+class="ecrm-1440">Marco Stampanoni</span></div>
+<br />
+<div class="date" ><span 
+class="ecrm-1440">Version of October 23, 2008</span></div>
+  </div>
+  <table 
+class="abstract"><tr><td 
+>
+<div class="center" 
+>
+<!--l. 62--><p class="noindent" >
+<!--l. 62--><p class="noindent" ><span 
+class="ecsx-1000">Abstract</span></div>
+     <!--l. 63--><p class="indent" >   <span 
+class="ecrm-1000">State-of-the-art synchrotron-based tomographic microscopy end-stations acquire</span>
+     <span 
+class="ecrm-1000">volumetric data at micrometer level within a few minutes. It is therefore possible to</span>
+     <span 
+class="ecrm-1000">investigate large objects at a high resolution by stacking several tomograms together</span>
+     <span 
+class="ecrm-1000">and perform a local tomographic reconstruction.</span>
+     <!--l. 65--><p class="indent" >   <span 
+class="ecrm-1000">The stacking of tomograms increases the field of view in vertical direction. The</span>
+     <span 
+class="ecrm-1000">present work aims to implement the necessary acquisition protocols at the TOMCAT</span>
+     <span 
+class="ecrm-1000">beamline of the Swiss Light Source to increase the field of view of the tomographic</span>
+     <span 
+class="ecrm-1000">imaging process in horizontal direction. It is the base for imaging of samples bigger</span>
+     <span 
+class="ecrm-1000">than the size currently possible. Different image acquisition protocols have been</span>
+     <span 
+class="ecrm-1000">implemented for the end-user at the beamline. We have shown that we can increase</span>
+     <span 
+class="ecrm-1000">the lateral field of view of TOMCAT and provide the end-user of the beamline the</span>
+     <span 
+class="ecrm-1000">possibility to acquire quality guided tomographic wide field scans of his sample in</span>
+     <span 
+class="ecrm-1000">an unattended, automatic way.</span>
+</td></tr></table>
+                                                                                
+                                                                                
+  <div class="fbox">Author: habi; Rev: 22; Last change: 2008-10-22 17:25:17 +0200 (Mi, 22 Okt 2008)</div>
+  <h3 class="sectionHead"><span class="titlemark">1 </span> <a 
+ id="x1-10001"></a>Introduction</h3>
+<!--l. 9--><p class="noindent" >Synchrotron radiation based x-ray tomographic microscopy (SRXTM) is a powerful method for
+the non-destructive three-dimensional imaging of a broad kind of materials with a resolution on
+the micrometer scale.
+<!--l. 11--><p class="indent" >  At TOMCAT &#8211; the beamline for TOmographic Microscopy and Coherent rAdiology
+experimenTs&#x00A0;[<a 
+href="#XStampanoni2007">1</a>] at the Swiss Light Source at the Paul Scherrer Institute in Villigen,
+Switzerland &#8211; more than 20 user groups are presently working in very different research areas,
+ranging from biology, medicine and palaeontology to materials science, geology and process
+engineering. SRXTM enables the user to have a qualitative and quantitative measurement and
+analysis of nearly any structure.
+<!--l. 13--><p class="noindent" >
+  <h4 class="subsectionHead"><span class="titlemark">1.1 </span> <a 
+ id="x1-20001.1"></a>Background</h4>
+<!--l. 14--><p class="noindent" >Various applications depend on the availability of high resolution tomographic images of the
+studied sample. The available field of view (FOV) of microscopy based imaging methods like
+synchrotron based tomographic beamlines and micro-computed tomography stations is limited
+through the camera and microscope optics. To achieve a wider FOV one has to use lower
+magnifications for imaging the sample. The result of this constraint is, that to record
+tomographic datasets at TOMCAT with a resolution of around <span 
+class="cmr-10x-x-109">1 </span><span 
+class="eurm-10x-x-109">&#x03BC;</span><span 
+class="cmmi-10x-x-109">m</span>, the sample diameter
+has to be smaller than <span 
+class="cmr-10x-x-109">1 </span><span 
+class="cmmi-10x-x-109">mm</span>. This constraint can be overcome with so called local
+tomography, but this introduces image artifacts at the edges of the reconstructed
+slices.
+<!--l. 16--><p class="noindent" >
+  <h4 class="subsectionHead"><span class="titlemark">1.2 </span> <a 
+ id="x1-30001.2"></a>Enhancing the Field of View</h4>
+<!--l. 17--><p class="noindent" >A vertical increase of the FOV can be achieved through the stacking of multiple scans on top of
+each other. This stacking has been achieved at TOMCAT through accurately controlling the
+end-station setup and sample position. This means that the final reconstructions can simply be
+stacked on top of each other, even if they have been acquired in different scans and the
+scanning time linearly increases with the sample size. For horizontally enlarging the FOV it is
+necessary to stitch together several projection images prior to reconstructing the sample. This
+leads to a linear increase in imaging and post-processing time as compared to a standard scan
+with a comparably smaller FOV, since at the edges of the sample we have to record
+more projections than in the center of the sample to be able to correctly reconstruct
+it.
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+  <div class="fbox">Author: habi; Rev: 22; Last change: 2008-10-22 17:25:17 +0200 (Mi, 22 Okt 2008)</div>
+  <h3 class="sectionHead"><span class="titlemark">2 </span> <a 
+ id="x1-40002"></a>Materials and Methods</h3>
+<!--l. 8--><p class="noindent" >
+  <h3 class="sectionHead"><span class="titlemark">3 </span> <a 
+ id="x1-50003"></a>The Swiss Light Source</h3>
+<!--l. 9--><p class="noindent" >The Swiss Light Source (SLS) is a third generation synchrotron which is located in the western
+part of the Paul Scherrer Institute (PSI) in a building shaped like a giant donut with an outer
+diameter of <span 
+class="cmr-10x-x-109">138 </span><span 
+class="cmmi-10x-x-109">m</span>, an inner diameter of <span 
+class="cmr-10x-x-109">32 </span><span 
+class="cmmi-10x-x-109">m</span> and a height of <span 
+class="cmr-10x-x-109">14 </span><span 
+class="cmmi-10x-x-109">m</span>. A powerful air
+conditioning system and effective insulation keeps the temperature inside the building within
+<span 
+class="cmsy-10x-x-109">±</span>&#x00A0;<span 
+class="cmr-10x-x-109">0</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">5</span> <span 
+class="cmsy-8">&#x2218;</span><span 
+class="cmmi-10x-x-109">C</span> of <span 
+class="cmr-10x-x-109">23</span> <span 
+class="cmsy-8">&#x2218;</span><span 
+class="cmmi-10x-x-109">C</span> during winter and <span 
+class="cmr-10x-x-109">25</span> <span 
+class="cmsy-8">&#x2218;</span><span 
+class="cmmi-10x-x-109">C</span> during summer. Inside the accelerator
+tunnel air jets maintain an average temperature of <span 
+class="cmr-10x-x-109">24</span> <span 
+class="cmsy-8">&#x2218;</span><span 
+class="cmmi-10x-x-109">C</span> with a tolerance of only
+<span 
+class="cmsy-10x-x-109">±</span>&#x00A0;<span 
+class="cmr-10x-x-109">0</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">05</span> <span 
+class="cmsy-8">&#x2218;</span><span 
+class="cmmi-10x-x-109">C</span>&#x00A0;[<a 
+href="#Xwwwsls">2</a>].
+<!--l. 11--><p class="noindent" >
+  <h3 class="sectionHead"><span class="titlemark">4 </span> <a 
+ id="x1-60004"></a>TOMCAT</h3>
+<!--l. 13--><p class="noindent" >The beamline TOMCAT is one of thirteen operating beamlines at the SLS. It is located at the
+port X02DA of the SLS. The beamline receives photons from a <span 
+class="cmr-10x-x-109">2</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">9 </span><span 
+class="cmmi-10x-x-109">T</span> super-bending magnet.
+The critical energy of this super-bending magnet is <span 
+class="cmr-10x-x-109">11</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">1 </span><span 
+class="cmmi-10x-x-109">k</span><span 
+class="cmmi-10x-x-109">eV</span> (corresponding to a wavelength of
+<span 
+class="cmr-10x-x-109">0</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">122 </span><span 
+class="cmmi-10x-x-109">nm</span>).
+<!--l. 15--><p class="indent" >  Detailed technical specifications of the beamline and beam characteristics have been
+described by&#x00A0;Stampanoni et&#x00A0;al.&#x00A0;[<a 
+href="#XStampanoni2007">1</a>, <a 
+href="#XStampanoni2006a">3</a>].
+<!--l. 17--><p class="noindent" >
+  <h4 class="subsectionHead"><span class="titlemark">4.1 </span> <a 
+ id="x1-70004.1"></a>Image Preparation</h4>
+<!--l. 18--><p class="noindent" >For each sample we obtained a varying amount of projections covering the desired FOV.
+These projection images have to be obtained in such a manner that they overlap each
+other slightly. This overlap is necessary for the compensation of variations in the
+imaging process and correct stitching of the single projections into one big projection
+image.
+<!--l. 20--><p class="indent" >  After the acquisition of the subscan projection images, these image sets are corrected with
+the so called dark field and flat field images. The dark field images are obtained with no x-ray
+beam for the detection of intrinsic noise in the apparatus, the flat field images are obtained
+with x-ray beam, but without the sample. They are recorded to remove the varying beam
+                                                                                
+                                                                                
+profile brightness from the projection images.
+<!--l. 22--><p class="indent" >  After normalization, the projections of the single subscans are merged into one
+projection which overlaps the full FOV chosen by the end-user. To achieve a correct
+stitching of the subscan projections, the correct cutline to remove the overlap is
+calculated using the mutual difference between adjacent subscans. Since the amount of
+obtained projection varies for different positions of the sample in relation to the
+camera window &#8212; at outer positions we record more projections compared to central
+positions &#8212; we also have to interpolate projection images prior to stitching. All
+this has been achieved using a custom MATLAB<sup class="textsuperscript"><img 
+src="widefieldscan0x.png" alt="R&#x25CB;"  class="oalign" ></sup> program which incorporates the
+loading, normalizing, interpolation and correct stitching of the images into wide field
+projections.
+<!--l. 24--><p class="indent" >  After the merging of the normalized projections, the merged projections can then be
+reconstructed into the virtual tomography slices using a standard filtered backprojection
+algorithm or a FFT-based gridrec algorithm&#x00A0;[<a 
+href="#XDowd2003">4</a>] present at the beamline.
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+  <div class="fbox">Author: habi; Rev: 22; Last change: 2008-10-22 17:25:17 +0200 (Mi, 22 Okt 2008)</div>
+  <h3 class="sectionHead"><span class="titlemark">5 </span> <a 
+ id="x1-80005"></a>Results</h3>
+<!--l. 8--><p class="noindent" >Results of the aforementioned steps are shown in figure&#x00A0;<a 
+href="#x1-140041">1<!--tex4ht:ref: fig:wide field scan --></a>. Figure&#x00A0;<a 
+href="#x1-14001r1">1a<!--tex4ht:ref: subfig:wfs-sub --></a> shows exemplary
+projection images from overlapping subscans prior to correction and normalization. Figure&#x00A0;<a 
+href="#x1-14002r2">1b<!--tex4ht:ref: subfig:wfs-mrg --></a>
+shows a merged projection image prior to reconstruction and figure&#x00A0;<a 
+href="#x1-14003r3">1c<!--tex4ht:ref: subfig:wfs-slice --></a> shows the end-result of
+such a wide field scan, a reconstructed slice of the whole sample with a FOV of
+<span 
+class="cmr-10x-x-109">5</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">734 </span><span 
+class="cmmi-10x-x-109">mm</span> &#8212; approximately five times the size of what can be achieved with one single
+scan.
+<!--l. 9--><p class="noindent" >[Figure&#x00A0;1&#x00A0;about here.]
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+  <div class="fbox">Author: habi; Rev: 22; Last change: 2008-10-22 17:25:17 +0200 (Mi, 22 Okt 2008)</div>
+  <h3 class="sectionHead"><span class="titlemark">6 </span> <a 
+ id="x1-90006"></a>Discussion</h3>
+<!--l. 8--><p class="noindent" >Discussion
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+  <div class="fbox">Author: habi; Rev: 22; Last change: 2008-10-22 17:25:17 +0200 (Mi, 22 Okt 2008)</div>
+  <h3 class="sectionHead"><span class="titlemark">7 </span> <a 
+ id="x1-100007"></a>Summary</h3>
+<!--l. 8--><p class="noindent" >Summary
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+  <div class="fbox">Author: habi; Rev: 22; Last change: 2008-10-22 17:25:17 +0200 (Mi, 22 Okt 2008)</div>
+  <h3 class="sectionHead"><span class="titlemark">8 </span> <a 
+ id="x1-110008"></a>Acknowledgements</h3>
+     <ul class="itemize1">
+     <li class="itemize">Chrigu Lehmann - sample preparation for the first samples
+     </li>
+     <li class="itemize">Federica Marone - help at the beamline
+     </li>
+     <li class="itemize">SNF grant Nr. (David)
+     </li>
+     <li class="itemize">NASA grant Nr. (Chris)</li></ul>
+                                                                                
+                                                                                
+  <h3 class="likesectionHead"><a 
+ id="x1-120008"></a>References</h3>
+<a 
+ id="Q1-1-13"></a>
+<!--l. 1--><p class="noindent" >
+   <div class="thebibliography">
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XStampanoni2007"></a>[1] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span> M.&#x00A0;Stampanoni, A.&#x00A0;Groso, A.&#x00A0;Isenegger, G.&#x00A0;Mikuljan, Q.&#x00A0;Chen, D.&#x00A0;Meister,
+   M.&#x00A0;Lange,  R.&#x00A0;Betemps,  S.&#x00A0;Henein,  and  R.&#x00A0;Abela.     TOMCAT:  A  beamline
+   for   TOmographic   Microscopy   and   Coherent   rAdiology   experimenTs.      <span 
+class="ecti-1095">AIP</span>
+   <span 
+class="ecti-1095">Conference Proceedings</span>,  879(1):848&#8211;851,  2007.   doi:  <span class="obeylines-h"><a 
+href="10.1063/1.2436193" class="url" >10.1063/1.2436193</a></span>.   URL  <span class="obeylines-h"><a 
+href="http://link.aip.org/link/?APC/879/848/1" class="url" ><span 
+class="ectt-1095">http://link.aip.org/link/?APC/879/848/1</span></a></span>.
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="Xwwwsls"></a>[2] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>    SLS    Web    Site    -    Description.         Website,    04    2008.         URL    <span class="obeylines-h"><a 
+href="http://tinyurl.com/5kdsux" class="url" ><span 
+class="ectt-1095">http://tinyurl.com/5kdsux</span></a></span>.
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XStampanoni2006a"></a>[3] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span> M.&#x00A0;Stampanoni, A.&#x00A0;Groso, A.&#x00A0;Isenegger, G.&#x00A0;Mikuljan, Q.&#x00A0;Chen, A.&#x00A0;Bertrand,
+   S.&#x00A0;Henein,  R.&#x00A0;Betemps,  U.&#x00A0;Frommherz,  P.&#x00A0;Bohler,  D.&#x00A0;Meister,  M.&#x00A0;Lange,  and
+   R.&#x00A0;Abela.   Trends in synchrotron-based tomographic imaging: the sls experience.
+   volume  6318,  page  63180M.  SPIE,  2006.    doi:  <span class="obeylines-h"><a 
+href="10.1117/12.679497" class="url" >10.1117/12.679497</a></span>.    URL  <span class="obeylines-h"><a 
+href="http://link.aip.org/link/?PSI/6318/63180M/1" class="url" ><span 
+class="ectt-1095">http://link.aip.org/link/?PSI/6318/63180M/1</span></a></span>.
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XDowd2003"></a>[4] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span> B.A. Dowd, G.H. Campbell, R.B. Marr, V.V. Nagarkar, S.V. Tipnis, L.&#x00A0;Axe,
+   and DP&#x00A0;Siddons. Developments in synchrotron x-ray computed microtomography at
+   the National Synchrotron Light Source. <span 
+class="ecti-1095">Proceedings of SPIE</span>, 3772:224, 2003.
+</p>
+   </div>
+                                                                                
+                                                                                
+  <div class="fbox">Author: habi; Rev: 22; Last change: 2008-10-22 17:25:17 +0200 (Mi, 22 Okt 2008)</div>
+  <h3 class="sectionHead"><span class="titlemark">A </span> <a 
+ id="x1-13000A"></a>code</h3>
+<!--l. 8--><p class="noindent" >the code can be downloaded/found on <span class="obeylines-h"><a 
+href="http://www.ana.unibe.ch/~haberthuer/code/matlab" class="url" ><span 
+class="ectt-1095">http://www.ana.unibe.ch/~haberthuer/code/matlab</span></a></span>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+  <h3 class="likesectionHead"><a 
+ id="x1-14000A"></a>List of Figures</h3>
+<div class="tableofcontents"><span class="lofToc" >1&#x00A0;<a 
+href="#x1-140041">Different stages of a wide field scan of a sample obtained from a
+Sprague-Dawley rat 4 days after birth, scanned at a beam energy of <span 
+class="cmr-10x-x-109">12</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">6 </span><span 
+class="cmmi-10x-x-109">k</span><span 
+class="cmmi-10x-x-109">eV</span> .</a></span><br />
+</div>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<!--l. 2--><p class="indent" >  <a 
+ id="x1-140041"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<table class="minipage"><tr><td><a 
+ id="x1-14001r1"></a>
+<!--l. 6--><p class="noindent" ><img 
+src="widefieldscan1x.png" alt="PIC" class="graphics" width="55.20918pt" height="55.21016pt" ><!--tex4ht:graphics  
+name="widefieldscan1x.png" src="img/mrg/R108C04BrulW-s10444.eps"  
+--><img 
+src="widefieldscan2x.png" alt="PIC" class="graphics" width="55.20918pt" height="55.21016pt" ><!--tex4ht:graphics  
+name="widefieldscan2x.png" src="img/mrg/R108C04BrulW-s20444.eps"  
+--><img 
+src="widefieldscan3x.png" alt="PIC" class="graphics" width="55.20918pt" height="55.21016pt" ><!--tex4ht:graphics  
+name="widefieldscan3x.png" src="img/mrg/R108C04BrulW-s30444.eps"  
+--><img 
+src="widefieldscan4x.png" alt="PIC" class="graphics" width="55.20918pt" height="55.21016pt" ><!--tex4ht:graphics  
+name="widefieldscan4x.png" src="img/mrg/R108C04BrulW-s40444.eps"  
+--><img 
+src="widefieldscan5x.png" alt="PIC" class="graphics" width="55.20918pt" height="55.21016pt" ><!--tex4ht:graphics  
+name="widefieldscan5x.png" src="img/mrg/R108C04BrulW-s50444.eps"  
+-->
+<span 
+class="ecbx-0900">(a)</span> <span 
+class="ecrm-0900">Raw  projection  images  from  five  overlapping  subscans.  Each  image  has  an  original  size  of</span>
+   <span 
+class="ecrm-0900">1024</span><span 
+class="cmsy-9">&#x00D7;</span><span 
+class="ecrm-0900">1024 pixels and covers a FOV of approximately</span> <span 
+class="cmr-9">0</span><span 
+class="cmmi-9">.</span><span 
+class="cmr-9">7 </span><span 
+class="cmmi-9">mm</span><span 
+class="ecrm-0900">. The images have been rescaled to</span>
+   <span 
+class="ecrm-0900">512</span><span 
+class="cmsy-9">&#x00D7;</span><span 
+class="ecrm-0900">512 pixels for display purposes.</span>
+<br class="newline" /> <a 
+ id="x1-14002r2"></a><img 
+src="widefieldscan6x.png" alt="PIC" class="graphics" width="276.05019pt" height="62.76181pt" ><!--tex4ht:graphics  
+name="widefieldscan6x.png" src="img/mrg/R108C04BrulW-cnc0444.eps"  
+-->
+ <span 
+class="ecbx-0900">(b)</span> <span 
+class="ecrm-0900">Merged and corrected projection composed from the subscans shown in</span>
+    <span 
+class="ecrm-0900">(a). The merged projection has a size of 4502</span><span 
+class="cmsy-9">&#x00D7;</span><span 
+class="ecrm-0900">1024 pixels. The scans</span>
+    <span 
+class="ecrm-0900">shown above overlap each other by 15%, approximately 150 pixels. A</span>
+    <span 
+class="ecrm-0900">slice reconstructed from a set of merged projections like the one shown</span>
+    <span 
+class="ecrm-0900">here is shown in (c). The image has been rescaled to 2251</span><span 
+class="cmsy-9">&#x00D7;</span><span 
+class="ecrm-0900">512 pixels</span>
+    <span 
+class="ecrm-0900">for display purposes.</span>
+<br class="newline" /><a 
+ id="x1-14003r3"></a>                                                 <img 
+src="widefieldscan7x.png" alt="PIC" class="graphics" width="256.95999pt" height="256.95999pt" ><!--tex4ht:graphics  
+name="widefieldscan7x.png" src="img/R108C04BrulW-1001-mrg-orig.eps"  
+-->
+<span 
+class="ecbx-0900">(c)</span> <span 
+class="ecrm-0900">Reconstructed slice of the full data set with a size of 8192</span><span 
+class="cmsy-9">&#x00D7;</span><span 
+class="ecrm-0900">8192</span>
+   <span 
+class="ecrm-0900">pixels, covering a FOV of approximately</span> <span 
+class="cmr-9">5</span><span 
+class="cmmi-9">.</span><span 
+class="cmr-9">75 </span><span 
+class="cmmi-9">mm</span><span 
+class="ecrm-0900">. The Image</span>
+   <span 
+class="ecrm-0900">has been rescaled to 1024</span><span 
+class="cmsy-9">&#x00D7;</span><span 
+class="ecrm-0900">1024 pixels for display purposes.</span>
+<br class="newline" />
+<br /> <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Figure&#x00A0;1: </td><td  
+class="content">Different stages of a wide field scan of a sample
+obtained from a Sprague-Dawley rat 4 days after birth,
+scanned at a beam energy of <span 
+class="cmr-10x-x-109">12</span><span 
+class="cmmi-10x-x-109">.</span><span 
+class="cmr-10x-x-109">6 </span><span 
+class="cmmi-10x-x-109">k</span><span 
+class="cmmi-10x-x-109">eV</span> .</td></tr></table><!--tex4ht:label?: x1-140041 -->
+                                                                                
+                                                                                
+</td></tr></table>
+                                                                                
+                                                                                
+  </td></tr></table></div><hr class="endfloat" />
+                                                                                
+                                                                                
+   
+</body></html> 
+
+                                                                                
+
+
