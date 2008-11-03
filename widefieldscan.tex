@@ -1,34 +1,37 @@
-\documentclass[a4paper,twoside,abstracton,bibtotoc]{scrartcl}
-%\documentclass[draft,a4paper,twoside,abstracton,bibtotoc]{scrartcl}
+\documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
+%\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 
 \usepackage[ansinew]{inputenc}                    % so I can write my Name without \"{u}
 \usepackage[T1]{fontenc}                          % Standard Latex-Fonts
 \usepackage[english]{babel}                       % change [english] if written in other language
 \usepackage{svn-multi}                            % to add SVN-Versioning-Info
-\usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
 \usepackage{subfig}                  			  % same for subfigs
 \usepackage{graphicx}                             % needed for images
 \usepackage{SIunits}                              % typographically correct units (\milli\meter, \kilo\electronvolt)
 \usepackage{flafter}                              % floats after their first instance
-\usepackage{hypernat}                             % make hyperref and natbib interwork
 \usepackage{booktabs}                             % nice tables
 \usepackage{fancyhdr}                             % nice header
 \usepackage{tikz}                                 % extremely nice drawings
 \usepackage{microtype}                            % for nicer typography
 \usepackage{varioref}                             % for variable references with \vref (image on preceeding page)
-\usepackage{endfloat}							  % floats at the end
+%\usepackage{endfloat}							  % floats at the end
 \usepackage{numprint}                             % nice numbers with \numprint{1.234E3)
+%%disable for "htlatex"
+\usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
 \usepackage[]{todonotes}                          % [disable]
-\usepackage{hyperref}                             % links in PDF
+%\usepackage{hyperref}                             % links in PDF
+%% disable for "htlatex"
 
 %%---Use this below for todo-workaround for "htlatex"
 %% comment lines 21&22, uncomment lines 27-31.
+%% enable for "htlatex"
 %%  TODOs -- from http://anthony.liekens.net/index.php/LaTeX/Todos
 %\usepackage{url}
 %\usepackage{index}
 %\usepackage{color}
 %\newindex{todo}{todo}{tnd}{Todo List} 
 %\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
+%% enable for "htlatex"
 %%---
 
 %% Subversion Information
@@ -57,7 +60,7 @@
 
 \title{Wide Field Scan Paper}
 \author{David Haberthür \and Christoph Hintermüller \and Johannes Schittny \and Marco Stampanoni}
-\affiliation{asdf}
+
 \date{Version of \today}
 
 \begin{document}
@@ -74,7 +77,7 @@ The stacking of tomograms increases the field of view in vertical direction. The
 
 \listoftodos
 
-%\tableofcontents
+\tableofcontents
 
 \include{wfs-introduction}
 \include{wfs-materials-and-methods}
