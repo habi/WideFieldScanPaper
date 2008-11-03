@@ -5,10 +5,8 @@
 \usepackage[T1]{fontenc}                          % Standard Latex-Fonts
 \usepackage[english]{babel}                       % change [english] if written in other language
 \usepackage{svn-multi}                            % to add SVN-Versioning-Info
-\usepackage[numbers,square,sort&compress]{natbib} % nice biblography
-\usepackage[small,bf,hang]{caption}               % nicer caption
-\usepackage[format=hang]{subfig}                  % same for subfigs
-\usepackage[colorinlistoftodos]{todonotes}        % or [disable]
+\usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
+\usepackage{subfig}                  			  % same for subfigs
 \usepackage{graphicx}                             % needed for images
 \usepackage{SIunits}                              % typographically correct units (\milli\meter, \kilo\electronvolt)
 \usepackage{flafter}                              % floats after their first instance
@@ -20,10 +18,17 @@
 \usepackage{varioref}                             % for variable references with \vref (image on preceeding page)
 \usepackage{endfloat}							  % floats at the end
 \usepackage{numprint}                             % nice numbers with \numprint{1.234E3)
+\usepackage[]{todonotes}                          % [disable]
 \usepackage{hyperref}                             % links in PDF
 
-\newcommand{\addref}{\todo[color=red!40]{Add reference.}}
-\newcommand{\rewrite}[1]{\todo[color=green!40]{#1}}
+%%---Use this below for todo-workaround for "htlatex"
+%%  TODOs -- from http://anthony.liekens.net/index.php/LaTeX/Todos
+%\usepackage{url}
+%\usepackage{index}
+%\usepackage{color}
+%\newindex{todo}{todo}{tnd}{Todo List} 
+%\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
+%%---
 
 %% Subversion Information
 %\svnidlong
@@ -32,10 +37,12 @@
 %{$LastChangedRevision$}
 %{$LastChangedBy$}
 %\svnid{$Id$} 
+
 \pagestyle{fancy}
 \lfoot{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
 \cfoot{}
 \rfoot{}
+
 %%%
 %\fancyhead[RO]{{\footnotesize\rightmark}}
 %\fancyfoot[RO]{\thepage}
@@ -44,29 +51,29 @@
 %\fancyfoot[C]{}
 %\renewcommand{\headrulewidth}{0.3pt}}
 
-
 \newcommand{\imsize}{.618\textwidth}
-\graphicspath{{img/}}  % so we can write \includegraphics{image} instead of \includegraphics{img/image}
+\graphicspath{{img/}}  % so we can write \inputgraphics{image} instead of \inputgraphics{img/image}
 
 \title{Wide Field Scan Paper}
 \author{David Haberthür \and Christoph Hintermüller \and Johannes Schittny \and Marco Stampanoni}
+\affiliation{asdf}
 \date{Version of \today}
 
 \begin{document}
 
 \maketitle
 
-\listoftodos
-
-%\tableofcontents
-
 \raggedbottom
 
 \begin{abstract}
 State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
 
-The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic imaging process in horizontal direction. It is the base for imaging of samples bigger than the size currently possible. Different image acquisition protocols have been implemented for the end-user at the beamline. We have shown that we can increase the lateral field of view of TOMCAT and provide the end-user of the beamline \addref the possibility to acquire \rewrite{this} quality guided tomographic wide field scans of his sample in an unattended, automatic way.
+The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic imaging process in horizontal direction. It is the base for imaging of samples bigger than the size currently possible. Different image acquisition protocols have been implemented for the end-user at the beamline. We have shown that we can increase the lateral field of view of TOMCAT and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of his sample in an unattended, automatic way.
 \end{abstract}
+
+\listoftodos
+
+%\tableofcontents
 
 \include{wfs-introduction}
 \include{wfs-materials-and-methods}

@@ -5,14 +5,17 @@
 {$LastChangedBy$}
 \framebox{Author: \svnauthor; Rev: \svnrev; Last change: \svndate}% - URL: \url{\svnkw{HeadURL}}}
 \section{Materials and Methods}
+
+These experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland.
+
 \section{The Swiss Light Source}
-The Swiss Light Source (SLS) is a third generation synchrotron which is located in the western part of the Paul Scherrer Institute (PSI) in a building shaped like a giant donut with an outer diameter of \unit{138}{\meter}, an inner diameter of \unit{32}{\meter} and a height of \unit{14}{\meter}. A powerful air conditioning system and effective insulation keeps the temperature inside the building within $\pm$~\unit{0.5}{\celsius} of \unit{23}{\celsius} during winter and \unit{25}{\celsius} during summer. Inside the accelerator tunnel air jets maintain an average temperature of \unit{24}{\celsius} with a tolerance of only $\pm$~\unit{0.05}{\celsius}~\cite{wwwsls}.
+%The Swiss Light Source (SLS) is a third generation synchrotron which is located in the western part of the Paul Scherrer Institute (PSI) in a building shaped like a giant donut with an outer diameter of \unit{138}{\meter}, an inner diameter of \unit{32}{\meter} and a height of \unit{14}{\meter}. A powerful air conditioning system and effective insulation keeps the temperature inside the building within $\pm$~\unit{0.5}{\celsius} of \unit{23}{\celsius} during winter and \unit{25}{\celsius} during summer. Inside the accelerator tunnel air jets maintain an average temperature of \unit{24}{\celsius} with a tolerance of only $\pm$~\unit{0.05}{\celsius}~\cite{wwwsls}.
 
 \section{TOMCAT}
 \label{sec:tomcat}
 The beamline TOMCAT is one of thirteen operating beamlines at the SLS. It is located at the port X02DA of the SLS. The beamline receives photons from a \unit{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \unit{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \unit{0.122}{\nano\meter}).
 
-Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
+%Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
 
 \subsection{Image Preparation}
 For each sample we obtained a varying amount of projections covering the desired FOV. These projection images have to be obtained in such a manner that they overlap each other slightly. This overlap is necessary for the compensation of variations in the imaging process and correct stitching of the single projections into one big projection image. 
@@ -21,4 +24,4 @@ After the acquisition of the subscan projection images, these image sets are cor
 
 After normalization, the projections of the single subscans are merged into one projection which overlaps the full FOV chosen by the end-user. To achieve a correct stitching of the subscan projections, the correct cutline to remove the overlap is calculated using the mutual difference between adjacent subscans. Since the amount of obtained projection varies for different positions of the sample in relation to the camera window --- at outer positions we record more projections compared to central positions --- we also have to interpolate projection images prior to stitching. All this has been achieved using a custom MATLAB\textsuperscript{\textregistered} program which incorporates the loading, normalizing, interpolation and correct stitching of the images into wide field projections.
 
-After the merging of the normalized projections, the merged projections can then be reconstructed into the virtual tomography slices using a standard filtered backprojection algorithm or a FFT-based gridrec algorithm~\cite{Dowd2003} present at the beamline.
+%After the merging of the normalized projections, the merged projections can then be reconstructed into the virtual tomography slices using a standard filtered backprojection algorithm or a FFT-based gridrec algorithm~\cite{Dowd2003} present at the beamline.
