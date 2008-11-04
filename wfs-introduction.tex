@@ -22,16 +22,29 @@ Generally, to be able to accurately reconstruct a sample, we have to fulfill the
 n(k+\frac{1}{2})%\text{ where }n=\text{ NumProj and }k=\text{Object-Diameter in beam diameter units}
 \end{equation}
 
-If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a bigger amount of projections in the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. 
+If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a bigger amount of projections in the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to a increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. Let us assume that we have a sample that could be imaged using three overlapping FOVs of \unit{\numprint{1024}}{pixels}, we have to obtain at least \unit{\numprint{3072}}{projections} in the lateral parts of the sample to fulfill the aforementioned sampling theorem.\todo{explain in depth $>$ materials \& methods?}\todo{explain overlap $>$ materials \& methods?}
 
-prior to reconstructing the projection images into the slices. This leads to a linear increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. 
-
-If we want to stitch together multiple subscans\todo{sub scan, sub-scan or subscan?} which have been obtained perpendicularly we have to keep in mind that As a consequence of this, we have to record more projection images for the lateral parts of the sample, 
+Figure~\ref{fig:overlapping scans} depicts the details of the overlapping scans.
 
 \begin{figure}[tb]
 	\centering
-		%\includegraphics[width=1.00\textwidth]{overlapping-subscans}
-		\missingfigure{sampling theorem/overlapping scans?}
-	\label{fig:sampling theorem}
-	\caption{Figure describing the sampling theorem in detail or explaining the overlapping scans?}
+		\includegraphics[width=\imsize]{img/overlapping-subscans}
+	\caption[Overlapping scans]{this should ultimatively explain the overlapping scans}
+	\label{fig:overlapping scans}
+\end{figure}\todo{Figure: how could we explain it in depth?}
+
+If we want to stitch together multiple subscans\todo{sub scan, sub-scan or subscan?} together, we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\label{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=\imsize]{img/projections}
+	\caption{Projection Setup with one central and one ring-scan}
+	\label{fig:projections}
 \end{figure}
+
+
+\begin{itemize}
+	\item interpolation
+	\item correct stitching
+	\item correction
+\end{itemize}

@@ -10,16 +10,16 @@
 \usepackage{subfig}                  			  % same for subfigs
 \usepackage{graphicx}                             % needed for images
 \usepackage{SIunits}                              % typographically correct units (\milli\meter, \kilo\electronvolt)
-\usepackage{flafter}                              % floats after their first instance
+%\usepackage{flafter}                              % floats after their first instance
 \usepackage{booktabs}                             % nice tables
 \usepackage{fancyhdr}                             % nice header
 \usepackage{tikz}                                 % extremely nice drawings
 \usepackage{microtype}                            % for nicer typography
-\usepackage{varioref}                             % for variable references with \vref (image on preceeding page)
+\usepackage{varioref}                             % for variable references with \vref gives "image on preceeding page"
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{lipsum}
-%\usepackage{endfloat}							  % floats at the end
+%\usepackage{endfloat}							  % floats at the end, use [nomarker] if "Figure x approx. here" is undesired
 \usepackage{numprint}                             % nice numbers with \numprint{1.234E3)
 %%disable for "htlatex"
 \usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
@@ -62,7 +62,7 @@
 \renewcommand{\headrulewidth}{0.3pt}
 
 \newcommand{\imsize}{.618\textwidth}
-\graphicspath{{img/}}  % so we can write \inputgraphics{image} instead of \inputgraphics{img/image}
+%\graphicspath{{img/}}  % so we can write \inputgraphics{image} instead of \inputgraphics{img/image}
 
 \title{Wide Field Scan Paper}
 \author{
