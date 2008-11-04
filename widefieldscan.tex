@@ -1,3 +1,5 @@
+%\documentclass[a4paper,twoside,draft]{paper}
+%\documentclass[a4paper,twoside]{paper}
 \documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 %\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 
@@ -14,12 +16,14 @@
 \usepackage{tikz}                                 % extremely nice drawings
 \usepackage{microtype}                            % for nicer typography
 \usepackage{varioref}                             % for variable references with \vref (image on preceeding page)
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lipsum}
 %\usepackage{endfloat}							  % floats at the end
 \usepackage{numprint}                             % nice numbers with \numprint{1.234E3)
 %%disable for "htlatex"
 \usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
-\usepackage[]{todonotes}                          % [disable]
-%\usepackage{hyperref}                             % links in PDF
+\usepackage[]{todonotes}                          % [disable], also loads hyperref
 %% disable for "htlatex"
 
 %%---Use this below for todo-workaround for "htlatex"
@@ -31,36 +35,43 @@
 %\usepackage{color}
 %\newindex{todo}{todo}{tnd}{Todo List} 
 %\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
-%% enable for "htlatex"
+% enable for "htlatex"
 %%---
 
 %% Subversion Information
-%\svnidlong
-%{$HeadURL$}
-%{$LastChangedDate$}
-%{$LastChangedRevision$}
-%{$LastChangedBy$}
-%\svnid{$Id$} 
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+\svnid{$Id$} 
 
 \pagestyle{fancy}
-\lfoot{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
-\cfoot{}
-\rfoot{}
-
 %%%
-%\fancyhead[RO]{{\footnotesize\rightmark}}
-%\fancyfoot[RO]{\thepage}
-%\fancyhead[LE]{{\footnotesize\leftmark}}
-%\fancyfoot[LE]{\thepage}
-%\fancyfoot[C]{}
-%\renewcommand{\headrulewidth}{0.3pt}}
+%\cfoot{}
+%\rfoot{}
+%%%
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[RO]{{\footnotesize\rightmark}}
+\fancyfoot[RO]{\thepage}
+\fancyhead[LE]{{\footnotesize\leftmark}}
+\fancyfoot[LE]{\thepage}
+\fancyfoot[LE]{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
+
+\renewcommand{\headrulewidth}{0.3pt}
 
 \newcommand{\imsize}{.618\textwidth}
 \graphicspath{{img/}}  % so we can write \inputgraphics{image} instead of \inputgraphics{img/image}
 
 \title{Wide Field Scan Paper}
-\author{David Haberthür \and Christoph Hintermüller \and Johannes Schittny \and Marco Stampanoni}
-
+\author{
+	David Haberthür%\textsuperscript{1} 
+	\and Christoph Hintermüller%\textsuperscript{2} 
+	\and Johannes Schittny%\textsuperscript{1} 
+	\and Marco Stampanoni%\textsuperscript{2,3}
+	}
+%\institution{\textsuperscript{1}Institute of Anatomy, University of Bern, Switzerland \and \textsuperscript{2}Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland \and \textsuperscript{3}Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}
 \date{Version of \today}
 
 \begin{document}
@@ -70,6 +81,7 @@
 \raggedbottom
 
 \begin{abstract}
+\todo{add institutions, or use paper.cls}
 State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
 
 The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic imaging process in horizontal direction. It is the base for imaging of samples bigger than the size currently possible. Different image acquisition protocols have been implemented for the end-user at the beamline. We have shown that we can increase the lateral field of view of TOMCAT and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of his sample in an unattended, automatic way.
@@ -77,7 +89,9 @@ The stacking of tomograms increases the field of view in vertical direction. The
 
 \listoftodos
 
-\tableofcontents
+%\tableofcontents
+
+%\begin{multicols}{2}
 
 \include{wfs-introduction}
 \include{wfs-materials-and-methods}
@@ -88,6 +102,8 @@ The stacking of tomograms increases the field of view in vertical direction. The
 
 \bibliographystyle{unsrtnat}
 \bibliography{../references}
+
+%\end{multicols}
 
 \appendix
 \include{wfs-appendix}
