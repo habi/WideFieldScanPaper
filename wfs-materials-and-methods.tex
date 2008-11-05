@@ -5,19 +5,16 @@
 {$LastChangedBy$}
 \framebox{Author: \svnauthor|Rev: \svnrev|Last change: \svndate}% - URL: \url{\svnkw{HeadURL}}}
 \section{Materials and Methods}
-
-These experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland.
-
-\section{The Swiss Light Source}
-%The Swiss Light Source (SLS) is a third generation synchrotron which is located in the western part of the Paul Scherrer Institute (PSI) in a building shaped like a giant donut with an outer diameter of \unit{138}{\meter}, an inner diameter of \unit{32}{\meter} and a height of \unit{14}{\meter}. A powerful air conditioning system and effective insulation keeps the temperature inside the building within $\pm$~\unit{0.5}{\celsius} of \unit{23}{\celsius} during winter and \unit{25}{\celsius} during summer. Inside the accelerator tunnel air jets maintain an average temperature of \unit{24}{\celsius} with a tolerance of only $\pm$~\unit{0.05}{\celsius}~\cite{wwwsls}.
-
-\section{TOMCAT}
-\label{sec:tomcat}
-The beamline TOMCAT is one of thirteen operating beam lines at the SLS. It is located at the port X02DA of the SLS. The beamline receives photons from a \unit{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \unit{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \unit{0.122}{\nano\meter}).
-
-%Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
+\label{sec:materials and methods}
+The experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT is one of thirteen operating beam lines at the SLS\todo{13, still true?}. It is located at the port X02DA of the SLS. The beamline receives photons from a \unit{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \unit{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \unit{0.122}{\nano\meter}). Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
 
 \subsection{Image Preparation}
+\label{subsec:image preparation}
+\begin{itemize}
+	\item dark- and flatfield-correction
+	\item interpolation
+	\item correct stitching
+\end{itemize}
 For each sample we obtained a varying amount of projections covering the desired FOV. These projection images have to be obtained in such a manner that they overlap each other slightly. This overlap is necessary for the compensation of variations in the imaging process and correct stitching of the single projections into one big projection image. 
 
 After the acquisition of the sub-scan projection images, these image sets are corrected with the so called dark field and flat field images. The dark field images are obtained with no x-ray beam for the detection of intrinsic noise in the apparatus, the flat field images are obtained with x-ray beam, but without the sample. They are recorded to remove the varying beam profile brightness from the projection images.

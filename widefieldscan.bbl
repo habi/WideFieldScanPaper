@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -29,5 +29,16 @@ AM~Cormack.
 \newblock {Sampling the Radon transform with beams of finite width}.
 \newblock \emph{Physics in Medicine and Biology}, 23\penalty0 (6):\penalty0
   1141--1148, 1978.
+
+\bibitem[Stampanoni et~al.(2006)Stampanoni, Groso, Isenegger, Mikuljan, Chen,
+  Bertrand, Henein, Betemps, Frommherz, Bohler, Meister, Lange, and
+  Abela]{Stampanoni2006a}
+M.~Stampanoni, A.~Groso, A.~Isenegger, G.~Mikuljan, Q.~Chen, A.~Bertrand,
+  S.~Henein, R.~Betemps, U.~Frommherz, P.~Bohler, D.~Meister, M.~Lange, and
+  R.~Abela.
+\newblock Trends in synchrotron-based tomographic imaging: the sls experience.
+\newblock volume 6318, page 63180M. SPIE, 2006.
+\newblock \doi{10.1117/12.679497}.
+\newblock URL \url{http://link.aip.org/link/?PSI/6318/63180M/1}.
 
 \end{thebibliography}
