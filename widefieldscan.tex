@@ -3,28 +3,27 @@
 \documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 %\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 
-\usepackage[ansinew]{inputenc}                    % so I can write my Name without \"{u}
-\usepackage[T1]{fontenc}                          % Standard Latex-Fonts
-\usepackage[english]{babel}                       % change [english] if written in other language
-\usepackage{svn-multi}                            % to add SVN-Versioning-Info
-\usepackage{subfig}                  			  % same for subfigs
-\usepackage{graphicx}                             % needed for images
-\usepackage{SIunits}                              % typographically correct units (\milli\meter, \kilo\electronvolt)
-%\usepackage{flafter}                              % floats after their first instance
-\usepackage{booktabs}                             % nice tables
-\usepackage{fancyhdr}                             % nice header
-\usepackage{tikz}                                 % extremely nice drawings
-\usepackage{microtype}                            % for nicer typography
-\usepackage{varioref}                             % for variable references with \vref gives "image on preceeding page"
+\usepackage[ansinew]{inputenc}                  	% so I can write my Name without \"{u}
+\usepackage[T1]{fontenc}                          	% Standard Latex-Fonts
+\usepackage[english]{babel}                      	% change [english] if written in other language
+\usepackage{svn-multi}                            	% to add SVN-Versioning-Info
+\usepackage{subfig}                  			  	% same for subfigs
+\usepackage{graphicx}                             	% needed for images
+\usepackage{SIunits}                              	% typographically correct units (\milli\meter, \kilo\electronvolt)
+\usepackage{booktabs}                             	% nice tables
+\usepackage{fancyhdr}                             	% nice header
+\usepackage{tikz}                                 	% extremely nice drawings
+\usepackage{microtype}                            	% for nicer typography
+\usepackage{varioref}                             	% for variable references with \vref gives "image on preceeding page"
 \usepackage{multicol}
 \usepackage{multirow}
-\usepackage{lipsum}
-%\usepackage{endfloat}							  % floats at the end, use [nomarker] if "Figure x approx. here" is undesired
-\usepackage{numprint}                             % nice numbers with \numprint{1.234E3)
+\usepackage{lipsum}									% for blind-text
+\usepackage{numprint}                             	% nice numbers with \numprint{1.234E3)
+\usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
+%\usepackage{endfloat}							  	% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
+%\usepackage{flafter}                              	% floats after their first instance
 %%disable for "htlatex"
-\usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
-\usepackage[disable]{todonotes}                          % [disable], also loads hyperref
-\usepackage{hyperref}
+\usepackage[disable]{todonotes}                     % [disable], also loads hyperref
 %% disable for "htlatex"
 
 %%---Use this below for todo-workaround for "htlatex"
