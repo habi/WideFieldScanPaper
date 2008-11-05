@@ -5,14 +5,6 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Kak et~al.(2002)Kak, Author, Slaney, Author, Wang, and
-  Reviewer]{Kak2002}
-Avinash~C. Kak, Author, Malcolm Slaney, Author, Ge~Wang, and Reviewer.
-\newblock Principles of computerized tomographic imaging.
-\newblock \emph{Medical Physics}, 29\penalty0 (1):\penalty0 107--107, 2002.
-\newblock \doi{10.1118/1.1455742}.
-\newblock URL \url{http://www.slaney.org/pct/}.
-
 \bibitem[Stampanoni et~al.(2007)Stampanoni, Groso, Isenegger, Mikuljan, Chen,
   Meister, Lange, Betemps, Henein, and Abela]{Stampanoni2007}
 M.~Stampanoni, A.~Groso, A.~Isenegger, G.~Mikuljan, Q.~Chen, D.~Meister,
@@ -40,5 +32,13 @@ M.~Stampanoni, A.~Groso, A.~Isenegger, G.~Mikuljan, Q.~Chen, A.~Bertrand,
 \newblock volume 6318, page 63180M. SPIE, 2006.
 \newblock \doi{10.1117/12.679497}.
 \newblock URL \url{http://link.aip.org/link/?PSI/6318/63180M/1}.
+
+\bibitem[Dowd et~al.(2003)Dowd, Campbell, Marr, Nagarkar, Tipnis, Axe, and
+  Siddons]{Dowd2003}
+B.A. Dowd, G.H. Campbell, R.B. Marr, V.V. Nagarkar, S.V. Tipnis, L.~Axe, and
+  DP~Siddons.
+\newblock {Developments in synchrotron x-ray computed microtomography at the
+  National Synchrotron Light Source}.
+\newblock \emph{Proceedings of SPIE}, 3772:\penalty0 224, 2003.
 
 \end{thebibliography}

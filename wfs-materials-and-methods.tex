@@ -6,19 +6,39 @@
 \framebox{Author: \svnauthor|Rev: \svnrev|Last change: \svndate}% - URL: \url{\svnkw{HeadURL}}}
 \section{Materials and Methods}
 \label{sec:materials and methods}
+\subsection{Animal Handling and Tissue Preparation}
+\begin{itemize}
+	\item Glutaraldehyde fixed lung lobes
+	\item OsO$_4$ + 4\% Uranyl + Paraffin embedding \todo{citation?}
+	\item Mounting
+\end{itemize}
+
+As in electron microscopy, osmium tetroxide and uranyl acetate were used for heavy metal staining of the tissue. Osmium tetroxide and uranyl acetate have a higher absorption contrast for x-rays than the unstained lung tissue, thus facilitating the imaging of the stained tissue.
+
+Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
+
+\subsection{SRXTM}
 The experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT is one of thirteen operating beam lines at the SLS\todo{13, still true?}. It is located at the port X02DA of the SLS. The beamline receives photons from a \unit{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \unit{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \unit{0.122}{\nano\meter}). Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
 
-\subsection{Image Preparation}
-\label{subsec:image preparation}
+\subsubsection{Image Acquisition}
+The samples were scanned at an x-ray energy of \unit{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France\todo{still true?}). These projection images were further magnifed by diffraction limited microscope optics and digitized by a high-resolution \numprint{2048}$\times$\numprint{2048} pixel CCD camera. All samples were imaged using 10$\times$ magnification, and with 2$\times$2 binning and \unit{125}{\milli\second} exposure time or no binning and \unit{500}{\milli\second} exposure time, resulting in isotropic voxely of a side length of \unit{1.4}{\micro\meter} or of \unit{0.70}{\micro\meter}\todo{correct sidelength?}, respectively.
+
+\begin{itemize}
+	\item MATLAB and python script to fly TOMCAT
+\end{itemize}
+
+\subsection{Image Processing}
+\label{subsec:image processing}
 \begin{itemize}
 	\item dark- and flatfield-correction
 	\item interpolation
-	\item correct stitching
+	\item correct stitching with MATLAb
+	\item reconstruction on cluster
 \end{itemize}
-For each sample we obtained a varying amount of projections covering the desired FOV. These projection images have to be obtained in such a manner that they overlap each other slightly. This overlap is necessary for the compensation of variations in the imaging process and correct stitching of the single projections into one big projection image. 
+To achieve a tomographic image for each sample, a varying amount of projections were obtained over a sample rotation of \unit{180}{\degree}. To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap is necessary for the compensation of variations in the imaging process and correct stitching of the single projections into one big projection image. 
 
-After the acquisition of the sub-scan projection images, these image sets are corrected with the so called dark field and flat field images. The dark field images are obtained with no x-ray beam for the detection of intrinsic noise in the apparatus, the flat field images are obtained with x-ray beam, but without the sample. They are recorded to remove the varying beam profile brightness from the projection images.
+After the acquisition of the sub-scan projection images, these image sets are corrected with the so called dark field and flat field images, as seen in figure~\ref{subfig:flat}. The dark field images are obtained with no x-ray beam for the detection of intrinsic noise in the apparatus, the flat field images are obtained with x-ray beam, but without the sample. They are recorded to remove the varying beam profile brightness from the projection images.
 
-After normalization, the projections of the single subscans are merged into one projection which overlaps the full FOV chosen by the end-user. To achieve a correct stitching of the sub-scan projections, the correct cutting line to remove the overlap is calculated using the mutual difference between adjacent subscans. Since the amount of obtained projection varies for different positions of the sample in relation to the camera window --- at outer positions we record more projections compared to central positions --- we also have to interpolate projection images prior to stitching. All this has been achieved using a custom MATLAB\textsuperscript{\textregistered} program which incorporates the loading, normalizing, interpolation and correct stitching of the images into wide field projections.
+After normalization, the projections of the single subscans are merged into one projection which overlaps the full FOV chosen by the end-user (see figure~\ref{subfig:mrg}). To achieve a correct stitching of the sub-scan projections, the correct cutting line to remove the overlap is calculated using the mutual difference between adjacent subscans. Since the amount of obtained projection varies for different positions of the sample in relation to the camera window --- at outer positions we record more projections compared to central positions --- we also have to interpolate projection images prior to stitching. All this has been achieved using a custom MATLAB\textsuperscript{\textregistered} script which incorporates the loading, normalizing, interpolation and correct stitching of the images into wide field projections as seem in the aforementioned figure.
 
-%After the merging of the normalized projections, the merged projections can then be reconstructed into the virtual tomography slices using a standard filtered backprojection algorithm or a FFT-based gridrec algorithm~\cite{Dowd2003} present at the beamline.
+After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered backprojection algorithm or a FFT-based gridrec algorithm~\cite{Dowd2003} on a 20-node server farm (Pentium 4, 2.8 GHz processor, 512 MB RAM\todo{cluster node specs?}). This reconstruction results in an image stack of \numprint{1024} or \numprint {2048} image slices in tif-format, depending on the binnig chosen at recording time. The size of the images recorded for this publication varies from \numprint{2996}$\times$\numprint{2996} pixels up to \numprint{9703}$\times$\numprint{9703} pixels\todo{9703 not really reconstructed up to now\ldots}.
