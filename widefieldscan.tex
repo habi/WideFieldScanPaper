@@ -2,6 +2,7 @@
 %\documentclass[a4paper,twoside]{paper}
 \documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 %\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
+%\documentclass{article}
 
 \usepackage[ansinew]{inputenc}                  	% so I can write my Name without \"{u}
 \usepackage[T1]{fontenc}                          	% Standard Latex-Fonts
@@ -20,10 +21,11 @@
 \usepackage{lipsum}									% for blind-text
 \usepackage{numprint}                             	% nice numbers with \numprint{1.234E3)
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
+%\usepackage{showkeys} 								% label names in draft
 %\usepackage{endfloat}							  	% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
 %\usepackage{flafter}                              	% floats after their first instance
 %%disable for "htlatex"
-\usepackage[disable]{todonotes}                     % [disable], also loads hyperref
+\usepackage{todonotes}                     % [disable], also loads hyperref
 %% disable for "htlatex"
 
 %%---Use this below for todo-workaround for "htlatex"
@@ -37,6 +39,11 @@
 %\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
 % enable for "htlatex"
 %%---
+
+%\usepackage{setspace}
+%\doublespacing
+%\doublespacing
+%\singlespacing
 
 %% Subversion Information
 \svnidlong

@@ -1,9 +1,17 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Kak et~al.(2002)Kak, Author, Slaney, Author, Wang, and
+  Reviewer]{Kak2002}
+Avinash~C. Kak, Author, Malcolm Slaney, Author, Ge~Wang, and Reviewer.
+\newblock Principles of computerized tomographic imaging.
+\newblock \emph{Medical Physics}, 29\penalty0 (1):\penalty0 107--107, 2002.
+\newblock \doi{10.1118/1.1455742}.
+\newblock URL \url{http://www.slaney.org/pct/}.
 
 \bibitem[Stampanoni et~al.(2007)Stampanoni, Groso, Isenegger, Mikuljan, Chen,
   Meister, Lange, Betemps, Henein, and Abela]{Stampanoni2007}
@@ -21,6 +29,22 @@ AM~Cormack.
 \newblock {Sampling the Radon transform with beams of finite width}.
 \newblock \emph{Physics in Medicine and Biology}, 23\penalty0 (6):\penalty0
   1141--1148, 1978.
+
+\bibitem[Schittny et~al.(1997)Schittny, Paulsson, Vallan, Burri, Kedei, and
+  Aeschlimann]{Schittny1997}
+J.~C. Schittny, M.~Paulsson, C.~Vallan, P.~H. Burri, N.~Kedei, and
+  D.~Aeschlimann.
+\newblock Protein cross-linking mediated by tissue transglutaminase correlates
+  with the maturation of extracellular matrices during lung development.
+\newblock \emph{Am J Respir Cell Mol Biol}, 17\penalty0 (3):\penalty0 334--343,
+  Sep 1997.
+
+\bibitem[Schittny et~al.(1998)Schittny, Djonov, Fine, and Burri]{Schittny1998}
+J.C. Schittny, V.~Djonov, L.~Fine, and P.H. Burri.
+\newblock Programmed cell death contributes to postnatal lung development.
+\newblock \emph{American Journal of Respiratory Cell and Molecular Biology},
+  18\penalty0 (6):\penalty0 786--793, June 1998.
+\newblock URL \url{ISI:000074358200008}.
 
 \bibitem[Stampanoni et~al.(2006)Stampanoni, Groso, Isenegger, Mikuljan, Chen,
   Bertrand, Henein, Betemps, Frommherz, Bohler, Meister, Lange, and
