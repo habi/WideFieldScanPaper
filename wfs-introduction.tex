@@ -23,22 +23,45 @@ Generally, to be able to accurately reconstruct a sample, we have to fulfill the
 n(k+\frac{1}{2})%\text{ where }n=\text{ NumProj and }k=\text{Object-Diameter in beam diameter units}
 \end{equation}
 
-If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a bigger amount of projections in the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to a increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. Let us assume that we have a sample that could be imaged using three overlapping FOVs of \unit{\numprint{1024}}{pixels}, we have to obtain at least \unit{\numprint{3072}}{projections} in the lateral parts of the sample to fulfill the aforementioned sampling theorem.\todo{explain in depth $>$ materials \& methods?}\todo{explain overlap $>$ materials \& methods?}
+\todo[noline]{explain \unit{180}{\degree} vs. \unit{360}{\degree} setup}
 
-Figure~\ref{fig:overlapping scans} depicts the details of the overlapping scans.
+If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a bigger amount of projections in the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to a increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. Let us assume that we have a sample that could be imaged using three overlapping FOVs of \unit{\numprint{1024}}{pixels}, we have to obtain at least \unit{\numprint{3072}}{projections} in the lateral parts of the sample to fulfill the aforementioned sampling theorem.\todo{Do we need to explain the samplin theorem in more depth?}
 
-\begin{figure}[tb]
+Figure~\ref{fig:overlapping scans}\todo{Figure: Explaining the overlap?}depicts the details of the overlapping scans.
+
+\newcommand{\nvar}[2]{%
+    \newlength{#1}
+    \setlength{#1}{#2}
+}
+
+\nvar{\e}{0.79cm}	
+
+\begin{figure*}[tb] % or [p], if big
 	\centering
-		\includegraphics[width=\imsize]{img/overlapping-subscans}
-	\caption[Overlapping scans]{this should ultimatively explain the overlapping scans}
+	\begin{tikzpicture}
+		%\draw[step=.25,color=gray] (0,0) grid (10,5);
+		%\draw(0,0) grid (10,5);
+		\draw                (0,0)  -- (4\e,0)  -- (4\e,4\e)    -- (0,4\e)    -- cycle;
+		\draw[color=green]   (3\e,0)  -- (7\e,0)  -- (7\e,4\e)  -- (3\e,4\e)  -- cycle;
+		\draw[color=blue]    (6\e,0)  -- (10\e,0) -- (10\e,4\e) -- (6\e,4\e)  -- cycle;
+		\draw[color=magenta] (9\e,0)  -- (13\e,0) -- (13\e,4\e) -- (9\e,4\e)  -- cycle;
+		\draw[color=cyan]    (12\e,0) -- (16\e,0) -- (16\e,4\e) -- (12\e,4\e) -- cycle;
+		%\draw (0,0) ellipse (2cm and 1cm) {asdf}
+		\draw (2\e,2\e)  node {Scan1};
+		\draw (5\e,2\e)  node {Scan2};
+		\draw (8\e,2\e)  node {Scan3};
+		\draw (11\e,2\e)  node {Scan4};
+		\draw (14\e,2\e) node {Scan5};
+	\end{tikzpicture}
+	\caption{this should ultimatively explain the overlapping scans}
 	\label{fig:overlapping scans}
-\end{figure}\todo{Figure: how could we explain it in depth?}
+\end{figure*}
 
 If we want to stitch together multiple subscans\todo{sub scan, sub-scan or subscan?} together, we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\ref{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
 
-\begin{figure}[tb]
+\begin{figure*}[tb]
 	\centering
 		\includegraphics[width=\imsize]{img/projections}
-	\caption{Projection Setup with one central and one ring-scan}
+	\caption{Projection Setup with one central and one ring-scan. For demonstration purposes, the central scan has four projections and the ring scan has 16 projections over \unit{360}{\degree}. This is essentially the same as two \unit{180}{\degree}-scans with eight projections each.}
 	\label{fig:projections}
-\end{figure}
+\end{figure*}
