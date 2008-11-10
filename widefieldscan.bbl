@@ -1,0 +1,69 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Stampanoni et~al.(2007)Stampanoni, Groso, Isenegger, Mikuljan, Chen,
+  Meister, Lange, Betemps, Henein, and Abela]{Stampanoni2007}
+M.~Stampanoni, A.~Groso, A.~Isenegger, G.~Mikuljan, Q.~Chen, D.~Meister,
+  M.~Lange, R.~Betemps, S.~Henein, and R.~Abela.
+\newblock {TOMCAT: A beamline for TOmographic Microscopy and Coherent rAdiology
+  experimenTs}.
+\newblock \emph{AIP Conference Proceedings}, 879\penalty0 (1):\penalty0
+  848--851, 2007.
+\newblock \doi{10.1063/1.2436193}.
+\newblock URL \url{http://link.aip.org/link/?APC/879/848/1}.
+
+\bibitem[Cormack(1978)]{Cormack1978}
+AM~Cormack.
+\newblock {Sampling the Radon transform with beams of finite width}.
+\newblock \emph{Physics in Medicine and Biology}, 23\penalty0 (6):\penalty0
+  1141--1148, 1978.
+
+\bibitem[Kak et~al.(2002)Kak, Author, Slaney, Author, Wang, and
+  Reviewer]{Kak2002}
+Avinash~C. Kak, Author, Malcolm Slaney, Author, Ge~Wang, and Reviewer.
+\newblock Principles of computerized tomographic imaging.
+\newblock \emph{Medical Physics}, 29\penalty0 (1):\penalty0 107--107, 2002.
+\newblock \doi{10.1118/1.1455742}.
+\newblock URL \url{http://www.slaney.org/pct/}.
+
+\bibitem[Schittny et~al.(1997)Schittny, Paulsson, Vallan, Burri, Kedei, and
+  Aeschlimann]{Schittny1997}
+J.~C. Schittny, M.~Paulsson, C.~Vallan, P.~H. Burri, N.~Kedei, and
+  D.~Aeschlimann.
+\newblock Protein cross-linking mediated by tissue transglutaminase correlates
+  with the maturation of extracellular matrices during lung development.
+\newblock \emph{Am J Respir Cell Mol Biol}, 17\penalty0 (3):\penalty0 334--343,
+  Sep 1997.
+
+\bibitem[Schittny et~al.(1998)Schittny, Djonov, Fine, and Burri]{Schittny1998}
+J.C. Schittny, V.~Djonov, L.~Fine, and P.H. Burri.
+\newblock Programmed cell death contributes to postnatal lung development.
+\newblock \emph{American Journal of Respiratory Cell and Molecular Biology},
+  18\penalty0 (6):\penalty0 786--793, June 1998.
+\newblock URL \url{ISI:000074358200008}.
+
+\bibitem[Stampanoni et~al.(2006)Stampanoni, Groso, Isenegger, Mikuljan, Chen,
+  Bertrand, Henein, Betemps, Frommherz, Bohler, Meister, Lange, and
+  Abela]{Stampanoni2006a}
+M.~Stampanoni, A.~Groso, A.~Isenegger, G.~Mikuljan, Q.~Chen, A.~Bertrand,
+  S.~Henein, R.~Betemps, U.~Frommherz, P.~Bohler, D.~Meister, M.~Lange, and
+  R.~Abela.
+\newblock {Trends in synchrotron-based tomographic imaging: the SLS
+  experience}.
+\newblock volume 6318, page 63180M. SPIE, 2006.
+\newblock \doi{10.1117/12.679497}.
+\newblock URL \url{http://link.aip.org/link/?PSI/6318/63180M/1}.
+
+\bibitem[Dowd et~al.(2003)Dowd, Campbell, Marr, Nagarkar, Tipnis, Axe, and
+  Siddons]{Dowd2003}
+B.A. Dowd, G.H. Campbell, R.B. Marr, V.V. Nagarkar, S.V. Tipnis, L.~Axe, and
+  DP~Siddons.
+\newblock {Developments in synchrotron x-ray computed microtomography at the
+  National Synchrotron Light Source}.
+\newblock \emph{Proceedings of SPIE}, 3772:\penalty0 224, 2003.
+
+\end{thebibliography}
