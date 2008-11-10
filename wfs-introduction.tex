@@ -1,3 +1,4 @@
+%!TEX root = widefieldscan.tex
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
@@ -39,14 +40,13 @@ Figure~\ref{fig:overlapping scans}\todo{Figure: Explaining the overlap?}depicts 
 \begin{figure*}[tb] % or [p], if big
 	\centering
 	\begin{tikzpicture}
-		%\draw[step=.25,color=gray] (0,0) grid (10,5);
-		%\draw(0,0) grid (10,5);
-		\draw                (0,0)  -- (4\e,0)  -- (4\e,4\e)    -- (0,4\e)    -- cycle;
-		\draw[color=green]   (3\e,0)  -- (7\e,0)  -- (7\e,4\e)  -- (3\e,4\e)  -- cycle;
-		\draw[color=blue]    (6\e,0)  -- (10\e,0) -- (10\e,4\e) -- (6\e,4\e)  -- cycle;
-		\draw[color=magenta] (9\e,0)  -- (13\e,0) -- (13\e,4\e) -- (9\e,4\e)  -- cycle;
+	 	%\draw[step=\e/4,color=gray] (0,0) grid (16\e,4\e);
+		%\draw(0,0) grid (16\e,4\e);
+		\draw                (0\e,0)  -- (4\e, 0) -- (4\e, 4\e) -- (0\e, 4\e) -- cycle;
+		\draw[color=green]   (3\e,0)  -- (7\e, 0) -- (7\e, 4\e) -- (3\e, 4\e) -- cycle;
+		\draw[color=blue]    (6\e,0)  -- (10\e,0) -- (10\e,4\e) -- (6\e, 4\e) -- cycle;
+		\draw[color=magenta] (9\e,0)  -- (13\e,0) -- (13\e,4\e) -- (9\e, 4\e) -- cycle;
 		\draw[color=cyan]    (12\e,0) -- (16\e,0) -- (16\e,4\e) -- (12\e,4\e) -- cycle;
-		%\draw (0,0) ellipse (2cm and 1cm) {asdf}
 		\draw (2\e,2\e)  node {Scan1};
 		\draw (5\e,2\e)  node {Scan2};
 		\draw (8\e,2\e)  node {Scan3};
@@ -59,7 +59,7 @@ Figure~\ref{fig:overlapping scans}\todo{Figure: Explaining the overlap?}depicts 
 
 If we want to stitch together multiple subscans\todo{sub scan, sub-scan or subscan?} together, we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\ref{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
 
-\begin{figure*}[tb]
+\begin{figure*}[p]
 	\centering
 		\includegraphics[width=\imsize]{img/projections}
 	\caption{Projection Setup with one central and one ring-scan. For demonstration purposes, the central scan has four projections and the ring scan has 16 projections over \unit{360}{\degree}. This is essentially the same as two \unit{180}{\degree}-scans with eight projections each.}
