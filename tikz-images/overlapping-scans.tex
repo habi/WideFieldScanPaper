@@ -1,31 +1,18 @@
 %\documentclass{article}
 %\usepackage{tikz}
-%
 %\begin{document}
-
-\newcommand{\nvar}[2]{%
-    \newlength{#1}
-    \setlength{#1}{#2}
-}
-
-\nvar{\e}{0.79cm}
 
 \begin{figure}[tb]
 	\centering
-	\begin{tikzpicture}
-		%\draw[step=.25,color=gray] (0,0) grid (10,5);
-		%\draw(0,0) grid (10,5);
-		\draw                (0,0)  -- (4\e,0)  -- (4\e,4\e)    -- (0,4\e)    -- cycle;
-		\draw[color=green]   (3\e,0)  -- (7\e,0)  -- (7\e,4\e)  -- (3\e,4\e)  -- cycle;
-		\draw[color=blue]    (6\e,0)  -- (10\e,0) -- (10\e,4\e) -- (6\e,4\e)  -- cycle;
-		\draw[color=magenta] (9\e,0)  -- (13\e,0) -- (13\e,4\e) -- (9\e,4\e)  -- cycle;
-		\draw[color=cyan]    (12\e,0) -- (16\e,0) -- (16\e,4\e) -- (12\e,4\e) -- cycle;
-		%\draw (0,0) ellipse (2cm and 1cm) {asdf}
-		\draw (2\e,2\e)  node {Scan1};
-		\draw (5\e,2\e)  node {Scan2};
-		\draw (8\e,2\e)  node {Scan3};
-		\draw (11\e,2\e)  node {Scan4};
-		\draw (14\e,2\e) node {Scan5};
+	\begin{tikzpicture}[scale=.75]
+		\foreach \x/\color in {0/black,
+							1/red,
+                         	2/green,
+                         	3/blue,
+                         	4/orange}
+    	\draw[color=\color] (3*\x,.05*\x) rectangle (3*\x+4,.05*\x+4);
+    	\foreach \x in {0,...,4}
+   		\draw (3*\x+2,-.5) node [color=black] {sub scan \x};
 	\end{tikzpicture}
 	\caption{This should ultimatively explain the overlapping scans}
 	\label{fig:overlapping scans}

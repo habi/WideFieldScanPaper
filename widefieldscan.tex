@@ -1,9 +1,11 @@
-\documentclass{paper}
-%\documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
+%\documentclass{paper}
+\documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 %\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 %\documentclass{article}
 
+%% enable for "htlatex"
 %\def\pgfsysdriver{pgfsys-tex4ht.def}
+%% enable for "htlatex"
 
 \usepackage[ansinew]{inputenc}                  	% so I can write my Name without \"{u}
 \usepackage[T1]{fontenc}                          	% Standard Latex-Fonts
@@ -24,8 +26,9 @@
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
 \usepackage{pstricks,pstricks-add,pst-math,pst-xkey}
 %\usepackage{showkeys} 								% label names in draft
-%\usepackage{endfloat}							  	% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
+%\usepackage{endfloat}							  	% floats at the end, use [nomarker] if "Figure x approx. here" is undesire
 %\usepackage{flafter}                              	% floats after their first instance
+
 %%disable for "htlatex"
 \usepackage[backref]{hyperref}						% backref generates link from references back to text
 \usepackage{todonotes}                     % [disable], also loads hyperref
