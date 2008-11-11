@@ -1,9 +1,7 @@
-\documentclass{article}
-\usepackage{tikz}
-% Optional PGF libraries
-\usepackage{pgflibraryarrows}
-\usepackage{pgflibrarysnakes}
-\begin{document}
+%\documentclass{article}
+%\usepackage{tikz}
+%
+%\begin{document}
 
 \newcommand{\nvar}[2]{%
     \newlength{#1}
@@ -12,7 +10,7 @@
 
 \nvar{\e}{0.79cm}
 
-\begin{figure}[tb] % or [p], if big
+\begin{figure}[tb]
 	\centering
 	\begin{tikzpicture}
 		%\draw[step=.25,color=gray] (0,0) grid (10,5);
@@ -29,7 +27,8 @@
 		\draw (11\e,2\e)  node {Scan4};
 		\draw (14\e,2\e) node {Scan5};
 	\end{tikzpicture}
-	\caption{asdf}
-	\label{fig:asdf}
+	\caption{This should ultimatively explain the overlapping scans}
+	\label{fig:overlapping scans}
 \end{figure}
-\end{document}
+
+%\end{document}

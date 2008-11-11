@@ -30,32 +30,7 @@ If we thus aim to enlarge the FOV of the tomographic images perpendicular to the
 
 Figure~\ref{fig:overlapping scans}\todo{Figure: Explaining the overlap?}depicts the details of the overlapping scans.
 
-\newcommand{\nvar}[2]{%
-    \newlength{#1}
-    \setlength{#1}{#2}
-}
-
-\nvar{\e}{0.79cm}	
-
-\begin{figure*}[tb] % or [p], if big
-	\centering
-	\begin{tikzpicture}
-	 	%\draw[step=\e/4,color=gray] (0,0) grid (16\e,4\e);
-		%\draw(0,0) grid (16\e,4\e);
-		\draw                (0\e,0)  -- (4\e, 0) -- (4\e, 4\e) -- (0\e, 4\e) -- cycle;
-		\draw[color=green]   (3\e,0)  -- (7\e, 0) -- (7\e, 4\e) -- (3\e, 4\e) -- cycle;
-		\draw[color=blue]    (6\e,0)  -- (10\e,0) -- (10\e,4\e) -- (6\e, 4\e) -- cycle;
-		\draw[color=magenta] (9\e,0)  -- (13\e,0) -- (13\e,4\e) -- (9\e, 4\e) -- cycle;
-		\draw[color=cyan]    (12\e,0) -- (16\e,0) -- (16\e,4\e) -- (12\e,4\e) -- cycle;
-		\draw (2\e,2\e)  node {Scan1};
-		\draw (5\e,2\e)  node {Scan2};
-		\draw (8\e,2\e)  node {Scan3};
-		\draw (11\e,2\e)  node {Scan4};
-		\draw (14\e,2\e) node {Scan5};
-	\end{tikzpicture}
-	\caption{this should ultimatively explain the overlapping scans}
-	\label{fig:overlapping scans}
-\end{figure*}
+\input{tikz-images/overlapping-scans}
 
 If we want to stitch together multiple subscans\todo{sub scan, sub-scan or subscan?} together, we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\ref{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
 
