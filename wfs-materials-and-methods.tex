@@ -20,7 +20,7 @@ The experiments were performed on the TOMCAT beamline at the Swiss Light Source,
 \subsubsection{Image Acquisition}
 The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount the standard EM sample tables into the beam. The samples were scanned at an x-ray energy of \unit{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France\todo{Crismatec still true?}). These projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution \numprint{2048}$\times$\numprint{2048} pixel CCD camera. All samples were imaged using 10$\times$ magnification, with 2$\times$2 binning and \unit{125}{\milli\second} exposure time or no binning and \unit{500}{\milli\second} exposure time, resulting in isotropic voxels of a side length of \unit{1.4}{\micro\meter} or of \unit{0.70}{\micro\meter}\todo{correct voxel side length?}, respectively.
 
-As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB\textregistered-script\todo{Script(s) in Appendix?} (MATLAB 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. According to these parameters, MATLAB has written a preference file to the disk, which has been parsed by a custom Python-script that was used for the interaction with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is controlling the TOMCAT beamline. The sample on the sample holder was not touched during the acquisition of the different subscans. All parameters like filename, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, read out by the Python-script so that all the scans could be performed as a batch job without manual intervention.
+As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB$^\text{\textregistered}$-script\todo{Script(s) in Appendix?} (MATLAB 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. According to these parameters, MATLAB has written a preference file to the disk, which has been parsed by a custom Python-script that was used for the interaction with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is controlling the TOMCAT beamline. The sample on the sample holder was not touched during the acquisition of the different subscans. All parameters like filename, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, read out by the Python-script so that all the scans could be performed as a batch job without manual intervention.
 
 \subsection{Image Processing}
 \label{subsec:image processing}
@@ -31,25 +31,35 @@ After the acquisition of the sub-scan projection images, these image sets are co
 \end{equation}
 
 \subsubsection{Stitching}
-Generally, tomographic images are obtained for 
+Generally, tomographic images are obtained in such a manner, that the sample is rotated for \unit{180}{\degree} while several projection images --- essentially single radiographies --- are obtained, as is shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample, the images show the FOV of the camera.
 
-\input{tikz-images/covering-one}
+\begin{figure}[tb]
+	\centering
+	\input{tikz-images/covering-one}
+	\caption{Covering the FOV -- one scan}
+	\label{fig:covering-one scan}
+\end{figure}
 
-\input{tikz-images/covering-three}
+If we want to achieve tomographic scans covering a broader FOV, we have to move the sample in relation to the beam and camera, to be able to record projection images from the lateral parts of the sample. This can be done as shown in figure~\ref{fig:covering-three scans a},\todo{which image variant: \ref{fig:covering-three scans a} or \ref{fig:covering-three scans b}?} where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
 
-To achieve a tomographic image for each sample, a varying amount of projections were obtained over a sample rotation of \unit{180}{\degree}.
+\begin{figure}[tb]
+	\centering
+	\input{tikz-images/covering-three-a}
+	\caption{Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \unit{180}{\degree} scans!}
+	\label{fig:covering-three scans a}
+\end{figure}
 
-
-
+\begin{figure}[tb]
+	\centering
+	\input{tikz-images/covering-three-b}
+	\caption{Or is this better for the understanding?: Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \unit{180}{\degree} scans!}
+	\label{fig:covering-three scans b}
+\end{figure}
 
 To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap is necessary for the compensation of variations in the imaging process and correct stitching of the single projections into one big projection image. 
 
 After correction, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{subfig:mrg}). To achieve a correct stitching of the sub-scan projections, the cutting line to remove the overlap is calculated using the mutual difference between adjacent subscans\todo{Xris: Documentation of notch-method?}.
 
-Since the amount of obtained projection varies for different positions of the sample in relation to the camera window --- at outer positions we record more projections compared to central positions --- different amounts of projections have been obtained for each subscan. If $N_x$ is the total amount of projections for each subscan we cannot simply stitch together all the images from 1 to $N$ for each subscan $x$, or we will end up with wrong merged projections. Instead, we have to stitch them together in such a way that we 
-
-
-
-iwe also have to interpolate projection images prior to stitching. All this has been achieved using a custom MATLAB\textsuperscript{\textregistered} script which incorporates the loading, normalizing, interpolation and correct stitching of the images into wide field projections as seem in the aforementioned figure.
+Since the amount of obtained projection varies for different positions of the sample in relation to the camera window --- at outer positions we record more projections compared to central positions to fulfill the sampling theorem --- different amounts of projections have been obtained for each subscan. If $N_x$ is the total amount of projections for each subscan we cannot simply stitch together all the images from 1 to $N$ for each subscan $x$, or we will end up with wrong merged projections. Instead, we have to stitch them together in such a way that we chose the correspondent adjacent projections.\todo{Mention potential interpolation of the inner scans?}  This has been achieved using a custom MATLAB\textsuperscript{\textregistered} script which incorporates the loading, normalizing, interpolation and correct stitching of the images into wide field projections as seem in the aforementioned figure.
 
 After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered backprojection algorithm or a FFT-based gridrec algorithm~\cite{Dowd2003} on a 20-node server farm (Pentium 4, 2.8 GHz processor, 512 MB RAM\todo{cluster node specs?}). This reconstruction results in an image stack of \numprint{1024} or \numprint {2048} image slices in tif-format, depending on the binnig chosen at recording time. The size of the images recorded for this publication varies from \numprint{2996}$\times$\numprint{2996} pixels up to \numprint{9703}$\times$\numprint{9703} pixels\todo{9703 px not really reconstructed up to now\ldots}.
