@@ -24,13 +24,16 @@ Generally, to be able to accurately reconstruct a sample, we have to fulfill the
 n(k+\frac{1}{2})%\text{ where }n=\text{ NumProj and }k=\text{Object-Diameter in beam diameter units}
 \end{equation}
 
-\todo[noline]{explain \unit{180}{\degree} vs. \unit{360}{\degree} setup}
-
 If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a bigger amount of projections in the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to a increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. Let us assume that we have a sample that could be imaged using three overlapping FOVs of \unit{\numprint{1024}}{pixels}, we have to obtain at least \unit{\numprint{3072}}{projections} in the lateral parts of the sample to fulfill the aforementioned sampling theorem.\todo{Do we need to explain the samplin theorem in more depth?}
 
-Figure~\ref{fig:overlapping scans}\todo{Figure: Explaining the overlap?}depicts the details of the overlapping scans.
+Figure~\ref{fig:overlapping scans}\todo{Figure: Explain overlap?}\todo{explain \unit{180}{\degree} vs. \unit{360}{\degree} setup}depicts the details of the overlapping scans.
 
-\input{tikz-images/overlapping-scans}
+\begin{figure*}[tb]
+	\centering
+	\input{tikz-images/overlapping-scans}
+	\caption{This should ultimatively explain the overlapping scans}
+	\label{fig:overlapping scans}
+\end{figure*}	
 
 If we want to stitch together multiple subscans\todo{sub scan, sub-scan or subscan?} together, we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\ref{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
 

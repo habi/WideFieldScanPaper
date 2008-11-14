@@ -1,4 +1,4 @@
-%\documentclass{minimal}
+%\documentclass{article}
 %
 %\usepackage[pdftex,active,tightpage]{preview}
 %\usepackage{tikz}
@@ -7,8 +7,7 @@
 %
 %\begin{document}
 %\begin{preview}
-\begin{figure}[tb]
-	\centering
+
 	\begin{tikzpicture}[scale=.75]
 		\foreach \x/\color in {0/black,
 							1/red,
@@ -16,11 +15,9 @@
                          	3/blue,
                          	4/orange}
     	\draw[color=\color] (3*\x,.05*\x) rectangle (3*\x+4,.05*\x+4);
-    	\foreach \x in {0,...,4}
-   		\draw (3*\x+2,-.5) node [color=black] {sub scan \x};
+    	\foreach \x/\name in {0/1,1/2,2/3,3/4,4/5}
+   		\draw (3*\x+2,-.5) node [color=black] {subscan \name};
 	\end{tikzpicture}
-	\caption{This should ultimatively explain the overlapping scans}
-	\label{fig:overlapping scans}
-\end{figure}
-
+%
+%\end{preview}
 %\end{document}

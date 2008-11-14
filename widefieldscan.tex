@@ -1,4 +1,3 @@
-%\documentclass{paper}
 \documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 %\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 %\documentclass{article}
@@ -31,7 +30,7 @@
 
 %%disable for "htlatex"
 \usepackage[backref]{hyperref}						% backref generates link from references back to text
-\usepackage{todonotes}                     % [disable], also loads hyperref
+\usepackage[disable]{todonotes}                     % [disable], also loads hyperref
 %% disable for "htlatex"
 
 %%---Use this below for todo-workaround for "htlatex"
@@ -93,19 +92,17 @@
 
 \begin{document}
 \maketitle
-\raggedbottom
+\todo{add institutions, or use paper.cls}
+
 \begin{abstract}
-\todo[noline]{add institutions, or use paper.cls}
 State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
 
 The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic imaging process in horizontal direction. It is the base for imaging of samples bigger than the size currently possible. Different image acquisition protocols have been implemented for the end-user at the beamline. We have shown that we can increase the lateral field of view of TOMCAT and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of his sample in an unattended, automatic way.
 \end{abstract}
 
-%\listoftodos
+\listoftodos
 
-%\tableofcontents
-
-%\begin{multicols}{2}
+\tableofcontents
 
 \include{wfs-introduction}
 \include{wfs-materials-and-methods}
@@ -116,8 +113,6 @@ The stacking of tomograms increases the field of view in vertical direction. The
 
 \bibliographystyle{unsrtnat}
 \bibliography{../references}
-
-%\end{multicols}
 
 \appendix
 \include{wfs-appendix}

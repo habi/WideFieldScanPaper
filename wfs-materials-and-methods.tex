@@ -33,28 +33,28 @@ After the acquisition of the sub-scan projection images, these image sets are co
 \subsubsection{Stitching}
 Generally, tomographic images are obtained in such a manner, that the sample is rotated for \unit{180}{\degree} while several projection images --- essentially single radiographies --- are obtained, as is shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample, the images show the FOV of the camera.
 
-\begin{figure}[tb]
+\begin{figure*}[tb]
 	\centering
 	\input{tikz-images/covering-one}
 	\caption{Covering the FOV -- one scan}
 	\label{fig:covering-one scan}
-\end{figure}
+\end{figure*}
 
 If we want to achieve tomographic scans covering a broader FOV, we have to move the sample in relation to the beam and camera, to be able to record projection images from the lateral parts of the sample. This can be done as shown in figure~\ref{fig:covering-three scans a},\todo{which image variant: \ref{fig:covering-three scans a} or \ref{fig:covering-three scans b}?} where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
 
-\begin{figure}[tb]
+\begin{figure*}[tb]
 	\centering
 	\input{tikz-images/covering-three-a}
 	\caption{Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \unit{180}{\degree} scans!}
 	\label{fig:covering-three scans a}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[tb]
+\begin{figure*}[tb]
 	\centering
 	\input{tikz-images/covering-three-b}
 	\caption{Or is this better for the understanding?: Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \unit{180}{\degree} scans!}
 	\label{fig:covering-three scans b}
-\end{figure}
+\end{figure*}
 
 To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap is necessary for the compensation of variations in the imaging process and correct stitching of the single projections into one big projection image. 
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -21,14 +21,6 @@ AM~Cormack.
 \newblock {Sampling the Radon transform with beams of finite width}.
 \newblock \emph{Physics in Medicine and Biology}, 23\penalty0 (6):\penalty0
   1141--1148, 1978.
-
-\bibitem[Kak et~al.(2002)Kak, Author, Slaney, Author, Wang, and
-  Reviewer]{Kak2002}
-Avinash~C. Kak, Author, Malcolm Slaney, Author, Ge~Wang, and Reviewer.
-\newblock Principles of computerized tomographic imaging.
-\newblock \emph{Medical Physics}, 29\penalty0 (1):\penalty0 107--107, 2002.
-\newblock \doi{10.1118/1.1455742}.
-\newblock URL \url{http://www.slaney.org/pct/}.
 
 \bibitem[Schittny et~al.(1997)Schittny, Paulsson, Vallan, Burri, Kedei, and
   Aeschlimann]{Schittny1997}
