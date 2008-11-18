@@ -15,7 +15,7 @@ The extracted lung lobes have been fixed for potential storage in 2.5\% glutaral
 Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
 
 \subsection{SRXTM}
-The experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT is one of thirteen operating beam lines at the SLS.\todo{13 beamlines, still true?} It is located at the port X02DA of the SLS. The beamline receives photons from a \unit{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \unit{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \unit{0.122}{\nano\meter}). Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
+The experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT is one of 15 operating beam lines at the SLS. TOMCAT is located at the port X02DA of the SLS. The beamline receives photons from a \unit{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \unit{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \unit{0.122}{\nano\meter}). Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
 
 \subsubsection{Image Acquisition}
 The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount the standard EM sample tables into the beam. The samples were scanned at an x-ray energy of \unit{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France\todo{Crismatec still true?}). These projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution \numprint{2048}$\times$\numprint{2048} pixel CCD camera. All samples were imaged using 10$\times$ magnification, with 2$\times$2 binning and \unit{125}{\milli\second} exposure time or no binning and \unit{500}{\milli\second} exposure time, resulting in isotropic voxels of a side length of \unit{1.4}{\micro\meter} or of \unit{0.70}{\micro\meter}\todo{correct voxel side length?}, respectively.
@@ -36,7 +36,8 @@ Generally, tomographic images are obtained in such a manner, that the sample is 
 
 \begin{figure*}[tb]
 	\centering
-	\input{tikz-images/covering-one}
+	\subfloat[\unit{180}{\degree}]{\input{tikz-images/covering-one}\label{subfig:cover180}}\\
+	\subfloat[\unit{360}{\degree}]{\input{tikz-images/covering-one-360}\label{subfig:cover360}}
 	\caption{Covering the FOV -- one scan}
 	\label{fig:covering-one scan}
 \end{figure*}
