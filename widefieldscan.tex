@@ -1,17 +1,24 @@
 \documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
 %\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
-%\documentclass{article}
 
-%% enable for "htlatex"
-%\def\pgfsysdriver{pgfsys-tex4ht.def}
-%% enable for "htlatex"
+\newif\ifhtml
+
+% HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
+%\htmltrue
+\htmlfalse
+
+\ifhtml % In case of web format output...
+	\def\pgfsysdriver{pgfsys-tex4ht.def}
+	\usepackage[dvips]{graphicx}
+\else
+	\usepackage[pdftex]{graphicx}
+\fi
 
 \usepackage[ansinew]{inputenc}                  	% so I can write my Name without \"{u}
 \usepackage[T1]{fontenc}                          	% Standard Latex-Fonts
 \usepackage[english]{babel}                      	% change [english] if written in other language
 \usepackage{svn-multi}                            	% to add SVN-Versioning-Info
-\usepackage{subfig}                  			  	% same for subfigs
-\usepackage[pdftex]{graphicx}                    	% needed for images
+\usepackage{subfig}                  			  	% subfigures
 \usepackage[Gray]{SIunits}                          % typographically correct units (\milli\meter, \kilo\electronvolt)
 \usepackage{booktabs}                             	% nice tables
 \usepackage{fancyhdr}                             	% nice header
@@ -24,38 +31,41 @@
 \usepackage{numprint}                             	% nice numbers with \numprint{1.234E3)
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
 \usepackage{pstricks,pstricks-add,pst-math,pst-xkey}
-\usepackage{lineno}
 %\usepackage{showkeys} 								% label names in draft
 %\usepackage{endfloat}							  	% floats at the end, use [nomarker] if "Figure x approx. here" is undesire
 %\usepackage{flafter}                              	% floats after their first instance
-
-%%disable for "htlatex"
-\usepackage[backref,pdftex]{hyperref}						% backref generates link from references back to text
-\usepackage[]{todonotes} 		                    % [disable], also loads hyperref
-%% disable for "htlatex"
-
-%%---Use this below for todo-workaround for "htlatex"
-%% comment lines 21&22, uncomment lines 27-31.
-%% enable for "htlatex"
-%%  TODOs -- from http://anthony.liekens.net/index.php/LaTeX/Todos
-%\usepackage{url}
-%\usepackage{index}
-%\usepackage{color}
-%\newindex{todo}{todo}{tnd}{Todo List} 
-%\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
-% enable for "htlatex"
-%%---
-
 %\usepackage{setspace}
 %\doublespacing
 %\onehalfspacing
 %\singlespacing
 
-% line numbers
-\linenumbers
-%%\pagewiselinenumbers
-\modulolinenumbers[2]
 
+\ifhtml % In case of web format output...
+	\usepackage{url}
+	\usepackage{index}
+	\usepackage{color}
+	\newindex{todo}{todo}{tnd}{Todo List} 
+	\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
+\else
+	\usepackage{lineno}
+	% line numbers
+	\linenumbers
+	%%\pagewiselinenumbers
+	\modulolinenumbers[2]
+	\usepackage{ae}
+	%\usepackage[backref,pdftex]{hyperref}			% backref generates link from references back to text
+	\usepackage[]{todonotes} 		                % [disable]
+	\usepackage[all]{hypcap}
+	\hypersetup{pdftex,%
+				backref,%
+				pdfauthor={David Haberthür},%
+				pdftitle={WideFieldScanPaper},%
+				pdfsubject={Tomography},%
+				pdfkeywords={tomography, synchrotron, microscopy, field of view, enhancement, simulation},%
+				pdfborder={0 0 0},% > no border around links, but...
+				colorlinks=true % ... colored (true > no border, use "false" for final output)
+				}
+\fi
 
 %% Subversion Information
 \svnidlong
@@ -106,7 +116,11 @@ State-of-the-art synchrotron-based tomographic microscopy end-stations acquire v
 The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic imaging process in horizontal direction. It is the base for imaging of samples bigger than the size currently possible. Different image acquisition protocols have been implemented for the end-user at the beamline. We have shown that we can increase the lateral field of view of TOMCAT and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of his sample in an unattended, automatic way.
 \end{abstract}
 
-\listoftodos
+\ifhtml
+	\emph{Did you sort out all todos?}
+\else
+	\listoftodos
+\fi
 
 \tableofcontents
 

@@ -21,21 +21,21 @@ This means that the final reconstructions can simply be stacked on top of each o
 
 Generally, to be able to accurately reconstruct a sample, we have to fulfill the sampling theorem for computed tomography. \citet{Cormack1978} stated, that for a sample of the size $k$ (in beam diameter units) the number of independent pieces of information obtainable is exactly\todo{better equation? or should we cite~\cite{Kak2002}, where $N$ pixels $=N$ proj.?}
 \begin{equation}
-n(k+\frac{1}{2})%\text{ where }n=\text{ NumProj and }k=\text{Object-Diameter in beam diameter units}
+n(k+\frac{1}{2}) \text{ where }n=\text{ NumProj and }k=\text{Object-Diameter in beam diameter units}
 \end{equation}
 
-If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a bigger amount of projections in the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to a increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. Let us assume that we have a sample that could be imaged using three overlapping FOVs of \unit{\numprint{1024}}{pixels}, we have to obtain at least \unit{\numprint{3072}}{projections} in the lateral parts of the sample to fulfill the aforementioned sampling theorem.\todo{Do we need to explain the samplin theorem in more depth?}
+If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a bigger amount of projections in the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to a increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. Let us assume that we have a sample that could be imaged using three overlapping FOVs of \unit{\numprint{1024}}{pixels}, we have to obtain at least \unit{\numprint{3072}}{projections} in the lateral parts of the sample to fulfill the aforementioned sampling theorem.\todo{Do we need to explain the sampling theorem in more depth?}
 
-Figure~\ref{fig:overlapping scans}\todo{Figure: Explain overlap?}\todo{explain \unit{180}{\degree} vs. \unit{360}{\degree} setup}depicts the details of the overlapping scans.
+Figure~\ref{fig:overlapping scans}\todo{explain \unit{180}{\degree} vs. \unit{360}{\degree} setup}depicts the details of the overlapping scans. During the development of the scanning protocols for the wide field scanning, we have seen that a small overlapping region between the separate subscans is necessary to be able to correctly stitch the single projection images from the subscans into one big projection (see section~\ref{subsec:stitching} for details).
 
 \begin{figure*}[tb]
 	\centering
 	\input{tikz-images/overlapping-scans}
-	\caption{This should ultimatively explain the overlapping scans}
+	\caption{Overlapping scans $\rightarrow$ the scans ar not on the same height on purpose, or else one would not see anything}
 	\label{fig:overlapping scans}
 \end{figure*}	
 
-If we want to stitch together multiple subscans\todo{sub scan, sub-scan or subscan?} together, we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\ref{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
+If we want to stitch together multiple subscans\todo{sub scan, sub-scan or subscan?}, we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\ref{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
 
 \begin{figure*}[p]
 	\centering
