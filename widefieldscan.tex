@@ -1,5 +1,5 @@
-\documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
-%\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
+\documentclass[a4paper,abstract=true,bibtotoc]{scrartcl}
+%\documentclass[draft,a4paper,abstract=true,bibtotoc]{scrartcl}
 
 \newif\ifhtml
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
@@ -72,38 +72,21 @@
 \svnid{$Id$} 
 
 \pagestyle{fancy}
-%%
-\cfoot{}
-\rfoot{}
-%%
-\fancyhead{}
-\fancyfoot{}
-\fancyhead[RO]{{\footnotesize\rightmark}}
-\fancyfoot[RO]{\thepage}
-\fancyhead[LE]{{\footnotesize\leftmark}}
-\fancyfoot[LE]{\thepage}
 %svn-info in footer, page in header
-\fancyfoot[LE]{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
-\fancyfoot[RO]{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
-\fancyhead[C]{page \thepage}
-%svn-info in footer, page in header
-\renewcommand{\headrulewidth}{0.3pt}
+\fancyfoot[C]{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
+\fancyhead[C]{-\thepage-}
 
 \newcommand{\imsize}{\linewidth}
 
-%from http://tinyurl.com/38rqn4
-\newcommand{\footremember}[2]{
-  \footnote{#2}
-  \newcounter{#1}
-  \setcounter{#1}{\value{footnote}}
-} \newcommand{\footrecall}[1]{
-  \footnotemark[\value{#1}]
-} 
+%from http://tinyurl.com/38rqn4 to use for institutions...
+\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
+\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]} 
+
 \title{Wide Field Scan Paper}
 \author{David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
 		\and Christoph Hintermüller\footremember{sls}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}%
-		\and Johannes Schittny\footrecall{ana}\footnote{corresponding author: \href{mailto:johannes.schittny@ana.unibe.ch}{johannes.schittny@ana.unibe.ch}}%
-		\and Marco Stampanoni\footrecall{sls}\footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}}
+		\and Johannes Schittny\footrecall{ana} \footnote{corresponding author: \href{mailto:johannes.schittny@ana.unibe.ch}{johannes.schittny@ana.unibe.ch}}%
+		\and Marco Stampanoni\footrecall{sls} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}}
 \date{Version of \today}
 
 \begin{document}
