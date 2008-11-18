@@ -1,5 +1,5 @@
-\documentclass[a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
-%\documentclass[draft,a4paper,twoside,abstract=true,bibtotoc]{scrartcl}
+\documentclass[a4paper,abstract=true,bibtotoc]{scrartcl}
+%\documentclass[draft,a4paper,abstract=true,bibtotoc]{scrartcl}
 %\documentclass{article}
 
 %% enable for "htlatex"
@@ -24,13 +24,14 @@
 \usepackage{numprint}                             	% nice numbers with \numprint{1.234E3)
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
 \usepackage{pstricks,pstricks-add,pst-math,pst-xkey}
+\usepackage{lineno}
 %\usepackage{showkeys} 								% label names in draft
 %\usepackage{endfloat}							  	% floats at the end, use [nomarker] if "Figure x approx. here" is undesire
 %\usepackage{flafter}                              	% floats after their first instance
 
 %%disable for "htlatex"
-\usepackage[backref]{hyperref}						% backref generates link from references back to text
-\usepackage[disable]{todonotes}                     % [disable], also loads hyperref
+\usepackage[backref,pdftex]{hyperref}						% backref generates link from references back to text
+\usepackage[]{todonotes} 		                    % [disable], also loads hyperref
 %% disable for "htlatex"
 
 %%---Use this below for todo-workaround for "htlatex"
@@ -50,6 +51,12 @@
 %\onehalfspacing
 %\singlespacing
 
+% line numbers
+\linenumbers
+%%\pagewiselinenumbers
+\modulolinenumbers[2]
+
+
 %% Subversion Information
 \svnidlong
 {$HeadURL$}
@@ -59,10 +66,10 @@
 \svnid{$Id$} 
 
 \pagestyle{fancy}
-%%%
-%\cfoot{}
-%\rfoot{}
-%%%
+%%
+\cfoot{}
+\rfoot{}
+%%
 \fancyhead{}
 \fancyfoot{}
 \fancyhead[RO]{{\footnotesize\rightmark}}
@@ -74,7 +81,6 @@
 \fancyfoot[RO]{\tiny{URL: \url{\svnkw{HeadURL}} ; \space Last changed on: \svndate ; \space Revision: \svnrev ; \space Author: \svnFullAuthor*{\svnauthor}}}
 \fancyhead[C]{page \thepage}
 %svn-info in footer, page in header
-
 \renewcommand{\headrulewidth}{0.3pt}
 
 \newcommand{\imsize}{\linewidth}
@@ -114,7 +120,6 @@ The stacking of tomograms increases the field of view in vertical direction. The
 \bibliographystyle{unsrtnat}
 \bibliography{../references}
 
-\appendix
 \include{wfs-appendix}
 
 \end{document}
