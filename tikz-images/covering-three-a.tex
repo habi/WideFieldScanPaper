@@ -1,3 +1,4 @@
+%!TEX root = ../widefieldscan.tex
 %\documentclass{article}
 %\usepackage[pdftex,active,tightpage]{preview}
 %\usepackage{tikz}
@@ -7,12 +8,12 @@
 %\begin{preview}
 	\tikzstyle{every picture}+=[remember picture]
 	\tikzstyle{na} = [baseline=-.5ex]
-	
 	\begin{flushleft}
 	Central Scan \tikz[na] \coordinate (central);
 	\end{flushleft}
+	%\newline
 	Ring Scan \tikz[na] \coordinate (ring);
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=.75]
 		%drawing grid
 %		\draw[color=gray] (0,0) grid (10,1);
 		%camera
