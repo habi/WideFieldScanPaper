@@ -5,25 +5,64 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 \framebox{Author: \svnauthor|Rev: \svnrev|Last change: \svndate}% - URL: \url{\svnkw{HeadURL}}}
-\section{Results}
-Results of the aforementioned steps are shown in figure~\ref{fig:wide field scan}. Figure~\ref{subfig:wfs-sub} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{subfig:mrg} shows a merged projection image prior to reconstruction and figure~\ref{subfig:wfs-slice} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{5.734}{\milli\meter} --- approximately three times the size of what can be achieved with one single scan.
+\section{Results I}
+A sequence of 19 protocols with varying quality has been scanned to assess the simulations. \todo{show results from R108C21b--R108C21t} which.
 
-\begin{figure*}[p] % [tb] for small, [p] for big pictures
+
+
+\section{Results II}
+Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{5.734}{\milli\meter} which is  approximately three times the size of what can be achieved with one single scan.
+
+\begin{figure*}[p]
+	\renewcommand{\imsize}{.16\linewidth}
+	\pgfmathsetlength{\imagewidth}{\imsize} % desired display width of image
+	\pgfmathsetlength{\imagescale}{\imagewidth/512} % pixel width of image
 	\centering
-	\begin{minipage}[c][\textwidth]{\textwidth}
-	\centering
-	\renewcommand{\imsize}{0.25\textwidth}
-	\subfloat[Flat field image]{\includegraphics[width=\imsize]{img/correctedprojections/R108C10B_s10012}\label{subfig:flat}}\subfloat[Uncorrected projection images from three overlapping subscans. Each image has an original size of 1024$\times$1024 pixels and covers a FOV of approximately \SI{0.7}{\milli\meter}. The scans shown above overlap each other by approximately 100 pixels.]{\label{subfig:wfs-sub}\includegraphics[width=\imsize]{img/correctedprojections/R108C10B_s10013}\includegraphics[width=\imsize]{img/correctedprojections/R108C10B_s20013}\includegraphics[width=\imsize]{img/correctedprojections/R108C10B_s30013}}
-	\renewcommand{\imsize}{\textwidth}
-	\subfloat[Merged and corrected projection composed from the three subscans shown in \subref{subfig:wfs-sub}. The images have been corrected with the flat image shown in~\ref{subfig:flat}, the correct cutting line has been calculated, and the images have been merged into one big projection image. This merged projection has a size of 2994$\times$1024 pixels. This particular sample consists of 4678 such projection images (see section~\ref{subsec:image processing} for details). A slice reconstructed from a set of merged projections like this one is shown in \subref{subfig:wfs-slice}.]{\label{subfig:mrg}\includegraphics[width=\imsize]{img/correctedprojections/R108C10B_merge0001}}\\
-	\subfloat[Detailed view of a reconstructed slice of the full data set with a an original size of 2994$\times$2994 pixels, covering a FOV of approximately \SI{2.5}{\milli\meter}. This cropped slice has a size of 2665$\times$1087 pixels]{\label{subfig:wfs-slice}\includegraphics[width=\imsize]{img/correctedprojections/R108C10B_merge0989_rec_8bit_crop}}
-	\caption{Different stages of a wide field scan of a sample obtained from a Sprague-Dawley rat 10 days after birth, scanned at a beam energy of \SI{12.6}{\kilo\electronvolt}.}
-	\label{fig:wide field scan}
-	\end{minipage}
+		\subfloat[Uncorrected projection images from subscans s$_1$--s$_3$, each with a size of 1024$\times$1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}, covering a FOV of approximately \SI{0.7}{\milli\meter}. The scans overlap each other by approximately 100 pixels. 4676 projections have been acquired for the subscans s$_1$ and s$_3$, 1169 projections have been acquired for subscan s$_2$, all over a rotation of \SI{180}{\degree}.]{%
+			\label{fig:s1}%
+			\includegraphics[width=\imsize]{img/merge/R108C10B-s1}%
+			\includegraphics[width=\imsize]{img/merge/R108C10B-s2}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				% place image (integer coordinates refer to pixel centers):
+				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+					{\includegraphics[width=\imagewidth]{img/merge/R108C10B-s3}};
+				\draw[|-|,color=white] (256-64,450) -- (512-64,450) node[midway,above] {\SI{700}{\micro\meter}};
+			\end{tikzpicture}
+			\label{fig:subscans}
+			}
+		\renewcommand{\imsize}{.48\linewidth}
+		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
+		\pgfmathsetlength{\imagescale}{\imagewidth/1498} % pixel width of image
+		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. The merged projections have a size of 2994$\times$1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}. The Subscans s$_1$--s$_3$ overlap each other by approximately 150 pixels, thus the width of the merged projection is smaller than three times the width of the subscans. The projections of the subscans above have been merged into 4676 projections images like the one shown here and were then reconstructed into a tomographic dataset using a filtered backprojection reconstruction algorithm.]{%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+					{\includegraphics[width=\imagewidth]{img/merge/R108C10B-merge}};
+				\draw[|-|,color=white] (1242-64,450) -- (1498-64,450) node[midway,above] {\SI{700}{\micro\meter}};
+			\end{tikzpicture}
+			\label{fig:merge-proj}
+			}
+		\renewcommand{\imsize}{\linewidth}
+		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
+		\pgfmathsetlength{\imagescale}{\imagewidth/1365} % pixel width of image (image has been resized from 2994*1123, so that scalebar is at the same height without calculating too much...)
+		\subfloat[Cropped part of one slice of the tomographic dataset reconstructed from the merged projections, where one is shown in subfigure~\subref{fig:merge-proj}. The halo directly around the lung tissue arises from the paraffin where the sample is embedded in. The bright circular shape inscribed in the square arises from the filtered backprojection, the chosen reconstruction method. The size of the cropped image is 2994$\times$1123 pixels. The small inset on the upper left corner shows an overview over the full slice with a size of 2994$\times$2994 pixels.]{%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				% place image (integer coordinates refer to pixel centers):
+				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+					{\includegraphics[width=\imagewidth]{img/merge/R108C10B-merge1016-crop}};
+				\newcommand{\size}{.2\imagewidth}
+				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+					{\includegraphics[width=\size]{img/merge/R108C10B-merge1016}};
+					\draw[white] (\size,0) -- (\size,-\size) -- (0,-\size);
+				\draw[|-|,color=white] (1109-64,450) -- (1365-64,450) node[midway,above] {\SI{700}{\micro\meter}};
+			\end{tikzpicture}
+			\label{fig:merge-rec}
+			}
+	\caption{Different stages of a wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 10 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at a beam energy of \SI{12.6}{\kilo\electronvolt}.}
+	\label{fig:wide field scan results}	
 \end{figure*}
 
 \begin{itemize}
-	\item Problems with insuficient sampling for outer subscans?
+	\item Problems with insufficient sampling for outer subscans?
 	\item Stitching takes long time (incorporation into \verb+prj2sin+ and \verb+sin2rec+ @ beamline?)
 \end{itemize}
 
@@ -39,3 +78,67 @@ Results of the aforementioned steps are shown in figure~\ref{fig:wide field scan
 		\item \verb+gridrec+-Problem solved?
 	\end{itemize}
 \end{itemize}
+
+\begin{figure}[p]
+	\renewcommand{\imsize}{\linewidth}
+	\pgfmathsetlength{\imagewidth}{\imsize} 		 % desired displayed width of image
+	\pgfmathsetlength{\imagescale}{\imagewidth/1589} % 1589*728 = width of imagefile used below
+	\newcommand{\startx}{982} %= 1589*.618
+	\newcommand{\starty}{655} %= 728*.9
+	\centering
+	\subfloat[]{
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+ 			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+ 			{\includegraphics[width=\imagewidth]{img/sophie/full}};
+ 			\draw[|-|](\startx-808,\starty) -- (\startx+500,\starty) node[midway,above] {\SI{3.3978}{\milli\meter}}; % 4854px * 0.7 um/px = 3.3978 mm
+	 	\end{tikzpicture}
+	 	\label{subfig:LungSlab}
+		}
+	\renewcommand{\imsize}{.25\linewidth}
+	\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
+	\pgfmathsetlength{\imagescale}{\imagewidth/902} % 1543*928 = width of imagefile used below
+	\renewcommand{\startx}{557} %= 902*.618
+	\renewcommand{\starty}{802} %= 891*.9
+	\subfloat[]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+ 			{\includegraphics[width=\imagewidth]{img/sophie/crop-green-background}};
+ 			\draw[|-|] (\startx+0,\starty) -- (\startx+200,\starty) node[midway,above] {\SI{179.2}{\micro\meter}}; % cube with 256 px = 179.2 um
+	 	\end{tikzpicture}%
+	  	\label{subfig:LungSlabDetailsGreenBG}%
+		}
+	\subfloat[]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+ 			{\includegraphics[width=\imagewidth]{img/sophie/crop-green}};
+ 			\draw[|-|] (\startx+0,\starty) -- (\startx+200,\starty) node[midway,above] {\SI{179.2}{\micro\meter}}; % cube with 256 px = 179.2 um
+	 	\end{tikzpicture}%
+	 	\label{subfig:LungSlabDetailsGreen}%
+		}%
+	\subfloat[]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+ 			{\includegraphics[width=\imagewidth]{img/sophie/crop-red}};
+ 			\draw[|-|] (\startx+0,\starty) -- (\startx+200,\starty) node[midway,above] {\SI{179.2}{\micro\meter}}; % cube with 256 px = 179.2 um
+	 	\end{tikzpicture}%
+	  	\label{subfig:LungSlabDetailsRed}%
+		}
+	\subfloat[]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+ 			{\includegraphics[width=\imagewidth]{img/sophie/crop-red-background}};
+ 			\draw[|-|] (\startx+0,\starty) -- (\startx+200,\starty) node[midway,above] {\SI{179.2}{\micro\meter}}; % cube with 256 px = 179.2 um
+	 	\end{tikzpicture}%
+	 	\label{subfig:LungSlabDetailsRedBG}%
+		}
+	\label{fig:LungSlabSophie}%
+	\caption{Visualization of lung tissue slab: %
+		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554$\times$4854$\times$1024 pixels at a voxel size of \SI{0.7}{\micro\meter} per pixel. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
+ 		\subref{subfig:LungSlabDetailsGreenBG}: Closeup of inset cube at an outer position in the sample, including the background tissue. % 
+ 		\subref{subfig:LungSlabDetailsGreen}: Closeup of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %
+ 		\subref{subfig:LungSlabDetailsRed}: Closeup of inset cube at a central position in the sample. Single alveoly are clearly visible. %
+ 		\subref{subfig:LungSlabDetailsRedBG}: Closeup of inset cube at a central position in the sample, including the background tissue. %
+		The scale bars are only approximate, since it is a three-dimensional view.  The top scale bar is valid for the longest length of the gray lung structure, the bottom scale bar is valid for the width of the red cube.%
+	}
+	\todo[inline]{adapt the scalebars to the final size of the images}
+\end{figure}
