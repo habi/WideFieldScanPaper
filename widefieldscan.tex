@@ -1,35 +1,34 @@
-\documentclass[abstract=true,bibliography=totoc]{scrartcl}
+\documentclass[pdftex,english,abstract=true,bibliography=totoc]{scrartcl}
 %\documentclass[draft,abstract=true,bibliography=totoc]{scrartcl}
 
 \newif\ifhtml
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
 %\htmltrue
-\htmlfalse
+%\htmlfalse
 
 \ifhtml % In case of web format output...
 	\def\pgfsysdriver{pgfsys-tex4ht.def}	
 	\usepackage[dvips]{graphicx}
 \else
-	\usepackage[pdftex]{graphicx}
+	\usepackage{graphicx}
 \fi
 
 \usepackage[ansinew]{inputenc}                  	% so I can write my Name without \"{u}
 \usepackage[T1]{fontenc}                          	% Standard Latex-Fonts
-\usepackage[english]{babel}                      	% change [english] if written in other language
+%\usepackage{microtype}                            	% for nicer typography
+	%\DisableLigatures{encoding=T1}
+\usepackage[]{babel}                      			% change [english] if written in other language
 \usepackage{svn-multi}                           	% to add SVN-Versioning-Info
 \usepackage{subfig}                  		 		% subfigures
 \usepackage{siunitx}		                      	% typographically correct units (\milli\meter, \kilo\electronvolt)
-\usepackage{pdfsync}
+%\usepackage{pdfsync}
 \usepackage{booktabs}                             	% nice tables
-\usepackage{fancyhdr}                             	% nice header
 \usepackage{tikz}                                 	% extremely nice drawings
-\usepackage{microtype}                            	% for nicer typography
 \usepackage{varioref}                           	% for variable references with \vref gives "image on preceeding page"
-%\usepackage{multicol}
-%\usepackage{multirow}
 \usepackage{lipsum}									% for blind-text
+\usepackage{fancyhdr}
+\usepackage{tikz}									% TikZ is no drawing program
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
-%\usepackage{pstricks,pstricks-add,pst-math,pst-xkey}
 %\usepackage{showkeys} 								% label names in draft
 %\usepackage{endfloat}				  				% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
 %\usepackage{flafter}                              	% floats after their first instance
@@ -50,9 +49,8 @@
 		\linenumbers
 		%\pagewiselinenumbers
 		\modulolinenumbers[2]
-	\usepackage[backref,pdftex]{hyperref}			% backref generates link from references back to text
+	\usepackage[backref]{hyperref}			% backref generates link from references back to text
 	\usepackage[]{todonotes} 		                % [disable]
-	\usepackage[all]{hypcap}
 	\hypersetup{pdfauthor={David Haberthür},%
 				pdftitle={WideFieldScanPaper},%
 				pdfsubject={Tomography},%
@@ -76,6 +74,8 @@
 \fancyhead[C]{-\thepage-}
 
 \newcommand{\imsize}{\linewidth}
+\newlength\imagewidth % needed for scalebars
+\newlength\imagescale % needed for scalebars
 
 %from http://tinyurl.com/38rqn4 to use for institutions...
 \newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
@@ -89,7 +89,9 @@
 \date{Version of \today}
 
 \begin{document}
+
 \maketitle
+
 \begin{abstract}
 State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
 
@@ -99,16 +101,22 @@ The stacking of tomograms increases the field of view in vertical direction. The
 \ifhtml
 	\emph{Did you sort out all todos?}
 \else
+	\clearpage
 	\listoftodos
 \fi
 
 %\tableofcontents
 
 \include{wfs-introduction}
+
 \include{wfs-materials-and-methods}
+
 \include{wfs-results}
+
 \include{wfs-discussion}
+
 \include{wfs-summary}
+
 \include{wfs-acknowledgements}
 
 \bibliographystyle{unsrtnat}
