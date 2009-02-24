@@ -20,9 +20,17 @@ The experiments were performed on the TOMCAT beamline at the Swiss Light Source,
 \subsubsection{Image Acquisition}
 The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount standard electron microscopy (EM) sample tables into the beam. The samples have been scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France). The projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution 2048$\times$2048 pixel CCD camera. All samples were imaged using a 10$\times$ magnification, with 2$\times$2 binning and \SI{125}{\milli\second} exposure time or no binning and \SI{500}{\milli\second} exposure time, resulting in isotropic voxels of a side length of \SI{1.4}{\micro\meter} or of \SI{0.70}{\micro\meter} \todo{correct voxel side length?}, respectively.
 
-As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. 
+As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
 
-The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the demand of the end-user, we were able to reduce the total acquisition time by 86\percent, as can be seen in table~\ref{tab:projections}. Albeit this reduction introduced some artifacts in the dataset, an automated segmentation of the airways is still possible, as is shown later on. \todo{show this segmentation lateron!}
+\begin{figure}
+	\centering
+		\input{tikz-images/plots/2008c-QualityPlot}
+	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected the quality of the, the black plot is a polynomial fit $p$p with $x=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+...+p_{n}x+p_{n+1}$. 19 of these protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec: Results I}.}
+	\label{fig:2008c-qualityplot}
+\end{figure}
+
+The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the demand of the end-user, we were able to reduce the total acquisition time by 86\percent, as can be seen in table~\ref{tab:projections}. Albeit this reduction introduces some artifacts in the dataset, an automated segmentation of the airways is still possible, as is shown later on. \todo{show this segmentation lateron!}
+
 
 \begin{table}[tb]
 \centering
