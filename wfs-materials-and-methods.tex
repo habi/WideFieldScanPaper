@@ -18,6 +18,7 @@ Handling of the animals before and during the experiments, as well as the experi
 The experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT is one of 15 currently operating beam lines at the SLS. TOMCAT is located at the port X02DA of the SLS. The beamline receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{0.122}{\nano\meter}). Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
 
 \subsubsection{Image Acquisition}
+\label{seq:Image Acquisition}
 The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount standard electron microscopy (EM) sample tables into the beam. The samples have been scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France). The projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution 2048$\times$2048 pixel CCD camera. All samples were imaged using a 10$\times$ magnification, with 2$\times$2 binning and \SI{125}{\milli\second} exposure time or no binning and \SI{500}{\milli\second} exposure time, resulting in isotropic voxels of a side length of \SI{1.4}{\micro\meter} or of \SI{0.70}{\micro\meter} \todo{correct voxel side length?}, respectively.
 
 As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
@@ -25,14 +26,13 @@ As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an e
 \begin{figure}
 	\centering
 		\input{tikz-images/plots/2008c-QualityPlot}
-	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected the quality of the, the black plot is a polynomial fit $p$p with $x=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+...+p_{n}x+p_{n+1}$. 19 of these protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec: Results I}.}
+	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected the quality of the, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+...+p_{n}x+p_{n+1}$. 19 of these protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec: Results I}.}
 	\label{fig:2008c-qualityplot}
 \end{figure}
 
 The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the demand of the end-user, we were able to reduce the total acquisition time by 86\percent, as can be seen in table~\ref{tab:projections}. Albeit this reduction introduces some artifacts in the dataset, an automated segmentation of the airways is still possible, as is shown later on. \todo{show this segmentation lateron!}
 
-
-\begin{table}[tb]
+\begin{table}
 \centering
 	\caption{Specification of different protocols and time used compared to gold standard}
 	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccccccccccccccc}
@@ -62,7 +62,7 @@ The proposed protocols are designed in such a way that the total scanning time--
 	\label{tab:projections}
 \end{table}
 
-After the user has chosen a suitable protocol, the MATLAB-script writes a preference file to the disk, which is then parsed by a custom Python-script used for the interaction with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is then operating the TOMCAT beamline without user intevention. All parameters like filename, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, read out by the Python-script so that all the scans could be performed as a batch job without manual intervention. The sample on the sample holder was thus not touched during the acquisition of the different subscans. 
+After the user has chosen a suitable protocol, the MATLAB-script writes a preference file to the disk, which is then parsed by a custom Python-script used for the interaction with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is then operating the TOMCAT beamline without user intervention. All parameters like filename, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, read out by the Python-script so that all the scans could be performed as a batch job without manual intervention. The sample on the sample holder was thus not touched during the acquisition of the different subscans. 
 
 \subsection{Image Processing}
 \label{subsec:image processing}
