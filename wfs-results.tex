@@ -4,7 +4,15 @@
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
-\framebox{Author: \svnauthor|Rev: \svnrev|Last change: \svndate}% - URL: \url{\svnkw{HeadURL}}}
+
+\begin{center}
+	\fbox{
+		\begin{minipage}{.618\textwidth}
+		The file of this section is \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
+		\end{minipage}
+	} 
+\end{center}
+
 \section{Results I}
 \label{sec: Results I}
 A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The properties of the scan have been chosen with according to a MATLAB-plot---as described in section~\ref{seq:Image Acquisition}---which has been generated with \verb+MATLAB\wfs-sim\main.m+ for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans.

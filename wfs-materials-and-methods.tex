@@ -4,7 +4,15 @@
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
-\framebox{Author: \svnauthor|Rev: \svnrev|Last change: \svndate}% - URL: \url{\svnkw{HeadURL}}}
+
+\begin{center}
+	\fbox{
+		\begin{minipage}{.618\textwidth}
+		The file of this section is \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
+		\end{minipage}
+	} 
+\end{center}
+
 \section{Materials and Methods}
 \label{sec:materials and methods}
 \subsection{Animal Handling and Tissue Preparation}
@@ -19,7 +27,7 @@ The experiments were performed on the TOMCAT beamline at the Swiss Light Source,
 
 \subsubsection{Image Acquisition}
 \label{seq:Image Acquisition}
-The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount standard electron microscopy (EM) sample tables into the beam. The samples have been scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France). The projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution 2048$\times$2048 pixel CCD camera. All samples were imaged using a 10$\times$ magnification, with 2$\times$2 binning and \SI{125}{\milli\second} exposure time or no binning and \SI{500}{\milli\second} exposure time, resulting in isotropic voxels of a side length of \SI{1.4}{\micro\meter} or of \SI{0.70}{\micro\meter} \todo{correct voxel side length?}, respectively.
+The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount standard electron microscopy (EM) sample tables into the beam. The samples have been scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France). The projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution 2048$\times$2048 pixel CCD camera (PCO AG, Kelheim, Germany) with 14 bit nominal dynamic range which can record projections into the internal memory of \SI{4}{\giga B}. All samples were imaged using a 10$\times$ magnification, with 2$\times$2 binning and \SI{125}{\milli\second} exposure time or no binning and \SI{500}{\milli\second} exposure time, resulting in isotropic voxels with a side length of \SI{1.43}{\micro\meter} or \SI{0.72}{\micro\meter}, respectively.
 
 As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
 
@@ -62,7 +70,7 @@ The proposed protocols are designed in such a way that the total scanning time--
 	\label{tab:projections}
 \end{table}
 
-After the user has chosen a suitable protocol, the MATLAB-script writes a preference file to the disk, which is then parsed by a custom Python-script used for the interaction with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is then operating the TOMCAT beamline without user intervention. All parameters like filename, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, read out by the Python-script so that all the scans could be performed as a batch job without manual intervention. The sample on the sample holder was thus not touched during the acquisition of the different subscans. 
+After the user has chosen a suitable protocol, the MATLAB-script writes a preference file to the disk. This preference file is parsed by a custom Python-script to interact with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is used to acces and control all hardware of the TOMCAT beamline. We thus perform several subscans without user intervention, execpt entry of the sample name. All parameters like filename-suffixes of the subscans, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, also permitting a multiple batch scans of the same sample without any manual intervention. The sample on the sample holder was thus not touched during the acquisition of the 57 different subscans for the 19 protocols discussed lateron. 
 
 \subsection{Image Processing}
 \label{subsec:image processing}
@@ -72,8 +80,8 @@ After the acquisition of the sub-scan projection images, these image sets are co
 	\label{eq:correction}
 \end{equation}
 
-\subsubsection{Stitching}
-\label{subsec:stitching}
+\subsubsection{Covering a broad FOV}
+\label{subsec:covering a broad fov}
 Generally, tomographic images are obtained in such a manner, that the sample is rotated for \SI{180}{\degree} while several projection images---essentially single radiographies---are obtained, as is shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample, the images show the FOV of the camera.
 
 \begin{figure*}[tb]
