@@ -1,4 +1,4 @@
-\documentclass[pdftex,english,abstract=true,bibliography=totoc]{scrartcl}
+\documentclass[]{scrartcl}
 %\documentclass[draft,abstract=true,bibliography=totoc]{scrartcl}
 
 \newif\ifhtml
@@ -17,21 +17,19 @@
 \usepackage[T1]{fontenc}                          	% Standard Latex-Fonts
 %\usepackage{microtype}                            	% for nicer typography
 	%\DisableLigatures{encoding=T1}
-\usepackage[]{babel}                      			% change [english] if written in other language
-\usepackage{svn-multi,svn}                           	% to add SVN-Versioning-Info
+\usepackage[english]{babel}
+\usepackage{svn-multi}                           	% to add SVN-Versioning-Info
 \usepackage{subfig}                  		 		% subfigures
 \usepackage{siunitx}		                      	% typographically correct units (\milli\meter, \kilo\electronvolt)
-%\usepackage{pdfsync}
 \usepackage{booktabs}                             	% nice tables
 \usepackage{tikz}                                 	% extremely nice drawings
 \usepackage{pgfplots}                               % ditto for plots
-\usepackage{varioref}                           	% for variable references with \vref gives "image on preceeding page"
 \usepackage{lipsum}									% for blind-text
 \usepackage{fancyhdr}
 \usepackage{tikz}									% TikZ is no drawing program
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
-%\usepackage{showkeys} 								% label names in draft
 \usepackage{endfloat}				  				% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
+%\usepackage{pdfsync}
 %\usepackage{flafter}                              	% floats after their first instance
 %\usepackage{setspace}
 %	\doublespacing
@@ -52,13 +50,13 @@
 		\modulolinenumbers[2]
 	\usepackage[backref]{hyperref}			% backref generates link from references back to text
 	\usepackage[]{todonotes} 		                % [disable]
-	\hypersetup{pdfauthor={David Haberthür},%
-				pdftitle={WideFieldScanPaper},%
-				pdfsubject={Tomography},%
-				pdfkeywords={tomography, synchrotron, microscopy, field of view, enhancement, simulation},%
-%				pdfborder={0 0 0},% > no border around links, but...
-%				colorlinks=true % ... colored (true > no border, use "false" for final output)
-				}
+%	\hypersetup{pdfauthor={David Haberthür},%
+%				pdftitle={WideFieldScanPaper},%
+%				pdfsubject={Tomography},%
+%				pdfkeywords={tomography, synchrotron, microscopy, field of view, enhancement, simulation},%
+%%				pdfborder={0 0 0},% > no border around links, but...
+%%				colorlinks=true % ... colored (true > no border, use "false" for final output)
+%				}
 \fi
 
 %% Subversion Information

@@ -29,6 +29,18 @@ The experiments were performed on the TOMCAT beamline at the Swiss Light Source,
 \label{seq:Image Acquisition}
 The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount standard electron microscopy (EM) sample tables into the beam. The samples have been scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France). The projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution 2048$\times$2048 pixel CCD camera (PCO AG, Kelheim, Germany) with 14 bit nominal dynamic range which can record projections into the internal memory of \SI{4}{\giga B}. All samples were imaged using a 10$\times$ magnification, with 2$\times$2 binning and \SI{125}{\milli\second} exposure time or no binning and \SI{500}{\milli\second} exposure time, resulting in isotropic voxels with a side length of \SI{1.43}{\micro\meter} or \SI{0.72}{\micro\meter}, respectively.
 
+\subsubsection{Generation of tomographic datasets}
+The principles of x-ray computed tomography are explained in details by \citet{Kak2002} and \citet{Hsieh2003}. Briefly, projection images $I_{Pr}$---essentially single radiographies---of the sample are recorded at several angular positions between \SI{0}{\degree} and \SI{180}{\degree}. Additionally, a set of dark ($I_{D}$) and flat images ($I_{F}$) are recorded. The dark image set is obtained with a closed shutter at the start of the scan, it captures the camera noise and dark current and are used to baseline correct the projection images. The flat image set is recorded at the start and at the end of the scan, it captures the beam profile and are used to normalize the projection images. The corrected projection images $I_{cPr}$ are then computed corrected with the average dark ($\overline{I_{D}}$) and average flat image ($\overline{I_{F}}$) using equation~\ref{eq:cpr}.
+\begin{equation}
+	I_{cPr} = -ln\left(\frac{I_{Pr}-\overline{I_{D}}}{\overline{I_{F}}-\overline{I_{D}}}\right)=ln(\overline{I_{F}}-\overline{I_{D}})-ln(I_{Pr}-\overline{I_{D}})
+\label{eq:cpr}
+\end{equation}
+The corrected projections are then transformed into so-called sinograms, where the $n$\textsuperscript{th} is composed of the $n$\textsuperscript{th} line of every corrected projection. One sinogram thus contains as many rows as the amount of obtained corrected projections---the angular steps---and as many columns as the width of the projection images. Each sinogram corresponds to one slice of the full tomographic dataset. The $n$\textsuperscript{th} slice of the resulting tomographic scan can be reconstructed from the $n$\textsuperscript{th} sinogram using for instance a standard filtered back-projection~\cite{Kak2002,Hsieh2003} or gridrec~\cite{Dowd1999} algorithm. The full work flow from image acquisition to tomographic dataset on the disk contains several steps more, all the details are explained by~\citet{Hintermueller2009}.
+
+
+
+
+\subsection{Wide Field Scanning}
 As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
 
 \begin{figure}
@@ -82,7 +94,7 @@ After the acquisition of the sub-scan projection images, these image sets are co
 
 \subsubsection{Covering a broad FOV}
 \label{subsec:covering a broad fov}
-Generally, tomographic images are obtained in such a manner, that the sample is rotated for \SI{180}{\degree} while several projection images---essentially single radiographies---are obtained, as is shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample, the images show the FOV of the camera.
+Generally, tomographic images are obtained in such a manner, that the sample is rotated for \SI{180}{\degree} while multiple projection images are obtained, as is shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample, the images show the FOV of the camera.
 
 \begin{figure*}[tb]
 	\centering
@@ -130,4 +142,4 @@ Since the amount of obtained projection varies for different positions of the sa
 
 All above mentioned steps have been implemented in a custom MATLAB\textsuperscript{\textregistered} function which takes the parameters of the single subscans (e.g.\ Samplename, Amount of subscans, Amount of Dark and Flat images) and desired Output-Name and -Suffix as inputs and performs all necessary calculations like loading, normalizing, interpolation and correct stitching of the images into wide field projections. Excemplary results can be seen in figure~\ref{fig:wide field scan results}\subref{fig:subscans} and \ref{fig:wide field scan results}\subref{fig:merge-proj}.
 
-After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered backprojection algorithm or a FFT-based gridrec algorithm~\cite{Dowd2003} on a 20-node server farm (Pentium 4, 2.8 GHz processor, 512 MB RAM \todo{cluster node specs?}). This reconstruction results in an image stack of 1024 or 2048 image slices in tif-format, depending on the binnig chosen at recording time. The size of the images recorded for this publication varies from 2996$\times$2996 pixels up to 9703$\times$9703 pixels.
+After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered backprojection algorithm or a FFT-based gridrec algorithm~\cite{Dowd1999} on a 20-node server farm (Pentium 4, 2.8 GHz processor, 512 MB RAM \todo{cluster node specs?}). This reconstruction results in an image stack of 1024 or 2048 image slices in tif-format, depending on the binnig chosen at recording time. The size of the images recorded for this publication varies from 2996$\times$2996 pixels up to 9703$\times$9703 pixels.
