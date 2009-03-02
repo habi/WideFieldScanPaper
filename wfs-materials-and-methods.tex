@@ -37,9 +37,6 @@ The principles of x-ray computed tomography are explained in details by \citet{K
 \end{equation}
 The corrected projections are then transformed into so-called sinograms, where the $n$\textsuperscript{th} is composed of the $n$\textsuperscript{th} line of every corrected projection. One sinogram thus contains as many rows as the amount of obtained corrected projections---the angular steps---and as many columns as the width of the projection images. Each sinogram corresponds to one slice of the full tomographic dataset. The $n$\textsuperscript{th} slice of the resulting tomographic scan can be reconstructed from the $n$\textsuperscript{th} sinogram using for instance a standard filtered back-projection~\cite{Kak2002,Hsieh2003} or gridrec~\cite{Dowd1999} algorithm. The full work flow from image acquisition to tomographic dataset on the disk contains several steps more, all the details are explained by~\citet{Hintermueller2009}.
 
-
-
-
 \subsection{Wide Field Scanning}
 As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
 

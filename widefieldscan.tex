@@ -1,5 +1,5 @@
 \documentclass[]{scrartcl}
-%\documentclass[draft,abstract=true,bibliography=totoc]{scrartcl}
+%\documentclass[draft]{scrartcl}
 
 \newif\ifhtml
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
@@ -29,7 +29,6 @@
 \usepackage{tikz}									% TikZ is no drawing program
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
 \usepackage{endfloat}				  				% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
-%\usepackage{pdfsync}
 %\usepackage{flafter}                              	% floats after their first instance
 %\usepackage{setspace}
 %	\doublespacing
@@ -81,7 +80,7 @@
 		\and Christoph Hintermüller\footremember{sls}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}%
 		\and Johannes Schittny\footrecall{ana} \footnote{corresponding author: \href{mailto:johannes.schittny@ana.unibe.ch}{johannes.schittny@ana.unibe.ch}}%
 		\and Marco Stampanoni\footrecall{sls} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}}
-\date{Version of \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) @ revision \svnkw{LastChangedRevision}.} 
+\date{Version of \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone), Revision \svnkw{LastChangedRevision}.} 
 
 \begin{document}
 
@@ -90,7 +89,7 @@
 \begin{abstract}
 State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
 
-The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic imaging process in horizontal direction. It is the base for imaging of samples bigger than the size currently possible. Different image acquisition protocols have been implemented for the end-user at the beamline. We have shown that we can increase the lateral field of view of TOMCAT and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of his sample in an unattended, automatic way.
+The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic imaging process in horizontal direction. It is the base for imaging of samples bigger than the size currently possible. Different image acquisition protocols have been implemented for the end-user at the beamline. We have shown that the lateral field of view of TOMCAT can be increased up to five times and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of his sample in an unattended, automatic way.
 \end{abstract}
 
 \begin{center}
