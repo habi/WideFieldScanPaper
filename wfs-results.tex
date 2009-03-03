@@ -13,8 +13,9 @@
 	} 
 \end{center}
 
-\section{Results I}
-\label{sec: Results I}
+\section{Results}
+\label{sec:Results}
+\subsection{Error between protocols}
 A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The properties of the scan have been chosen with according to a MATLAB-plot---as described in section~\ref{seq:Image Acquisition}---which has been generated with \verb+MATLAB\wfs-sim\main.m+ for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans.
 
 We assessed the image differences for the 19 scanned protocols in such a way that we have thresholded the raw data slices using an automated thresholding algorithm method, which chooses the threshold to minimize the intraclass variance of the black and white pixels~\cite{Otsu1979}. These thresholded slices of each protocol have been compared to the gold standard protocol in such a way that the sum of all pixels of the absolute difference image of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value. This error value has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean and standard deviation have been plotted (shown in figure~\ref{fig:NormalizedErrorPlot}) in such a way that the error in arbitrary units was scaled from 0 to 1.
@@ -28,11 +29,10 @@ We see that---as expected---the normalized error grows with decreasing amount of
 	\label{fig:NormalizedErrorPlot}
 \end{figure}
 
+\subsection{Image Merging and Reconstruction}
+Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{5.734}{\milli\meter} which is approximately three times the size of what can be achieved with one single scan.
 
-\section{Results II}
-Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{5.734}{\milli\meter} which is  approximately three times the size of what can be achieved with one single scan.
-
-\begin{figure*}[p]
+\begin{figure}[p]
 	\renewcommand{\imsize}{.16\linewidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} % desired display width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/512} % pixel width of image
@@ -78,7 +78,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 			}
 	\caption{Different stages of a wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 10 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at a beam energy of \SI{12.6}{\kilo\electronvolt}.}
 	\label{fig:wide field scan results}	
-\end{figure*}
+\end{figure}
 
 \begin{itemize}
 	\item Problems with insufficient sampling for outer subscans?
@@ -98,6 +98,29 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 	\end{itemize}
 \end{itemize}
 
+\subsection{Three dimensional visualizations}
+\subsubsection{19 Protocols}
+\begin{figure}
+	\centering
+	\renewcommand{\imsize}{.5\linewidth}	
+		\subfloat[Overview Protocol B]{%
+			\includegraphics[width=\imsize]{img/protocols/BvsT/overviewB}}
+		\subfloat[Overview Protocol T]{%
+			\includegraphics[width=\imsize]{img/protocols/BvsT/overviewT}}\\
+	\renewcommand{\imsize}{.495\linewidth}
+		\subfloat[Detailed view of segments of Protocol B]{%
+			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-B}}\hfill
+		\subfloat[Detailed view of segments of Protocol B]{%
+			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-T}}\\
+		\subfloat[Detailed view of underside of Protocol B]{%
+			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-B}}\hfill
+		\subfloat[Detailed view of underside of Protocol T]{%
+			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-T}}
+	\caption{Segmentation of two exemplary protocols, namely B and T.}
+	\label{fig:BvsT}
+\end{figure}
+
+\subsubsection{5 instead of 3 subscans}
 \begin{figure}[p]
 	\renewcommand{\imsize}{\linewidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} 		 % desired displayed width of image
@@ -124,7 +147,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
  			{\includegraphics[width=\imagewidth]{img/sophie/crop-green-background}};
  			\draw[|-|] (\startx+0,\starty) -- (\startx+200,\starty) node[midway,above] {\SI{179.2}{\micro\meter}}; % cube with 256 px = 179.2 um
 	 	\end{tikzpicture}%
-	  	\label{subfig:LungSlabDetailsGreenBG}%
+	 	\label{subfig:LungSlabDetailsGreenBG}%
 		}
 	\subfloat[]{%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
@@ -140,7 +163,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
  			{\includegraphics[width=\imagewidth]{img/sophie/crop-red}};
  			\draw[|-|] (\startx+0,\starty) -- (\startx+200,\starty) node[midway,above] {\SI{179.2}{\micro\meter}}; % cube with 256 px = 179.2 um
 	 	\end{tikzpicture}%
-	  	\label{subfig:LungSlabDetailsRed}%
+	 	\label{subfig:LungSlabDetailsRed}%
 		}
 	\subfloat[]{%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
@@ -156,8 +179,8 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
  		\subref{subfig:LungSlabDetailsGreen}: Closeup of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %
  		\subref{subfig:LungSlabDetailsRed}: Closeup of inset cube at a central position in the sample. Single alveoly are clearly visible. %
  		\subref{subfig:LungSlabDetailsRedBG}: Closeup of inset cube at a central position in the sample, including the background tissue. %
-		The scale bars are only approximate, since it is a three-dimensional view.  The top scale bar is valid for the longest length of the gray lung structure, the bottom scale bar is valid for the width of the red cube.%
-	\label{fig:LungSlabSophie}%
+		The scale bars are only approximate, since it is a three-dimensional view. The top scale bar is valid for the longest length of the gray lung structure, the bottom scale bar is valid for the width of the red cube.%
 	}
+	\label{fig:LungSlabSophie}
 	\todo[inline]{adapt the scalebars to the final size of the images}
 \end{figure}

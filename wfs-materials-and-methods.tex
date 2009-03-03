@@ -23,7 +23,7 @@ The extracted lung lobes have been fixed for potential storage in 2.5\% glutaral
 Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
 
 \subsection{SRXTM}
-The experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT is one of 15 currently operating beam lines at the SLS. TOMCAT is located at the port X02DA of the SLS. The beamline receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{0.122}{\nano\meter}). Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
+The experiments were performed on the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT is one of 15 currently operating beam lines at the SLS. TOMCAT is located at the port X02DA of the SLS. The beamline receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{0.122}{\nano\meter}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth of a few percent down to \SI{e-4}. Detailed technical specifications of the beamline and beam characteristics have been described by~\citeauthor{Stampanoni2006a}~\cite{Stampanoni2006a,Stampanoni2007}.
 
 \subsubsection{Image Acquisition}
 \label{seq:Image Acquisition}
@@ -35,7 +35,7 @@ The principles of x-ray computed tomography are explained in details by \citet{K
 	I_{cPr} = -ln\left(\frac{I_{Pr}-\overline{I_{D}}}{\overline{I_{F}}-\overline{I_{D}}}\right)=ln(\overline{I_{F}}-\overline{I_{D}})-ln(I_{Pr}-\overline{I_{D}})
 \label{eq:cpr}
 \end{equation}
-The corrected projections are then transformed into so-called sinograms, where the $n$\textsuperscript{th} is composed of the $n$\textsuperscript{th} line of every corrected projection. One sinogram thus contains as many rows as the amount of obtained corrected projections---the angular steps---and as many columns as the width of the projection images. Each sinogram corresponds to one slice of the full tomographic dataset. The $n$\textsuperscript{th} slice of the resulting tomographic scan can be reconstructed from the $n$\textsuperscript{th} sinogram using for instance a standard filtered back-projection~\cite{Kak2002,Hsieh2003} or gridrec~\cite{Dowd1999} algorithm. The full work flow from image acquisition to tomographic dataset on the disk contains several steps more, all the details are explained by~\citet{Hintermueller2009}.
+The corrected projections are then transformed into so-called sinograms, where the $n$\textsuperscript{th} is composed of the $n$\textsuperscript{th} line of every corrected projection. One sinogram thus contains as many rows as the amount of obtained corrected projections---the angular steps---and as many columns as the width of the projection images. Each sinogram corresponds to one slice of the full tomographic dataset. The $n$\textsuperscript{th} slice of the resulting tomographic scan can be reconstructed from the $n$\textsuperscript{th} sinogram using for instance a standard filtered back-projection~\cite{Kak2002,Hsieh2003} or gridrec~\cite{Dowd1999} algorithm. The absorption properties of the sample are encoded by the gray values of the reconstructed dataset. The full work flow from image acquisition to tomographic dataset on the disk contains several steps more, all the details are explained by~\citet{Hintermueller2009}.
 
 \subsection{Wide Field Scanning}
 As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
@@ -47,7 +47,7 @@ As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an e
 	\label{fig:2008c-qualityplot}
 \end{figure}
 
-The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the demand of the end-user, we were able to reduce the total acquisition time by 86\percent, as can be seen in table~\ref{tab:projections}. Albeit this reduction introduces some artifacts in the dataset, an automated segmentation of the airways is still possible, as is shown later on. \todo{show this segmentation lateron!}
+The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the demand of the end-user, we were able to reduce the total acquisition time by 86\percent, as can be seen in table~\ref{tab:projections}. Albeit this reduction introduces some artifacts in the dataset, an automated segmentation of the airways is still possible, as is shown later on.
 
 \begin{table}
 \centering
@@ -93,43 +93,43 @@ After the acquisition of the sub-scan projection images, these image sets are co
 \label{subsec:covering a broad fov}
 Generally, tomographic images are obtained in such a manner, that the sample is rotated for \SI{180}{\degree} while multiple projection images are obtained, as is shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample, the images show the FOV of the camera.
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\subfloat[\SI{180}{\degree}]{\input{tikz-images/covering-one}\label{subfig:cover180}}\\
 	\subfloat[\SI{360}{\degree}]{\input{tikz-images/covering-one-360}\label{subfig:cover360}}
 	\caption{Covering the FOV -- one scan}
 	\label{fig:covering-one scan}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 		\input{tikz-images/Scan-Stacked}
 	\caption{Stacked Scanning - long and thin samples}
 	\label{fig:stacked-scanning}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 		\input{tikz-images/Scan-Widefield}
 	\caption{Stacked Scanning - broad samples}
 	\label{fig:widefield-scanning}
-\end{figure*}
+\end{figure}
 
 If we want to achieve tomographic scans covering a broader FOV, we have to move the sample in relation to the beam and camera, to be able to record projection images from the lateral parts of the sample. This can be done as shown in figure~\ref{fig:covering-three scans a}, \todo{which image variant: \ref{fig:covering-three scans a} or \ref{fig:covering-three scans b}?} where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\input{tikz-images/covering-three-a}
 	\caption{Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
 	\label{fig:covering-three scans a}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\input{tikz-images/covering-three-b}
 	\caption{Or is this better for the understanding?: Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
 	\label{fig:covering-three scans b}
-\end{figure*}
+\end{figure}
 
 To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap is necessary for the compensation of variations in the imaging process and correct stitching of the single projections into one big projection image. 
 

@@ -31,12 +31,9 @@ At our group we have been studying lung development~\cite{Schittny2008,Mund2008}
 An increase of the FOV parallel to the rotation axis of the sample can be achieved through the stacking of multiple scans on top of each other. This stacking has been achieved at TOMCAT through accurately controlling the end-station setup and sample position.
 This means that the final reconstructions can simply be stacked on top of each other, even if they have been acquired in different scans. For this imaging mode, the scanning time linearly increases with the sample size.
 
-Generally, to be able to accurately reconstruct a sample, we have to fulfill the sampling theorem for computed tomography. \citet{Cormack1978} stated, that for a sample of the size $k$ (in beam diameter units) the number of independent pieces of information obtainable is exactly \todo{better equation? or should we cite~\cite{Kak2002}, where $N$ pixels $=N$ proj.?}
-\begin{equation}
-n(k+\frac{1}{2})% \text{ where }n=\text{ NumProj and }k=\text{Object-Diameter in beam diameter units}
-\end{equation}
+Generally, to be able to accurately reconstruct a sample, we have to fulfill the sampling theorem for computed tomography. \citet{Kak2002} stated that for parallel beam tomography: \begin{quote} The number of projections should be roughly equal to the number of rays in each projection. \end{quote} In our case the number of rays corresponds to the width of the detector, thus equals 2048 pixels. This precondition can be slightly violated, with the result that at TOMCAT, the for an unbinned scan---which equals a detector width of 2048 pixels---1500 projection images are obtained for a sample rotation over \SI{180}{\degree}. In the binned case---where 2$\times$2 pixels are combined into one pixel, equaling a detector width of 1024 pixels---1000 projection images are recorded.
 
-If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a bigger amount of projections in the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to a increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. Let us assume that we have a sample that could be imaged using three overlapping FOVs of 1024 pixels, we have to obtain at least 3072 projections in the lateral parts of the sample to fulfill the aforementioned sampling theorem. \todo{Do we need to explain the sampling theorem in more depth?}
+If we thus aim to enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but also it is necessary to record a more projections for the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to a increase in imaging and post-processing time as compared to a standard scan with a comparably smaller FOV. Let us assume that we have a sample that could be imaged using three overlapping FOVs of 1024 pixels, we have to obtain approximately 3000 projections in the lateral parts of the sample to fulfill the aforementioned sampling theorem. \todo{Do we need to explain the sampling theorem in more depth?}
 
 Figure~\ref{fig:overlapping scans} depicts the details of the overlapping scans. During the development of the scanning protocols for the wide field scanning, we have seen that a small overlapping region between the separate subscans is necessary to be able to correctly stitch the single projection images from the subscans into one big projection (see section~\ref{subsec:covering a broad fov} for details). TOMCAT has the possibility to operate in the so called \SI{360}{\degree} mode, where a sample is scanned with full a full rotation, while the camera window only covers half of the sample dimensions (see figures~\ref{subfig:cover180} and \ref{subfig:cover360} for details). Afterwards, the projections are automatically stitched together and a full projection is formed. Preliminary results have shown, that using this \SI{360}{\degree}-scanning method was not usable to perform the wide field scans, even with precise calibration the outer scans could not be stitched together without introducing errors in the reconstruction. We would also have needed to introduce more processing steps like flipping of the images obtained in the second half of the rotation prior to stitching, so that we chose to only perform \SI{180}{\degree}-scans, but overlapping in such a sense that the outcome is equivalent to scanning with the \SI{360}{\degree}-method.
 
@@ -45,13 +42,13 @@ Figure~\ref{fig:overlapping scans} depicts the details of the overlapping scans.
 	\input{tikz-images/overlapping-scans}
 	\caption{Overlapping scans $\rightarrow$ the scans ar not on the same height on purpose, or else one would not see anything}
 	\label{fig:overlapping scans}
-\end{figure*}	
+\end{figure}	
 
 If we want to stitch together multiple subscans, \todo{sub scan, sub-scan or subscan?} we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\ref{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
 
-\begin{figure*}[p]
+\begin{figure}[p]
 	\centering
 		\includegraphics[width=\imsize]{img/projections}
 	\caption{Projection Setup with one central and one ring-scan. For demonstration purposes, the central scan has four projections and the ring scan has 16 projections over \SI{360}{\degree}. This is essentially the same as two \SI{180}{\degree}-scans with eight projections each.}
 	\label{fig:projections}
-\end{figure*}
+\end{figure}
