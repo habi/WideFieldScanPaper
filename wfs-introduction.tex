@@ -37,7 +37,7 @@ If we thus aim to enlarge the FOV of the tomographic images perpendicular to the
 
 Figure~\ref{fig:overlapping scans} depicts the details of the overlapping scans. During the development of the scanning protocols for the wide field scanning, we have seen that a small overlapping region between the separate subscans is necessary to be able to correctly stitch the single projection images from the subscans into one big projection (see section~\ref{subsec:covering a broad fov} for details). TOMCAT has the possibility to operate in the so called \SI{360}{\degree} mode, where a sample is scanned with full a full rotation, while the camera window only covers half of the sample dimensions (see figures~\ref{subfig:cover180} and \ref{subfig:cover360} for details). Afterwards, the projections are automatically stitched together and a full projection is formed. Preliminary results have shown, that using this \SI{360}{\degree}-scanning method was not usable to perform the wide field scans, even with precise calibration the outer scans could not be stitched together without introducing errors in the reconstruction. We would also have needed to introduce more processing steps like flipping of the images obtained in the second half of the rotation prior to stitching, so that we chose to only perform \SI{180}{\degree}-scans, but overlapping in such a sense that the outcome is equivalent to scanning with the \SI{360}{\degree}-method.
 
-\begin{figure*}[tb]
+\begin{figure}
 	\centering
 	\input{tikz-images/overlapping-scans}
 	\caption{Overlapping scans $\rightarrow$ the scans ar not on the same height on purpose, or else one would not see anything}
@@ -46,7 +46,7 @@ Figure~\ref{fig:overlapping scans} depicts the details of the overlapping scans.
 
 If we want to stitch together multiple subscans, \todo{sub scan, sub-scan or subscan?} we have to keep in mind that we might not have recorded an equal amount of projections for each of the subscans as detailed in figure~\ref{fig:overlapping scans} and thus need to make sure the stitching and concatenation into to that we can easily stitch them together.
 
-\begin{figure}[p]
+\begin{figure}
 	\centering
 		\includegraphics[width=\imsize]{img/projections}
 	\caption{Projection Setup with one central and one ring-scan. For demonstration purposes, the central scan has four projections and the ring scan has 16 projections over \SI{360}{\degree}. This is essentially the same as two \SI{180}{\degree}-scans with eight projections each.}
