@@ -1,17 +1,66 @@
-%\documentclass{article}
-%\usepackage[pdftex,active,tightpage]{preview}
-%\usepackage{tikz}
-%\begin{document}
-%\begin{preview}
-	\begin{tikzpicture}[scale=.618]
-	\def\length{20}
-	\def\height{2}
-		\foreach \y in {0,\height}%	
-			\draw [->] (0.5,\y) -- (\length+0.5,\y);		
-		\foreach \x in {1,...,\length}
-			\draw [anchor=south] (\x,-0.25) -- (\x,0.25) node {\x};	
-		\foreach \z in {1,3,...,\length}
-			\draw [anchor=south] (\z,\height-0.25) -- (\z,\height+0.25) node {\z} (\z+1,\height-0.25) -- (\z+1,\height+0.25) node {\z};	
-	\end{tikzpicture}
-%\end{preview}
-%\end{document}
+\documentclass{minimal}
+\usepackage[pdftex,active,tightpage]{preview}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,decorations.text}
+\begin{document}
+\begin{preview}
+\begin{center}
+%%% linear version
+%	%define some constants
+%	\def\lengtha{26}
+%	\def\lengthb{13}
+%	\def\height{2}
+%	%start actual figure
+%	\begin{tikzpicture}[scale=.618]
+%		%draw lines
+%		\foreach \y in {0,\height}	
+%			\draw [->] (0.5,\y) -- (\lengtha+0.5,\y);
+%		% draw higher amount of projections
+%		\foreach \x in {1,...,\lengtha}
+%			\draw [above] (\x,\height-0.25) -- (\x,\height+0.25) node {\x};	
+%		% draw lower amount of projections
+%		\foreach \z in {1,2,...,\lengthb}
+%			\draw [above] (\z*2-1,-0.25) -- (\z*2-1,0.25) node {\z} (\z*2,-0.25) -- (\z*2,+0.25) node {\z};
+%	\end{tikzpicture}
+%%% clock version
+	\def\radius{1}
+	\def\shift{.25}
+	\begin{tikzpicture}[line cap=round,scale=2]
+		%% inner ring
+		\draw (0,0) circle (\radius);
+		\foreach \angle / \label in 
+			{0,20,...,359}
+			{
+				\draw (\angle:0) -- (\angle:\radius+\shift);
+				\draw (\angle:\radius+1.618*\shift) node{\textsf{\label}};
+			}
+		\foreach \angle in 
+			{0,2,...,359}
+			{
+				\draw (\angle:\radius-.5*\shift) -- (\angle:\radius+.5*\shift);
+			}
+		%% outer ring			
+		\draw (0,0) circle (3*\radius);
+		\foreach \angle / \label in 
+			{0,20,...,719}
+			{
+				\draw (.5*\angle:\radius) -- (.5*\angle:3*\radius+\shift);
+				\draw (.5*\angle:3*\radius+1.618*\shift) node{\textsf{\label}};
+			}
+		\foreach \angle in 
+			{0,1,...,359}
+			{
+				\draw (\angle:3*\radius-.5*\shift) -- (\angle:3*\radius+.5*\shift);
+			}	\end{tikzpicture}%
+%%% degree version		
+%	\def\radius{1}
+%	\def\ticklength{1}
+%	\begin{tikzpicture}[scale=3,anchor=north]
+%		\draw (0,0) circle (\radius)(0,0) circle (2*\radius);
+%		\draw (0,0) circle (\radius) circle (2*\radius);
+%  		\foreach \x in {0,20,...,719} \draw [rotate=.5*\x] (\radius,0) -- (\radius+\ticklength,0) node [midway] {\x};
+%  		\foreach \x in {0,20,...,359} \draw [rotate=\x] (0,0) -- (\radius,0) node [midway] {\x} ;
+%	\end{tikzpicture}
+\end{center}
+\end{preview}
+\end{document}
