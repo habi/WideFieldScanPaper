@@ -6,7 +6,8 @@
 %\begin{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\def\radius{1}
-	\def\shift{.25}
+	\def\shift{.3}
+	\def\overlap{.075}
 	\begin{tikzpicture}[scale=1.5]
 		%% inner ring
 		\draw (0,0) circle (\radius);
@@ -36,14 +37,14 @@
 			}
 		\def\projangle{17}			
 		%% RingScan 1
-		\draw [ultra thick,color=red](\projangle:\radius) -- (\projangle:3*\radius);
-		\fill [color=red,very nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1,0) arc (180:0:\radius);
+		\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
+		\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);
 		%% Central Scan
-		\draw [ultra thick,color=green](\projangle+180:\radius) -- (\projangle:\radius);
-		\fill [color=green,very nearly transparent] (0,0) circle (\radius);
+		\draw [ultra thick,color=green](\projangle+180+2:\radius+\overlap) -- (\projangle+2:\radius+\overlap);
+		\fill [color=green,nearly transparent] (0,0) circle (\radius+\overlap);
 		%% Ringscan 2
-		\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius);
-		\fill [color=blue,very nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1,0) arc (-180:0:\radius);
+		\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius-\overlap);
+		\fill [color=blue,nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1+\overlap,0) arc (-180:0:\radius-\overlap);
 	\end{tikzpicture}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 %\end{center}

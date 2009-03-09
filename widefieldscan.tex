@@ -1,5 +1,5 @@
-\documentclass[]{scrartcl}
-%\documentclass[draft]{scrartcl}
+\documentclass[paper=A4,DIV=calc]{scrartcl}
+%\documentclass[paper=A4, DIV=calc,BCOR=0cm]{scrartcl}
 
 \newif\ifhtml
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
@@ -15,8 +15,6 @@
 
 \usepackage[ansinew]{inputenc} 						% so I can write my Name without \"{u}
 \usepackage[T1]{fontenc} 							% Standard Latex-Fonts
-%\usepackage{microtype} 							% for nicer typography
-	%\DisableLigatures{encoding=T1}
 \usepackage[english]{babel}
 \usepackage{svn-multi} 								% to add SVN-Versioning-Info
 \usepackage{subfig} 		 						% subfigures
@@ -30,6 +28,8 @@
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
 %\usepackage{endfloat}				 				% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
 %\usepackage{flafter} 								% floats after their first instance
+%\usepackage{microtype} 							% for nicer typography
+	%\DisableLigatures{encoding=T1}
 %\usepackage{setspace}
 %	\doublespacing
 %	\onehalfspacing

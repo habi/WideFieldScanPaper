@@ -25,11 +25,12 @@ We see that---as expected---the normalized error grows with decreasing amount of
 \begin{figure}
 	\centering
 		\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
-	\caption{Plot of normalized Error for the different protocols. The normalized Error has been calculated in such a way that we have taken the DifferenceImage for Protocol 'x' compared to Protocol 'A' and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol.}
+	\caption{Plot of normalized Error for the different protocols. The normalized Error has been calculated in such a way that we have taken the Difference image for Protocol 'x' compared to Protocol 'A' and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol.}
 	\label{fig:NormalizedErrorPlot}
 \end{figure}
 
 \subsection{Image Merging and Reconstruction}
+\label{sec:Image Merging and Reconstruction}
 Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{5.734}{\milli\meter} which is approximately three times the size of what can be achieved with one single scan.
 
 \begin{figure}[p]
@@ -52,7 +53,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 		\renewcommand{\imsize}{.48\linewidth}
 		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 		\pgfmathsetlength{\imagescale}{\imagewidth/1498} % pixel width of image
-		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. The merged projections have a size of 2994$\times$1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}. The Subscans s$_1$--s$_3$ overlap each other by approximately 150 pixels, thus the width of the merged projection is smaller than three times the width of the subscans. The projections of the subscans above have been merged into 4676 projections images like the one shown here and were then reconstructed into a tomographic dataset using a filtered backprojection reconstruction algorithm.]{%
+		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. The merged projections have a size of 2994$\times$1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}. The Subscans s$_1$--s$_3$ overlap each other by approximately 150 pixels, thus the width of the merged projection is smaller than three times the width of the subscans. The projections of the subscans above have been merged into 4676 projections images like the one shown here and were then reconstructed into a tomographic dataset using a filtered back-projection reconstruction algorithm.]{%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 					{\includegraphics[width=\imagewidth]{img/merge/R108C10B-merge}};
@@ -63,7 +64,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 		\renewcommand{\imsize}{\linewidth}
 		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 		\pgfmathsetlength{\imagescale}{\imagewidth/1365} % pixel width of image (image has been resized from 2994*1123, so that scalebar is at the same height without calculating too much...)
-		\subfloat[Cropped part of one slice of the tomographic dataset reconstructed from the merged projections, where one is shown in subfigure~\subref{fig:merge-proj}. The halo directly around the lung tissue arises from the paraffin where the sample is embedded in. The bright circular shape inscribed in the square arises from the filtered backprojection, the chosen reconstruction method. The size of the cropped image is 2994$\times$1123 pixels. The small inset on the upper left corner shows an overview over the full slice with a size of 2994$\times$2994 pixels.]{%
+		\subfloat[Cropped part of one slice of the tomographic dataset reconstructed from the merged projections, where one is shown in subfigure~\subref{fig:merge-proj}. The halo directly around the lung tissue arises from the paraffin where the sample is embedded in. The bright circular shape inscribed in the square arises from the filtered back-projection, the chosen reconstruction method. The size of the cropped image is 2994$\times$1123 pixels. The small inset on the upper left corner shows an overview over the full slice with a size of 2994$\times$2994 pixels.]{%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				% place image (integer coordinates refer to pixel centers):
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
@@ -157,12 +158,12 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 		}
 	\caption{Visualization of lung tissue slab: %
 		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554$\times$4854$\times$1024 pixels at a voxel size of \SI{0.7}{\micro\meter} per pixel. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
- 		\subref{subfig:LungSlabDetailsGreenBG}: Closeup of inset cube at an outer position in the sample, including the background tissue. % 
- 		\subref{subfig:LungSlabDetailsGreen}: Closeup of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %
- 		\subref{subfig:LungSlabDetailsRed}: Closeup of inset cube at a central position in the sample. Single alveoly are clearly visible. %
- 		\subref{subfig:LungSlabDetailsRedBG}: Closeup of inset cube at a central position in the sample, including the background tissue. %
+ 		\subref{subfig:LungSlabDetailsGreenBG}: Close-up of inset cube at an outer position in the sample, including the background tissue. % 
+ 		\subref{subfig:LungSlabDetailsGreen}: Close-up of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %
+ 		\subref{subfig:LungSlabDetailsRed}: Close-up of inset cube at a central position in the sample. Single alveoli are clearly visible. %
+ 		\subref{subfig:LungSlabDetailsRedBG}: Close-up of inset cube at a central position in the sample, including the background tissue. %
 		The scale bars are only approximate, since it is a three-dimensional view. The top scale bar is valid for the longest length of the gray lung structure, the bottom scale bar is valid for the width of the red cube.%
 	}
 	\label{fig:LungSlabSophie}
-	\todo[inline]{adapt the scalebars to the final size of the images}
+	\todo[inline]{adapt the scale bars to the final size of the images}
 \end{figure}
