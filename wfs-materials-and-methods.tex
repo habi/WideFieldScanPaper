@@ -56,7 +56,7 @@ As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an e
 	\label{fig:2008c-qualityplot}
 \end{figure}
 
-The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the demand of the end-user, we were able to reduce the total acquisition time by 86\percent, as can be seen in table~\ref{tab:projections}. Albeit this reduction introduces some artifacts in the dataset, an automated segmentation of the airways is still possible, as is shown later on.
+The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the demand of the end-user, we were able to reduce the total acquisition time by \SI{86}{\percent}, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned of the same sample. This has been done to assess the introduction of artifacts through the reduction of the amount of projections. Albeit the aforementioned reduction in scanning time by \SI{86}{\percent} introduces artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown later on.
 
 \begin{table}
 \centering
@@ -88,7 +88,7 @@ The proposed protocols are designed in such a way that the total scanning time--
 	\label{tab:projections}
 \end{table}
 
-After the user has chosen a suitable protocol, the MATLAB-script writes a preference file to the disk. This preference file is parsed by a custom Python-script to interact with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is used to access and control all hardware of the TOMCAT beamline. We thus perform several subscans without user intervention, except entry of the sample name. All parameters like filename-suffixes of the subscans, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, also permitting a multiple batch scans of the same sample without any manual intervention. The sample on the sample holder was thus not touched during the acquisition of the 57 different subscans for the 19 protocols discussed later on. 
+After the user has chosen a suitable protocol, the MATLAB-script writes a preference file to the disk. This preference file is parsed by a custom Python-script to interact with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is used to access and control all hardware of the TOMCAT beamline. We thus perform several subscans without user intervention, except entry of the sample name. All parameters like filename-suffixes of the subscans, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, also permitting a multiple batch scans of the same sample without any manual intervention. The sample on the sample holder was thus not touched during the acquisition of the 57 different subscans for the 19 protocols. 
 
 \subsubsection{Covering a broad FOV}
 \label{subsec:covering a broad fov}
@@ -138,7 +138,7 @@ To cover the desired FOV, the projection images have to be obtained in such a ma
 
 After correction for variations in the x-ray beam, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}). According to~\citet{Hintermueller2009} the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement $\delta^2(\xi_{i,j})$ is computed. This directly provides a measure for the inequality of the two images within their overlapping parts. The local minimum of $\delta^2(\xi_{i,j})$ shows the effective displacement $\xi_{i,j}$ between the two adjacent images $i$and $j$. For three subscans we calculate the effective displacement $\xi_{1,2}$ and $\xi_{2,3}$ and stitch all the images into one big projection image.
 
-To fulfill the sampling theorem as defined in section~\ref{subsec:enhancing the field of view}, different amount of projections ($N_{i}$) have been recorded for each subscan $i$---at the lateral positions we record more projections compared to the central position. The stitching algorithm thus has to selectively stitch projections from subscan $i$ with several projection from subscan $i+1$ to one projection covering the FOV of subscan $i$ and $i+1$.
+To fulfill the sampling theorem as defined in section~\ref{subsec:enhancing the field of view}, different amount of projections ($N_{i}$) have been recorded for each subscan $i$---at the lateral positions we record more projections compared to the central position. The stitching algorithm thus has to selectively stitch projections from subscan $i$ with several projections from subscan $i+1$ to one projection covering the FOV of subscan $i$ and $i+1$.
 
 Figure \ref{fig:amount of projections} shows how projections from the different subscans relate to each other. Here we describe the most simple case, where the user has chosen a scanning protocol where the sampling theorem is completely fulfilled, thus we record 180 projections for the central and two times 360 projections for the two ring-scans. We have implemented a simple strategy for designing the different protocols; to facilitate the merging of the projections from each subscan, the amount of projections from the inner to the outer subscans is always dividable by two: 
 \begin{equation}
@@ -150,7 +150,7 @@ This approach facilitates the merging of the different subscans in such a way th
 \begin{figure}
 	\centering
 	\input{tikz-images/amountofprojections}%
-	\caption{Amount of Projections for a central- and a ring-scan. We assume that we have obtained 180 projections for the central scan and thus acquire two times 360 projections for the lateral scans. This enables us to stitch the projections $P_{1_{34}}$ (red line) from subscan 1 (red area), projection $P_{2_{17}}$ (green line) from the central subscan 2 (green area) and projection $P_{3_{394}}$ (blue line) of subscan 3 (blue area) to one big projection $P_{merge_{34}}$ which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For didactic reasons we shifted the central projection (green) by \SI{2}{\degree}, or else the overlap between these particular projection would not be visible.}%
+	\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 180 projections for the central scan and thus acquire two times 360 projections for the lateral scans. This enables us to stitch the projections $P_{1_{34}}$ (red line) from subscan 1 (red area), projection $P_{2_{17}}$ (green line) from the central subscan 2 (green area) and projection $P_{3_{394}}$ (blue line) of subscan 3 (blue area) to one big projection $P_{merge_{34}}$ which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For didactic reasons we shifted the central projection (green) by \SI{2}{\degree}, or else the overlap between these particular projection would not be visible.}%
 	\todo[inline]{Do we only speak of central and ring-scan or of 3 subscans?}
 	\label{fig:amount of projections}%
 \end{figure}
@@ -158,7 +158,7 @@ This approach facilitates the merging of the different subscans in such a way th
 \begin{figure}
 	\centering
 	\input{tikz-images/amountofprojections-linear}%
-	\caption{Amount of Projections for a central- and a ring-scan. Linear variant. The numbers above the ticks denote the number of the projection. Projections vertically above each other will be merged.}%
+	\caption{Number of merged projections for one central- and two ring-scan. Linear variant. The numbers above the ticks denote the number of the projection. Projections vertically above each other will be merged.}%
 	\label{fig:amount of projections - linear}%
 \end{figure}
 
@@ -167,4 +167,4 @@ All above mentioned steps have been implemented in a set of custom MATLAB\textsu
 
 After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered back-projection algorithm or a FFT-based gridrec algorithm~\cite{Dowd1999} on a 20-node server farm (Pentium 4, 2.8 GHz processor, 512 MB RAM\todo{cluster node specs?}). This reconstruction results in an image stack of 1024 or 2048 image slices in tif-format, depending on the binning chosen at recording time. 
 
-The size of the images recorded for this publication varies from 2996$\times$2996 pixels up to 9703$\times$9703 pixels, thus increasing the available FOV from three (2.93$\times$) to nearly five times (4.74$\times$) the available FOV.
+The reconstructions used for the assessment of the image quality of the 19 different scanned protocols of the same sample show a three-fold (2.93$\times$) increase in FOV from 1024$\times$1024 pixels to 2996$\times$2996 pixels. As a proof of concept, we also scanned and reconstructed a lung sample with 5 subscans, which led to a roughly five-fold (4.74$\times$) increase in available FOV from 2048$\times$2048 pixels to 9703$\times$9703 pixels.

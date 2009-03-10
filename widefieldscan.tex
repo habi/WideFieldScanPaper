@@ -19,7 +19,7 @@
 \usepackage{svn-multi} 								% to add SVN-Versioning-Info
 \usepackage{subfig} 		 						% subfigures
 \usepackage{siunitx}		 						% typographically correct units (\milli\meter, \kilo\electronvolt)
-\usepackage{booktabs} 								% nice tables
+\usepackage{booktabs}		 						% nice tables
 \usepackage{tikz} 									% extremely nice drawings
 \usepackage{pgfplots} 								% ditto for plots
 \usepackage{lipsum}									% for blind-text
@@ -27,6 +27,7 @@
 \usepackage{tikz}									% TikZ is no drawing program
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
 %\usepackage{endfloat}				 				% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
+%	\renewcommand{\efloatseparator}{}
 %\usepackage{flafter} 								% floats after their first instance
 %\usepackage{microtype} 							% for nicer typography
 	%\DisableLigatures{encoding=T1}
@@ -82,7 +83,7 @@
 \else
     \author{David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%   
 		\and Christoph Hintermüller\footremember{sls}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}%
-		\and Johannes Schittny\footrecall{ana} \footnote{corresponding author: \url{mailto:johannes.schittny@ana.unibe.ch}{johannes.schittny@ana.unibe.ch}}%
+		\and Johannes Schittny\footrecall{ana} \footnote{corresponding author: \href{mailto:johannes.schittny@ana.unibe.ch}{johannes.schittny@ana.unibe.ch}}%
 		\and Marco Stampanoni\footrecall{sls} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}}
     \date{Version of \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone), Revision \svnkw{LastChangedRevision}.} 
 \fi
