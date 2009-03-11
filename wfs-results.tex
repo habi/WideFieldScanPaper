@@ -15,35 +15,11 @@
 
 \section{Results}
 \label{sec:Results}
-\subsection{Qulality guided protocol selection}
-A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The properties of the scan have been chosen according to a MATLAB-plot---as described in section~\ref{seq:Image Acquisition}---which has been generated with \verb+MATLAB\wfs-sim\main.m+ \todo{only necessary if we provide the code\ldots} for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans.
-
-We assessed the image differences for the 19 scanned protocols in such a way that the raw data slices have been binarized using an automated thresholding algorithm method, which chooses the threshold to minimize the intraclass variance of the black and white pixels~\cite{Otsu1979}. The binarization of the images suppresses small variations in the gray values which can occur through the reconstruction for the different protocols. A suitable threshold has been automatically chosen by the thresholding algorithm.
-
-The thresholded slices of each protocol have been compared to the gold standard protocol in such a way that the sum of all pixels of the absolute difference image of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value. See equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-c}.
-
-\begin{eqnarray}
-                 Diff_{Protocol_{i}} &=& |Slice_{A_{i}}-Slice_{Protocol_{i}}| \label{eq:errorcalculation-a}\\
-             E_{Protocol_{norm_{i}}} &=& \sum_{x}\sum_{y} Diff_{Protocol_{i}} \label{eq:errorcalculation-b}\\
-\textrm{plotted }E_{Protocol_{norm}} &=& \sum_{i=1:5:1024}E_{Protocol_{norm_{i}}} \label{eq:errorcalculation-c}
-\end{eqnarray}
-
-This error value has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean and standard deviation have been plotted (shown in figure~\ref{fig:NormalizedErrorPlot}) in such a way that the resulting error has been scaled from 0 to 1.
-
-We see that---as expected---the normalized error grows with decreasing amount of total obtained projections. The simulated scanning quality shown in figure~\ref{fig:2008c-qualityplot} shows the simulated quality to expect from the scan, while figure~\ref{fig:NormalizedErrorPlot} is a plot of the calculated error of the different protocols compared to protocol A\todo{explain more in depth!!!}.
-
-\begin{figure}
-	\centering
-		\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
-	\caption{Plot of normalized Error for the different protocols. The normalized Error has been calculated in such a way that we have taken the Difference image for Protocol 'x' compared to Protocol 'A' and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol.}
-	\label{fig:NormalizedErrorPlot}
-\end{figure}
-
 \subsection{Image Merging and Reconstruction}
 \label{sec:Image Merging and Reconstruction}
 Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{5.734}{\milli\meter} which is approximately three times the size of what can be achieved with one single scan.
 
-\begin{figure}[p]
+\begin{figure}
 	\renewcommand{\imsize}{.16\linewidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} % desired display width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/512} % pixel width of image
@@ -91,8 +67,37 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 	\label{fig:wide field scan results}	
 \end{figure}
 
+\subsection{Quality guided protocol selection}
+A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The properties of the scan have been chosen according to a MATLAB-plot---as described in section~\ref{seq:Image Acquisition}---which has been generated with \verb+MATLAB\wfs-sim\main.m+ \todo{only necessary if we provide the code\ldots} for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans.
+
+We assessed the image differences for the 19 scanned protocols in such a way that the raw data slices have been binarized using an automated thresholding algorithm method, which chooses the threshold to minimize the intraclass variance of the black and white pixels~\cite{Otsu1979}. The binarization of the images suppresses small variations in the gray values which can occur through the reconstruction for the different protocols. A suitable threshold has been automatically chosen by the thresholding algorithm.
+
+The thresholded slices of each protocol have been compared to the gold standard protocol in such a way that the sum of all pixels of the absolute difference image ($Diff_{Protocol_{i}}$) of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value ($E_{Protocol_{norm_{i}}}$). Equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b} show the details of this calculations..
+
+\begin{eqnarray}
+    Diff_{Protocol_{i}} &=& |Slice_{A_{i}}-Slice_{Protocol_{i}}| \label{eq:errorcalculation-a}\\
+E_{Protocol_{norm_{i}}} &=& \sum_{x}\sum_{y} Diff_{Protocol_{i}} \label{eq:errorcalculation-b}\\
+    E_{Protocol_{norm}} &=& \overline{E_{Protocol_{norm_{i}}}} \pm \sigma(E_{Protocol_{norm_{i}}}) \textrm{ for } i=1:5:1024 \label{eq:errorcalculation-c}
+\end{eqnarray}
+
+The error value ($E_{Protocol_{norm}}$ has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean ($\overline{E_{Protocol_{norm_{i}}}}$) and standard deviation of the error have been plotted (shown in figure~\ref{fig:NormalizedErrorPlot}) in such a way that the error has been scaled in arbitrary units from 0 to 1.
+
+We see that---as expected---the normalized error grows with decreasing amount of total obtained projections. The simulated scanning quality shown in figure~\ref{fig:2008c-qualityplot} shows the simulated quality to expect from the scan, while figure~\ref{fig:NormalizedErrorPlot} is a plot of the calculated error of the different protocols compared to protocol A\todo{explain more in depth!!!}.
+
+\begin{figure}
+	\centering
+		\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
+	\caption{Plot of normalized Error for the different protocols. The normalized Error has been calculated in such a way that we have taken the Difference image for Protocol 'x' compared to Protocol 'A' and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol.}
+	\label{fig:NormalizedErrorPlot}
+\end{figure}
+
 \subsection{Three dimensional visualizations}
 \subsubsection{19 Protocols}
+The 19 different protocols which have been obtained from the same sample have been three dimensionally viszalized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany).
+Using a visualization network \todo{exactly explain the network?} we automatically segmented airway segments from the dataset using a region growing algorithm~\cite{wiki:regiongrowing} using the same seed point to extract segments for all protocols.
+
+Two exemplary visualizations of such segment extractions are shown in figure~\ref{fig:BvsT}\todo{explain these extracions in more details}.
+
 \begin{figure}
 	\centering
 	\renewcommand{\imsize}{.5\linewidth}	
@@ -105,16 +110,18 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-B}}\hfill
 		\subfloat[Detailed view of segments of Protocol B]{%
 			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-T}}\\
-		\subfloat[Detailed view of underside of Protocol B]{%
+		\subfloat[Bottom view of underside of Protocol B]{%
 			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-B}}\hfill
-		\subfloat[Detailed view of underside of Protocol T]{%
+		\subfloat[Bottom view of underside of Protocol T]{%
 			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-T}}
 	\caption{Segmentation of two exemplary protocols, namely B and T.}
 	\label{fig:BvsT}
 \end{figure}
 
 \subsubsection{5 instead of 3 subscans}
-\begin{figure}[p]
+As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}.
+
+\begin{figure}
 	\renewcommand{\imsize}{\linewidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} 		 % desired displayed width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/1589} % 1589*728 = width of imagefile used below
@@ -167,7 +174,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 	 	\label{subfig:LungSlabDetailsRedBG}%
 		}
 	\caption{Visualization of lung tissue slab: %
-		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554$\times$4854$\times$1024 pixels at a voxel size of \SI{0.7}{\micro\meter} per pixel. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
+		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554$\times$4854$\times$1024 pixels at a voxel side length of \SI{0.7}{\micro\meter}. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
  		\subref{subfig:LungSlabDetailsGreenBG}: Close-up of inset cube at an outer position in the sample, including the background tissue. % 
  		\subref{subfig:LungSlabDetailsGreen}: Close-up of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %
  		\subref{subfig:LungSlabDetailsRed}: Close-up of inset cube at a central position in the sample. Single alveoli are clearly visible. %
