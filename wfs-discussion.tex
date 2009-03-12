@@ -31,7 +31,7 @@ We found this:
 	\item Wide Field Scan is doable
 	\item for smallish samples (up to 5 subscans) well suited
 	\begin{itemize}
-		\item if samples are unbinned, even 5 subscans are too big, R243B06a\_merge (with merged .tifs of a size of 9703$\times$2048 pixels) has not been reconstructed due to RecoManager-\verb+gridrec+-size-Problems.
+		\item if samples are un-binned, even 5 subscans are too big, R243B06a\_merge (with merged .tiffs of a size of 9703$\times$2048 pixels) has not been reconstructed due to RecoManager-\verb+gridrec+-size-Problems.
 	\end{itemize}
 	\item for bigger samples ($>$ 7 subscans) amount of data is too big to handle (2048 rec.tifs with potential sizes of 14000$\times$14000 px) to be able to reconstruct one full sample with full resolution.
 	\item thus partial ROI-reconstruction $>$ extraction of ROI from RecoManager and then reconstruct only this Region. Partial stitching of sinograms, padding them to the correct size, correct RotCenter for this sinogram $>$ reconstruction of small size.

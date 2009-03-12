@@ -72,7 +72,7 @@ A sequence of 19 protocols with varying quality has been scanned to assess the s
 
 We assessed the image differences for the 19 scanned protocols in such a way that the raw data slices have been binarized using an automated thresholding algorithm method, which chooses the threshold to minimize the intraclass variance of the black and white pixels~\cite{Otsu1979}. The binarization of the images suppresses small variations in the gray values which can occur through the reconstruction for the different protocols. A suitable threshold has been automatically chosen by the thresholding algorithm.
 
-The thresholded slices of each protocol have been compared to the gold standard protocol in such a way that the sum of all pixels of the absolute difference image ($Diff_{Protocol_{i}}$) of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value ($E_{Protocol_{norm_{i}}}$). Equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b} show the details of this calculations..
+The thresholded slices of each protocol have been compared to the gold standard protocol in such a way that the sum of all pixels of the absolute difference image ($Diff_{Protocol_{i}}$) of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value ($E_{Protocol_{norm_{i}}}$). Equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b} show the details of this calculations.
 
 \begin{eqnarray}
     Diff_{Protocol_{i}} &=& |Slice_{A_{i}}-Slice_{Protocol_{i}}| \label{eq:errorcalculation-a}\\
@@ -93,10 +93,10 @@ We see that---as expected---the normalized error grows with decreasing amount of
 
 \subsection{Three dimensional visualizations}
 \subsubsection{19 Protocols}
-The 19 different protocols which have been obtained from the same sample have been three dimensionally viszalized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany).
+The 19 different protocols which have been obtained from the same sample have been three dimensionally visualized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany).
 Using a visualization network \todo{exactly explain the network?} we automatically segmented airway segments from the dataset using a region growing algorithm~\cite{wiki:regiongrowing} using the same seed point to extract segments for all protocols.
 
-Two exemplary visualizations of such segment extractions are shown in figure~\ref{fig:BvsT}\todo{explain these extracions in more details}.
+Two exemplary visualizations of such segment extractions are shown in figure~\ref{fig:BvsT}\todo{explain these extractions in more details}.
 
 \begin{figure}
 	\centering
