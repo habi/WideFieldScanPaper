@@ -97,7 +97,6 @@ The 19 different protocols which have been obtained from the same sample have be
 Using a visualization network \todo{exactly explain the network?} we automatically segmented airway segments from the dataset using a region growing algorithm~\cite{wiki:regiongrowing} using the same seed point to extract segments for all protocols.
 
 Two exemplary visualizations of such segment extractions are shown in figure~\ref{fig:BvsT}\todo{explain these extractions in more details}.
-
 \begin{figure}
 	\centering
 	\renewcommand{\imsize}{.5\linewidth}	
@@ -219,7 +218,7 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}.
 
 \begin{figure}
-	\renewcommand{\imsize}{\linewidth}
+	\renewcommand{\imsize}{\textwidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} 		 % desired displayed width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/1589} % 1589*728 = width of imagefile used below
 	\newcommand{\startx}{982} %= 1589*.618

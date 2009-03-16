@@ -1,5 +1,5 @@
 \documentclass[paper=A4,DIV=calc]{scrartcl}
-%\documentclass[paper=A4, DIV=calc,BCOR=0cm]{scrartcl}
+%\documentclass[draft,paper=A4]{scrartcl}
 
 \newif\ifhtml
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
@@ -18,7 +18,7 @@
 \usepackage[english]{babel}
 \usepackage{svn-multi} 								% to add SVN-Versioning-Info
 \usepackage{caption,subfig}                         % [font = small]
-\usepackage{siunitx}		 						% typographically correct units (\milli\meter, \kilo\electronvolt)
+\usepackage[alsoload=binary]{siunitx}		 		% typographically correct units (\milli\meter, \kilo\electronvolt), with [alsoload=binary] \SI{100}{\giga\byte}
 \usepackage{booktabs}		 						% nice tables
 \usepackage{tikz} 									% extremely nice drawings
 \usepackage{pgfplots} 								% ditto for plots
@@ -122,8 +122,8 @@ The stacking of tomograms increases the field of view in vertical direction. The
 \include{wfs-acknowledgements}
 
 \bibliographystyle{unsrtnat}
-\bibliography{../references}
-%\bibliography{references-wfs}
+%\bibliography{../references}
+\bibliography{references-wfs}
 
 \appendix
 

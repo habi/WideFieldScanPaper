@@ -14,26 +14,16 @@
 \end{center}
 
 \section{Discussion}
-We found this:
+We have successfully increased the FOV of the tomographic imaging at the TOMCAT beamline. We have selectively defined different scanning protocols for the optimization of the total imaging time towards the expected imaging quality.
+
+The whole scanning process is fully automated; after the user has chosen a defined protocol, all subscans are recorded in an unattended way without user intervention. After the multiple subscans have been recorded, the stitching of the different amount of projections recorded per subscans into big projections covering the desired FOV is performed with minimal user interaction, i.e.\ the user only has to specify the sample name which is common for all three subscans and the desired output name. The stitching is performed in such a way that the existing reconstruction work flow present at the beamline (as specified by~\citet{Hintermueller2009}) is still applicable.
+
+The defined protocols are theoretically expandable to more than the showed 5 subscans, albeit the reconstruction of samples recorded with more subscans implies tremendous requirements on the data processing infrastructure. The datasets shown in figures~\ref{fig:BvsT}--\ref{fig:skel} consist of 1024 slices with a size of 2792$\times$2792 pixels each. This amounts to a total size of the dataset of approximately \SI{7.6}{\giga\byte}. If we use the possibility to save the tomographic dataset with using \SI{16}{\bit} color depth and assume an un-binned scan with 7 overlapping subscans, the size of the stitched projections will be around 14000$\times$14000 pixels. The full dataset will consist of 2048 stitched slices with that size, with amounts to a total size of approximately \SI{383}{\giga\byte} for the full dataset. All mentioned datasets have been recorded at a gray value depth \todo{gray value range? depth? channels?} of \SI{8}{\bit}, TOMCAT also offers the possibility to record the tomographic datasets with \SI{16}{\bit} depth, so the full dataset of a wide field scan with a seven-fold increase in FOV with this bit depth would result in one dataset with a size of \SI{0.76}{\tera\byte}, which is well beyond the capacities for three dimensional visualization present at our institute.
+
+Nonetheless the scanning of samples with a more than five-fold increase in FOV is interesting, since it would enable the end-user to selectively reconstructs regions of interest (ROI) from the sample with ultra-high resolution. Up to now a two-step process was required to scan ROI from ``big'' samples\todo{citation of publication with ROIPicker?}. In a first step, a registered overview scan of the sample at lower resolution was acquired, then a ROI to be scanned with high resolution was defined in this low-resolution tomographic dataset and a high resolution local tomography scan of this ROI was performed at a second allotted beam shift at TOMCAT. This cumbersome two-step process is now obsolete, since all the high-resolution data of the sample is obtained at the first beam shift\todo{idea of partial sinograms and thus partial reconstructions? extraction of ROI from RecoManager and then reconstruct only this Region. Partial stitching of sinograms, padding them to the correct size, correct RotCenter for this sinogram $>$ reconstruction of small size}
+
 \begin{itemize}
 	\item Problems with insufficient sampling for outer subscans?
 	\item Stitching takes long time (incorporation into \verb+prj2sin+ and \verb+sin2rec+ @ beamline?)
-	\item MATLAB \& Python-Script prior to imaging
-	\begin{itemize}
-		\item integration with robot $>$ potentially eliminating any user intervention with sample placement.
-	\end{itemize}
-	\item automatically scanning all subscans, no user intervention.
-	\item MATLAB-stitching after imaging
-	\item RecoManager
-	\begin{itemize}
-		\item \verb+gridrec+-Problem solved?
-	\end{itemize}
-	\item Wide Field Scan is doable
-	\item for smallish samples (up to 5 subscans) well suited
-	\begin{itemize}
-		\item if samples are un-binned, even 5 subscans are too big, R243B06a\_merge (with merged .tiffs of a size of 9703$\times$2048 pixels) has not been reconstructed due to RecoManager-\verb+gridrec+-size-Problems.
-	\end{itemize}
-	\item for bigger samples ($>$ 7 subscans) amount of data is too big to handle (2048 rec.tifs with potential sizes of 14000$\times$14000 px) to be able to reconstruct one full sample with full resolution.
-	\item thus partial ROI-reconstruction $>$ extraction of ROI from RecoManager and then reconstruct only this Region. Partial stitching of sinograms, padding them to the correct size, correct RotCenter for this sinogram $>$ reconstruction of small size.
-	\item Would potentially solve "problem" with ROI-Picker, where one needs two allotted beam-times to achieve this. First, overview scan, then pick ROI, then detailed scan. With this method, full dataset is obtained in one scan, then partial reconstructions can be done.
+	\item integration with robot $>$ potentially eliminating any user intervention with sample placement.
 \end{itemize}

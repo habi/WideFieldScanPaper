@@ -1,23 +1,8 @@
 \documentclass{article}
-\usepackage[pdftex,active,tightpage]{preview}
 \usepackage{tikz}
 \begin{document}
-\begin{preview}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{equation}
-%Diff_{B} = |Slice_{A}-Slice_{B}|\newline
-%E_{B_{norm}} = \sum_{x}\sum_{y} Diff_{B}
-%\label{eq:}
-%\end{equation}
-
-\begin{eqnarray}
-Diff_{Protocol_{i}} &=& |Slice_{A_{i}}-Slice_{Protocol_{i}}|\\
-E_{Protocol_{norm_{i}}} &=& \sum_{x}\sum_{y} Diff_{Protocol_{i}}\\
-\textrm{plotted }E_{Protocol_{norm}} &=& \sum_{i=1:5:1024}E_{Protocol_{norm_{i}}}
-\label{eq:}
-\end{eqnarray}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{preview}
+\begin{tikzpicture}
+  \foreach \i in {0,22.5,...,359}
+  \draw[rotate=\i] (1,1) ellipse (1 and .5);
+\end{tikzpicture}
 \end{document}
