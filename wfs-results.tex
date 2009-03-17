@@ -126,12 +126,12 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 		\subfloat[conventional scan]{
 			\label{subfig:overview-s2}%
 %			\fbox{%
-%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-merge-overview-merge}%
+%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-overview-merge}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\def\x{200}
 				\def\y{700}
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-merge-overview-s2}};
+	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-s2}};
 %					\draw[|-|,thick] (230,513) -- (724,708) node [midway,below] {\SI{1.4336}{\milli\meter}}; 
 %				    %\draw[|-|,thick] (0,0) -- (718,0) node[midway,below] {\SI{1.4336}{\milli\meter}}; 
 %				    % 531 px = 1.4336 mm > 100 px = 269.933 um > 1349 px = 500 um
@@ -142,12 +142,12 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 		\subfloat[wide field scan]{
 			\label{subfig:overview-merge}%
 %			\fbox{%
-%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-merge-overview-merge}%
+%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-overview-merge}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\def\x{200}
 				\def\y{650}
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-merge-overview-merge}};
+	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-merge}};
 %					\draw[|-|,thick] (11,517) -- (858,754) node [midway,right] {\SI{3.8444}{\milli\meter}}; 
 %				    \draw[|-|,thick] (0,0) -- (1011,0) node[midway,below] {\SI{3.8444}{\milli\meter}}; 
 				    % 880 px = 3.8444 mm > 100 px = 437 um > 114 px = 500 um
@@ -166,28 +166,29 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 		\subfloat[conventional scan]{%
 			\label{subfig:down-s2}%
 %			\fbox{
-%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-merge-down-s2}%
+%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-down-s2}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\def\x{750}
 				\def\y{700}
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-merge-down-s2}};
+    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};
 %				\draw[|-|,thick] (350,290) -- (350,595) node [midway,below] {\SI{1.4336}{\milli\meter}}; 
-%			   	 \draw[|-|,thick] (0,0) -- (0,640) node[midway,below] {\SI{1.4336}{\milli\meter}};
+%			   	\draw[|-|,thick] (0,0) -- (0,640) node[midway,below] {\SI{1.4336}{\milli\meter}};
 			   	 % 305 px = 1.4336 mm > 100 px = 470 um > 106 px = 500um
 					\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}}; 
+                    \draw[|-|,thick] (781,294) -- (771,591) node [midway,above] {\SI{1.4}{\milli\meter}}; 
 				\end{tikzpicture}%
 %			}%
 		}%\\%
 		\subfloat[wide field scan]{
 			\label{subfig:down-merge}%%
 %			\fbox{%
-%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-merge-down-merge}%
+%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-down-merge}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\def\x{775}
 				\def\y{800}
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-merge-down-merge}};
+    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};
 %			    	\draw[|-|,thick] (547,19) -- (498,775) node [midway,right] {\SI{3.8444}{\milli\meter}}; 
 %					\draw[|-|,thick] (0,0) -- (0,882) node[midway,right] {\SI{3.8444}{\milli\meter}}; 
 				    % 758 px = 3.844 mm > 100 px = 507 um > 99 px = 500um
@@ -203,11 +204,11 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 \renewcommand{\imsize}{\linewidth}
 \begin{figure}
 	\centering
-%		\subfloat[conventional scan]{ncludegraphics[width=\imsize]{img/widefieldscanning/R108C04C-merge-skeleton-s2}
+%		\subfloat[conventional scan]{ncludegraphics[width=\imsize]{img/widefieldscanning/R108C04C-skeleton-s2}
 %			}\\
 %		\subfloat[merge]{
 			\includegraphics[%angle=90,
-							width=\imsize]{img/widefieldscanning/R108C04C-merge-skeleton-merge}%
+							width=\imsize]{img/widefieldscanning/R108C04C-skeleton-merge}%
 %			}
 	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:overview} and ~\ref{fig:down}), including the airway skeletons of the extracted airways.}
 	\label{fig:skel}

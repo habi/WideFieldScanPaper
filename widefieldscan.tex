@@ -1,14 +1,15 @@
 \documentclass[paper=A4,DIV=calc]{scrartcl}
-%\documentclass[draft,paper=A4]{scrartcl}
+%\documentclass[draft,paper=A4,DIV=calc]{scrartcl}
 
 \newif\ifhtml
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
-%\htmltrue
+\htmltrue
 %\htmlfalse
 
 \ifhtml % In case of web format output...
 	\def\pgfsysdriver{pgfsys-tex4ht.def}	
-	\usepackage[dvips]{graphicx}
+%	\usepackage[dvips]{graphicx}
+   	\usepackage{graphicx}
 \else
    \usepackage{graphicx}
 \fi
@@ -115,7 +116,7 @@ The stacking of tomograms increases the field of view in vertical direction. The
 %\tableofcontents
 
 \include{wfs-introduction}
-\include{wfs-materials-and-methods}
+%\include{wfs-materials-and-methods}
 \include{wfs-results}
 \include{wfs-discussion}
 \include{wfs-summary}
