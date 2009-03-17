@@ -4,14 +4,13 @@
 \newif\ifhtml
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
 \htmltrue
-%\htmlfalse
+\htmlfalse
 
 \ifhtml % In case of web format output...
 	\def\pgfsysdriver{pgfsys-tex4ht.def}	
-%	\usepackage[dvips]{graphicx}
-   	\usepackage{graphicx}
+	\usepackage{graphicx}
 \else
-   \usepackage{graphicx}
+	\usepackage{graphicx}
 \fi
 
 \usepackage[ansinew]{inputenc} 						% so I can write my Name without \"{u}
@@ -29,12 +28,12 @@
 \usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
 %\usepackage{endfloat}				 				% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
 %	\renewcommand{\efloatseparator}{}
-%\usepackage{flafter} 								% floats after their first instance
-%\usepackage{microtype} 							% for nicer typography
-	%\DisableLigatures{encoding=T1}
-%\usepackage{setspace}
+\usepackage{flafter} 								% floats after their first instance
+%\usepackage{microtype}	 							% for nicer typography
+%	\DisableLigatures{encoding = *, family = * }
+\usepackage{setspace}
 %	\doublespacing
-%	\onehalfspacing
+	\onehalfspacing
 %	\singlespacing
 
 \ifhtml
@@ -45,19 +44,18 @@
 	\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
 \else
 	\usepackage{lineno}
-		% line numbers
 		\linenumbers
 		%\pagewiselinenumbers
 		\modulolinenumbers[2]
 	\usepackage[backref]{hyperref}					% backref generates link from references back to text
 	\usepackage[]{todonotes} 		 				% [disable]
-%	\hypersetup{pdfauthor={David Haberthür},%
-%				pdftitle={WideFieldScanPaper},%
-%				pdfsubject={Tomography},%
-%				pdfkeywords={tomography, synchrotron, microscopy, field of view, enhancement, simulation},%
+	\hypersetup{pdfauthor={David Haberthür},%
+				pdftitle={WideFieldScanPaper},%
+				pdfsubject={Tomography},%
+				pdfkeywords={tomography, synchrotron, microscopy, field of view, enhancement, simulation},%
 %%				pdfborder={0 0 0},% > no border around links, but...
 %%				colorlinks=true % ... colored (true > no border, use "false" for final output)
-%				}
+				}
 \fi
 
 %% Subversion Information
@@ -116,7 +114,7 @@ The stacking of tomograms increases the field of view in vertical direction. The
 %\tableofcontents
 
 \include{wfs-introduction}
-%\include{wfs-materials-and-methods}
+\include{wfs-materials-and-methods}
 \include{wfs-results}
 \include{wfs-discussion}
 \include{wfs-summary}
