@@ -1,0 +1,138 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+%\documentclass[paper=A4,DIV=calc]{scrartcl}
+%\documentclass[draft,paper=A4,DIV=calc]{scrartcl}
+
+%\documentclass[paper=A4]{scrartcl}
+%\documentclass[draft,paper=A4]{scrartcl}
+
+\newif\ifhtml
+% HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
+\htmltrue
+\htmlfalse
+
+\ifhtml % In case of web format output...
+	\def\pgfsysdriver{pgfsys-tex4ht.def}	
+	\usepackage{graphicx}
+\else
+	\usepackage{graphicx}
+\fi
+
+\usepackage[ansinew]{inputenc} 						% so I can write my Name without \"{u}
+\usepackage[T1]{fontenc} 							% Standard Latex-Fonts
+\usepackage[english]{babel}
+\usepackage{svn-multi} 								% to add SVN-Versioning-Info
+\usepackage{caption,subfig}                         % [font = small]
+\usepackage[alsoload=binary]{siunitx}		 		% typographically correct units (\milli\meter, \kilo\electronvolt), with [alsoload=binary] \SI{100}{\giga\byte}
+\usepackage{booktabs}		 						% nice tables
+\usepackage{tikz} 									% extremely nice drawings
+\usepackage{pgfplots} 								% ditto for plots
+\usepackage{lipsum}									% for blind-text
+\usepackage{fancyhdr}
+\usepackage{tikz}									% TikZ is no drawing program
+%\usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
+%\usepackage{endfloat}				 				% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
+%	\renewcommand{\efloatseparator}{}
+%\usepackage{flafter} 								% floats after their first instance
+%\usepackage{microtype}	 							% for nicer typography
+%	\DisableLigatures{encoding = *, family = * }
+%\usepackage{setspace}
+%	\doublespacing
+%	\onehalfspacing
+%	\singlespacing
+
+\ifhtml
+	\usepackage{url}
+	\usepackage{index}
+	\usepackage{color}
+	\newindex{todo}{todo}{tnd}{Todo List} 
+	\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
+\else
+	\usepackage{lineno}
+		\linenumbers
+		%\pagewiselinenumbers
+		\modulolinenumbers[2]
+	\usepackage[backref]{hyperref}					% backref generates link from references back to text
+	\usepackage[]{todonotes} 		 				% [disable]
+	\hypersetup{pdfauthor={David Haberthür},%
+				pdftitle={WideFieldScanPaper},%
+				pdfsubject={Tomography},%
+				pdfkeywords={tomography, synchrotron, microscopy, field of view, enhancement, simulation},%
+%%				pdfborder={0 0 0},% > no border around links, but...
+%%				colorlinks=true % ... colored (true > no border, use "false" for final output)
+				}
+\fi
+
+%% Subversion Information
+\svnidlong
+{$HeadURL: http://code.ana.unibe.ch/svn/WideFieldScanPaper/widefieldscan.tex $}
+{$LastChangedDate: 2009-03-17 16:19:18 +0100 (Di, 17 Mrz 2009) $}
+{$LastChangedRevision: 119 $}
+{$LastChangedBy: $}
+
+\pagestyle{fancy}
+
+\newcommand{\imsize}{\linewidth}
+\newlength\imagewidth % needed for scalebars
+\newlength\imagescale % needed for scalebars
+
+%from http://tinyurl.com/38rqn4 to use for institutions...
+\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
+\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]} 
+
+\title{Wide Field Scan Paper}
+\ifhtml % In case of web format output...
+    \author{David Haberthür \and Christoph Hintermüller \and Johannes Schittny \and Marco Stampanoni}
+	\date{\today}
+\else
+    \author{David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%   
+		\and Christoph Hintermüller\footremember{sls}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}%
+		\and Johannes Schittny\footrecall{ana} \footnote{corresponding author: \href{mailto:johannes.schittny@ana.unibe.ch}{johannes.schittny@ana.unibe.ch}}%
+		\and Marco Stampanoni\footrecall{sls} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}}
+    \date{Version of \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone), Revision \svnkw{LastChangedRevision}.} 
+\fi
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
+
+The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic dataset in horizontal direction. It is the base for acquiring three dimensional information of samples with bigger volumens than currently supported. Different image acquisition protocols have been implemented for the end-user at the beamline.
+
+We show that the lateral field of view of TOMCAT can be increased up to five times and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of arbitrary samples in an unattended, automatic way.
+\end{abstract}
+
+\begin{center}
+	\fbox{
+		\begin{minipage}{.618\textwidth}
+		The file \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
+		\end{minipage}
+	} 
+\end{center}
+
+\ifhtml
+	\emph{Did you sort out all todos?}
+\else
+	\listoftodos
+\fi
+
+%\tableofcontents
+
+\include{wfs-introduction}
+\include{wfs-materials-and-methods}
+\include{wfs-results}
+\include{wfs-discussion}
+\include{wfs-summary}
+\include{wfs-acknowledgements}
+
+\bibliographystyle{unsrtnat}
+%\bibliography{../references}
+\bibliography{references-wfs}
+
+\appendix
+
+\include{wfs-appendix}
+
+\end{document}
