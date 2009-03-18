@@ -17,7 +17,7 @@
 \label{sec:Results}
 \subsection{Image Merging and Reconstruction}
 \label{sec:Image Merging and Reconstruction}
-Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{5.734}{\milli\meter} which is approximately three times the size of what can be achieved with one single scan.
+Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{2994}{pixels} (\SI{4.19}{\milli\meter}) which is approximately three times the size of what can be achieved with one single binned scan (\SI{1024}{pixels} or \SI{1.43}{\milli\meter}).
 
 \begin{figure}
 	\renewcommand{\imsize}{.16\linewidth}
@@ -72,14 +72,14 @@ A sequence of 19 protocols with varying quality has been scanned to assess the s
 
 We assessed the image differences for the 19 scanned protocols in such a way that the raw data slices have been binarized using an automated thresholding algorithm method, which chooses the threshold to minimize the intraclass variance of the black and white pixels~\cite{Otsu1979}. The binarization of the images suppresses small variations in the gray values which can occur through the reconstruction for the different protocols. A suitable threshold has been automatically chosen by the thresholding algorithm.
 
-The thresholded slices of each protocol have been compared to the gold standard protocol in such a way that the sum of all pixels of the absolute difference image ($Diff_{Protocol_{i}}$) of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value ($E_{Protocol_{norm_{i}}}$). Equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b} show the details of this calculations.
+The thresholded slices of each protocol have been compared to the gold standard protocol in such a way that the sum of all pixels of the absolute difference image ($D_{Prot_{i}}$) of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value ($E_{Prot_{norm_{i}}}$). Equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b} show the details of this calculations.
 \begin{eqnarray}
-    Diff_{Protocol_{i}} &=& |Slice_{A_{i}}-Slice_{Protocol_{i}}| \label{eq:errorcalculation-a}\\
-E_{Protocol_{norm_{i}}} &=& \sum_{x}\sum_{y} Diff_{Protocol_{i}} \label{eq:errorcalculation-b}\\
-    E_{Protocol_{norm}} &=& \overline{E_{Protocol_{norm_{i}}}} \pm \sigma(E_{Protocol_{norm_{i}}}) \textrm{ for } i=1:5:1024 \label{eq:errorcalculation-c}
+    D_{Prot_{i}} &=& |Slice_{A_{i}}-Slice_{Protocol_{i}}| \label{eq:errorcalculation-a}\\
+E_{Prot_{norm_{i}}} &=& \sum_{x}\sum_{y} D_{Prot_{i}} \label{eq:errorcalculation-b}\\
+    E_{Prot_{norm}} &=& \overline{E_{Prot_{norm_{i}}}} \pm \sigma(E_{Prot_{norm_{i}}}) \textrm{ for } i=1:5:1024 \label{eq:errorcalculation-c}
 \end{eqnarray}
 
-The error value ($E_{Protocol_{norm}}$ has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean ($\overline{E_{Protocol_{norm_{i}}}}$) and standard deviation of the error have been plotted (shown in figure~\ref{fig:NormalizedErrorPlot}) in such a way that the error has been scaled in arbitrary units from 0 to 1.
+The error value ($E_{Prot_{norm}}$) has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean ($\overline{E_{Prot_{norm_{i}}}}$) and standard deviation of the error have been plotted (shown in figure~\ref{fig:NormalizedErrorPlot}) in such a way that the error has been scaled in arbitrary units from 0 to 1\todo{change ``direction'' of plot, so it matches QualityPlot}
 
 We see that---as expected---the normalized error grows with decreasing amount of total obtained projections. The simulated scanning quality shown in figure~\ref{fig:2008c-qualityplot} shows the simulated quality to expect from the scan, while figure~\ref{fig:NormalizedErrorPlot} is a plot of the calculated error of the different protocols compared to protocol A\todo{explain more in depth!!!}.
 
@@ -114,12 +114,13 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-T}}
 	\caption{Segmentation of two exemplary protocols, namely B and T.}
 	\label{fig:BvsT}
+	\todo[inline]{this figure doesn't help at all. yet.}
 \end{figure}
 
 \subsubsection{some other visualizations}
 \renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
-\pgfmathsetlength{\imagescale}{\imagewidth/1293} % pixel width of imagefile used below
+\pgfmathsetlength{\imagescale}{\imagewidth/1202} % pixel width of imagefile used below
 \begin{figure}
 	\centering
 		\subfloat[conventional scan]{
@@ -127,13 +128,13 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 %			\fbox{%
 %				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-overview-merge}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-				\def\x{200}
-				\def\y{700}
+				\def\x{225}
+				\def\y{625}
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-s2}};
-					\draw[|-|,thick] (230,513) -- (724,708) node [midway,above] {\SI{1.4336}{\milli\meter}}; 
-%				    % 531 px = 1.4336 mm > 100 px = 269.933 um > 1349 px = 500 um
-				    \draw[|-|,thick] (\x,\y) -- (185+\x,\y) node [midway,above] {\SI{500}{\micro\meter}}; 
+					\draw[|-|,thick] (229,428) -- (659,586) node [right] {\SI{1.4336}{\milli\meter}}; 
+%				    % 458 px = 1.4336 mm > 100 px = 313 um > 160 px = 500 um
+				    \draw[|-|,thick] (\x,\y) -- (160+\x,\y) node [midway,above] {\SI{500}{\micro\meter}}; 
 				\end{tikzpicture}%
 %			}%
 		}%
@@ -143,12 +144,12 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 %				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-overview-merge}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\def\x{200}
-				\def\y{650}
+				\def\y{625}
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-merge}};
-					\draw[|-|,thick] (11,517) -- (858,754) node [midway,right] {\SI{3.8444}{\milli\meter}}; 
-				    % 880 px = 3.8444 mm > 100 px = 437 um > 114 px = 500 um
-					\draw[|-|,thick] (\x,\y) -- (228+\x,\y) node [midway,above] {\SI{1}{\milli\meter}}; 
+					\draw[|-|,thick] (40,456) -- (890,610) node [right] {\SI{3.8444}{\milli\meter}}; 
+				    % 864 px = 3.8444 mm > 100 px = 445 um > 112 px = 500 um
+					\draw[|-|,thick] (\x,\y) -- (224+\x,\y) node [midway,above] {\SI{1}{\milli\meter}}; 
 				\end{tikzpicture}%
 %			}%
 		}%
@@ -166,10 +167,10 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 %				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-down-s2}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\def\x{750}
-				\def\y{700}
+				\def\y{725}
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
     				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};
-				\draw[|-|,thick] (350,290) -- (350,595) node [midway,below] {\SI{1.4336}{\milli\meter}}; 
+				\draw[|-|,thick] (350,290) -- (350,595) node [left] {\SI{1.4336}{\milli\meter}}; 
 			   	 % 305 px = 1.4336 mm > 100 px = 470 um > 106 px = 500um
 					\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}}; 
 				\end{tikzpicture}%
@@ -181,10 +182,10 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 %				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-down-merge}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\def\x{775}
-				\def\y{800}
+				\def\y{825}
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
     				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};
-			    	\draw[|-|,thick] (547,19) -- (498,775) node [midway,right] {\SI{3.8444}{\milli\meter}}; 
+			    	\draw[|-|,thick] (547,19) -- (498,775) node [left] {\SI{3.8444}{\milli\meter}}; 
 				    % 758 px = 3.844 mm > 100 px = 507 um > 99 px = 500um
 					\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}}; 
 				\end{tikzpicture}%

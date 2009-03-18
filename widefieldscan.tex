@@ -1,4 +1,4 @@
-\documentclass[preprint,12pt]{elsarticle}
+\documentclass[preprint]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
@@ -12,31 +12,40 @@
 %% \documentclass[final,5p,times]{elsarticle}
 %% \documentclass[final,5p,times,twocolumn]{elsarticle}
 
-%% if you use PostScript figures in your article
-%% use the graphics package for simple commands
-%% \usepackage{graphics}
-%% or use the graphicx package for more complicated commands
-%% \usepackage{graphicx}
-%% or use the epsfig package if you prefer to use the old commands
-%% \usepackage{epsfig}
-
-\usepackage{amssymb}
-\usepackage{lipsum}
 \usepackage[ansinew]{inputenc} 						% so I can write my Name without \"{u}
+\usepackage{amssymb}
+\usepackage{graphicx}
 \usepackage{svn-multi} 								% to add SVN-Versioning-Info
-%\usepackage{caption,subfig}                         % [font = small]
+\usepackage{subfig} 		                        % [font = small]
 \usepackage[alsoload=binary]{siunitx}		 		% typographically correct units (\milli\meter, \kilo\electronvolt), with [alsoload=binary] \SI{100}{\giga\byte}
 \usepackage{booktabs}		 						% nice tables
 \usepackage{tikz} 									% extremely nice drawings
 \usepackage{pgfplots} 								% ditto for plots
-\usepackage{todonotes}
-\usepackage{hyperref}
+\usepackage{lineno}
+%\usepackage{endfloat}				 				% floats at the end, use [nomarker] if "Figure x approx. here" is undesired
+\usepackage{hypernat}
+\usepackage[backref]{hyperref}
+\usepackage[]{todonotes}                            % [disable]
+
+%\usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
+
+%\usepackage{microtype}	 							% for nicer typography
+%	\DisableLigatures{encoding = *, family = * }
 
 \newcommand{\imsize}{\linewidth}
 \newlength\imagewidth % needed for scalebars
 \newlength\imagescale % needed for scalebars
 
-\journal{Some tomography journal}
+%% Subversion Information
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+\journal{``some tomography journal''}
+
+% \date{Version of \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone), Revision \svnkw{LastChangedRevision}.} 
 
 \begin{document}
 
@@ -72,7 +81,7 @@
 \begin{abstract}
 State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
 
-The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic dataset in horizontal direction. It is the base for acquiring three dimensional information of samples with bigger volumens than currently supported. Different image acquisition protocols have been implemented for the end-user at the beamline.
+The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic dataset in horizontal direction. It is the base for acquiring three dimensional information of samples with bigger volumes than currently supported. Different image acquisition protocols have been implemented for the end-user at the beamline.
 
 We show that the lateral field of view of TOMCAT can be increased up to five times and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of arbitrary samples in an unattended, automatic way.
 \end{abstract}
@@ -86,25 +95,36 @@ tomography \sep SRXTM \sep keyword \sep keyword
 %% or \MSC[2008] code \sep code (2000 is the default)
 \end{keyword}
 
+\begin{center}
+	\fbox{
+		\begin{minipage}{.618\textwidth}
+		The file \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
+		\end{minipage}
+	} 
+\end{center}
+
 \end{frontmatter}
 
+\clearpage
 
-%% main text
+\listoftodos
+
+\linenumbers
+\modulolinenumbers[2]
+
 \include{wfs-introduction}
+\include{wfs-materials-and-methods}
+\include{wfs-results}
+\include{wfs-discussion}
+\include{wfs-summary}
+\include{wfs-acknowledgements}
 
-%% The Appendices part is started with the command \appendix;
-%% appendix sections are then done as normal sections
-%% \appendix
+\bibliographystyle{unsrtnat}
+%\bibliography{../references}
+\bibliography{references-wfs}
 
-%% \section{}
-%% \label{}
+\appendix
 
-\begin{thebibliography}{00}
+\include{wfs-appendix}
 
-%% \bibitem{label}
-%% Text of bibliographic item
-
-\bibitem{}
-
-\end{thebibliography}
 \end{document}

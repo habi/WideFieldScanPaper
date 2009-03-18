@@ -23,7 +23,7 @@ The extracted lung lobes have been fixed for potential storage in 2.5\% glutaral
 Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
 
 \subsection{SRXTM}
-All experiments were performed at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland; at the TOMCAT beamline, whcih located at the X02DA port of the SLS and is one of 17 currently operating beamlines. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{0.122}{\nano\meter}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth range of a few percent to \SI{e-4}. Detailed technical specifications of the beamline and beam characteristics have been described by~\citeauthor{Stampanoni2006a}~\cite{Stampanoni2006a,Stampanoni2007}.
+All experiments were performed at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland; at the TOMCAT beamline, which is located at the X02DA port of the SLS and is one of 17 currently operating beamlines. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{0.122}{\nano\meter}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth range of a few percent to \SI{e-4}. Detailed technical specifications of the beamline and beam characteristics have been described by~\citeauthor{Stampanoni2006a}~\cite{Stampanoni2006a,Stampanoni2007}.
 
 \subsubsection{Image Acquisition}
 \label{seq:Image Acquisition}
@@ -52,13 +52,12 @@ As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an e
 \begin{figure}
 	\centering
 		\input{tikz-images/plots/2008c-QualityPlot}
-	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected the quality of the, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+...+p_{n}x+p_{n+1}$. 19 of these protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}
+	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+...+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}
 	\label{fig:2008c-qualityplot}
 	\todo[inline]{come back to this in results!}
 \end{figure}
 
-
-The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the demand of the end-user, we were able to reduce the total acquisition time by \SI{86}{\percent}, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned of the same sample. This has been done to assess the introduction of artifacts through the reduction of the amount of projections. Albeit the aforementioned reduction in scanning time by \SI{86}{\percent} introduces artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown later on.
+The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the input of the end-user, we were able to reduce the total acquisition time by \SI{86}{\percent}, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned of the same sample. This has been done to assess the artifacts which arise through the reduction of the amount of projections. Albeit the aforementioned reduction in scanning time by \SI{86}{\percent} does introduce artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown later on.
 
 \begin{table}
 \centering
@@ -90,13 +89,15 @@ The proposed protocols are designed in such a way that the total scanning time--
 	\label{tab:projections}
 \end{table}
 
-After the user has chosen a suitable protocol, the MATLAB-script writes a preference file to the disk. This preference file is parsed by a custom Python-script to interact with the EPIC-System (Experimental Physics and Industrial Control System, \url{http://www.aps.anl.gov/epics/}), which is used to access and control all hardware of the TOMCAT beamline. We thus perform several subscans without user intervention, except entry of the sample name. All parameters like filename-suffixes of the subscans, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, also permitting a multiple batch scans of the same sample without any manual intervention. The sample on the sample holder was thus not touched during the acquisition of the 57 different subscans for the 19 protocols. 
+After the user has chosen a suitable protocol corresponding to one dot in figure~\ref{fig:2008c-qualityplot}, the MATLAB-script writes a preference file to the disk. This preference file is parsed by a custom Python-script to interact with the EPIC-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which is used to access and control all hardware of the TOMCAT beamline.
+
+We perform several subscans without user intervention, except input of the sample name. All parameters like filename-suffixes of the subscans, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, also permitting multiple batch scans of the same sample without any manual intervention. The sample on the sample holder was thus not touched during the acquisition of the 57 different subscans for the 19 mentioned protocols. 
 
 \subsubsection{Covering a broad FOV}
 \label{subsec:covering a broad fov}
-Generally, tomographic images are obtained in such a manner, that the sample is rotated for \SI{180}{\degree} while multiple projection images are obtained, as is shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample, the image-size corresponds to the FOV of the camera.
+Generally, tomographic images are obtained in such a manner that the sample is rotated for \SI{180}{\degree} while multiple projection images are obtained, as shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample the width of the image corresponds to the FOV of the camera.
 
-If the sample to be imaged has size slightly larger than the FOV of the camera, a \SI{360}{\degree}-scan is performed. Projections are obtained over a full rotation of the sample, while the sample is positioned in front of the camera in such a way that it only covers half the FOV of the detector. After acquisition of the projection images, half of the dataset has to be flipped and the projections at position $P_{x}$ and $P_{x+\SI{180}{\degree}}$ can simply be stitched together.
+If the sample to be imaged has a size which is slightly larger than the FOV of the camera, a \SI{360}{\degree}-scan is performed. Projections are obtained over a full rotation of the sample, while the sample is positioned in front of the camera in such a way that it only covers half the FOV of the detector. After acquisition of the projection images, half of the dataset has to be flipped and the projections at position $P_{x}$ and $P_{x+\SI{180}{\degree}}$ are stitched together to projection images covering two times the FOV of the camera.
 
 \begin{figure}
 	\centering
@@ -120,7 +121,7 @@ If the sample to be imaged has size slightly larger than the FOV of the camera, 
 	\label{fig:widefield-scanning}
 \end{figure}
 
-If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera, to be able to record projection images from the lateral parts of the sample. This can be done as shown in figure~\ref{fig:covering-three scans a}, \todo{which image variant: \ref{fig:covering-three scans a} or \ref{fig:covering-three scans b}?} where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
+If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera. This can be done as shown in figure~\ref{fig:covering-three scans a}, \todo{which image variant: \ref{fig:covering-three scans a} or \ref{fig:covering-three scans b}?} where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
 
 \begin{figure}
 	\centering
@@ -136,18 +137,18 @@ If we want to achieve tomographic scans covering a sample size which is bigger t
 	\label{fig:covering-three scans b}
 \end{figure}
 
-To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap facilitates the correct stitching of the single projections. Preliminary experiments have shown that even with thorough calibration the combined positioning error of the mechanical setup of TOMCAT is in the order of some pixels. This is an excellent achievement of the whole TOMCAT-team, but for our needs a precision of 1 pixel is crucial. Obtaining subscans with an overlap of approximately 20 pixels allows us to stitch the subscan projections with a precision of one pixel after having calculated the cutline (as described in section~\ref{sec:Image Merging and Reconstruction}).
+To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap facilitates the correct stitching of the single projections. Preliminary experiments have shown that even with thorough calibration the combined positioning error of the mechanical setup of TOMCAT is in the order of some pixels. This is an excellent achievement of the whole TOMCAT-team, but for our needs a precision of one pixel is crucial. Obtaining subscans with an overlap of approximately 20 pixels allows us to stitch the subscan projections with a precision of one pixel after having calculated the cutline (as described in section~\ref{sec:Image Merging and Reconstruction}).
 
-After correction for variations in the x-ray beam, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}). According to~\citet{Hintermueller2009} the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement $\delta^2(\xi_{i,j})$ is computed. This directly provides a measure for the inequality of the two images within their overlapping parts. The local minimum of $\delta^2(\xi_{i,j})$ shows the effective displacement $\xi_{i,j}$ between the two adjacent images $i$and $j$. For three subscans we calculate the effective displacement $\xi_{1,2}$ and $\xi_{2,3}$ and stitch all the images into one big projection image.
+After correction with the dark and flat images, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}). According to~\citet{Hintermueller2009} the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement $\delta^2(\xi_{i,j})$ is computed. This displacement measure provides a measure for the inequality of the two images within their overlapping parts. The local minimum of $\delta^2(\xi_{i,j})$ shows the effective displacement $\xi_{i,j}$ between the two adjacent images $i$ and $j$. For three subscans we calculate the effective displacement $\xi_{1,2}$ and $\xi_{2,3}$ and stitch all the images into one big projection image.
 
-To fulfill the sampling theorem as defined in section~\ref{subsec:enhancing the field of view}, different amount of projections ($N_{i}$) have been recorded for each subscan $i$---at the lateral positions we record more projections compared to the central position. The stitching algorithm thus has to selectively stitch projections from subscan $i$ with several projections from subscan $i+1$ to one projection covering the FOV of subscan $i$ and $i+1$.
+To fulfill the sampling theorem as defined in section~\ref{subsec:enhancing the field of view}, different amount of projections ($N_{i}$) have been recorded for each subscan $i$---at the lateral positions we record more projections compared to the central position. The stitching algorithm thus has to selectively stitch projections from subscan 1 with several projections from subscan 2 and 3 to one projection covering the combined FOV.
 
 Figure \ref{fig:amount of projections} shows how projections from the different subscans relate to each other. Here we describe the most simple case, where the user has chosen a scanning protocol where the sampling theorem is completely fulfilled, thus we record 180 projections for the central and two times 360 projections for the two ring-scans. We have implemented a simple strategy for designing the different protocols; to facilitate the merging of the projections from each subscan, the amount of projections from the inner to the outer subscans is always dividable by two: 
 \begin{equation}
 	\frac{P_{outer}}{P_{inner}} \bmod 2 = 0
 \label{eq:Modulo}
 \end{equation}
-This approach facilitates the merging of the different subscans in such a way that we can stitch several projections from the inner subscan with projections from the outer subscan as shown in figure~\ref{fig:amount of projections - linear}.
+This approach facilitates the merging of the different subscans in such a way that we can stitch several projections from the inner subscan with projections from the outer subscan as shown in figure~\ref{fig:amount of projections}.
 
 \begin{figure}
 	\centering
@@ -157,16 +158,16 @@ This approach facilitates the merging of the different subscans in such a way th
 	\label{fig:amount of projections}%
 \end{figure}
 
-\begin{figure}
-	\centering
-	\input{tikz-images/amountofprojections-linear}%
-	\caption{Number of merged projections for one central- and two ring-scan. Linear variant. The numbers above the ticks denote the number of the projection. Projections vertically above each other will be merged.}%
-	\label{fig:amount of projections - linear}%
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\input{tikz-images/amountofprojections-linear}%
+%	\caption{Number of merged projections for one central- and two ring-scan. Linear variant. The numbers above the ticks denote the number of the projection. Projections vertically above each other will be merged.}%
+%	\label{fig:amount of projections - linear}%
+%\end{figure}
 
 \subsubsection{Merging and Reconstruction}
-All above mentioned steps have been implemented in a set of custom MATLAB\textsuperscript{\textregistered} functions and scripts which take the parameters of the single subscans (e.g.\ Sample name, Amount of subscans, Amount of Dark and Flat images) and desired Output-Name and -Suffix as inputs and performs all necessary calculations like loading, normalizing, interpolation and correct stitching of the images into wide field projections. Exemplary results can be seen in figure~\ref{fig:wide field scan results}\subref{fig:subscans} and \ref{fig:wide field scan results}\subref{fig:merge-proj}.
+All steps mentioned above have been implemented in a set of custom MATLAB functions and scripts which take the parameters of the single subscans (e.g.\ sample name, amount of subscans, amount of dark and flat images) and desired output-name and -suffix as inputs and performs all necessary calculations like loading, normalizing, interpolation and correct stitching of the images into wide field projections. Exemplary results can be seen in figure~\ref{fig:subscans} and \ref{fig:merge-proj}.
 
-After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered back-projection algorithm or a FFT-based gridrec algorithm~\cite{Dowd1999} on a 20-node server farm (Pentium 4, 2.8 GHz processor, 512 MB RAM\todo{cluster node specs?}). This reconstruction results in an image stack of 1024 or 2048 image slices in tiff-format, depending on the binning chosen at recording time. 
+After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered back-projection algorithm or a FFT-based gridrec algorithm on a 20-node server farm (Pentium 4, 2.8 GHz processor, 512 MB RAM\todo{cluster node specs?}). This reconstruction results in an image stack of 1024 or 2048 image slices---depending on the binning---in tiff-format.
 
-The reconstructions used for the assessment of the image quality of the 19 different scanned protocols of the same sample show a three-fold (2.93$\times$) increase in FOV from 1024$\times$1024 pixels to 2996$\times$2996 pixels. As a proof of concept, we also scanned and reconstructed a lung sample with 5 subscans, which led to a roughly five-fold (4.74$\times$) increase in available FOV from 2048$\times$2048 pixels to 9703$\times$9703 pixels.
+The reconstructions used for the assessment of the image quality of the 19 different scanned protocols of the same sample show a three-fold (2.93$\times$) increase in FOV from 1024$\times$1024 pixels to 2996$\times$2996 pixels. As a proof of concept, we also scanned and reconstructed a lung sample with 5 subscans, which led to a roughly five-fold (4.74$\times$) increase in available FOV from 2048$\times$2048 pixels to 9703$\times$9703 pixels (see figure~\ref{fig:LungSlabSophie}).
