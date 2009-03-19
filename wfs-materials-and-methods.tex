@@ -7,8 +7,8 @@
 
 \begin{center}
 	\fbox{
-		\begin{minipage}{.618\textwidth}
-		The file of this section is \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
+		\begin{minipage}{.5\textwidth}
+		The file of the section below is versioned at \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
 		\end{minipage}
 	} 
 \end{center}
@@ -49,13 +49,13 @@ The corrected projections are then transformed into so-called sinograms, where t
 \subsection{Wide Field Scanning}
 As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
 
-\begin{figure}
+\begin{figure*}
 	\centering
 		\input{tikz-images/plots/2008c-QualityPlot}
 	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+...+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}
 	\label{fig:2008c-qualityplot}
 	\todo[inline]{come back to this in results!}
-\end{figure}
+\end{figure*}
 
 The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the input of the end-user, we were able to reduce the total acquisition time by \SI{86}{\percent}, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned of the same sample. This has been done to assess the artifacts which arise through the reduction of the amount of projections. Albeit the aforementioned reduction in scanning time by \SI{86}{\percent} does introduce artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown later on.
 
@@ -95,46 +95,46 @@ We perform several subscans without user intervention, except input of the sampl
 
 \subsubsection{Covering a broad FOV}
 \label{subsec:covering a broad fov}
-Generally, tomographic images are obtained in such a manner that the sample is rotated for \SI{180}{\degree} while multiple projection images are obtained, as shown in figure~\ref{fig:covering-one scan}. After reconstructing the sample the width of the image corresponds to the FOV of the camera.
+Generally, tomographic images are obtained in such a manner that the sample is rotated for \SI{180}{\degree} while multiple projection images are obtained, as shown in figure~\ref{subfig:180degreescan}. After reconstructing the sample the width of the image corresponds to the FOV of the camera.
 
 If the sample to be imaged has a size which is slightly larger than the FOV of the camera, a \SI{360}{\degree}-scan is performed. Projections are obtained over a full rotation of the sample, while the sample is positioned in front of the camera in such a way that it only covers half the FOV of the detector. After acquisition of the projection images, half of the dataset has to be flipped and the projections at position $P_{x}$ and $P_{x+\SI{180}{\degree}}$ are stitched together to projection images covering two times the FOV of the camera.
 
-\begin{figure}
+\begin{figure*}
 	\centering
 	\input{tikz-images/scanning-possibilities}
 	\caption{Covering the FOV of differently sized samples with one \SI{180}{\degree} scan \subref{subfig:180degreescan}, one \SI{360}{\degree} scan \subref{subfig:360degreescan} or---in the case of the so called wide field scanning---with multiple subscans (three subscans in \subref{subfig:widefieldscan}.}
 	\label{fig:scanning-poossibilities}
-\end{figure}
+\end{figure*}
 %
-%\begin{figure}
+%\begin{figure*}
 %	\centering
 %	\input{tikz-images/Scan-Stacked}
 %	\caption{Stacked Scanning - long and thin samples}
 %	\label{fig:stacked-scanning}
-%\end{figure}
+%\end{figure*}
 %
-%\begin{figure}
+%\begin{figure*}
 %	\centering
 %	\input{tikz-images/Scan-Widefield}
 %	\caption{Stacked Scanning - broad samples}
 %	\label{fig:widefield-scanning}
-%\end{figure}
+%\end{figure*}
 
-If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera. This can be done as shown in figure~\ref{fig:covering-three scans a}, \todo{which image variant: \ref{fig:covering-three scans a} or \ref{fig:covering-three scans b}?} where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
+If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera. This can be done as shown in figure~\ref{subfig:widefieldscan}, where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
 
-%\begin{figure}
+%\begin{figure*}
 %	\centering
 %	\input{tikz-images/covering-three-a}
 %	\caption{Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
 %	\label{fig:covering-three scans a}
-%\end{figure}
+%\end{figure*}
 %
-%\begin{figure}
+%\begin{figure*}
 %	\centering
 %	\input{tikz-images/covering-three-b}
 %	\caption{Or is this better for the understanding?: Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
 %	\label{fig:covering-three scans b}
-%\end{figure}
+%\end{figure*}
 %
 To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap facilitates the correct stitching of the single projections. Preliminary experiments have shown that even with thorough calibration the combined positioning error of the mechanical setup of TOMCAT is in the order of some pixels. This is an excellent achievement of the whole TOMCAT-team, but for our needs a precision of one pixel is crucial. Obtaining subscans with an overlap of approximately 20 pixels allows us to stitch the subscan projections with a precision of one pixel after having calculated the cutline (as described in section~\ref{sec:Image Merging and Reconstruction}).
 
@@ -149,7 +149,7 @@ Figure \ref{fig:amount of projections} shows how projections from the different 
 \end{equation}
 This approach facilitates the merging of the different subscans in such a way that we can stitch several projections from the inner subscan with projections from the outer subscan as shown in figure~\ref{fig:amount of projections}.
 
-\begin{figure}
+\begin{figure*}
 	\centering
 	\input{tikz-images/amountofprojections}%
 	\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 180 projections for the central scan and thus acquire two times 360 projections for the lateral scans. This enables us to stitch the projections $P_{1_{283}}$ % XXX XXX 17*3000/180 XXX
@@ -159,14 +159,14 @@ This approach facilitates the merging of the different subscans in such a way th
     which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For didactic reasons we shifted the central projection (green) by \SI{2}{\degree}, or else the overlap between these particular projection would not be visible.}%
 	\todo[inline]{Do we only speak of central and ring-scan or of 3 subscans?}
 	\label{fig:amount of projections}%
-\end{figure}
+\end{figure*}
 
-%\begin{figure}
+%\begin{figure*}
 %	\centering
 %	\input{tikz-images/amountofprojections-linear}%
 %	\caption{Number of merged projections for one central- and two ring-scan. Linear variant. The numbers above the ticks denote the number of the projection. Projections vertically above each other will be merged.}%
 %	\label{fig:amount of projections - linear}%
-%\end{figure}
+%\end{figure*}
 
 \subsubsection{Merging and Reconstruction}
 All steps mentioned above have been implemented in a set of custom MATLAB functions and scripts which take the parameters of the single subscans (e.g.\ sample name, amount of subscans, amount of dark and flat images) and desired output-name and -suffix as inputs and performs all necessary calculations like loading, normalizing, interpolation and correct stitching of the images into wide field projections. Exemplary results can be seen in figure~\ref{fig:subscans} and \ref{fig:merge-proj}.

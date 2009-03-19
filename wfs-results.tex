@@ -7,8 +7,8 @@
 
 \begin{center}
 	\fbox{
-		\begin{minipage}{.618\textwidth}
-		The file of this section is \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
+		\begin{minipage}{.5\textwidth}
+		The file of the section below is versioned at \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
 		\end{minipage}
 	} 
 \end{center}
@@ -19,7 +19,7 @@
 \label{sec:Image Merging and Reconstruction}
 Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{2994}{pixels} (\SI{4.19}{\milli\meter}) which is approximately three times the size of what can be achieved with one single binned scan (\SI{1024}{pixels} or \SI{1.43}{\milli\meter}).
 
-\begin{figure}
+\begin{figure*}
 	\renewcommand{\imsize}{.16\linewidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} % desired display width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/512} % pixel width of image
@@ -65,7 +65,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 			}
 	\caption{Different stages of a wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 10 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at a beam energy of \SI{12.6}{\kilo\electronvolt}.}
 	\label{fig:wide field scan results}	
-\end{figure}
+\end{figure*}
 
 \subsection{Quality guided protocol selection}
 A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The properties of the scan have been chosen according to a MATLAB-plot---as described in section~\ref{seq:Image Acquisition}---which has been generated with \verb+MATLAB\wfs-sim\main.m+ \todo{only necessary if we provide the code\ldots} for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans.
@@ -79,16 +79,16 @@ E_{Prot_{norm_{i}}} &=& \sum_{x}\sum_{y} D_{Prot_{i}} \label{eq:errorcalculation
     E_{Prot_{norm}} &=& \overline{E_{Prot_{norm_{i}}}} \pm \sigma(E_{Prot_{norm_{i}}}) \mbox{for} i=1:5:1024 \label{eq:errorcalculation-c}
 \end{eqnarray}
 
-The error value ($E_{Prot_{norm}}$) has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean ($\overline{E_{Prot_{norm_{i}}}}$) and standard deviation of the error have been plotted (shown in figure~\ref{fig:NormalizedErrorPlot}) in such a way that the error has been scaled in arbitrary units from 0 to 1\todo{change ``direction'' of plot, so it matches QualityPlot}
+The error value ($E_{Prot_{norm}}$) has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean ($\overline{E_{Prot_{norm_{i}}}}$) and standard deviation of the error have been plotted (shown in figure~\ref{fig:NormalizedErrorPlot}) in such a way that the error has been scaled in arbitrary units from 0 to 1\todo{change ``direction'' of plot, so it matches QualityPlot}.
 
 We see that---as expected---the normalized error grows with decreasing amount of total obtained projections. The simulated scanning quality shown in figure~\ref{fig:2008c-qualityplot} shows the simulated quality to expect from the scan, while figure~\ref{fig:NormalizedErrorPlot} is a plot of the calculated error of the different protocols compared to protocol A\todo{explain more in depth!!!}.
 
-\begin{figure}
+\begin{figure*}
 	\centering
 		\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
 	\caption{Plot of normalized Error for the different protocols. The normalized Error has been calculated in such a way that we have taken the Difference image for Protocol 'x' compared to Protocol 'A' and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol.}
 	\label{fig:NormalizedErrorPlot}
-\end{figure}
+\end{figure*}
 
 \subsection{Three dimensional visualizations}
 \subsubsection{19 Protocols}
@@ -96,7 +96,7 @@ The 19 different protocols which have been obtained from the same sample have be
 Using a visualization network \todo{exactly explain the network?} we automatically segmented airway segments from the dataset using a region growing algorithm~\cite{wiki:regiongrowing} using the same seed point to extract segments for all protocols.
 
 Two exemplary visualizations of such segment extractions are shown in figure~\ref{fig:BvsT}\todo{explain these extractions in more details}.
-\begin{figure}
+\begin{figure*}
 	\centering
 	\renewcommand{\imsize}{.5\linewidth}	
 		\subfloat[Overview Protocol B]{%
@@ -115,13 +115,13 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 	\caption{Segmentation of two exemplary protocols, namely B and T.}
 	\label{fig:BvsT}
 	\todo[inline]{this figure doesn't help at all. yet.}
-\end{figure}
+\end{figure*}
 
 \subsubsection{some other visualizations}
 \renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 \pgfmathsetlength{\imagescale}{\imagewidth/1202} % pixel width of imagefile used below
-\begin{figure}
+\begin{figure*}
 	\centering
 		\subfloat[conventional scan]{
 			\label{subfig:overview-s2}%
@@ -155,11 +155,11 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 		}%
 	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}
 	\label{fig:overview}
-\end{figure}
+\end{figure*}
 
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 \pgfmathsetlength{\imagescale}{\imagewidth/1299} % pixel width of imagefile used below
-\begin{figure}
+\begin{figure*}
 	\centering
 		\subfloat[conventional scan]{%
 			\label{subfig:down-s2}%
@@ -193,13 +193,13 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 		}%
 	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:overview}). View from the underside of the sample}
 	\label{fig:down}
-\end{figure}
+\end{figure*}
 
 
 \subsubsection{5 instead of 3 subscans}
 As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}.
 
-\begin{figure}
+\begin{figure*}
 	\renewcommand{\imsize}{\textwidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} 		 % desired displayed width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/1589} % 1589*728 = width of imagefile used below
@@ -261,4 +261,4 @@ As a proof of concept we have extended the FOV from three to five subscans. We h
 	}
 	\label{fig:LungSlabSophie}
 	\todo[inline]{adapt the scale bars to the final size of the images}
-\end{figure}
+\end{figure*}
