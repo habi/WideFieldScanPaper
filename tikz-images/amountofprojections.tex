@@ -1,41 +1,59 @@
-%\documentclass{article}
-%\usepackage[pdftex,active,tightpage]{preview}
-%\usepackage{tikz}
-%\begin{document}
-%\begin{preview}
-%\begin{center}
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\usepackage{tikz}
+\begin{document}
+\begin{preview}
+\begin{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\def\radius{1}
-	\def\shift{.3}
+	\def\tickshift{.3}
+	\def\labelshift{.3}
 	\def\overlap{.075}
+	\def\projangle{17}			
 	\begin{tikzpicture}[scale=1.5]
-		%% inner ring
+	\footnotesize
+	%% inner ring
+		% ring
 		\draw (0,0) circle (\radius);
-		\foreach \angle / \label in 
-			{0,20,...,181}
+		% projections
+		\foreach \angle in {0,20,...,181}
+			\draw (\angle:-\radius) -- (\angle:\radius+\tickshift);
+		\foreach \angle in 	{0,5,...,179}
 			{
-				\draw (\angle:-\radius) -- (\angle:\radius+\shift);
-				\draw (\angle:\radius+1.618*\shift) node{\textsf{\label}};
-			}
-		\foreach \angle in 
-			{0,2,...,180}
-			{
-				\draw (\angle:\radius-.5*\shift) -- (\angle:\radius+.5*\shift);
-			}
-		%% outer ring			
+		% inner ticks
+			\draw (\angle:-.5*\tickshift) -- (\angle:.5*\tickshift);
+%		% median ticks
+%			\draw [dotted] (\angle:.5*\tickshift) -- (\angle:\radius-.5*\tickshift);					
+%			\draw [dotted] (180+\angle:.5*\tickshift) -- (180+\angle:\radius);					
+		% outer ticks
+			\draw (\angle:\radius-.5*\tickshift) -- (\angle:\radius);
+			}	
+		% labels
+		\foreach \angle / \label in {0/1,30/200,60/500,90/750,120/1000,150/1250,180/1500}
+		 	\draw (\angle:\radius-\labelshift) node {\label}; % {\textsf{\label}};
+	%% outer ring			
+		% circle
 		\draw (0,0) circle (3*\radius);
-		\foreach \angle / \label in 
-			{0,20,...,719}
+		% projections
+		\foreach \angle in {0,20,...,719}
+			\draw (.5*\angle:\radius) -- (.5*\angle:3*\radius+\tickshift);
+		\foreach \angle in 	{0,2.5,...,359}
 			{
-				\draw (.5*\angle:\radius) -- (.5*\angle:3*\radius+\shift);
-				\draw (.5*\angle:3*\radius+1.618*\shift) node{\textsf{\label}};
-			}
-		\foreach \angle in 
-			{0,1,...,359}
-			{
-				\draw (\angle:3*\radius-.5*\shift) -- (\angle:3*\radius+.5*\shift);
-			}
-		\def\projangle{17}			
+		% inner ticks
+			\draw (\angle:3*\radius-.5*\tickshift) -- (\angle:3*\radius+.5*\tickshift);
+%		% median ticks
+%			\draw [dotted] (\angle:\radius+.5*\tickshift) -- (\angle:3*\radius-.5*\tickshift);
+		% outer ticks
+			\draw (\angle:\radius) -- (\angle:\radius+.5*\tickshift);
+			}	
+		% labels
+		% matlab [0:20:181]*1500/180
+		\foreach \angle / \label in {2/1 and,15/200,30/500,45/750,60/1000,75/1250,90/1500,105/1750,120/2000,135/2250,150/2500,165/2750,178/3000}
+			 	{
+			 	\draw (\angle:3*\radius+\labelshift) node {\label};
+			 	\draw (180+\angle:3*\radius+\labelshift) node {\label};
+			 	}
+
 		%% RingScan 1
 		\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
 		\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);
@@ -47,6 +65,6 @@
 		\fill [color=blue,nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1+\overlap,0) arc (-180:0:\radius-\overlap);
 	\end{tikzpicture}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-%\end{center}
-%\end{preview}
-%\end{document}
+\end{center}
+\end{preview}
+\end{document}
