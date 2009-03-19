@@ -1,70 +1,68 @@
-\documentclass{article}
-\usepackage[pdftex,active,tightpage]{preview}
-\usepackage{tikz}
-\begin{document}
-\begin{preview}
-\begin{center}
+%\documentclass{article}
+%\usepackage[pdftex,active,tightpage]{preview}
+%\usepackage{tikz}
+%\begin{document}
+%\begin{preview}
+%\begin{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-	\def\radius{1}
-	\def\tickshift{.3}
-	\def\labelshift{.3}
-	\def\overlap{.075}
-	\def\projangle{17}			
-	\begin{tikzpicture}[scale=1.5]
-	\footnotesize
+\def\radius{1}
+\def\ticklength{.3}
+\def\labelshift{0.35}
+\def\overlap{.075}
+\def\projangle{17}			
+\begin{tikzpicture}[scale=1.5]
+	\small
 	%% inner ring
 		% ring
-		\draw (0,0) circle (\radius);
+			\draw (0,0) circle (\radius);
 		% projections
-		\foreach \angle in {0,20,...,181}
-			\draw (\angle:-\radius) -- (\angle:\radius+\tickshift);
-		\foreach \angle in 	{0,5,...,179}
+			\foreach \angle in {0,20,...,181}
+				\draw (\angle:-\radius) -- (\angle:\radius+\ticklength);
+			\foreach \angle in 	{0,5,...,179}
 			{
 		% inner ticks
-			\draw (\angle:-.5*\tickshift) -- (\angle:.5*\tickshift);
+				\draw (\angle:-.5*\ticklength) -- (\angle:.5*\ticklength);
 %		% median ticks
-%			\draw [dotted] (\angle:.5*\tickshift) -- (\angle:\radius-.5*\tickshift);					
-%			\draw [dotted] (180+\angle:.5*\tickshift) -- (180+\angle:\radius);					
+%				\draw [dotted] (\angle:.5*\ticklength) -- (\angle:\radius-.5*\ticklength);					
+%				\draw [dotted] (180+\angle:.5*\ticklength) -- (180+\angle:\radius);					
 		% outer ticks
-			\draw (\angle:\radius-.5*\tickshift) -- (\angle:\radius);
+				\draw (\angle:\radius-.5*\ticklength) -- (\angle:\radius);
 			}	
 		% labels
-		\foreach \angle / \label in {0/1,30/200,60/500,90/750,120/1000,150/1250,180/1500}
-		 	\draw (\angle:\radius-\labelshift) node {\label}; % {\textsf{\label}};
+			\foreach \angle / \label in {0/1,30/200,60/500,90/750,120/1000,150/1250,180/1500}
+		 		\draw (\angle:\radius-\labelshift) node {\label}; % {\textsf{\label}};
 	%% outer ring			
 		% circle
-		\draw (0,0) circle (3*\radius);
+			\draw (0,0) circle (3*\radius);
 		% projections
-		\foreach \angle in {0,20,...,719}
-			\draw (.5*\angle:\radius) -- (.5*\angle:3*\radius+\tickshift);
-		\foreach \angle in 	{0,2.5,...,359}
+			\foreach \angle in {0,20,...,719}
+				\draw (.5*\angle:\radius) -- (.5*\angle:3*\radius+\ticklength);
+			\foreach \angle in 	{0,2.5,...,359}
 			{
 		% inner ticks
-			\draw (\angle:3*\radius-.5*\tickshift) -- (\angle:3*\radius+.5*\tickshift);
+				\draw (\angle:3*\radius-.5*\ticklength) -- (\angle:3*\radius+.5*\ticklength);
 %		% median ticks
-%			\draw [dotted] (\angle:\radius+.5*\tickshift) -- (\angle:3*\radius-.5*\tickshift);
+%				\draw [dotted] (\angle:\radius+.5*\ticklength) -- (\angle:3*\radius-.5*\ticklength);
 		% outer ticks
-			\draw (\angle:\radius) -- (\angle:\radius+.5*\tickshift);
+				\draw (\angle:\radius) -- (\angle:\radius+.5*\ticklength);
 			}	
 		% labels
-		% matlab [0:20:181]*1500/180
-		\foreach \angle / \label in {2/1 and,15/200,30/500,45/750,60/1000,75/1250,90/1500,105/1750,120/2000,135/2250,150/2500,165/2750,178/3000}
+			\foreach \angle / \label in {2/1 and,15/200,30/500,45/750,60/1000,75/1250,90/1500,105/1750,120/2000,135/2250,150/2500,165/2750,178/3000}
 			 	{
-			 	\draw (\angle:3*\radius+\labelshift) node {\label};
-			 	\draw (180+\angle:3*\radius+\labelshift) node {\label};
+				 	\draw (\angle:3*\radius+\labelshift) node {\label};
+			 		\draw (180+\angle:3*\radius+\labelshift) node {\label};
 			 	}
-
-		%% RingScan 1
-		\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
-		\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);
-		%% Central Scan
-		\draw [ultra thick,color=green](\projangle+180+2:\radius+\overlap) -- (\projangle+2:\radius+\overlap);
-		\fill [color=green,nearly transparent] (0,0) circle (\radius+\overlap);
-		%% Ringscan 2
-		\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius-\overlap);
-		\fill [color=blue,nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1+\overlap,0) arc (-180:0:\radius-\overlap);
+		%% Projection RingScan 1
+			\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
+			\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);
+		%% Projection Central Scan
+			\draw [ultra thick,color=green](\projangle+180+2:\radius+\overlap) -- (\projangle+2:\radius+\overlap);
+			\fill [color=green,nearly transparent] (0,0) circle (\radius+\overlap);
+		%% Projection Ringscan 2
+			\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius-\overlap);
+			\fill [color=blue,nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1+\overlap,0) arc (-180:0:\radius-\overlap);
 	\end{tikzpicture}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-\end{center}
-\end{preview}
-\end{document}
+%\end{center}
+%\end{preview}
+%\end{document}
