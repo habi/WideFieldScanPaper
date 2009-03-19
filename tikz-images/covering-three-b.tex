@@ -1,12 +1,12 @@
-%!TEX root = ../widefieldscan.tex
-%\documentclass{article}
-%\usepackage[pdftex,active,tightpage]{preview}
-%\usepackage{tikz}
-%\usepackage{pgfplots}
-%\usetikzlibrary{plotmarks}
-%\begin{document}
-%\begin{preview}
-	\begin{tikzpicture}[scale=0.75]
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{plotmarks}
+\begin{document}
+\begin{preview}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{tikzpicture}
 		%camera
 			\draw (-.1,-.1) rectangle (1.1,1.1);
 			\draw (.5,-.35) node {camera};
@@ -14,7 +14,7 @@
 			\foreach \x/\color in {1/red,2/green,3/blue}{
 				\draw[color=\color]    (5,\x-1.5) circle (.5) circle (1.5);			
 				\draw[color=\color,->] (5,\x-1.75) arc (-90:90:.25);
-				\draw[color=\color]    (7.5,\x-1.5)node {Position \x};
+				\draw[color=\color]    (7.5,\x-1.5) node {Position \x};
 				}
 		% movement		
 			\foreach \x/\e/\color in {1/3.25/red,2/3.25/green}{				
@@ -25,5 +25,6 @@
 				\draw[<-] (1.2,\x-1) -- (9,\x-1);
 				}
 	\end{tikzpicture}
-%\end{preview}	
-%\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{preview}	
+\end{document}

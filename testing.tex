@@ -2,7 +2,42 @@
 \usepackage{tikz}
 \begin{document}
 \begin{tikzpicture}
-  \foreach \i in {0,22.5,...,359}
-  \draw[rotate=\i] (1,1) ellipse (1 and .5);
-\end{tikzpicture}
-\end{document}
+ [ concept/.style={
+     ellipse,
+     inner color=black!20,
+     outer color=black!5,
+     path fading=circle with fuzzy edge 20 percent,
+     circular drop shadow,
+     minimum height=1cm,
+     minimum width=1.9cm,
+     text width = 1.9cm,
+     text centered
+   },
+   literal/.style={
+     rectangle,
+     top color=black!5,
+     middle color=black!20,
+     shading angle=90,
+     minimum height=1.0cm,
+     minimum width= #1,
+     text width=#1,
+     text centered,
+     general shadow={%
+       shadow xshift=.3ex,
+       shadow yshift=-.3ex,
+       shadow scale=1.1,
+       fill=black!20,
+     },
+     postaction={
+       top color=black!5,
+       middle color=black!20,
+       opacity=0.2,
+     }
+   }
+]
+
+\node [literal=3.5cm] (literal) { \verb|"2"^^xsd:decimal| };
+
+\node [below of=literal,yshift=-5mm,concept] {owl:Thing};
+
+\end{tikzpicture}\end{document}

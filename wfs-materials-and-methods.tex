@@ -101,42 +101,41 @@ If the sample to be imaged has a size which is slightly larger than the FOV of t
 
 \begin{figure}
 	\centering
-	\subfloat[\SI{180}{\degree}-scan]{\input{tikz-images/covering-one}\label{subfig:cover180}}\\
-	\subfloat[\SI{360}{\degree}-scan]{\input{tikz-images/covering-one-360}\label{subfig:cover360}}
-	\caption{Covering the FOV of smallish samples with one scan, once for the standard-case and once for the case where the desired FOV is approximately two times bigger than the camera width.}
-	\label{fig:covering-one scan}
+	\input{tikz-images/scanning-possibilities}
+	\caption{Covering the FOV of differently sized samples with one \SI{180}{\degree} scan \subref{subfig:180degreescan}, one \SI{360}{\degree} scan \subref{subfig:360degreescan} or---in the case of the so called wide field scanning---with multiple subscans (three subscans in \subref{subfig:widefieldscan}.}
+	\label{fig:scanning-poossibilities}
 \end{figure}
-
-\begin{figure}
-	\centering
-	\input{tikz-images/Scan-Stacked}
-	\caption{Stacked Scanning - long and thin samples}
-	\label{fig:stacked-scanning}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\input{tikz-images/Scan-Widefield}
-	\caption{Stacked Scanning - broad samples}
-	\label{fig:widefield-scanning}
-\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\input{tikz-images/Scan-Stacked}
+%	\caption{Stacked Scanning - long and thin samples}
+%	\label{fig:stacked-scanning}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\input{tikz-images/Scan-Widefield}
+%	\caption{Stacked Scanning - broad samples}
+%	\label{fig:widefield-scanning}
+%\end{figure}
 
 If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera. This can be done as shown in figure~\ref{fig:covering-three scans a}, \todo{which image variant: \ref{fig:covering-three scans a} or \ref{fig:covering-three scans b}?} where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
 
-\begin{figure}
-	\centering
-	\input{tikz-images/covering-three-a}
-	\caption{Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
-	\label{fig:covering-three scans a}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\input{tikz-images/covering-three-b}
-	\caption{Or is this better for the understanding?: Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
-	\label{fig:covering-three scans b}
-\end{figure}
-
+%\begin{figure}
+%	\centering
+%	\input{tikz-images/covering-three-a}
+%	\caption{Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
+%	\label{fig:covering-three scans a}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\input{tikz-images/covering-three-b}
+%	\caption{Or is this better for the understanding?: Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
+%	\label{fig:covering-three scans b}
+%\end{figure}
+%
 To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap facilitates the correct stitching of the single projections. Preliminary experiments have shown that even with thorough calibration the combined positioning error of the mechanical setup of TOMCAT is in the order of some pixels. This is an excellent achievement of the whole TOMCAT-team, but for our needs a precision of one pixel is crucial. Obtaining subscans with an overlap of approximately 20 pixels allows us to stitch the subscan projections with a precision of one pixel after having calculated the cutline (as described in section~\ref{sec:Image Merging and Reconstruction}).
 
 After correction with the dark and flat images, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}). According to~\citet{Hintermueller2009} the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement $\delta^2(\xi_{i,j})$ is computed. This displacement measure provides a measure for the inequality of the two images within their overlapping parts. The local minimum of $\delta^2(\xi_{i,j})$ shows the effective displacement $\xi_{i,j}$ between the two adjacent images $i$ and $j$. For three subscans we calculate the effective displacement $\xi_{1,2}$ and $\xi_{2,3}$ and stitch all the images into one big projection image.
@@ -153,7 +152,11 @@ This approach facilitates the merging of the different subscans in such a way th
 \begin{figure}
 	\centering
 	\input{tikz-images/amountofprojections}%
-	\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 180 projections for the central scan and thus acquire two times 360 projections for the lateral scans. This enables us to stitch the projections $P_{1_{34}}$ (red line) from subscan 1 (red area), projection $P_{2_{17}}$ (green line) from the central subscan 2 (green area) and projection $P_{3_{394}}$ (blue line) of subscan 3 (blue area) to one big projection $P_{merge_{34}}$ which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For didactic reasons we shifted the central projection (green) by \SI{2}{\degree}, or else the overlap between these particular projection would not be visible.}%
+	\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 180 projections for the central scan and thus acquire two times 360 projections for the lateral scans. This enables us to stitch the projections $P_{1_{283}}$ % XXX XXX 17*3000/180 XXX
+    (red line) from subscan 1 (red area), projection $P_{2_{142}}$ % XXX 17*1500/180 XXX
+    (green line) from the central subscan 2 (green area) and projection $P_{3_{283}}$ % XXX 17*3000/180 XXX
+    (blue line) of subscan 3 (blue area) to one big projection $P_{merge_{283}}$ % XXX 17*3000/180 XXX
+    which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For didactic reasons we shifted the central projection (green) by \SI{2}{\degree}, or else the overlap between these particular projection would not be visible.}%
 	\todo[inline]{Do we only speak of central and ring-scan or of 3 subscans?}
 	\label{fig:amount of projections}%
 \end{figure}
