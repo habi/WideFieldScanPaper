@@ -7,8 +7,8 @@
 
 \begin{center}
 	\fbox{
-		\begin{minipage}{.5\textwidth}
-		The file of the section below is versioned at \url{\svnkw{HeadURL}}, was last changed at: \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone) and is at revision \svnkw{LastChangedRevision}.
+		\begin{minipage}{.618\columnwidth}
+		The section below is versioned at \url{\svnkw{HeadURL}} (last commit @ \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone), Revision: \svnkw{LastChangedRevision}).
 		\end{minipage}
 	} 
 \end{center}
@@ -123,78 +123,66 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 \pgfmathsetlength{\imagescale}{\imagewidth/1202} % pixel width of imagefile used below
 \begin{figure*}
 	\centering
-		\subfloat[conventional scan]{
+		\subfloat[conventional scan]{%
 			\label{subfig:overview-s2}%
-%			\fbox{%
-%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-overview-merge}%
-				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-				\def\x{225}
-				\def\y{625}
-    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-s2}};
-					\draw[|-|,thick] (229,428) -- (659,586) node [right] {\SI{1.4336}{\milli\meter}}; 
+				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+				\def\x{225}%
+				\def\y{625}%
+    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-s2}};%
+					\draw[|-|,thick] (229,428) -- (659,586) node [right] {\SI{1.4336}{\milli\meter}};%
 %				    % 458 px = 1.4336 mm > 100 px = 313 um > 160 px = 500 um
-				    \draw[|-|,thick] (\x,\y) -- (160+\x,\y) node [midway,above] {\SI{500}{\micro\meter}}; 
+				    \draw[|-|,thick] (\x,\y) -- (160+\x,\y) node [midway,above] {\SI{500}{\micro\meter}};%
 				\end{tikzpicture}%
-%			}%
 		}%
-		\subfloat[wide field scan]{
+		\subfloat[wide field scan]{%
 			\label{subfig:overview-merge}%
-%			\fbox{%
-%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-overview-merge}%
-				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-				\def\x{200}
-				\def\y{625}
-    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-merge}};
-					\draw[|-|,thick] (40,456) -- (890,610) node [right] {\SI{3.8444}{\milli\meter}}; 
+				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+				\def\x{200}%
+				\def\y{625}%
+    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-merge}};%
+					\draw[|-|,thick] (40,456) -- (890,610) node [right] {\SI{3.8444}{\milli\meter}};%
 				    % 864 px = 3.8444 mm > 100 px = 445 um > 112 px = 500 um
-					\draw[|-|,thick] (\x,\y) -- (224+\x,\y) node [midway,above] {\SI{1}{\milli\meter}}; 
+					\draw[|-|,thick] (\x,\y) -- (224+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
 				\end{tikzpicture}%
-%			}%
 		}%
-	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}
-	\label{fig:overview}
+		\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}%
+	\label{fig:overview}%
 \end{figure*}
 
+\renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 \pgfmathsetlength{\imagescale}{\imagewidth/1299} % pixel width of imagefile used below
 \begin{figure*}
 	\centering
 		\subfloat[conventional scan]{%
 			\label{subfig:down-s2}%
-%			\fbox{
-%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-down-s2}%
-				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-				\def\x{750}
-				\def\y{725}
-    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};
-				\draw[|-|,thick] (350,290) -- (350,595) node [left] {\SI{1.4336}{\milli\meter}}; 
+				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+				\def\x{750}%
+				\def\y{725}%
+    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};%
+				\draw[|-|,thick] (350,290) -- (350,595) node [left] {\SI{1.4336}{\milli\meter}};%
 			   	 % 305 px = 1.4336 mm > 100 px = 470 um > 106 px = 500um
-					\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}}; 
+					\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}};%
 				\end{tikzpicture}%
-%			}%
 		}%\\%
-		\subfloat[wide field scan]{
+		\subfloat[wide field scan]{%
 			\label{subfig:down-merge}%%
-%			\fbox{%
-%				\includegraphics[width=\imsize]{img/widefieldscanning/R108C04C-down-merge}%
-				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-				\def\x{775}
-				\def\y{825}
-    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};
-			    	\draw[|-|,thick] (547,19) -- (498,775) node [left] {\SI{3.8444}{\milli\meter}}; 
+				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+				\def\x{775}%
+				\def\y{825}%
+    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};%
+			    	\draw[|-|,thick] (547,19) -- (498,775) node [left] {\SI{3.8444}{\milli\meter}};%
 				    % 758 px = 3.844 mm > 100 px = 507 um > 99 px = 500um
-					\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}}; 
+					\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
 				\end{tikzpicture}%
-%			}%
 		}%
 	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:overview}). View from the underside of the sample}
 	\label{fig:down}
 \end{figure*}
-
 
 \subsubsection{5 instead of 3 subscans}
 As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}.
@@ -261,4 +249,4 @@ As a proof of concept we have extended the FOV from three to five subscans. We h
 	}
 	\label{fig:LungSlabSophie}
 	\todo[inline]{adapt the scale bars to the final size of the images}
-\end{figure*}
+\end{figure*}s

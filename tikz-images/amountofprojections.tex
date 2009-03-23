@@ -1,9 +1,9 @@
 %\documentclass{article}
+%%%\def\pgfsysdriver{pgfsys-tex4ht.def}
 %\usepackage[pdftex,active,tightpage]{preview}
 %\usepackage{tikz}
 %\begin{document}
 %\begin{preview}
-%\begin{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 \def\radius{1}
 \def\ticklength{.3}
@@ -12,6 +12,15 @@
 \def\projangle{17}			
 \begin{tikzpicture}[scale=1.5]
 	\small
+	%% Fill & Projection CenterScan
+		\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
+		\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);
+	%% Fill & Projection RingScan 1
+		\draw [ultra thick,color=green](\projangle+180+2:\radius+\overlap) -- (\projangle+2:\radius+\overlap);
+		\fill [color=green,nearly transparent] (0,0) circle (\radius+\overlap);
+	%% Fill & Projection RingScan 2
+		\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius-\overlap);
+		\fill [color=blue,nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1+\overlap,0) arc (-180:0:\radius-\overlap);
 	%% inner ring
 		% ring
 			\draw (0,0) circle (\radius);
@@ -48,21 +57,10 @@
 			}	
 		% labels
 			\foreach \angle / \label in {2/1 and,15/200,30/500,45/750,60/1000,75/1250,90/1500,105/1750,120/2000,135/2250,150/2500,165/2750,178/3000}
-			 	{
-				 	\draw (\angle:3*\radius+\labelshift) node {\label};
+			 	\draw (\angle:3*\radius+\labelshift) node {\label};
+			\foreach \angle / \label in {2/and 1,15/200,30/500,45/750,60/1000,75/1250,90/1500,105/1750,120/2000,135/2250,150/2500,165/2750,178/3000}
 			 		\draw (180+\angle:3*\radius+\labelshift) node {\label};
-			 	}
-		%% Projection RingScan 1
-			\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
-			\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);
-		%% Projection Central Scan
-			\draw [ultra thick,color=green](\projangle+180+2:\radius+\overlap) -- (\projangle+2:\radius+\overlap);
-			\fill [color=green,nearly transparent] (0,0) circle (\radius+\overlap);
-		%% Projection Ringscan 2
-			\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius-\overlap);
-			\fill [color=blue,nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1+\overlap,0) arc (-180:0:\radius-\overlap);
 	\end{tikzpicture}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-%\end{center}
 %\end{preview}
 %\end{document}
