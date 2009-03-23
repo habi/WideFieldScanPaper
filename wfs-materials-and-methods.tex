@@ -60,7 +60,7 @@ As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an e
 The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the input of the end-user, we were able to reduce the total acquisition time by \SI{86}{\percent}, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned of the same sample. This has been done to assess the artifacts which arise through the reduction of the amount of projections. Albeit the aforementioned reduction in scanning time by \SI{86}{\percent} does introduce artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown later on.
 
 \begin{table*}
-\centering
+	\centering
 	\caption{Specification of different protocols and time used compared to gold standard}
 	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccccccccccccccc}
 		\toprule
@@ -105,7 +105,7 @@ If the sample to be imaged has a size which is slightly larger than the FOV of t
 	\caption{Covering the FOV of differently sized samples with one \SI{180}{\degree} scan \subref{subfig:180degreescan}, one \SI{360}{\degree} scan \subref{subfig:360degreescan} or---in the case of the so called wide field scanning---with multiple subscans (three subscans in \subref{subfig:widefieldscan}.}
 	\label{fig:scanning-poossibilities}
 \end{figure*}
-%
+
 %\begin{figure*}
 %	\centering
 %	\input{tikz-images/Scan-Stacked}
@@ -128,14 +128,14 @@ If we want to achieve tomographic scans covering a sample size which is bigger t
 %	\caption{Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
 %	\label{fig:covering-three scans a}
 %\end{figure*}
-%
+
 %\begin{figure*}
 %	\centering
 %	\input{tikz-images/covering-three-b}
 %	\caption{Or is this better for the understanding?: Covering the FOV -- three scans $\rightarrow$ sample has to move, explain that we still only do \SI{180}{\degree} scans!}
 %	\label{fig:covering-three scans b}
 %\end{figure*}
-%
+
 To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap facilitates the correct stitching of the single projections. Preliminary experiments have shown that even with thorough calibration the combined positioning error of the mechanical setup of TOMCAT is in the order of some pixels. This is an excellent achievement of the whole TOMCAT-team, but for our needs a precision of one pixel is crucial. Obtaining subscans with an overlap of approximately 20 pixels allows us to stitch the subscan projections with a precision of one pixel after having calculated the cutline (as described in section~\ref{sec:Image Merging and Reconstruction}).
 
 After correction with the dark and flat images, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}). According to~\citet{Hintermueller2009} the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement $\delta^2(\xi_{i,j})$ is computed. This displacement measure provides a measure for the inequality of the two images within their overlapping parts. The local minimum of $\delta^2(\xi_{i,j})$ shows the effective displacement $\xi_{i,j}$ between the two adjacent images $i$ and $j$. For three subscans we calculate the effective displacement $\xi_{1,2}$ and $\xi_{2,3}$ and stitch all the images into one big projection image.

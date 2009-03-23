@@ -68,34 +68,56 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 \end{figure*}
 
 \subsection{Quality guided protocol selection}
-A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The properties of the scan have been chosen according to a MATLAB-plot---as described in section~\ref{seq:Image Acquisition}---which has been generated with \verb+MATLAB\wfs-sim\main.m+ \todo{only necessary if we provide the code\ldots} for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans.
+A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The properties of the scan have been chosen according to a MATLAB-plot---as described in section~\ref{seq:Image Acquisition}---which has been generated with \verb+MATLAB\wfs-sim\main.m+ \todo{do we provide the code for reproducible research? or is it ``closed source''?} for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans.
 
-We assessed the image differences for the 19 scanned protocols in such a way that the raw data slices have been binarized using an automated thresholding algorithm method, which chooses the threshold to minimize the intraclass variance of the black and white pixels~\cite{Otsu1979}. The binarization of the images suppresses small variations in the gray values which can occur through the reconstruction for the different protocols. A suitable threshold has been automatically chosen by the thresholding algorithm.
+We assessed the image differences for the 19 scanned protocols in such a way that the tiff slices have been binarized using an automated thresholding algorithm method, which chooses the threshold to minimize the intraclass variance of the black and white pixels~\cite{Otsu1979}. The binarization of the images suppresses small variations in the gray values which can occur through the reconstruction for the different protocols. A suitable threshold has been automatically chosen by the thresholding algorithm.
 
-The thresholded slices of each protocol have been compared to the gold standard protocol in such a way that the sum of all pixels of the absolute difference image ($D_{Prot_{i}}$) of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value ($E_{Prot_{norm_{i}}}$). Equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b} show the details of this calculations.
+The thresholded slices of each protocol ($Slice_{Prot_{i}}$ have been compared to the gold standard protocol ($Slice_{B_{i}}$) in such a way that the sum of all pixels of the absolute difference image ($D_{Prot_{i}}$) of the relevant protocol with the gold standard protocol has been taken and this difference image has been summed up to yield an error value ($E_{Prot_{norm_{i}}}$). Equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b} show the details of this calculations.
+
 \begin{eqnarray}
-    D_{Prot_{i}} &=& |Slice_{A_{i}}-Slice_{Protocol_{i}}| \label{eq:errorcalculation-a}\\
+    D_{Prot_{i}} &=& |Slice_{B_{i}}-Slice_{Prot_{i}}| \label{eq:errorcalculation-a}\\
 E_{Prot_{norm_{i}}} &=& \sum_{x}\sum_{y} D_{Prot_{i}} \label{eq:errorcalculation-b}\\
     E_{Prot_{norm}} &=& \overline{E_{Prot_{norm_{i}}}} \pm \sigma(E_{Prot_{norm_{i}}}) \mbox{for} i=1:5:1024 \label{eq:errorcalculation-c}
 \end{eqnarray}
 
-The error value ($E_{Prot_{norm}}$) has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean ($\overline{E_{Prot_{norm_{i}}}}$) and standard deviation of the error have been plotted (shown in figure~\ref{fig:NormalizedErrorPlot}) in such a way that the error has been scaled in arbitrary units from 0 to 1\todo{change ``direction'' of plot, so it matches QualityPlot}.
+The error value ($E_{Prot_{norm}}$) has been calculated for 205 regularly spaced slices of the full dataset (1024 slices). The mean ($\overline{E_{Prot_{norm_{i}}}}$) and standard deviation of the error have been plotted (see figure~\ref{fig:NormalizedErrorPlot}) in such a way that the error has been scaled to arbitrary units from 0 to 1.
 
-We see that---as expected---the normalized error grows with decreasing amount of total obtained projections. The simulated scanning quality shown in figure~\ref{fig:2008c-qualityplot} shows the simulated quality to expect from the scan, while figure~\ref{fig:NormalizedErrorPlot} is a plot of the calculated error of the different protocols compared to protocol A\todo{explain more in depth!!!}.
+We see that---as expected---the normalized error grows with decreasing amount of total obtained projections. The simulated scanning quality shown in figure~\ref{fig:2008c-qualityplot} shows the simulated quality to expect from the scan, while figure~\ref{fig:NormalizedErrorPlot} is a plot of the calculated error of the different protocols compared to protocol A, hence the outcome of the experiments using not a simulated phantom, but actual scans of lung tissue.
+
+For protocols with the same total amount of projections, but different configurations of amount of projections for the central and the ring scan (e.g.\ Protocols C and D aswell as procotocls M and N) we see a difference in the error. This difference arises through the fact that the differing amount of subscans acquired for the central and the subscan add up to the same total amount of projections, but contribute differently to the quality of the reconstruction. The details for tose protocols are described in table~\ref{tab:detailsCDMN}. Since the central portions of the sample and the ring portions of the sample cover differently sized areas of the sample, we have expected a different error-value for inbetween those protocols. 
 
 \begin{figure*}
 	\centering
 		\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
-	\caption{Plot of normalized Error for the different protocols. The normalized Error has been calculated in such a way that we have taken the Difference image for Protocol 'x' compared to Protocol 'A' and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol.}
+	\caption{Plot of normalized Error ($E_{norm}$ for the 19 scanned protocols. The normalized Error has been calculated in such a way that we calculated the difference image for Protocol 'x' compared to Protocol 'A',  and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol. Note that the error is plotted inversely, so the axes of this plot and the plot in figure~\ref{fig:2008c-qualityplot} are directly comparable.}
 	\label{fig:NormalizedErrorPlot}
 \end{figure*}
+
+\begin{table*}%
+	\centering
+	\caption{Details of amount of projections for protocols C vs.\ D and M vs.\ N}
+	\begin{tabular}{rcccc}
+		\toprule
+							& C 	& D 	& M 	& N \\
+		\midrule
+		Central scan		& 2622 	& 4370	& 1311 	& 2185 \\
+		Ring scan	 		& 5244 	& 4370  & 2622 	& 2185 \\
+		\midrule
+		total Projections	& 13110	& 13110	& 6555	& 6555 \\
+		\bottomrule
+	\end{tabular}  
+	\label{tab:detailsCDMN}
+\end{table*}
+
+Figure~\ref{fig:NormalizedErrorPlot} confirms this finding. For a comparable total amount of recorded projections, the quality of the dataset with reduced projections is lower than when an equal amount of projections has been recorded for all thre subscans\todo{compare O/P, M/N, I/J, E/H, C/D}.
 
 \subsection{Three dimensional visualizations}
 \subsubsection{19 Protocols}
 The 19 different protocols which have been obtained from the same sample have been three dimensionally visualized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany).
-Using a visualization network \todo{exactly explain the network?} we automatically segmented airway segments from the dataset using a region growing algorithm~\cite{wiki:regiongrowing} using the same seed point to extract segments for all protocols.
+Using a visualization network \todo{do we need to exactly explain the network? or can we give it in supplem. mat.?} we automatically segmented airway segments from the dataset using a region growing algorithm~\cite{wiki:regiongrowing} using the same seed point to extract segments for all protocols.
 
 Two exemplary visualizations of such segment extractions are shown in figure~\ref{fig:BvsT}\todo{explain these extractions in more details}.
+
 \begin{figure*}
 	\centering
 	\renewcommand{\imsize}{.5\linewidth}	
@@ -118,6 +140,7 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 \end{figure*}
 
 \subsubsection{some other visualizations}
+\todo{Enhancement of FOV from $s_{2}$ to wfs}
 \renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 \pgfmathsetlength{\imagescale}{\imagewidth/1202} % pixel width of imagefile used below
