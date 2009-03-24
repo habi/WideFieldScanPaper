@@ -23,6 +23,7 @@ R108C10B-s1
 R108C10B-s2
 R108C10B-s3
 Sprague-Dawley
+SurfaceCharacteristics
 T
 back-projection
 crop-green
@@ -44,6 +45,7 @@ overview-merge
 overview-s2
 overviewB
 overviewT
+rcccc
 s
 s2
 sep
@@ -52,5 +54,6 @@ sophie
 subscan
 subscans
 west,inner
+wfs
 widefieldscanning
 x

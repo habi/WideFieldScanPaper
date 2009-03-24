@@ -84,7 +84,7 @@ The error value ($E_{Prot_{norm}}$) has been calculated for 205 regularly spaced
 
 We see that---as expected---the normalized error grows with decreasing amount of total obtained projections. The simulated scanning quality shown in figure~\ref{fig:2008c-qualityplot} shows the simulated quality to expect from the scan, while figure~\ref{fig:NormalizedErrorPlot} is a plot of the calculated error of the different protocols compared to protocol A, hence the outcome of the experiments using not a simulated phantom, but actual scans of lung tissue.
 
-For protocols with the same total amount of projections, but different configurations of amount of projections for the central and the ring scan (e.g.\ Protocols C and D aswell as procotocls M and N) we see a difference in the error. This difference arises through the fact that the differing amount of subscans acquired for the central and the subscan add up to the same total amount of projections, but contribute differently to the quality of the reconstruction. The details for tose protocols are described in table~\ref{tab:detailsCDMN}. Since the central portions of the sample and the ring portions of the sample cover differently sized areas of the sample, we have expected a different error-value for inbetween those protocols. 
+For protocols with the same total amount of projections, but different configurations of amount of projections for the central and the ring scan (e.g.\ Protocols C and D as well as protocols M and N) we see a difference in the error. This difference arises through the fact that the differing amount of subscans acquired for the central and the subscan add up to the same total amount of projections, but contribute differently to the quality of the reconstruction. The details for those protocols are described in table~\ref{tab:detailsCDMN}. Since the central portions of the sample and the ring portions of the sample cover differently sized areas of the sample, we have expected a different error-value in between the protocols. 
 
 \begin{figure*}
 	\centering
@@ -109,38 +109,11 @@ For protocols with the same total amount of projections, but different configura
 	\label{tab:detailsCDMN}
 \end{table*}
 
-Figure~\ref{fig:NormalizedErrorPlot} confirms this finding. For a comparable total amount of recorded projections, the quality of the dataset with reduced projections is lower than when an equal amount of projections has been recorded for all thre subscans\todo{compare O/P, M/N, I/J, E/H, C/D}.
+Figure~\ref{fig:NormalizedErrorPlot} confirms this finding. For a comparable total amount of recorded projections, the quality of the dataset with reduced projections is lower than when an equal amount of projections has been recorded for all three subscans\todo{compare O/P, M/N, I/J, E/H, C/D}.
 
 \subsection{Three dimensional visualizations}
-\subsubsection{19 Protocols}
-The 19 different protocols which have been obtained from the same sample have been three dimensionally visualized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany).
-Using a visualization network \todo{do we need to exactly explain the network? or can we give it in supplem. mat.?} we automatically segmented airway segments from the dataset using a region growing algorithm~\cite{wiki:regiongrowing} using the same seed point to extract segments for all protocols.
-
-Two exemplary visualizations of such segment extractions are shown in figure~\ref{fig:BvsT}\todo{explain these extractions in more details}.
-
-\begin{figure*}
-	\centering
-	\renewcommand{\imsize}{.5\linewidth}	
-		\subfloat[Overview Protocol B]{%
-			\includegraphics[width=\imsize]{img/protocols/BvsT/overviewB}}
-		\subfloat[Overview Protocol T]{%
-			\includegraphics[width=\imsize]{img/protocols/BvsT/overviewT}}\\
-	\renewcommand{\imsize}{.495\linewidth}
-		\subfloat[Detailed view of segments of Protocol B]{%
-			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-B}}\hfill
-		\subfloat[Detailed view of segments of Protocol B]{%
-			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-T}}\\
-		\subfloat[Bottom view of underside of Protocol B]{%
-			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-B}}\hfill
-		\subfloat[Bottom view of underside of Protocol T]{%
-			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-T}}
-	\caption{Segmentation of two exemplary protocols, namely B and T.}
-	\label{fig:BvsT}
-	\todo[inline]{this figure doesn't help at all. yet.}
-\end{figure*}
-
-\subsubsection{some other visualizations}
-\todo{Enhancement of FOV from $s_{2}$ to wfs}
+\subsubsection{Increasing the FOV}
+\todo{Thoroughly discuss increase of FOV from $s_{2}$ to wfs}
 \renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 \pgfmathsetlength{\imagescale}{\imagewidth/1202} % pixel width of imagefile used below
@@ -207,8 +180,34 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 	\label{fig:down}
 \end{figure*}
 
+\subsubsection{19 Protocols}
+The 19 different protocols which have been obtained from the same sample have been three dimensionally visualized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany). Using a region growing algorithm~\cite{wiki:regiongrowing}, airway segments have been extracted from the tomographic dataset. The same seed points have been used for all protocols top ensure reproducibility for the comparison of the extracted airway segments.
+
+Two exemplary visualizations of such segment extractions are shown in figure~\ref{fig:BvsT}\todo{explain these extractions in more details}\todo{discuss Felix' Idea with the SurfaceCharacteristics}.
+
+\begin{figure*}
+	\centering
+	\renewcommand{\imsize}{.5\linewidth}	
+		\subfloat[Overview Protocol B]{%
+			\includegraphics[width=\imsize]{img/protocols/BvsT/overviewB}}
+		\subfloat[Overview Protocol T]{%
+			\includegraphics[width=\imsize]{img/protocols/BvsT/overviewT}}\\
+%	\renewcommand{\imsize}{.495\linewidth}
+%		\subfloat[Detailed view of segments of Protocol B]{%
+%			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-B}}\hfill
+%		\subfloat[Detailed view of segments of Protocol B]{%
+%			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-T}}\\
+%		\subfloat[Bottom view of underside of Protocol B]{%
+%			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-B}}\hfill
+%		\subfloat[Bottom view of underside of Protocol T]{%
+%			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-T}}
+	\caption{Three dimensional view of volume renderings of terminal airway segments of two exemplary protocols, namely B and T.}
+	\label{fig:BvsT}
+	\todo[inline]{this figure doesn't help at all. yet.}
+\end{figure*}
+
 \subsubsection{5 instead of 3 subscans}
-As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}.
+As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}\todo{Compare the red and green cube $\rightarrow$ artefacts at lateral parts}.
 
 \begin{figure*}
 	\renewcommand{\imsize}{\textwidth}

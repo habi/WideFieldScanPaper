@@ -8,6 +8,7 @@ experimenTs
 img
 micro-computed
 non-destructive
+non-linear
 post-processing
 rAdiology
 ring-scan
@@ -15,3 +16,5 @@ sub-micrometer
 sub-scan
 subscan
 subscans
+un-binned
+versioned
