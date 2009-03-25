@@ -187,23 +187,76 @@ Two exemplary visualizations of such segment extractions are shown in figure~\re
 
 \begin{figure*}
 	\centering
-	\renewcommand{\imsize}{.5\linewidth}	
-		\subfloat[Overview Protocol B]{%
-			\includegraphics[width=\imsize]{img/protocols/BvsT/overviewB}}
-		\subfloat[Overview Protocol T]{%
-			\includegraphics[width=\imsize]{img/protocols/BvsT/overviewT}}\\
-%	\renewcommand{\imsize}{.495\linewidth}
-%		\subfloat[Detailed view of segments of Protocol B]{%
-%			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-B}}\hfill
-%		\subfloat[Detailed view of segments of Protocol B]{%
-%			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-1-T}}\\
-%		\subfloat[Bottom view of underside of Protocol B]{%
-%			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-B}}\hfill
-%		\subfloat[Bottom view of underside of Protocol T]{%
-%			\includegraphics[width=\imsize]{img/protocols/BvsT/detail-2-T}}
-	\caption{Three dimensional view of volume renderings of terminal airway segments of two exemplary protocols, namely B and T.}
+	\pgfmathsetlength{\imagewidth}{\imsize}          % desired displayed width of image
+	\pgfmathsetlength{\imagescale}{\imagewidth/1594} % pixel width of imagefile used
+	\subfloat[Overview Protocol B]{%
+	    \begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+	    \def\x{225}
+    	\def\y{825}
+      		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+			{\includegraphics[width=\imagewidth]{img/comparisonBvsT/R108C21_overview_B}};
+			% 1204 px = 3.844 mm > 100 px = 319 um > 157 px = 500 um
+		    \draw[|-|,thick] (174,550) -- (1352,797) node [midway,above] {\SI{3.8444}{\milli\meter}}; 
+			\draw[|-|,thick] (\x,\y) -- (\x+157,\y) node [right] {\SI{500}{\micro\meter}};
+    	\end{tikzpicture}%
+		}%
+	\subfloat[Overview Protocol T]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\def\x{225}
+    	\def\y{825}
+    		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+			{\includegraphics[width=\imagewidth]{img/comparisonBvsT/R108C21_overview_T}};
+			% 1204 px = 3.844 mm > 100 px = 319 um > 157 px = 500 um
+		    \draw[|-|,thick] (174,550) -- (1352,797) node [midway,above] {\SI{3.8444}{\milli\meter}};
+			\draw[|-|,thick] (\x,\y) -- (\x+157,\y) node [right] {\SI{500}{\micro\meter}};
+    	\end{tikzpicture}%
+		}\\
+	\subfloat[Segmented airways for protocol B]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\def\x{225}
+    	\def\y{675}
+      		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+			{\includegraphics[width=\imagewidth]{img/comparisonBvsT/R108C21_underside_iso_B}};
+			% 1341 px = 3.844 mm > 100 px = 287 um > 174 px = 500 um
+		    \draw[|-|,thick] (183,288) -- (1523,279) node [midway,above] {\SI{3.8444}{\milli\meter}};
+			\draw[|-|,thick] (\x,\y) -- (\x+174,\y) node [right] {\SI{500}{\micro\meter}};
+    	\end{tikzpicture}%
+		}%
+	\subfloat[Segmented airways for protocol T]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\def\x{225}
+    	\def\y{675}
+			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+			{\includegraphics[width=\imagewidth]{img/comparisonBvsT/R108C21_underside_iso_T}};
+			% 1341 px = 3.844 mm > 100 px = 287 um > 174 px = 500 um
+		    \draw[|-|,thick] (183,288) -- (1523,279) node [midway,above] {\SI{3.8444}{\milli\meter}};
+			\draw[|-|,thick] (\x,\y) -- (\x+174,\y) node [right] {\SI{500}{\micro\meter}};
+		\end{tikzpicture}%
+		}\\
+	\pgfmathsetlength{\imagescale}{\imagewidth/2712} % pixel width of imagefile used		
+	\subfloat[Slice 1024 of dataset for protocol B]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\def\x{150}
+    	\def\y{150}    		
+      		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+			{\includegraphics[width=\imagewidth]{img/protocols/R108C21Cb_mrg1024}};
+			% 2710 px = 3.844 cm > 100 px = 142 um > 352 px = 500 um
+		    \draw[|-|,color=white,thick] (10,500) -- (2702,500) node [midway,above] {\SI{3.8444}{\milli\meter}};
+			\draw[|-|,color=white,thick] (\x,\y) -- (352+\x,\y) node [right] {\SI{500}{\micro\meter}};
+    	\end{tikzpicture}%
+		}%
+\subfloat[Slice 1024 of dataset for protocol T]{%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\def\x{150}
+    	\def\y{150}  
+      		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+			{\includegraphics[width=\imagewidth]{img/protocols/R108C21Ct_mrg1024}};
+			% 2710 px = 3.844 cm > 100 px = 142 um > 352 px = 500 um
+		    \draw[|-|,color=white,thick] (10,500) -- (2702,500) node [midway,above] {\SI{3.8444}{\milli\meter}};
+		    \draw[|-|,color=white,thick] (\x,\y) -- (352+\x,\y) node [right] {\SI{500}{\micro\meter}};
+    	\end{tikzpicture}%
+		}\\		
 	\label{fig:BvsT}
-	\todo[inline]{this figure doesn't help at all. yet.}
 \end{figure*}
 
 \subsubsection{5 instead of 3 subscans}
