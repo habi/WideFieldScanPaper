@@ -100,10 +100,19 @@ Generally, tomographic images are obtained in such a manner that the sample is r
 If the sample to be imaged has a size which is slightly larger than the FOV of the camera, a \SI{360}{\degree}-scan is performed. Projections are obtained over a full rotation of the sample, while the sample is positioned in front of the camera in such a way that it only covers half the FOV of the detector. After acquisition of the projection images, half of the dataset has to be flipped and the projections at position $P_{x}$ and $P_{x+\SI{180}{\degree}}$ are stitched together to projection images covering two times the FOV of the camera.
 
 \begin{figure*}
+	\noindent\makebox[\textwidth]{%
 	\centering
-	\input{tikz-images/scanning-possibilities}
-	\caption{Covering the FOV of differently sized samples with one \SI{180}{\degree} scan \subref{subfig:180degreescan}, one \SI{360}{\degree} scan \subref{subfig:360degreescan} or---in the case of the so called wide field scanning---with multiple subscans (three subscans in \subref{subfig:widefieldscan}.}
-	\label{fig:scanning-poossibilities}
+		\subfloat[scanning possibilities]{%
+			\input{tikz-images/scanning-possibilities}%
+			\label{subfig:scanning-possibilities}%
+		}%
+		\subfloat[scanning possibilities]{%
+			\input{tikz-images/Scan-Stacked}%
+			\label{subfig:stacked-scan}%
+		}%
+		\caption{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom. \label{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.}%
+		\label{fig:scanning-poossibilities}%
+	}%
 \end{figure*}
 
 %\begin{figure*}
