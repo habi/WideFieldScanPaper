@@ -51,10 +51,9 @@ As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an e
 
 \begin{figure*}
 	\centering
-		\input{tikz-images/plots/2008c-QualityPlot}
-	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+...+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}
-	\label{fig:2008c-qualityplot}
-	\todo[inline]{come back to this in results!}
+		\input{tikz-images/plots/2008c-QualityPlot}%
+	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+...+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}%
+	\label{fig:2008c-qualityplot}%
 \end{figure*}
 
 The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the input of the end-user, we were able to reduce the total acquisition time by \SI{86}{\percent}, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned of the same sample. This has been done to assess the artifacts which arise through the reduction of the amount of projections. Albeit the aforementioned reduction in scanning time by \SI{86}{\percent} does introduce artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown later on.
@@ -95,24 +94,23 @@ We perform several subscans without user intervention, except input of the sampl
 
 \subsubsection{Covering a broad FOV}
 \label{subsec:covering a broad fov}
-Generally, tomographic images are obtained in such a manner that the sample is rotated for \SI{180}{\degree} while multiple projection images are obtained, as shown in figure~\ref{subfig:180degreescan}. After reconstructing the sample the width of the image corresponds to the FOV of the camera.
+Generally, tomographic images are obtained in such a manner that the sample is rotated for \SI{180}{\degree} while multiple projection images are obtained, as shown in figure~\ref{subfig:scanning-possibilities}. After reconstructing the sample the width of the image corresponds to the FOV of the camera.
 
 If the sample to be imaged has a size which is slightly larger than the FOV of the camera, a \SI{360}{\degree}-scan is performed. Projections are obtained over a full rotation of the sample, while the sample is positioned in front of the camera in such a way that it only covers half the FOV of the detector. After acquisition of the projection images, half of the dataset has to be flipped and the projections at position $P_{x}$ and $P_{x+\SI{180}{\degree}}$ are stitched together to projection images covering two times the FOV of the camera.
 
 \begin{figure*}
 	\noindent\makebox[\textwidth]{%
-	\centering
-		\subfloat[scanning possibilities]{%
+		\subfloat[Three different scanning configurations for increasing sample diameter.]{%
 			\input{tikz-images/scanning-possibilities}%
 			\label{subfig:scanning-possibilities}%
 		}%
-		\subfloat[scanning possibilities]{%
+		\subfloat[Stacked scanning for long and thin samples.]{%
 			\input{tikz-images/Scan-Stacked}%
 			\label{subfig:stacked-scan}%
 		}%
-		\caption{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom. \label{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.}%
-		\label{fig:scanning-poossibilities}%
-	}%
+	}% end of \makebox
+	\caption{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.}%
+	\label{fig:scanning-possibilities}%
 \end{figure*}
 
 %\begin{figure*}
@@ -129,7 +127,7 @@ If the sample to be imaged has a size which is slightly larger than the FOV of t
 %	\label{fig:widefield-scanning}
 %\end{figure*}
 
-If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera. This can be done as shown in figure~\ref{subfig:widefieldscan}, where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
+If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera. This can be done as shown in figure~\ref{subfig:scanning-possibilities}, where we obtain three subscans to be able to reconstruct a FOV covering the whole sample.
 
 %\begin{figure*}
 %	\centering
@@ -166,7 +164,6 @@ This approach facilitates the merging of the different subscans in such a way th
     (green line) from subscan 2 (central scan, green area) and projection $P_{3_{283}}$ % XXX 17*3000/180 XXX
     (blue line) of subscan 3 (ring scan, blue area) to one big projection $P_{merge_{283}}$ % XXX 17*3000/180 XXX
     which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For didactic reasons we shifted the central projection (green) by \SI{2}{\degree}, or else the overlap between these particular projection would not be visible.}%
-	\todo[inline]{Do we only speak of central and ring-scan or of 3 subscans?}
 	\label{fig:amount of projections}%
 \end{figure*}
 

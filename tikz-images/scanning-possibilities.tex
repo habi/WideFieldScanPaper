@@ -35,8 +35,9 @@
 			% label				
 			\node at (\BeamLength+0.5,\startAtY+1+.25) {beam};
 		%sample
-			\draw[ultra thick] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
-			\draw[thick,->] (0.5*\BeamLength+1,\startAtY+0.25)   arc (-90:90:0.25);
+			\fill [color=gray,nearly transparent] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
+			\draw [thick] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
+			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.25)   arc (-90:90:0.25);
 			\node at (0.5*\BeamLength+1,\startAtY-0.25) {sample};
 	%%%%%%%%%%%%%%%%%%%
 	%       360       %
@@ -55,8 +56,9 @@
 			% label				
 %			\node at (\BeamLength+0.5,\startAtY+1.25) {beam};
 		%sample
-			\draw[ultra thick] (0.5*\BeamLength+1,\startAtY+0.5) circle (1);
-			\draw[thick,->] (0.5*\BeamLength+1,\startAtY+0.25) arc (-85:265:0.25);
+			\fill [color=gray,nearly transparent] (0.5*\BeamLength+1,\startAtY+0.5) circle (1);
+			\draw [thick] (0.5*\BeamLength+1,\startAtY+0.5) circle (1);
+			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.25) arc (-85:265:0.25);
 %			\node at (0.5*\BeamLength+1,\startAtY-0.75) {sample};
 	%%%%%%%%%%%%%%%%%%%
 	% Wide Field Scan %
@@ -80,7 +82,7 @@
 		\fill [color=green,nearly transparent] (0.5*\BeamLength+1,3-0.5) circle (0.5);	
 		\foreach \y/\position/\color in {\startAtY-0.5/1/red,\startAtY+0.5/2/green,\startAtY+1.5/3/blue}
 			{
-				\draw[thick] (0.5*\BeamLength+1,\y) circle (1.5) circle (0.5);
+				\draw[very thick] (0.5*\BeamLength+1,\y) circle (1.5) circle (0.5);
 				\draw[thick,->] (0.5*\BeamLength+1,\y-0.25) arc (-90:90:0.25);
 				\fill [color=\color,ultra nearly transparent] (0.5*\BeamLength+1,\y) circle (1.5);
 				\node at (\BeamLength+2+.005,\y-.005) {Position \position};

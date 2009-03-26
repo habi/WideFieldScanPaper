@@ -48,16 +48,16 @@
 \begin{tikzpicture}%[scale=1/.618]
 %\node at (1,1) {asdf};%
 \begin{axis}[%
-%	width=\linewidth,%grid=both,%
+	width=\linewidth,
+	height=0.618\linewidth,
+	%grid=both,%
 	%xmajorgrids,%
 	xtick=data,%
-%	xticklabels={\tiny T,\tiny S,\tiny R,\tiny Q,%
-%		\tiny P,\tiny O,\tiny NM,,\tiny L,\tiny K,%
-%		\tiny J,\tiny I,\tiny H,\tiny G,\tiny F,%
-%		\tiny E,\tiny DC,,\tiny B},%
-	xticklabels={T,S,R,Q,P,O,NM,,L,K,J,I,H,G,F,E,DC,,B},%
+	xticklabels={T,S,R,Q,P\ ,\ O,NM,,\ L,K\ ,J,I,H,G,F,E,DC,,B},%
 	yticklabels={1,0.8,0.6,0.4,0.2,0},
-	title={spaced with total \#Projections (2185:15732)},
+	%title={spaced with total \#Projections (2185:15732)},%
+	xlabel={Protocol},%
+	ylabel={normalized Error}%
 ]
 % Line plot
 \addplot
@@ -87,7 +87,22 @@
 };
 \pgfplotsset{every axis legend/.append style={at={(0.618,0.2)},anchor=base}}
 \legend{$E_{norm}$}
+
+\tikzstyle{every pin}=[font=\footnotesize]
+
+%\node [coordinate,pin=below right:C] at (axis cs:15.83,0.7733) {};
+%\node [coordinate,pin=above right:D] at (axis cs:15.83,0.8714) {};
+%\node [coordinate,pin=above right:M] at (axis cs:7.92 ,0.5773) {};
+%\node [coordinate,pin=below right:N] at (axis cs:7.92 ,0.4997) {};
+
+\scriptsize
+\draw [] (axis cs:15.83,0.7733) -- (axis cs:16.23,0.7733) node [right] {C};
+\draw [] (axis cs:15.83,0.8714) -- (axis cs:16.23,0.8714) node [right] {D};
+\draw [] (axis cs:7.92,0.5473) -- (axis cs:8.32,0.5473) node [right] {M};
+\draw [] (axis cs:7.92,0.4997) -- (axis cs:8.32,0.4997) node [right] {N};
+
 \end{axis}
+
 \end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % plot erstellt mit MATLAB-File p:\doc\MATLAB\WFS-CompareDMPs\wfs_Compare2008c.m (FromToTo = 1:5:1024)
