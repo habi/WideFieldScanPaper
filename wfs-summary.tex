@@ -8,7 +8,7 @@
 \begin{center}
 	\fbox{
 		\begin{minipage}{.618\columnwidth}
-		The section below is versioned at \url{\svnkw{HeadURL}} (last commit @ \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute \space (UTC\svnfiletimezone), Revision: \svnkw{LastChangedRevision}).
+		The section below is versioned at \url{\svnkw{HeadURL}} (last commit @ \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute, Revision: \svnkw{LastChangedRevision}).
 		\end{minipage}
 	} 
 \end{center}
@@ -21,6 +21,7 @@ Further increases of the FOV are only theoretically limited, but face problems w
 The stitching of the multiple overlapping projections has been automated using custom made MATLAB scripts and will be implemented at the beamline for end-user access. Since the stitching of the overlapping subscans is quite a time-consuming process it would be desirable to directly implement the stitching in to the present sinogram generation routines. This would also reduce the load on the file server, since at the moment, all the projection from the subscans are read from disk, merged to big projections and these big projections is then subsequently written to disk. If would be desirable to directly generate merged sinograms from the overlapping subscans to define the reconstruction parameters and then perform the merging and reconstruction on the cluster without intermediate merging step\todo{Is this planned? Or is this too far-fetched for TOMCAT-team?}.
 
 \section{Outlook}
+\label{sec:outlook}
 The wide field scanning method has been developed to enable the high-resolution tomographic imaging of entire acini, something which would not have been possible with the  ``simple'' tomographic imaging method present at TOMCAT.
 
 In addition to the multiple scans of the same sample to assess the method, we also recorded tomographic datasets with increased FOV from distal-medial edges of right lower lung lobes of Sprague Dawley rats obtained at post-natal days 4, 10, 21, 36 and 60. With these samples we have begun to study the skeleton of the terminal airways to quantitatively differentiate the lung development at this post-natal stage\todo{add manuscript in preparation?}.
@@ -41,7 +42,7 @@ Figure~\ref{fig:skel} shows a three dimensional visualization of such a lung lob
 		    % 695 px = 3.844 mm > 100 px = 554 um > 90 px = 500um
 			\draw[|-|,thick] (\x,\y) -- (180+\x,\y) node [midway,above] {\SI{1}{\milli\meter}}; 
 		\end{tikzpicture}%							
-	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same sample as in figure~\ref{fig:overview} and~\ref{fig:down}), including the airway skeletons of the extracted airways.}%
+	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same sample as in figure~\ref{fig:FOV increase overview} and~\ref{fig:FOV increase segments}), including the airway skeletons of the extracted airways.}%
 	\label{fig:skel}%
-	\todo[inline]{scale bars are not finalized, need to be adjusted to sensible lengths}%
+	\todo[inline]{scale bars are not finalized, need to be adjusted to sensible lengths.}%
 \end{figure*}
