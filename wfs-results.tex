@@ -103,7 +103,7 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 		}%
 		\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}%
 	\label{fig:FOV increase overview}%
-	\todo[inline]{Do we need to add original slices to clearly show the increase in the FOV, or is this clear enough? Scale bars for this and ALL subsequet images are not finalized, need to be adjusted to sensible lengths.}
+	\todo[inline]{Do we need to add original slices to clearly show the increase in the FOV, or is this clear enough? Scale bars for this and ALL subsequent images are not finalized, need to be adjusted to sensible lengths.}
 \end{figure*}
 
 \renewcommand{\imsize}{.5\linewidth}
@@ -183,7 +183,7 @@ For protocols with the same total amount of projections, but different configura
 
 Figure~\ref{fig:NormalizedErrorPlot} confirms this finding. For a comparable total amount of recorded projections, the quality of the dataset with reduced projections is lower than when an equal amount of projections has been recorded for all three subscans\todo{compare O/P, M/N, I/J, E/H, C/D in depth!}.
 
-\subsubsection{Comparison of protocols obtained with quality-guided protocl selection}
+\subsubsection{Comparison of protocols obtained with quality-guided protocol selection}
 The 19 different protocols which have been obtained from the same sample have been three dimensionally visualized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany). Using a region growing algorithm~\cite{wiki:regiongrowing}, airway segments have been extracted from the tomographic dataset. To be able to compare the extracted airway segments (segments for two protocols are shown in figures~\ref{subfig:BvsToverviewB}--\ref{subfig:BvsTsegmentT}) we used exactly the same seed points for all protocols. Since the histograms of the slices from the different protocols were not completely equal, slightly different threshold values have been used to define if a voxel is include in the airway segment or not. All these threshold have been chosen in such a way that they were placed at the same location in the histogram\todo{do we need to show this, or is explanation enough?}.
 
 \begin{figure*}
@@ -267,7 +267,7 @@ The 19 different protocols which have been obtained from the same sample have be
 	\label{fig:BvsT}%
 \end{figure*}
 
-The two protocols shown in figure~\ref{fig:BvsT} are the two extremes of the 19 obtained protocols. The dataset shown on the left (B) has been reconstructed from 5244 merged projection images, the dataset shown on the right (T) has been reconstructed using only 874 merged slices. Albeit we have scanned protocol T while violating the sampling theorem, both samples still look nearly identical in the three dimensional visualization. Except for small differences at the most lateral parts of the sample (yellow segment) the segmented airways are identical, even if the scanning time of protocol T has been reduced to \SI{14}{\percent} of the scanning time of protocoll B\todo{elaborate a bit more on this\ldots}.
+The two protocols shown in figure~\ref{fig:BvsT} are the two extremes of the 19 obtained protocols. The dataset shown on the left (B) has been reconstructed from 5244 merged projection images, the dataset shown on the right (T) has been reconstructed using only 874 merged slices. Albeit we have scanned protocol T while violating the sampling theorem, both samples still look nearly identical in the three dimensional visualization. Except for small differences at the most lateral parts of the sample (yellow segment) the segmented airways are identical, even if the scanning time of protocol T has been reduced to \SI{14}{\percent} of the scanning time of protocol B\todo{elaborate a bit more on this\ldots}.
 
 \subsubsection{Iteration to even bigger fields of view}
 As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}\todo{Compare the red and green cube $\rightarrow$ artefacts at lateral parts}.
