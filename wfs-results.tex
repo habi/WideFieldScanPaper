@@ -103,7 +103,7 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 		}%
 		\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}%
 	\label{fig:FOV increase overview}%
-	\todo[inline]{Do we need to add original slices to clearly show the increase in the FOV, or is this clear enough? Scale bars are not finalized, need to be adjusted to sensible lengths.}
+	\todo[inline]{Do we need to add original slices to clearly show the increase in the FOV, or is this clear enough? Scale bars for this and ALL subsequet images are not finalized, need to be adjusted to sensible lengths.}
 \end{figure*}
 
 \renewcommand{\imsize}{.5\linewidth}
@@ -137,7 +137,6 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 		}%
 	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:FOV increase overview}). View from the underside of the sample}%
 	\label{fig:FOV increase segments}%
-	\todo[inline]{scale bars are not finalized, need to be adjusted to sensible lengths.}
 \end{figure*}
 
 \subsection{Quality guided protocol selection}
@@ -266,17 +265,9 @@ The 19 different protocols which have been obtained from the same sample have be
 		}\\
 	\caption{Comparison of protocols B and T. Top row: overview. Center row: view of the isosurfaces of the segmented airways. Bottom row: Slices}%
 	\label{fig:BvsT}%
-	\todo[inline]{Scale bars are not finalized, need to be adjusted to sensible lengths.}
 \end{figure*}
 
-The two protocols shown in figure~\ref{fig:BvsT} are the two extremes of the 19 obtained protocols. The dataset shown on the left (B) has been reconstructed from 5244 merged projection images, the dataset shown on the right (T) has been reconstructed using only 874 merged slices. 
-
-
-
-
-
-
-
+The two protocols shown in figure~\ref{fig:BvsT} are the two extremes of the 19 obtained protocols. The dataset shown on the left (B) has been reconstructed from 5244 merged projection images, the dataset shown on the right (T) has been reconstructed using only 874 merged slices. Albeit we have scanned protocol T while violating the sampling theorem, both samples still look nearly identical in the three dimensional visualization. Except for small differences at the most lateral parts of the sample (yellow segment) the segmented airways are identical, even if the scanning time of protocol T has been reduced to \SI{14}{\percent} of the scanning time of protocoll B\todo{elaborate a bit more on this\ldots}.
 
 \subsubsection{Iteration to even bigger fields of view}
 As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}\todo{Compare the red and green cube $\rightarrow$ artefacts at lateral parts}.
@@ -340,6 +331,5 @@ As a proof of concept we have extended the FOV from three to five subscans. We h
  		\subref{subfig:LungSlabDetailsRed}: Close-up of inset cube at a central position in the sample. Single alveoli are clearly visible. %
  		\subref{subfig:LungSlabDetailsRedBG}: Close-up of inset cube at a central position in the sample, including the background tissue. %
 	}
-	\label{fig:LungSlabSophie}
-	\todo[inline]{scale bars are not finalized, need to be adjusted to sensible lengths.}
+	\label{fig:LungSlabSophie}%
 \end{figure*}
