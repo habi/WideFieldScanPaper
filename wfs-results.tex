@@ -24,7 +24,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 	\pgfmathsetlength{\imagewidth}{\imsize} % desired display width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/512} % pixel width of image
 	\centering
-		\subfloat[Uncorrected projection images from subscans s$_1$--s$_3$, each with a size of 1024$\times$1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}, covering a FOV of approximately \SI{0.7}{\milli\meter}. The scans overlap each other by approximately 100 pixels. 4676 projections have been acquired for the subscans s$_1$ and s$_3$, 1169 projections have been acquired for subscan s$_2$, all over a rotation of \SI{180}{\degree}.]{%
+		\subfloat[Uncorrected projection images from subscans s$_1$--s$_3$, each with a size of 1024\(\times\)1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}, covering a FOV of approximately \SI{0.7}{\milli\meter}. The scans overlap each other by approximately 100 pixels. 4676 projections have been acquired for the subscans s$_1$ and s$_3$, 1169 projections have been acquired for subscan s$_2$, all over a rotation of \SI{180}{\degree}.]{%
 			\label{fig:s1}%
 			\includegraphics[width=\imsize]{img/merge/R108C10B-s1}%
 			\includegraphics[width=\imsize]{img/merge/R108C10B-s2}%
@@ -39,7 +39,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 		\renewcommand{\imsize}{.48\linewidth}
 		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 		\pgfmathsetlength{\imagescale}{\imagewidth/1498} % pixel width of image
-		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. The merged projections have a size of 2994$\times$1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}. The Subscans s$_1$--s$_3$ overlap each other by approximately 150 pixels. The width of the merged projections is thus smaller than three times the width of the subscans.]{%
+		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. The merged projections have a size of 2994\(\times\)1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}. The Subscans s$_1$--s$_3$ overlap each other by approximately 150 pixels. The width of the merged projections is thus smaller than three times the width of the subscans.]{%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 					{\includegraphics[width=\imagewidth]{img/merge/R108C10B-merge}};
@@ -50,7 +50,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 		\renewcommand{\imsize}{\linewidth}
 		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 		\pgfmathsetlength{\imagescale}{\imagewidth/1365} % pixel width of image (image has been resized from 2994*1123, so that scalebar is at the same height without calculating too much...)
-		\subfloat[Cropped part of one slice of the tomographic dataset reconstructed from the merged projections, where one is shown in subfigure~\subref{fig:merge-proj}. The halo directly around the lung tissue arises from the paraffin where the sample is embedded in. The bright circular shape inscribed in the square arises from the filtered back-projection, the chosen reconstruction method. The size of the cropped image is 2994$\times$1123 pixels. The inset shows an overview over the full slice with a size of 2994$\times$2994 pixels.]{%
+		\subfloat[Cropped part of one slice of the tomographic dataset reconstructed from the merged projections, where one is shown in subfigure~\subref{fig:merge-proj}. The halo directly around the lung tissue arises from the paraffin where the sample is embedded in. The bright circular shape inscribed in the square arises from the filtered back-projection, the chosen reconstruction method. The size of the cropped image is 2994\(\times\)1123 pixels. The inset shows an overview over the full slice with a size of 2994\(\times\)2994 pixels.]{%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				% place image (integer coordinates refer to pixel centers):
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
@@ -270,7 +270,7 @@ The 19 different protocols which have been obtained from the same sample have be
 The two protocols shown in figure~\ref{fig:BvsT} are the two extremes of the 19 obtained protocols. The dataset shown on the left (B) has been reconstructed from 5244 merged projection images, the dataset shown on the right (T) has been reconstructed using only 874 merged slices. Albeit we have scanned protocol T while violating the sampling theorem, both samples still look nearly identical in the three dimensional visualization. Except for small differences at the most lateral parts of the sample (yellow segment) the segmented airways are identical, even if the scanning time of protocol T has been reduced to \SI{14}{\percent} of the scanning time of protocol B\todo{elaborate a bit more on this\ldots}.
 
 \subsubsection{Iteration to even bigger fields of view}
-As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4$\times$3.4$\times$\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}\todo{Compare the red and green cube $\rightarrow$ artefacts at lateral parts}.
+As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4\(\times\)3.4\(\times\)\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}\todo{Compare the red and green cube $\rightarrow$ artefacts at lateral parts}.
 
 \begin{figure*}
 	\renewcommand{\imsize}{\textwidth}
@@ -325,7 +325,7 @@ As a proof of concept we have extended the FOV from three to five subscans. We h
 	 	\label{subfig:LungSlabDetailsRedBG}%
 		}
 	\caption{Visualization of lung tissue slab: %
-		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554$\times$4854$\times$1024 pixels at a voxel side length of \SI{0.7}{\micro\meter}. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
+		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554\(\times\)4854\(\times\)1024 pixels at a voxel side length of \SI{0.7}{\micro\meter}. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
  		\subref{subfig:LungSlabDetailsGreenBG}: Close-up of inset cube at an outer position in the sample, including the background tissue. % 
  		\subref{subfig:LungSlabDetailsGreen}: Close-up of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %
  		\subref{subfig:LungSlabDetailsRed}: Close-up of inset cube at a central position in the sample. Single alveoli are clearly visible. %
