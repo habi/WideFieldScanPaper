@@ -4,6 +4,7 @@ B
 BvsT
 C
 D
+Dawley
 E
 H
 J
@@ -14,6 +15,7 @@ LungSlabDetailsRed
 LungSlabDetailsRedBG
 MATLAB-plot
 MeVis
+MeVisLab
 N
 O
 P
@@ -38,6 +40,8 @@ SurfaceCharacteristics
 T
 WideFieldScanning
 back-projection
+binarization
+binarized
 comparisonBvsT
 crop-green
 crop-green-background
@@ -52,6 +56,8 @@ end-result
 error-value
 gasaustausch
 img
+intraclass
+isosurfaces
 luftleitend
 m
 main.m
@@ -69,8 +75,12 @@ s2
 sep
 sim
 sophie
+subfigure
 subscan
 subscans
+thresholded
+thresholding
+voxel
 west,inner
 wfs
 white,thick
