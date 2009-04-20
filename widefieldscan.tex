@@ -1,4 +1,4 @@
-\documentclass[a4paper,preprint,review]{elsarticle}
+\documentclass[numbers,sort&compress,a4paper,preprint,review]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
@@ -14,16 +14,20 @@
 	\htmltrue
 	\htmlfalse
 
+\newif\ifdoc
+	\doctrue
+%	\docfalse	
+	
 \ifhtml % In case of web format output...
-	\def\pgfsysdriver{pgfsys-tex4ht.def}	
+	\def\pgfsysdriver{pgfsys-dvi.def}
 	\usepackage[disable]{todonotes}
+	\renewcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
 \else
-	\usepackage[]{todonotes}
+	\usepackage[disable]{todonotes}
 \fi
 
 \usepackage[T1]{fontenc}
 \usepackage[latin1]{inputenc} 						% so I can write my Name without \"{u}
-%\usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{svn-multi} 								% to add SVN-Versioning-Info
@@ -35,26 +39,33 @@
 \usepackage{pgfplots} 								% ditto for plots
 \usepackage{lineno}
 \usepackage{fancyhdr}
+	\pagestyle{fancy}
 \usepackage{hypernat}
 \usepackage[backref]{hyperref}
 
-\pagestyle{fancy}
 
-%\usepackage[numbers,square,sort&compress]{natbib} 	% nice bibliography
-
-%\usepackage{microtype}	 							% for nicer typography
-%	\DisableLigatures{encoding = *, family = * }
+%%%%%% FOR JOHANNES %%%%%%
+\ifdoc
+	\usepackage{endfloat}
+	\usepackage{microtype}
+		\DisableLigatures{encoding = *, family = * }
+\else
+\fi
+%%%%%% FOR JOHANNES %%%%%%
 
 \newcommand{\imsize}{\linewidth}
 \newlength\imagewidth % needed for scalebars
 \newlength\imagescale % needed for scalebars
 
-%% Subversion Information
-\svnidlong
-{$HeadURL$}
-{$LastChangedDate$}
-{$LastChangedRevision$}
-{$LastChangedBy$}
+\ifdoc
+\else
+	%% Subversion Information
+	\svnidlong
+	{$HeadURL$}
+	{$LastChangedDate$}
+	{$LastChangedRevision$}
+	{$LastChangedBy$}
+\fi
 
 \journal{``some tomography journal''}
 
@@ -92,14 +103,14 @@
 			computed tomography \sep synchrotron \sep SRXTM \sep lung development \sep alveoli
 			%% PACS codes here, in the form: \PACS code \sep code
 	
-		%% MSC codes here, in the form: \MSC code \sep code
-		%% or \MSC[2008] code \sep code (2000 is the default)
+			%% MSC codes here, in the form: \MSC code \sep code
+			%% or \MSC[2008] code \sep code (2000 is the default)
 		\end{keyword}
 	\end{frontmatter}
 	
 %	\listoftodos
-	\linenumbers
-	\modulolinenumbers[2]
+%	\linenumbers
+%	\modulolinenumbers[2]
 \fi
 
 \input{wfs-introduction}
@@ -108,7 +119,6 @@
 \input{wfs-discussion}
 \input{wfs-summary}
 \input{wfs-acknowledgements}
-
 
 \bibliographystyle{unsrtnat}
 \bibliography{../references}

@@ -1,10 +1,6 @@
 %!TEX root = widefieldscan.tex
-\svnidlong
-{$HeadURL$}
-{$LastChangedDate$}
-{$LastChangedRevision$}
-{$LastChangedBy$}
-
+\ifdoc
+\else
 \begin{center}
 	\fbox{
 		\begin{minipage}{.618\columnwidth}
@@ -12,6 +8,7 @@
 		\end{minipage}
 	} 
 \end{center}
+\fi
 
 \section{Materials and Methods}
 \label{sec:materials and methods}
@@ -30,7 +27,7 @@ All experiments were performed at the Swiss Light Source, Paul Scherrer Institut
 The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount standard electron microscopy (EM) sample tables into the beam. The samples have been scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France). The projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution 2048\(\times\)2048 pixel CCD camera (PCO AG, Kelheim, Germany) with 14 bit nominal dynamic range which can record projections into the internal memory of \SI{4}{\giga\byte}. All samples were imaged using a 10\(\times\) magnification, with 2\(\times\)2 binning and \SI{125}{\milli\second} exposure time or no binning and \SI{500}{\milli\second} exposure time, resulting in isotropic voxels with a side length of \SI{1.43}{\micro\meter} or \SI{0.72}{\micro\meter}, respectively.
 
 \subsubsection{Generation of tomographic datasets}
-The principles of x-ray computed tomography are explained in details by \citet{Kak2002} and \citet{Hsieh2003}. Briefly, projection images \(I_{Pr}\)---essentially single radiographies---of the sample are recorded at several angular positions between \SI{0}{\degree} and \SI{180}{\degree}. Additionally, a set of dark (\(I_{D}\)) and flat images (\(I_{F}\)) are recorded. The dark image set is obtained with a closed shutter at the start of the scan, it captures the camera noise and dark current and is used to baseline correct the projection images. The flat image set is recorded at the start and at the end of the scan, it captures the beam profile and is used to normalize the projection images. The corrected projection images \(I_{cPr}\) are then corrected with the average dark (\(\overline{I_{D}}\)) and average flat image (\(\overline{I_{F}}\)) using equation~\ref{eq:cpr}.
+The principles of x-ray computed tomography are explained in details by \citet{Kak2002} and \citet{Hsieh2003}. Briefly, projection images $I_{Pr}$---essentially single radiographies---of the sample are recorded at several angular positions between \SI{0}{\degree} and \SI{180}{\degree}. Additionally, a set of dark ($I_{D}$) and flat images ($I_{F}$) are recorded. The dark image set is obtained with a closed shutter at the start of the scan, it captures the camera noise and dark current and is used to baseline correct the projection images. The flat image set is recorded at the start and at the end of the scan, it captures the beam profile and is used to normalize the projection images. The corrected projection images $I_{cPr}$ are then corrected with the average dark ($\overline{I_{D}}$) and average flat image ($\overline{I_{F}}$) using equation~\ref{eq:cpr}.
 \begin{equation}
 	I_{cPr} = -ln\left(\frac{I_{Pr}-\overline{I_{D}}}{\overline{I_{F}}-\overline{I_{D}}}\right)
 	        = ln(\overline{I_{F}}-\overline{I_{D}})-ln(I_{Pr}-\overline{I_{D}})
@@ -52,7 +49,8 @@ As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an e
 \begin{figure*}
 	\centering
 		\input{tikz-images/plots/2008c-QualityPlot}%
-	\caption{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit \(p(x)\) with \(n=4\) for \(p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}\). A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}%
+	\caption[Quality-Plot of 34 calculated protocols]{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned.%Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.
+    }%
 	\label{fig:2008c-qualityplot}%
 \end{figure*}
 
@@ -109,7 +107,7 @@ If the sample to be imaged has a size which is slightly larger than the FOV of t
 			\label{subfig:stacked-scan}%
 		}%
 	}% end of \makebox
-	\caption{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.}%
+	\caption[Covering the FOV of differently sized samples]{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.}%
 	\label{fig:scanning-possibilities}%
 \end{figure*}
 
@@ -145,7 +143,7 @@ If we want to achieve tomographic scans covering a sample size which is bigger t
 
 To cover the desired FOV, the projection images have to be obtained in such a manner that they overlap each other slightly. This overlap facilitates the correct stitching of the single projections. Preliminary experiments have shown that even with thorough calibration the combined positioning error of the mechanical setup of TOMCAT is in the order of some pixels. This is an excellent achievement of the whole TOMCAT-team, but for our needs a precision of one pixel is crucial. Obtaining subscans with an overlap of approximately 20 pixels allows us to stitch the subscan projections with a precision of one pixel after having calculated the cutline (as described in section~\ref{sec:Image Merging and Reconstruction}).
 
-After correction with the dark and flat images, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}). According to~\citet{Hintermueller2009} the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement \(\delta^2(\xi_{i,j})\) is computed. This displacement measure provides a measure for the inequality of the two images within their overlapping parts. The local minimum of \(\delta^2(\xi_{i,j})\) shows the effective displacement \(\xi_{i,j}\) between the two adjacent images $i$ and $j$. For three subscans we calculate the effective displacement \(\xi_{1,2}\) and \(\xi_{2,3}\) and stitch all the images into one big projection image.
+After correction with the dark and flat images, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}). As described by~\citet{Hintermueller2009}, the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement $\delta^2(\xi_{i,j})$ is computed. This displacement measure provides a measure for the inequality of the two images within their overlapping parts. The local minimum of $\delta^2(\xi_{i,j})$ shows the effective displacement $\xi_{i,j}$ between the two adjacent images $i$ and $j$. For three subscans we calculate the effective displacement $\xi_{1,2}$ and $\xi_{2,3}$ and stitch all the images into one big projection image.
 
 To fulfill the sampling theorem as defined in section~\ref{subsec:enhancing the field of view}, different amount of projections ($N_{i}$) have been recorded for each subscan $i$---at the lateral positions we record more projections compared to the central position. The stitching algorithm thus has to selectively stitch projections from subscan 1 with several projections from subscan 2 and 3 to one projection covering the combined FOV.
 
@@ -159,10 +157,10 @@ This approach facilitates the merging of the different subscans in such a way th
 \begin{figure*}
 	\centering
 	\input{tikz-images/amountofprojections}%
-	\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 180 projections for the central scan and thus acquire two times 360 projections for the lateral scans. This enables us to stitch the projections \(P_{1_{283}}\) % XXX XXX 17*3000/180 XXX
-    (red line) from subscan 1 (ring scan, red area), projection \(P_{2_{142}}\) % XXX 17*1500/180 XXX
-    (green line) from subscan 2 (central scan, green area) and projection \(P_{3_{283}}\) % XXX 17*3000/180 XXX
-    (blue line) of subscan 3 (ring scan, blue area) to one big projection \(P_{merge_{283}}\) % XXX 17*3000/180 XXX
+	\caption[Number of merged projections for one central- and two ring-scan.]{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 180 projections for the central scan and thus acquire two times 360 projections for the lateral scans. This enables us to stitch the projections $P_{1_{283}}$ % XXX XXX 17*3000/180 XXX
+    (red line) from subscan 1 (ring scan, red area), projection $P_{2_{142}}$ % XXX 17*1500/180 XXX
+    (green line) from subscan 2 (central scan, green area) and projection $P_{3_{283}}$ % XXX 17*3000/180 XXX
+    (blue line) of subscan 3 (ring scan, blue area) to one big projection $P_{merge_{283}}$ % XXX 17*3000/180 XXX
     which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For didactic reasons we shifted the central projection (green) by \SI{2}{\degree}, or else the overlap between these particular projection would not be visible.}%
 	\label{fig:amount of projections}%
 \end{figure*}

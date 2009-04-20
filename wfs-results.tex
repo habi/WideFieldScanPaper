@@ -74,28 +74,26 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 
 \renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
-\pgfmathsetlength{\imagescale}{\imagewidth/1202} % pixel width of imagefile used below
-\begin{figure*}
-	\centering
+\pgfmathsetlength{\imagescale}{\imagewidth/1202} % pixel width of imagefile used below\begin{figure}
+\def\x{200}%
+\def\y{625}%
+\begin{figure}%
+	\centering%
 		\subfloat[conventional scan]{%
 			\label{subfig:overview-s2}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-				\def\x{225}%
-				\def\y{625}%
-    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-s2}};%
+					\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+   			 			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-s2}};%
 					\draw[|-|,thick] (229,428) -- (659,586) node [right] {\SI{1.4336}{\milli\meter}};%
 %				    % 458 px = 1.4336 mm > 100 px = 313 um > 160 px = 500 um
 				    \draw[|-|,thick] (\x,\y) -- (160+\x,\y) node [midway,above] {\SI{500}{\micro\meter}};%
 				\end{tikzpicture}%
-		}%
+		}%\\%
 		\subfloat[wide field scan]{%
 			\label{subfig:overview-merge}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-				\def\x{200}%
-				\def\y{625}%
-    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-	    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-merge}};%
+					\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+   			 			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-merge}};%
 					\draw[|-|,thick] (40,456) -- (890,610) node [right] {\SI{3.8444}{\milli\meter}};%
 				    % 864 px = 3.8444 mm > 100 px = 445 um > 112 px = 500 um
 					\draw[|-|,thick] (\x,\y) -- (224+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
@@ -103,35 +101,35 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 		}%
 		\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}%
 	\label{fig:FOV increase overview}%
-	\todo[inline]{Do we need to add original slices to clearly show the increase in the FOV, or is this clear enough? Scale bars for this and ALL subsequent images are not finalized, need to be adjusted to sensible lengths.}
-\end{figure*}
+	\todo[inline]{Do we need to add original slices to show the increase in the FOV, or is this clear enough? Scale bars for this and ALL subsequent images are not finalized, need to be adjusted to sensible lengths.}
+\end{figure}
 
 \renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
-\pgfmathsetlength{\imagescale}{\imagewidth/1299} % pixel width of imagefile used below
+\pgfmathsetlength{\imagescale}{\imagewidth/723} % pixel width of imagefile used below
 \begin{figure*}
 	\centering
 		\subfloat[conventional scan]{%
 			\label{subfig:down-s2}%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-				\def\x{750}%
+				\def\x{500}%
 				\def\y{725}%
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
     				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};%
-				\draw[|-|,thick] (350,290) -- (350,595) node [left] {\SI{1.4336}{\milli\meter}};%
-			   	 % 305 px = 1.4336 mm > 100 px = 470 um > 106 px = 500um
+					\draw[|-|,thick] (256,284) -- (259,588) node [left] {\SI{1.4336}{\milli\meter}};%
+					% 304 px = 1.4336 mm > 100 px = 472 um > 106 px = 500um
 					\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}};%
 				\end{tikzpicture}%
-		}%\\%
+		}%
 		\subfloat[wide field scan]{%
 			\label{subfig:down-merge}%%
 				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-				\def\x{775}%
-				\def\y{825}%
+				\def\x{500}%
+				\def\y{725}%
     				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
     				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};%
-			    	\draw[|-|,thick] (547,19) -- (498,775) node [left] {\SI{3.8444}{\milli\meter}};%
-				    % 758 px = 3.844 mm > 100 px = 507 um > 99 px = 500um
+			    	\draw[|-|,thick] (204,11) -- (206,770) node [left] {\SI{3.8444}{\milli\meter}};%
+				    % 759 px = 3.844 mm > 100 px =2066770 > 99 px = 500um
 					\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
 				\end{tikzpicture}%
 		}%
@@ -325,7 +323,7 @@ As a proof of concept we have extended the FOV from three to five subscans. We h
 	 	\label{subfig:LungSlabDetailsRedBG}%
 		}
 	\caption{Visualization of lung tissue slab: %
-		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554\(\times\)4854\(\times\)1024 pixels at a voxel side length of \SI{0.7}{\micro\meter}. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
+		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554$\times$4854$\times$1024 pixels at a voxel side length of \SI{0.7}{\micro\meter}. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
  		\subref{subfig:LungSlabDetailsGreenBG}: Close-up of inset cube at an outer position in the sample, including the background tissue. % 
  		\subref{subfig:LungSlabDetailsGreen}: Close-up of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %
  		\subref{subfig:LungSlabDetailsRed}: Close-up of inset cube at a central position in the sample. Single alveoli are clearly visible. %
