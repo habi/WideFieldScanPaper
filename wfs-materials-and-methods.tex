@@ -1,6 +1,10 @@
 %!TEX root = widefieldscan.tex
-\ifdoc
-\else
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
 \begin{center}
 	\fbox{
 		\begin{minipage}{.618\columnwidth}
@@ -8,19 +12,18 @@
 		\end{minipage}
 	} 
 \end{center}
-\fi
 
 \section{Materials and Methods}
 \label{sec:materials and methods}
 \subsection{Animal Handling and Tissue Preparation}
 The preparation of the lung samples has been performed according to~\citet{Schittny1997,Schittny1998}. Briefly, lungs of Sprague-Dawley rats have been extracted after they have been perfused and filled with phosphate buffered saline by instillation via tracheostomy until the mid respiratory lung volume was reached.
 
-The extracted lung lobes have been fixed for potential storage in 2.5\% glutaraldehyde (C$_5$H$_8$O$_2$). For the preparation of the imaging the samples have been postfixed---comparable to electron microscopy protocols---with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and stained with \SI{4}{\percent} uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and transferred into paraffin~\cite{Schittny1998,Schittny1997}\todo{citations (taken from Schittny2008) still valid for our protocol?}. Osmium tetroxide and uranyl acetate exhibit a higher absorption for x-rays than the unstained lung tissue, thus enhancing the contrast of the resulting tomographic images. The lung samples have been mounted onto standard electron microscopy sample mounts with a diameter of approximately \SI{13}{\milli\meter} (PLANO GmbH, Wetzlar, Germany) using paraffin.
+The extracted lung lobes have been fixed for potential storage in 2.5\% glutaraldehyde (C$_5$H$_8$O$_2$). For the preparation of the imaging the samples have been postfixed---comparable to electron microscopy protocols---with 1\% osmium tetroxide (OsO$_4$) and stained with 4\% uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and transferred into paraffin~\cite{Schittny1997}\cite{Schittny1998}\todo{citations (taken from Schittny2008) still valid for our protocol?}. Osmium tetroxide and uranyl acetate exhibit a higher absorption for x-rays than the unstained lung tissue, thus enhancing the contrast of the resulting tomographic images. The lung samples have been mounted onto standard electron microscopy sample mounts with a diameter of approximately \SI{13}{\milli\meter} (PLANO GmbH, Wetzlar, Germany) using paraffin.
 
 Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
 
 \subsection{SRXTM}
-All experiments were performed at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland; at the TOMCAT beamline, which is located at the X02DA port of the SLS and is one of 17 currently operating beamlines. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{0.122}{\nano\meter}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth range of a few percent to \SI{e-4}. Detailed technical specifications of the beamline and beam characteristics have been described by~\citeauthor{Stampanoni2006a}~\cite{Stampanoni2006a,Stampanoni2007}.
+All experiments were performed at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland; at the TOMCAT beamline, which is located at the X02DA port of the SLS and is one of 17 currently operating beamlines. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{0.122}{\nano\meter}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth range of a few percent to a few per mille. Detailed technical specifications of the beamline and beam characteristics have been described by~\citet{Stampanoni2006a,Stampanoni2007}.
 
 \subsubsection{Image Acquisition}
 \label{seq:Image Acquisition}
@@ -44,15 +47,15 @@ The corrected projections are then transformed into so-called sinograms, where t
 % \end{equation}
 
 \subsection{Wide Field Scanning}
-As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB$^\text{\textregistered}$ 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
+As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. To achieve this, we have written a custom MATLAB-script \todo{Script(s) in Appendix?}(MATLAB\textregistered 7.6.0.321 (R2008a), The MathWorks, Inc.), where the user is able to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
 
 \begin{figure*}
 	\centering
-		\input{tikz-images/plots/2008c-QualityPlot}%
-	\caption[Quality-Plot of 34 calculated protocols]{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned.%Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.
-    }%
+	\input{tikz-images/plots/2008c-QualityPlot}%
+	\caption[Quality-Plot of 34 calculated protocols]{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}%
 	\label{fig:2008c-qualityplot}%
 \end{figure*}
+
 
 The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. Depending on the input of the end-user, we were able to reduce the total acquisition time by \SI{86}{\percent}, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned of the same sample. This has been done to assess the artifacts which arise through the reduction of the amount of projections. Albeit the aforementioned reduction in scanning time by \SI{86}{\percent} does introduce artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown later on.
 
@@ -107,7 +110,8 @@ If the sample to be imaged has a size which is slightly larger than the FOV of t
 			\label{subfig:stacked-scan}%
 		}%
 	}% end of \makebox
-	\caption[Covering the FOV of differently sized samples]{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.}%
+	\caption[Covering the FOV of differently sized samples]{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.
+	}%
 	\label{fig:scanning-possibilities}%
 \end{figure*}
 

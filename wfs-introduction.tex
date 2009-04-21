@@ -1,6 +1,10 @@
 %!TEX root = widefieldscan.tex
-\ifdoc
-\else
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
 \begin{center}
 	\fbox{
 		\begin{minipage}{.618\columnwidth}
@@ -8,7 +12,6 @@
 		\end{minipage}
 	} 
 \end{center}
-\fi
 
 \section{Introduction}
 Synchrotron radiation based x-ray tomographic microscopy (SRXTM) is a powerful method for the non-destructive three-dimensional imaging of a broad kind of materials with a resolution on the sub-micrometer scale.
@@ -42,7 +45,7 @@ If we want to stitch together multiple subscans, \todo{sub scan, sub-scan or sub
 
 \begin{figure*}
 	\centering
-		\includegraphics[width=\imsize]{img/projections}
+	\includegraphics[width=\imsize]{img/projections}
 	\caption{Projection Setup with one central and one ring-scan. For demonstration purposes, the central scan has four projections and the ring scan has 16 projections over \SI{360}{\degree}. This is essentially the same as two \SI{180}{\degree}-scans with eight projections each.}
 	\label{fig:projections}
 \end{figure*}

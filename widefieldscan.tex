@@ -13,13 +13,10 @@
 \newif\ifhtml
 	\htmltrue
 	\htmlfalse
-
-\newif\ifdoc
-	\doctrue
-%	\docfalse	
 	
 \ifhtml % In case of web format output...
-	\def\pgfsysdriver{pgfsys-dvi.def}
+	\def\pgfsysdriver{pgfsys-tex4ht.def}
+	\usepackage{endfloat}
 	\usepackage[disable]{todonotes}
 	\renewcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
 \else
@@ -43,31 +40,16 @@
 \usepackage{hypernat}
 \usepackage[backref]{hyperref}
 
-
-%%%%%% FOR JOHANNES %%%%%%
-\ifdoc
-	\usepackage{endfloat}
-	\usepackage{microtype}
-		\DisableLigatures{encoding = *, family = * }
-\else
-\fi
-%%%%%% FOR JOHANNES %%%%%%
-
 \newcommand{\imsize}{\linewidth}
 \newlength\imagewidth % needed for scalebars
 \newlength\imagescale % needed for scalebars
 
-\ifdoc
-\else
-	%% Subversion Information
-	\svnidlong
-	{$HeadURL$}
-	{$LastChangedDate$}
-	{$LastChangedRevision$}
-	{$LastChangedBy$}
-\fi
-
-\journal{``some tomography journal''}
+%% Subversion Information
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
 
 \begin{document}
 \ifhtml % In case of web format output...
@@ -75,6 +57,7 @@
 	\title{Wide Field Scan Paper}
 	\author{David Haberthür \and Christoph Hintermüller \and Marco Stampanoni \and Johannes Schittny}
 \else
+	\journal{``some tomography journal''}
 	\begin{frontmatter}
 		\title{Wide Field Scan Paper}
 		\author[ana]{David Haberthür}
@@ -107,11 +90,10 @@
 			%% or \MSC[2008] code \sep code (2000 is the default)
 		\end{keyword}
 	\end{frontmatter}
-	
-%	\listoftodos
-%	\linenumbers
-%	\modulolinenumbers[2]
 \fi
+
+\linenumbers
+\modulolinenumbers[2]
 
 \input{wfs-introduction}
 \input{wfs-materials-and-methods}
@@ -122,7 +104,6 @@
 
 \bibliographystyle{unsrtnat}
 \bibliography{../references}
-%\bibliography{references-wfs}
 
 \appendix
 

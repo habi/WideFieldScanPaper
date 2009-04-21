@@ -79,27 +79,27 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 \def\y{625}%
 \begin{figure}%
 	\centering%
-		\subfloat[conventional scan]{%
-			\label{subfig:overview-s2}%
-				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-					\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-   			 			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-s2}};%
-					\draw[|-|,thick] (229,428) -- (659,586) node [right] {\SI{1.4336}{\milli\meter}};%
-%				    % 458 px = 1.4336 mm > 100 px = 313 um > 160 px = 500 um
-				    \draw[|-|,thick] (\x,\y) -- (160+\x,\y) node [midway,above] {\SI{500}{\micro\meter}};%
-				\end{tikzpicture}%
-		}%\\%
-		\subfloat[wide field scan]{%
-			\label{subfig:overview-merge}%
-				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-					\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-   			 			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-merge}};%
-					\draw[|-|,thick] (40,456) -- (890,610) node [right] {\SI{3.8444}{\milli\meter}};%
-				    % 864 px = 3.8444 mm > 100 px = 445 um > 112 px = 500 um
-					\draw[|-|,thick] (\x,\y) -- (224+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
-				\end{tikzpicture}%
-		}%
-		\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}%
+	\subfloat[conventional scan]{%
+		\label{subfig:overview-s2}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+   		 			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-s2}};%
+				\draw[|-|,thick] (229,428) -- (659,586) node [right] {\SI{1.4336}{\milli\meter}};%
+%			    % 458 px = 1.4336 mm > 100 px = 313 um > 160 px = 500 um
+			    \draw[|-|,thick] (\x,\y) -- (160+\x,\y) node [midway,above] {\SI{500}{\micro\meter}};%
+			\end{tikzpicture}%
+	}%\\%
+	\subfloat[wide field scan]{%
+		\label{subfig:overview-merge}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+   		 			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-overview-merge}};%
+				\draw[|-|,thick] (40,456) -- (890,610) node [right] {\SI{3.8444}{\milli\meter}};%
+			    % 864 px = 3.8444 mm > 100 px = 445 um > 112 px = 500 um
+				\draw[|-|,thick] (\x,\y) -- (224+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
+			\end{tikzpicture}%
+	}%
+	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}%
 	\label{fig:FOV increase overview}%
 	\todo[inline]{Do we need to add original slices to show the increase in the FOV, or is this clear enough? Scale bars for this and ALL subsequent images are not finalized, need to be adjusted to sensible lengths.}
 \end{figure}
@@ -109,30 +109,30 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 \pgfmathsetlength{\imagescale}{\imagewidth/723} % pixel width of imagefile used below
 \begin{figure*}
 	\centering
-		\subfloat[conventional scan]{%
-			\label{subfig:down-s2}%
-				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-				\def\x{500}%
-				\def\y{725}%
-    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};%
-					\draw[|-|,thick] (256,284) -- (259,588) node [left] {\SI{1.4336}{\milli\meter}};%
-					% 304 px = 1.4336 mm > 100 px = 472 um > 106 px = 500um
-					\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}};%
-				\end{tikzpicture}%
-		}%
-		\subfloat[wide field scan]{%
-			\label{subfig:down-merge}%%
-				\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-				\def\x{500}%
-				\def\y{725}%
-    				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-    				{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};%
-			    	\draw[|-|,thick] (204,11) -- (206,770) node [left] {\SI{3.8444}{\milli\meter}};%
-				    % 759 px = 3.844 mm > 100 px =2066770 > 99 px = 500um
-					\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
-				\end{tikzpicture}%
-		}%
+	\subfloat[conventional scan]{%
+		\label{subfig:down-s2}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+			\def\x{500}%
+			\def\y{725}%
+    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};%
+				\draw[|-|,thick] (256,284) -- (259,588) node [left] {\SI{1.4336}{\milli\meter}};%
+				% 304 px = 1.4336 mm > 100 px = 472 um > 106 px = 500um
+				\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}};%
+			\end{tikzpicture}%
+	}%
+	\subfloat[wide field scan]{%
+		\label{subfig:down-merge}%%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+			\def\x{500}%
+			\def\y{725}%
+    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};%
+		    	\draw[|-|,thick] (204,11) -- (206,770) node [left] {\SI{3.8444}{\milli\meter}};%
+			    % 759 px = 3.844 mm > 100 px =2066770 > 99 px = 500um
+				\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
+			\end{tikzpicture}%
+	}%
 	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:FOV increase overview}). View from the underside of the sample}%
 	\label{fig:FOV increase segments}%
 \end{figure*}
@@ -158,7 +158,7 @@ For protocols with the same total amount of projections, but different configura
 
 \begin{figure*}
 	\centering
-		\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
+	\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
 	\caption{Plot of normalized Error ($E_{norm}$ for the 19 scanned protocols. The normalized Error has been calculated in such a way that we calculated the difference image for Protocol 'x' compared to Protocol 'A',  and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol. Note that the error is plotted inversely, so the axes of this plot and the plot in figure~\ref{fig:2008c-qualityplot} are directly comparable.}
 	\label{fig:NormalizedErrorPlot}
 \end{figure*}
