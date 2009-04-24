@@ -1,0 +1,26 @@
+%\documentclass{article}
+%\usepackage[demo]{graphicx}
+%\usepackage{subfig}
+%\usepackage{tikz}
+%\usepackage{multirow}
+%\usepackage{siunitx}
+%\begin{document}
+%\begin{figure}
+%\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\radius{1}
+\def\gap{0.1}
+\begin{tikzpicture}
+		\foreach \ang in {0,45,...,359}%
+			{%
+			\draw (\ang:0) -- (\ang:\radius);%
+			}%
+		\foreach \ang in {0,22.5,...,359}%
+			{%
+			\draw (\ang:\radius+\gap) -- (\ang:\radius+\radius+\gap);%
+			}%
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%\caption{Projection Setup}
+%\end{figure}
+%\end{document}

@@ -20,14 +20,14 @@
 \label{sec:Results}
 \subsection{Image Merging and Reconstruction}
 \label{sec:Image Merging and Reconstruction}
-Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{2994}{pixels} (\SI{4.19}{\milli\meter}) which is approximately three times the size of what can be achieved with one single binned scan (\SI{1024}{pixels} or \SI{1.43}{\milli\meter}).
+Results of the steps mentioned in section~\ref{sec:materials and methods} are shown in figure~\ref{fig:wide field scan results}. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows the end-result of such a wide field scan, a reconstructed slice of the whole sample with a FOV of \SI{2994}{pixels} (\SI{4.19}{\milli\meter}) which is approximately three times the size of what can be achieved with one single binned scan (\SI{1024}{pixels} or \SI{1.48}{\milli\meter}).
 
 \begin{figure*}
 	\renewcommand{\imsize}{.16\linewidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} % desired display width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/512} % pixel width of image
 	\centering
-		\subfloat[Uncorrected projection images from subscans s$_1$--s$_3$, each with a size of 1024\(\times\)1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}, covering a FOV of approximately \SI{0.7}{\milli\meter}. The scans overlap each other by approximately 100 pixels. 4676 projections have been acquired for the subscans s$_1$ and s$_3$, 1169 projections have been acquired for subscan s$_2$, all over a rotation of \SI{180}{\degree}.]{%
+		\subfloat[Uncorrected projection images from subscans s$_1$--s$_3$, each with a size of 1024\(\times\)1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}, covering a FOV of approximately \SI{0.7}{\milli\meter}. The subscans s$_1$--s$_3$ overlap each other by approximately 150 pixels. 4676 projections have been acquired for the subscans s$_1$ and s$_3$, 1169 projections have been acquired for subscan s$_2$, all over a rotation of \SI{180}{\degree}.]{%
 			\label{fig:s1}%
 			\includegraphics[width=\imsize]{img/merge/R108C10B-s1}%
 			\includegraphics[width=\imsize]{img/merge/R108C10B-s2}%
@@ -42,7 +42,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 		\renewcommand{\imsize}{.48\linewidth}
 		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 		\pgfmathsetlength{\imagescale}{\imagewidth/1498} % pixel width of image
-		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. The merged projections have a size of 2994\(\times\)1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}. The Subscans s$_1$--s$_3$ overlap each other by approximately 150 pixels. The width of the merged projections is thus smaller than three times the width of the subscans.]{%
+		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. The merged projections have a size of 2994\(\times\)1024 pixels at a resolution of \SI{1.4}{\micro\meter\per pixel}. The width of the merged projections is slightly smaller than three times the width of the subscans.]{%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 					{\includegraphics[width=\imagewidth]{img/merge/R108C10B-merge}};
@@ -53,7 +53,7 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 		\renewcommand{\imsize}{\linewidth}
 		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 		\pgfmathsetlength{\imagescale}{\imagewidth/1365} % pixel width of image (image has been resized from 2994*1123, so that scalebar is at the same height without calculating too much...)
-		\subfloat[Cropped part of one slice of the tomographic dataset reconstructed from the merged projections, where one is shown in subfigure~\subref{fig:merge-proj}. The halo directly around the lung tissue arises from the paraffin where the sample is embedded in. The bright circular shape inscribed in the square arises from the filtered back-projection, the chosen reconstruction method. The size of the cropped image is 2994\(\times\)1123 pixels. The inset shows an overview over the full slice with a size of 2994\(\times\)2994 pixels.]{%
+		\subfloat[Cropped part of one slice of the tomographic dataset reconstructed from the merged projections shown in subfigure~\subref{fig:merge-proj}. Around the sample the air-to-paraffin interface is visible due to the coherence of the x-ray beam. The bright circular shape inscribed in the square arises from the filtered back-projection, the chosen reconstruction method. The size of the cropped image is 2994\(\times\)1123 pixels. The inset shows an overview over the full slice with a size of 2994\(\times\)2994 pixels.]{%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 				% place image (integer coordinates refer to pixel centers):
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
@@ -61,17 +61,18 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 				\newcommand{\size}{.2\imagewidth}
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 					{\includegraphics[width=\size]{img/merge/R108C10B-merge1016}};
-					\draw[white] (\size,0) -- (\size,-\size) -- (0,-\size);
-				\draw[|-|,color=white] (1109-64,450) -- (1365-64,450) node[midway,above] {\SI{700}{\micro\meter}};
+					\draw[white] (\size,0) -- (\size,-\size) -- (0,-\size);				\draw[|-|,color=white] (1109-64,450) -- (1365-64,450) node[midway,above] {\SI{700}{\micro\meter}};
 			\end{tikzpicture}
 			\label{fig:merge-rec}
 			}
-	\caption{Different stages of a wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 10 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at a beam energy of \SI{12.6}{\kilo\electronvolt}.}
+	\caption{Different stages of a wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 10 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at \SI{12.6}{\kilo\electronvolt}.}
 	\label{fig:wide field scan results}	
 \end{figure*}
 
 \subsection{Increasing the FOV}
-The desire to increase the FOV of tomographic datasets at TOMCAT has arisen with the need to obtain high resolution three dimensional data of the terminal airways in the lung. As stated in section~\ref{subsec:motivation} we are interested in detecting and visualizing entire acini over the course of the postnatal lung development in mammals. To be able to study these functional lung units we need the high resolution that TOMCAT is able to provide\todo{explain why we actually need it $\rightarrow$ border where change from ``luftleitend'' to ``gasaustausch'' happens, septal thickness, etc.}. With the FOV available up to now at TOMCAT we have only been able to fit partial acini inside our datasets. Increasing the available FOV approximately three times permits us to obtain three dimensional reconstructions of entire acini which are only restricted by sample size, but not by the FOV of the imaging method. When comparing the green and red airway segments in figures~\ref{fig:FOV increase overview} and \ref{fig:FOV increase segments} with each other, we can see that with the conventional tomographic imaging, both segments are only partially in the FOV. We need to increase the FOV to be able to see the full central acinus inside the lung tissue. With the increased FOV we additionally see a third acinus (yellow segment) inside the lung segment. Both the red and yellow segment are only partial acini, but their size is limited by the dimensions of the lung sample, not by the FOV. The cutting lines are visible in the underside view of the wide field scanning visualization (Figure~\ref{subfig:down-merge}).
+The desire to increase the FOV of tomographic datasets at TOMCAT has arisen with the need to obtain high resolution three dimensional data of the terminal airways in the lung. As stated in section~\ref{subsec:motivation} we are interested in detecting and visualizing entire acini over the course of the postnatal lung development in mammals. To be able to study these functional lung units we need the high resolution that TOMCAT is able to provide\todo{explain why we actually need it $\rightarrow$ border where change from ``luftleitend'' to ``gasaustausch'' happens, septal thickness, etc.}.
+
+With the FOV available up to now at TOMCAT we have only been able to fit partial acini inside our datasets. Increasing the available FOV three times allows us to obtain three dimensional reconstructions of entire acini which are only restricted by sample size, but not by the FOV of the imaging method. When comparing the green and red airway segments in figures~\ref{fig:FOV increase overview} and \ref{fig:FOV increase segments} with each other, we can see that with the conventional tomographic imaging, both segments are only partially in the FOV. We need to increase the FOV to be able to see the full central acinus inside the lung tissue. With the increased FOV we additionally see a third acinus (yellow segment) inside the lung segment. Both the red and yellow segment are only partial acini, but their size is limited by the dimensions of the lung sample, not by the FOV. The cutting lines are visible in the underside view of the wide field scanning visualization (Figure~\ref{subfig:down-merge}).
 
 Both aforementioned figures show, that we have been able to increase the FOV of TOMCAT in such a way that we are now able to obtain tomographic datasets of entire acini of rat lungs. We plan to use this now available data to gain a deep insight into the postnatal structural lung development, see section~\ref{sec:outlook} for details.
 
@@ -102,9 +103,9 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 				\draw[|-|,thick] (\x,\y) -- (224+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
 			\end{tikzpicture}%
 	}%
-	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm (green and red for \subref{subfig:overview-s2}, green and red yellow for \subref{subfig:overview-merge}.}%
+	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm. \subref{subfig:overview-s2}: Conventional scan; all segments are only partial acini. \subref{subfig:overview-merge}: Wide field scan; the green and red segment show multiple acini fully inside the dataset.}%
 	\label{fig:FOV increase overview}%
-	\todo[inline]{Do we need to add original slices to show the increase in the FOV, or is this clear enough? Scale bars for this and ALL subsequent images are not finalized, need to be adjusted to sensible lengths.}
+	\todo[inline]{Do we need to add original slices to show the increase in the FOV, or is this clear enough?}
 \end{figure}
 
 \renewcommand{\imsize}{.5\linewidth}
@@ -141,11 +142,9 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 \end{figure*}
 
 \subsection{Quality guided protocol selection}
-A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The 19 different scans have been chosen according to the MATLAB-plot explained in section~\ref{seq:Image Acquisition}\footnote{generated with ``MATLAB/WideFieldScanning/main.m'' for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans}\todo{do we provide the code for reproducible research? or is it ``closed source''?}.
+A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The 19 different scans have been chosen according to the MATLAB-plot explained in section~\ref{seq:Image Acquisition}\footnote{generated with ``MATLAB/WideFieldScanning/main.m'' for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans}.
 
-We assessed the image differences for the 19 scanned protocols in such a way that the tiff slices have been binarized using an automated thresholding algorithm method, which chooses the threshold to minimize the intraclass variance of the black and white pixels~\cite{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the 57 individual subscans.
-
-The error ($E_{Prot_{i}}$) shown in figure~\ref{fig:NormalizedErrorPlot} has been calculated according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b}. Using the thresholded slice $i$ of each protocol ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices. The sum of all pixels of this difference image ($D_{Prot_{i}}$) yields the error value ($E_{Prot_{norm_{i}}}$).
+Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to~\citet{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the 57 individual subscans. The error ($E_{Prot_{i}}$) shown in figure~\ref{fig:NormalizedErrorPlot} has been calculated according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b}. Using the thresholded slice $i$ of each protocol ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices. The sum of all pixels of this difference image ($D_{Prot_{i}}$) yields the error value ($E_{Prot_{norm_{i}}}$).
 
 \begin{eqnarray}
        D_{Prot_{i}} &=& |Slice_{B_{i}}-Slice_{Prot_{i}}|\label{eq:errorcalculation-a}\\
@@ -270,8 +269,7 @@ The 19 different protocols which have been obtained from the same sample have be
 
 The two protocols shown in figure~\ref{fig:BvsT} are the two extremes of the 19 obtained protocols. The dataset shown on the left (B) has been reconstructed from 5244 merged projection images, the dataset shown on the right (T) has been reconstructed using only 874 merged slices. Albeit we have scanned protocol T while violating the sampling theorem, both samples still look nearly identical in the three dimensional visualization. Except for small differences at the most lateral parts of the sample (yellow segment) the segmented airways are identical, even if the scanning time of protocol T has been reduced to \SI{14}{\percent} of the scanning time of protocol B\todo{elaborate a bit more on this\ldots}.
 
-\subsubsection{Iteration to even bigger fields of view}
-As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4\(\times\)3.4\(\times\)\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}. A visualization of such a lung tissue slab is shown in figure~\ref{fig:LungSlabSophie}\todo{Compare the red and green cube $\rightarrow$ artefacts at lateral parts}.
+As a proof of concept we have extended the FOV from three to five subscans. We have been able to reconstruct a sample with size of approximately 0.4\(\times\)3.4\(\times\)\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.7}{\micro\meter}, see figure~\ref{fig:LungSlabSophie}\todo{Compare the red and green cube $\rightarrow$ artefacts at lateral parts}.
 
 \begin{figure*}
 	\renewcommand{\imsize}{\textwidth}

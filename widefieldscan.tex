@@ -59,28 +59,31 @@
 \else
 	\journal{``some tomography journal''}
 	\begin{frontmatter}
-		\title{Wide Field Scan Paper}
-		\author[ana]{David Haberthür}
-			\ead{haberthuer@ana.unibe.ch}
-		\author[psi]{Christoph Hintermüller}
-			\ead{christoph.hintermueller@psi.ch}
-		\author[ana]{Johannes Schittny\corref{cor1}}
-			\ead{schittny@ana.unibe.ch}
-			\cortext[cor1]{Corresponding author at: PD Dr.\ Johannes C.\ Schittny, Institute of Anatomy, University of Bern, Baltzerstrasse 2, CH-3012 Bern, Tel: +41 31 631 46 35 Fax: +41 31 631 38 07}
-		\author[psi,eth]{Marco Stampanoni}
-			\ead{marco.stampanoni@psi.ch}
+		\title{Wide Field Scan Paper}%
+		\author[ana]{David Haberthür}%
+			\ead{haberthuer@ana.unibe.ch}%
+		\author[psi]{Christoph Hintermüller}%
+			\ead{christoph.hintermueller@psi.ch}%
+		\author[ana]{Johannes Schittny}%\corref{cor1}}%
+			\ead{schittny@ana.unibe.ch}%
+			%\cortext[cor1]{Corresponding author at: Prof.\ Dr.\ Johannes C.\ Schittny, Institute of Anatomy, University of Bern, Baltzerstrasse 2, CH-3012 Bern, Tel: +41 31 631 46 35 Fax: +41 31 631 38 07}%
+		\author[psi,eth]{Marco Stampanoni\corref{cor2}}%
+			\ead{marco.stampanoni@psi.ch}%
+			\cortext[cor2]{Corresponding author at: Prof.\ Dr.\ Marco Stampanoni, Paul Scherrer Institut, WLGA/135, CH-5232 Villigen, Tel:  +41 56 310 47 24}%
 		\address[ana]{Institute of Anatomy, University of Bern, Switzerland}
 		\address[psi]{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}
 		\address[eth]{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}
-	
+\fi
+
 		\begin{abstract}
-			State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at a high resolution by stacking several tomograms together and perform a local tomographic reconstruction.
+			State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at high resolution by stacking several tomograms together and perform local tomographic reconstruction.
 	
-			The stacking of tomograms increases the field of view in vertical direction. The present work aims to implement the necessary acquisition protocols at the TOMCAT beamline of the Swiss Light Source to increase the field of view of the tomographic dataset in horizontal direction. It is the base for acquiring three dimensional information of samples with bigger volumes than currently supported. Different image acquisition protocols have been implemented for the end-user at the beamline.
+			The stacking of tomograms increases the field of view in vertical direction. The present work defines the acquisition protocols to increase the field of view of tomographic microscopy in horizontal direction. It is the base for acquiring three dimensional datasets of samples with sized bigger than the field of view of the tomographic microscope.
 	
 			We show that the lateral field of view of TOMCAT can be increased up to five times and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of arbitrary samples in an unattended, automatic way.
 		\end{abstract}
-	
+\ifhtml % In case of web format output...
+\else	
 		\begin{keyword}
 			%% keywords here, in the form: keyword \sep keyword
 			computed tomography \sep synchrotron \sep SRXTM \sep lung development \sep alveoli
