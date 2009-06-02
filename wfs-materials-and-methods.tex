@@ -53,12 +53,6 @@ The corrected projections are then transformed into so-called sinograms, where t
 % \end{equation}
 
 \subsection{Wide Field Scanning}
-\hrule FROM INTRODUCTION\hrule \cbstart
-
-A small overlapping region between the separate subscans is necessary to correctly stitch the single projection images from the subscans into one big projection (see section~\ref{subsec:covering a broad fov} for details). Additionally---if we want to stitch together multiple subscans---we have to acquire a different number of projections for each of the subscans and thus need to make sure the stitching and concatenation into projections covering the desired full FOV is performed correctly.
-
-\hrule FROM INTRODUCTION\hrule \cbend
-
 As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. A custom MATLAB-script (MATLAB\textregistered 7.6.0.321 (R2008a), The MathWorks, Inc.) has been written to enable the user to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
 
 \begin{figure*}
@@ -128,11 +122,31 @@ If the sample to be imaged is larger than the available FOV, a \SI{360}{\degree}
 
 If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera. This can be done as shown in figure~\ref{subfig:scanning-possibilities}, where we obtain three subscans to be able to reconstruct a sample as big as three FOVs.
 
-To cover the desired FOV, the projection images need to overlap each other slightly to allow for an optimal stitching. We found that an overlap of approximately 20 pixels allows to stitch with a precision of one pixel.
+After correction with the dark and flat images, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}).
 
-After correction with the dark and flat images, the projections of the single overlapping subscans are merged into one projection which covers the full FOV chosen by the user (see figure~\ref{fig:merge-proj}). As described by~\citet{Hintermueller2009}, the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement $\delta^2(\xi_{i,j})$ is computed. This displacement measure provides a measure for the inequality of the two images within their overlapping parts. The local minimum of $\delta^2(\xi_{i,j})$ shows the effective displacement $\xi_{i,j}$ between the two adjacent images $i$ and $j$. For three subscans we calculate the effective displacement $\xi_{1,2}$ and $\xi_{2,3}$ and stitch all the images into one big projection image.
+\cbstart
+While covering the desired FOV, the projection images of each subscan need to overlap each other slightly to allow for an optimal stitching of the multiple projections into one big projection. Preliminary experiments \todo{do we need to write: ``results not shown''?} showed that an overlap of approximately 20 pixels allows for the calculation of the cutting line between the independent subscans with a precision of one pixel.
+\cbend
 
-To fulfill the sampling theorem as defined in section~\ref{subsec:enhancing the field of view}, different amount of projections ($N_{i}$) have been recorded for each subscan $i$---at the lateral positions we record more projections compared to the central position. The stitching algorithm thus has to selectively stitch projections from subscan 1 with several projections from subscan 2 and 3 to one projection covering the combined FOV.
+As described by~\citet{Hintermueller2009}, the cutting line to remove the overlap is calculated using the mean squared difference between adjacent subscan images. Briefly, for each displacement $\xi_{i,j}$ of the images $i$ and $j$ the mean squared difference of the displacement $\delta^2(\xi_{i,j})$ is computed. This displacement measure provides a measure for the inequality of the two images within their overlapping parts. The local minimum of $\delta^2(\xi_{i,j})$ shows the effective displacement $\xi_{i,j}$ between the two adjacent images $i$ and $j$. For three subscans we calculate the effective displacement $\xi_{1,2}$ and $\xi_{2,3}$ and stitch all the images into one big projection image.
+
+To fulfill the sampling theorem as defined in section~\ref{subsec:enhancing the field of view}, a different amount of projections ($N_{i}$) have been recorded for each subscan $i$---at the lateral positions we record more projections compared to the central position. A simple example is shown in figure~\ref{fig:projections}.
+
+\cbstart
+If we assume that we acquire only four projections for the central part of the sample, we need to acquire 16 projections for the lateral parts of the sample to be able to fulfill the sampling theorem\todo{Is there some ``formula'' we can cite instead of just saying it\ldots}.
+
+Since we've now acquired a different amount of projections for the central and the lateral parts of the sample, our stitching algorithm thus has to selectively stitch projections from subscan 1 with several projections from subscan 2 and 3 to one projection covering the combined FOV.
+\cbend
+
+\cbstart
+\begin{figure*}
+	\centering
+%	\includegraphics[width=\imsize]{img/projections}
+	\input{tikz-images/ProjectionSetup}
+	\caption{Setup with one central (black) and two lateral scans (read and green, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}. To fulfill the sampling theorem }
+	\label{fig:projections}
+\end{figure*}
+\cbend
 
 Figure \ref{fig:amount of projections} shows how projections from the different subscans relate to each other. Here we describe the most simple case, where the user has chosen a scanning protocol where the sampling theorem is completely fulfilled, thus we record 180 projections for the central and two times 360 projections for the two ring-scans. We have implemented a simple strategy for designing the different protocols; to facilitate the merging of the projections from each subscan, the amount of projections from the inner to the outer subscans is always dividable by two: 
 \begin{equation}

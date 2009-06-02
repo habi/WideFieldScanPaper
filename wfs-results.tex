@@ -141,7 +141,7 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 
 \subsection{Quality guided protocol selection}
 \cbstart
-A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The 19 different scans have been chosen according to the MATLAB-plot explained in section~\ref{seq:Image Acquisition}\footnote{note for myself: generated with ``MATLAB/WideFieldScanning/main.m'' for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans with 150px ovelap}.
+A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The 19 different scans have been chosen according to the MATLAB-plot explained in section~\ref{seq:Image Acquisition}\footnote{note for myself: generated with ``MATLAB/WideFieldScanning/main.m'' for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans with 150px overlap}.
 \cbend
 
 Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to~\citet{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the 57 individual subscans. The error ($E_{Prot_{i}}$) shown in figure~\ref{fig:NormalizedErrorPlot} has been calculated according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b}. Using the thresholded slice $i$ of each protocol ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices. The sum of all pixels of this difference image ($D_{Prot_{i}}$) yields the error value ($E_{Prot_{norm_{i}}}$).
