@@ -21,7 +21,9 @@
 \subsection{Animal Handling and Tissue Preparation}
 The preparation of the lung samples has been performed according to~\citet{Schittny1997,Schittny1998}. Briefly, lungs of Sprague-Dawley rats have been extracted after they have been perfused and filled with phosphate buffered saline by instillation via tracheostomy until the mid respiratory lung volume was reached.
 
-The extracted lung lobes have been fixed for potential storage in \SI{2.5}{\percent} glutaraldehyde (C$_5$H$_8$O$_2$). For the preparation of the imaging the samples have been postfixed---comparable to electron microscopy protocols---with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and stained with \SI{4}{\percent} uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and transferred into paraffin~\cite{Schittny1997}\cite{Schittny1998}\todo{citations (taken from Schittny2008) still valid for our protocol?}. Osmium tetroxide and uranyl acetate exhibit a higher absorption for x-rays than the unstained lung tissue, thus enhancing the contrast of the resulting tomographic images. The lung samples have been mounted onto standard electron microscopy sample mounts with a diameter of approximately \SI{13}{\milli\meter} (PLANO GmbH, Wetzlar, Germany) using paraffin.
+\cbstart
+The extracted lung lobes have been fixed for potential storage in \SI{2.5}{\percent} glutaraldehyde (C$_5$H$_8$O$_2$). For the preparation of the imaging the samples have been postfixed---comparable to electron microscopy protocols---with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and stained with \SI{4}{\percent} uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and transferred into paraffin~\cite{Schittny1997,Schittny1998}\todo{citations (taken from Schittny2008) still valid for our protocol?}. Osmium tetroxide and uranyl acetate exhibit a higher absorption for x-rays than the unstained lung tissue, thus enhancing the contrast of the resulting tomographic images. The lung samples have been mounted onto standard electron microscopy sample mounts with a diameter of approximately \SI{13}{\milli\meter} (PLANO GmbH, Wetzlar, Germany) using paraffin.
+\cbend
 
 Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
 
@@ -51,6 +53,12 @@ The corrected projections are then transformed into so-called sinograms, where t
 % \end{equation}
 
 \subsection{Wide Field Scanning}
+\hrule FROM INTRODUCTION\hrule \cbstart
+
+A small overlapping region between the separate subscans is necessary to correctly stitch the single projection images from the subscans into one big projection (see section~\ref{subsec:covering a broad fov} for details). Additionally---if we want to stitch together multiple subscans---we have to acquire a different number of projections for each of the subscans and thus need to make sure the stitching and concatenation into projections covering the desired full FOV is performed correctly.
+
+\hrule FROM INTRODUCTION\hrule \cbend
+
 As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. A custom MATLAB-script (MATLAB\textregistered 7.6.0.321 (R2008a), The MathWorks, Inc.) has been written to enable the user to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
 
 \begin{figure*}
@@ -147,6 +155,8 @@ This approach facilitates the merging of the different subscans in such a way th
 \subsubsection{Merging and Reconstruction}
 All steps mentioned above have been implemented in a set of custom MATLAB functions and scripts which take the parameters of the single subscans (e.g.\ sample name, amount of subscans, amount of dark and flat images) and desired output-name and -suffix as inputs and performs all necessary calculations like loading, normalizing, interpolation and correct stitching of the images into wide field projections. Exemplary results can be seen in figure~\ref{fig:subscans} and \ref{fig:merge-proj}.
 
-After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered back-projection algorithm or a FFT-based gridrec algorithm on a 20-node server farm (five \SI{64}{\bit} Opteron machines with 4 cores and \SI{8}{\giga\byte} RAM each). Thereconstruction results in an image stack of 1024 or 2048 image slices---depending on the binning---in tiff-format.
+\cbstart
+After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered back-projection algorithm or a FFT-based gridrec algorithm on a 20-node server farm (five \SI{64}{\bit} Opteron machines with 4 cores and \SI{8}{\giga\byte} RAM each). The reconstruction results in an image stack of 1024 or 2048 image slices---depending on the binning---in tiff-format.
+\cbend
 
 The reconstructions used for the assessment of the image quality of the 19 different scanned protocols of the same sample show a three-fold (2.93\(\times\)) increase in FOV from 1024\(\times\)1024 pixels to 2996\(\times\)2996 pixels. As a proof of concept, we also scanned and reconstructed a lung sample with 5 subscans, which led to a roughly five-fold (4.74\(\times\)) increase in available FOV from 2048\(\times\)2048 pixels to 9703\(\times\)9703 pixels (see figure~\ref{fig:LungSlabSophie}).

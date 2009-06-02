@@ -70,8 +70,6 @@ Results of the steps mentioned in section~\ref{sec:materials and methods} are sh
 \end{figure*}
 
 \subsection{Increasing the FOV}
-The desire to increase the FOV of tomographic datasets at TOMCAT has arisen with the need to obtain high resolution three dimensional data of the terminal airways in the lung. As stated in section~\ref{subsec:motivation} we are interested in detecting and visualizing entire acini over the course of the postnatal lung development in mammals. To be able to study these functional lung units we need the high resolution that TOMCAT is able to provide\todo{explain why we actually need it $\rightarrow$ border where change from ``luftleitend'' to ``gasaustausch'' happens, septal thickness, etc.}.
-
 With the FOV available up to now at TOMCAT we have only been able to fit partial acini inside our datasets. Increasing the available FOV three times allows us to obtain three dimensional reconstructions of entire acini which are only restricted by sample size, but not by the FOV of the imaging method. When comparing the green and red airway segments in figures~\ref{fig:FOV increase overview} and \ref{fig:FOV increase segments} with each other, we can see that with the conventional tomographic imaging, both segments are only partially in the FOV. We need to increase the FOV to be able to see the full central acinus inside the lung tissue. With the increased FOV we additionally see a third acinus (yellow segment) inside the lung segment. Both the red and yellow segment are only partial acini, but their size is limited by the dimensions of the lung sample, not by the FOV. The cutting lines are visible in the underside view of the wide field scanning visualization (Figure~\ref{subfig:down-merge}).
 
 Both aforementioned figures show, that we have been able to increase the FOV of TOMCAT in such a way that we are now able to obtain tomographic datasets of entire acini of rat lungs. We plan to use this now available data to gain a deep insight into the postnatal structural lung development, see section~\ref{sec:outlook} for details.
@@ -142,7 +140,9 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 \end{figure*}
 
 \subsection{Quality guided protocol selection}
-A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The 19 different scans have been chosen according to the MATLAB-plot explained in section~\ref{seq:Image Acquisition}\footnote{generated with ``MATLAB/WideFieldScanning/main.m'' for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans}.
+\cbstart
+A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The 19 different scans have been chosen according to the MATLAB-plot explained in section~\ref{seq:Image Acquisition}\footnote{note for myself: generated with ``MATLAB/WideFieldScanning/main.m'' for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans with 150px ovelap}.
+\cbend
 
 Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to~\citet{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the 57 individual subscans. The error ($E_{Prot_{i}}$) shown in figure~\ref{fig:NormalizedErrorPlot} has been calculated according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b}. Using the thresholded slice $i$ of each protocol ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices. The sum of all pixels of this difference image ($D_{Prot_{i}}$) yields the error value ($E_{Prot_{norm_{i}}}$).
 

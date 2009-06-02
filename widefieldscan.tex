@@ -1,4 +1,4 @@
-\documentclass[numbers,sort&compress,a4paper,preprint,review]{elsarticle}
+\documentclass[draft,numbers,sort&compress,a4paper,preprint,review]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
@@ -37,8 +37,11 @@
 \usepackage{lineno}
 \usepackage{fancyhdr}
 	\pagestyle{fancy}
-\usepackage{hypernat}
+\usepackage[pdftex,color]{changebar}
+	\cbcolor{red}
+%\usepackage{pdfsync}
 \usepackage[backref]{hyperref}
+\usepackage{hypernat}
 
 \newcommand{\imsize}{\linewidth}
 \newlength\imagewidth % needed for scalebars
@@ -54,12 +57,13 @@
 \begin{document}
 \ifhtml % In case of web format output...
 	\DeclareGraphicsExtensions{.png}
-	\title{Wide Field Scan Paper}
+	\title{A broader vision for tomographic microscopy - Wide field synchrotron radiation x-ray tomographic microscopy}%
+	%\title{Synchrotron radiation based x-ray tomographic microscopy: increasing the field of view while keeping a high resolution}
 	\author{David Haberthür \and Christoph Hintermüller \and Marco Stampanoni \and Johannes Schittny}
 \else
-	\journal{``some tomography journal''}
+	\journal{Journal}
 	\begin{frontmatter}
-		\title{Wide Field Scan Paper}%
+		\title{A broader vision for tomographic microscopy - Wide field synchrotron radiation x-ray tomographic microscopy}%
 		\author[ana]{David Haberthür}%
 			\ead{haberthuer@ana.unibe.ch}%
 		\author[psi]{Christoph Hintermüller}%
@@ -76,23 +80,25 @@
 \fi
 
 		\begin{abstract}
-			State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at high resolution by stacking several tomograms together and perform local tomographic reconstruction.
+			State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at high resolution by stacking several tomograms  and perform local tomographic reconstruction.
 	
-			The stacking of tomograms increases the field of view in vertical direction. The present work defines the acquisition protocols to increase the field of view of tomographic microscopy in horizontal direction. It is the base for acquiring three dimensional datasets of samples with sized bigger than the field of view of the tomographic microscope.
+			Such a stacking increases the field of view in vertical direction. The present work defines the acquisition protocols to increase the field of view of tomographic microscopy in horizontal direction. It is the base for acquiring three dimensional datasets of samples with sized bigger than the field of view of the tomographic microscope.
 	
-			We show that the lateral field of view of TOMCAT can be increased up to five times and provide the end-user of the beamline the possibility to acquire quality guided tomographic wide field scans of arbitrary samples in an unattended, automatic way.
+			We show that the lateral field of view of tomographic microscopy can be increased up to five times and provide the possibility to acquire quality guided tomographic wide field scans of arbitrary samples in an unattended, automatic way based on objective criteria taking reconstruction quality and scanning time into account.
 		\end{abstract}
 \ifhtml % In case of web format output...
 \else	
 		\begin{keyword}
 			%% keywords here, in the form: keyword \sep keyword
-			computed tomography \sep synchrotron \sep SRXTM \sep lung development \sep alveoli
+			computed tomography \sep synchrotron \sep SRXTM \sep lung development \sep alveoli \sep acinus
 			%% PACS codes here, in the form: \PACS code \sep code
 	
 			%% MSC codes here, in the form: \MSC code \sep code
 			%% or \MSC[2008] code \sep code (2000 is the default)
 		\end{keyword}
 	\end{frontmatter}
+	
+	\listoftodos
 \fi
 
 \linenumbers
