@@ -13,7 +13,7 @@
 \begin{tikzpicture}[ultra thick]
 		\foreach \ang in {0,45,...,359}%
 			{%
-			\draw (\ang:0) -- (\ang:\radius);%
+			\draw [color=green] (\ang:0) -- (\ang:\radius);%
 			}%
 		\foreach \ang in {0,22.5,...,179}%
 			{%
@@ -21,7 +21,7 @@
 			}%
 		\foreach \ang in {180,202.5,...,359}%
 			{%
-			\draw [color=green] (\ang:\radius+\gap) -- (\ang:\radius+\radius+\gap);%
+			\draw [color=blue] (\ang:\radius+\gap) -- (\ang:\radius+\radius+\gap);%
 			}%
 \end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	

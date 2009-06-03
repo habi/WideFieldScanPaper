@@ -18,14 +18,12 @@
 
 \section{Materials and Methods}
 \label{sec:materials and methods}
-\subsection{Animal Handling and Tissue Preparation}
-The preparation of the lung samples has been performed according to~\citet{Schittny1997,Schittny1998}. Briefly, lungs of Sprague-Dawley rats have been extracted after they have been perfused and filled with phosphate buffered saline by instillation via tracheostomy until the mid respiratory lung volume was reached.
-
 \cbstart
-The extracted lung lobes have been fixed for potential storage in \SI{2.5}{\percent} glutaraldehyde (C$_5$H$_8$O$_2$). For the preparation of the imaging the samples have been postfixed---comparable to electron microscopy protocols---with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and stained with \SI{4}{\percent} uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and transferred into paraffin~\cite{Schittny1997,Schittny1998}\todo{citations (taken from Schittny2008) still valid for our protocol?}. Osmium tetroxide and uranyl acetate exhibit a higher absorption for x-rays than the unstained lung tissue, thus enhancing the contrast of the resulting tomographic images. The lung samples have been mounted onto standard electron microscopy sample mounts with a diameter of approximately \SI{13}{\milli\meter} (PLANO GmbH, Wetzlar, Germany) using paraffin.
-\cbend
+\subsection{Sample Preparation and Image Acquisition}
+To test the enhancement of the FOV of the tomographic microscopy, we used rat lung samples, prepared according to~\citet{Schittny1997,Schittny1998}\todo{citations (taken from Schittny2008) still valid for our protocol?}. Briefly, lungs of Sprague-Dawley rats have been extracted after they have been perfused and filled with phosphate buffered saline by instillation via tracheotomy until the mid respiratory lung volume was reached. Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
 
-Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
+The extracted lung lobes have been fixed in \SI{2.5}{\percent} glutaraldehyde (C$_5$H$_8$O$_2$). For the preparation of the imaging the samples have been postfixed---comparable to electron microscopy protocols---with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and stained with \SI{4}{\percent} uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and transferred into paraffin. The lung samples have been mounted onto standard electron microscopy sample mounts with a diameter of approximately \SI{13}{\milli\meter} (PLANO GmbH, Wetzlar, Germany) using paraffin.
+\cbend
 
 \subsection{SRXTM}
 All experiments were performed at the TOMCAT beamline, Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. %; , which is located at the X02DA port of the SLS and is one of 17 currently operating beamlines.
@@ -33,7 +31,8 @@ TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critic
 
 \subsubsection{Image Acquisition}
 \label{seq:Image Acquisition}
-The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount standard electron microscopy (EM) sample tables into the beam. The samples have been scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France). The projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution 2048\(\times\)2048 pixel CCD camera (PCO AG, Kelheim, Germany) with 14 bit nominal dynamic range which can record projections into the internal memory of \SI{4}{\giga\byte}. All samples were imaged using a 10\(\times\) magnification, with 2\(\times\)2 binning and \SI{125}{\milli\second} exposure time or no binning and \SI{500}{\milli\second} exposure time, resulting in isotropic voxels with a side length of \SI{1.48}{\micro\meter} or \SI{0.74}{\micro\meter}, respectively.
+The sample holder at TOMCAT is equipped with an appropriate collet chuck to mount standard electron microscopy (EM) sample tables into the beam. The samples have been scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}. After penetration of the sample, the x-rays are converted into visible light by a Ce-doped YAG scintillator (Crismatec Saint-Gobain, Nemours, France). The projection images were further magnified by diffraction limited microscope optics and digitized by a high-resolution 2048\(\times\)2048 pixel CCD camera (pco.2000, PCO AG, Kelheim, Germany) with 14 bit dynamic range.% which can record projections into the internal memory of \SI{4}{\giga\byte}.
+The lung samples were imaged using a 10\(\times\) magnification, with 2\(\times\)2 binning and \SI{125}{\milli\second} exposure time or no binning and \SI{500}{\milli\second} exposure time, resulting in isotropic voxels with a side length of \SI{1.48}{\micro\meter} or \SI{0.74}{\micro\meter}, respectively\todo{for B--T what is it exactly, what is it for Sophies Sample? -> be precise!}.
 
 \subsubsection{Generation of tomographic datasets}
 The principles of x-ray computed tomography are explained by \citet{Kak2002}. Briefly, projection images $I_{Pr}$---essentially single radiographies---of the sample are recorded at several angular positions between \SI{0}{\degree} and \SI{180}{\degree}. Additionally, a set of dark ($I_{D}$) and flat images ($I_{F}$) are recorded. The dark image set is obtained with a closed shutter at the start of the scan, it captures the camera noise and dark current and is used to baseline correct the projection images. The flat image set is recorded at the start and at the end of the scan, it captures the beam profile and is used to normalize the projection images. The corrected projection images $I_{cPr}$ are obtained by correcting $I_{Pr}$ with the average dark ($\overline{I_{D}}$) and average flat image ($\overline{I_{F}}$) using equation~\ref{eq:cpr}.
@@ -51,53 +50,6 @@ The corrected projections are then transformed into so-called sinograms, where t
 %	\text{CPR}=-ln\left(\frac{\text{PI}}{\text{FI}}\right)=ln(\text{FI})-ln(\text{PI})
 %	\label{eq:correction}
 % \end{equation}
-
-\subsection{Wide Field Scanning}
-As mentioned in section~\ref{subsec:enhancing the field of view}, to obtain an enhanced FOV, we need to scan the samples with multiple subscans at varying positions covering the whole sample. A custom MATLAB-script (MATLAB\textregistered 7.6.0.321 (R2008a), The MathWorks, Inc.) has been written to enable the user to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. The script then simulates different scanning protocols and calculates the expected reconstruction quality, which is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
-
-\begin{figure*}
-	\centering
-	\input{tikz-images/plots/2008c-QualityPlot}%
-	\caption[Quality-Plot of 34 calculated protocols]{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}%
-	\label{fig:2008c-qualityplot}%
-\end{figure*}
-
-The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be arbitrarily reduced. Depending on the input of the end-user, we were able to reduce the total acquisition time by \SI{86}{\percent}, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned of the same sample. This has been done to assess the artifacts which arise through the reduction of the amount of projections. Albeit the aforementioned reduction in scanning time by \SI{86}{\percent} does introduce artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown later on.
-
-\begin{table*}
-	\centering
-	\caption{Specification of different protocols and time used compared to gold standard}
-	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccccccccccccccc}
-		\toprule
-		Protocol 			& B & C & D & E & F & G & H\\
-		\midrule
-		Total Projections 	& 15732 & 13110 & 13110 & 10925 & 11799 & 9833 & 10488\\
-		Time [\%] 			& 100 & 83.33 & 83.33 & 69.44 & 75 & 62.5 & 66.67\\
-		\bottomrule
-	\end{tabular*}
-	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccccccccccccccc}
-		\toprule
-		Protocol 			& I & J & K & L & M & N \\
-		\midrule
-		Total Projections 	& 5436 & 8740 & 9177 & 7648 & 7866 & 6555 \\
-		Time [\%] 			& 34.7 & 55.6 & 58.3 & 48.6 & 50 & 41.7 \\
- 		\bottomrule
-	\end{tabular*}
-	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccccccccccccccc}
-		\toprule
-		Protocol 			& O & P & Q & R & S & T \\
-		\midrule
-		Total Projections 	& 6555 & 5244 & 4370 & 3933 & 2622 & 2185 \\
-		Time [\%] 			& 41.7 & 33.3 & 27.8 & 25 & 16.7 & 13.9 \\
-		\bottomrule
-	\end{tabular*}
-	\label{tab:projections}
-\end{table*}
-
-After the user has chosen a suitable protocol corresponding to one dot in figure~\ref{fig:2008c-qualityplot}, the MATLAB-script writes a preference file to the disk. This preference file is parsed by a custom Python-script to interact with the EPICS-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which is used to access and control the hardware of the TOMCAT beamline.
-
-We perform several subscans without user intervention, except input of the sample name. All parameters like filename-suffixes of the subscans, sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set beforehand by the MATLAB-script, also permitting multiple batch scans of the same sample without any manual intervention. The sample on the sample holder was thus not touched during the acquisition of the 57 different subscans for the 19 mentioned protocols. 
-
 \subsubsection{Covering a broad FOV}
 \label{subsec:covering a broad fov}
 For parallel beam geometry, tomographic images are obtained by rotating the sample over \SI{180}{\degree} and acquiring images equidistantly between \SI{0}{\degree} and \SI{180}{\degree}, as shown in figure~\ref{subfig:scanning-possibilities}. After reconstruction the width of the image corresponds to the FOV of the camera.
@@ -115,7 +67,7 @@ If the sample to be imaged is larger than the available FOV, a \SI{360}{\degree}
 			\label{subfig:stacked-scan}%
 		}%
 	}% end of \makebox
-	\caption[Covering the FOV of differently sized samples]{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.
+	\caption[Covering the FOV of differently sized samples]{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom) The filled red, green and blue segments mark the covered region of the sample for the respective positions. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.
 	}%
 	\label{fig:scanning-possibilities}%
 \end{figure*}
@@ -135,7 +87,7 @@ To fulfill the sampling theorem as defined in section~\ref{subsec:enhancing the 
 \cbstart
 If we assume that we acquire only four projections for the central part of the sample, we need to acquire 16 projections for the lateral parts of the sample to be able to fulfill the sampling theorem\todo{Is there some ``formula'' we can cite instead of just saying it\ldots}.
 
-Since we've now acquired a different amount of projections for the central and the lateral parts of the sample, our stitching algorithm thus has to selectively stitch projections from subscan 1 with several projections from subscan 2 and 3 to one projection covering the combined FOV.
+We thus acquire a different amount of projections for the central and the lateral parts of the sample for the gold-standard case, thus our stitching algorithm has to selectively stitch projections from subscan 1 with several projections from subscan 2 and 3 to one projection covering the combined FOV.
 \cbend
 
 \cbstart
@@ -143,17 +95,19 @@ Since we've now acquired a different amount of projections for the central and t
 	\centering
 %	\includegraphics[width=\imsize]{img/projections}
 	\input{tikz-images/ProjectionSetup}
-	\caption{Setup with one central (black) and two lateral scans (read and green, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}. To fulfill the sampling theorem }
+	\caption{Setup with one central (green) and two lateral scans (red and blue, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}. The colors of the three positions correspond to the colors shown in figure~\ref{subfig:scanning-possibilities}.}
 	\label{fig:projections}
 \end{figure*}
 \cbend
 
-Figure \ref{fig:amount of projections} shows how projections from the different subscans relate to each other. Here we describe the most simple case, where the user has chosen a scanning protocol where the sampling theorem is completely fulfilled, thus we record 180 projections for the central and two times 360 projections for the two ring-scans. We have implemented a simple strategy for designing the different protocols; to facilitate the merging of the projections from each subscan, the amount of projections from the inner to the outer subscans is always dividable by two: 
+Figure \ref{fig:amount of projections} shows how projections from the different subscans relate to each other. In this case we acquire 1500 projections for the central and two times 3000 projections for the two ring-scans to fully satisfy the sampling theorem. 
+
+A simple strategy for designing the different protocols has been defined; to facilitate the merging of the projections from each subscan, the amount of projections from the inner to the outer subscans is always dividable by two.
 \begin{equation}
 	\frac{P_{outer}}{P_{inner}} \bmod 2 = 0
 \label{eq:Modulo}
 \end{equation}
-This approach facilitates the merging of the different subscans in such a way that we can stitch several projections from the inner subscan with projections from the outer subscan as shown in figure~\ref{fig:amount of projections}.
+This approach facilitates the merging of the different subscans in such a way that we can stitch several projections from the inner subscan with projections from the outer subscan as shown in figure~\ref{fig:amount of projections}. Equation~\ref{eq:Modulo} ensures that the stitching and---where applicable---interpolation of projections can be done in an efficient way. 
 
 \begin{figure*}
 	\centering
@@ -166,11 +120,92 @@ This approach facilitates the merging of the different subscans in such a way th
 	\label{fig:amount of projections}%
 \end{figure*}
 
-\subsubsection{Merging and Reconstruction}
-All steps mentioned above have been implemented in a set of custom MATLAB functions and scripts which take the parameters of the single subscans (e.g.\ sample name, amount of subscans, amount of dark and flat images) and desired output-name and -suffix as inputs and performs all necessary calculations like loading, normalizing, interpolation and correct stitching of the images into wide field projections. Exemplary results can be seen in figure~\ref{fig:subscans} and \ref{fig:merge-proj}.
+\subsection{Wide Field Scanning}
+\cbstart
+A custom MATLAB-script (MATLAB\textregistered 7.6.0.321 (R2008a), The MathWorks, Inc.) has been written to enable the user to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. According to these presets, the scripts calculated the necessary projections to fulfill the sampling theorem for the chosen FOV as a gold-standard and computes different protocols with reduced amount of projections. For all these scanning protocols a reconstruction is simulated using a Shepp-Logan phantom~\cite{Shepp1974} and the expected reconstruction quality is calculated using the difference image for each simulated reconstruction with the gold standard. This expected reconstruction quality is then plotted against the acquisition time. Such a plot is shown in figure~\ref{fig:2008c-qualityplot}. From this plot, the user selects a suitable protocol which balances the need for reconstruction quality and acquisition time.
+\cbend
+
+\begin{figure*}
+	\centering
+	\input{tikz-images/plots/2008c-QualityPlot}%
+	\caption[Quality-Plot of 34 calculated protocols]{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}%
+	\label{fig:2008c-qualityplot}%
+\end{figure*}
+
+After the user has chosen a suitable protocol (corresponding to one dot in figure~\ref{fig:2008c-qualityplot}), a preference file is written. This preference file is then subsequently parsed by a custom Python-script to interact with the EPICS-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which itself is used to control the hardware of the TOMCAT beamline.
+
+\subsubsection{Reduction of the acquisition time}
+The proposed protocols are designed in such a way that the total scanning time---which scales with the total amount of recorded projections---can be greatly reduced. 
+
+Depending on the input of the end-user, we were able to reduce the total acquisition time by \SI{86.8}{\percent} compared to the gold standard, as can be seen in table~\ref{tab:projections}. This table provides the details of the 19 different protocols we have scanned to examine and proof the simulation. This has been done to assess the artifacts which arise through the reduction of the amount of projections. Albeit the reduction in scanning time by \SI{86.8}{\percent} introduces artifacts in the reconstruction, an automated segmentation of the airways is still possible, as is shown in section~\ref{subsec:comparison}.
+%\begin{table*}
+%	\centering
+%	\caption{Specification of different protocols and time used compared to gold standard}
+%	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccccccccccccccc}
+%		\toprule
+%		Protocol 			& B & C & D & E & F & G & H\\
+%		\midrule
+%		Total Projections 	& 15732 & 13110 & 13110 & 10925 & 11799 & 9833 & 10488\\
+%		Time [\%] 			& 100 & 83.33 & 83.33 & 69.44 & 75 & 62.5 & 66.67\\
+%		\bottomrule
+%	\end{tabular*}
+%	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccccccccccccccc}
+%		\toprule
+%		Protocol 			& I & J & K & L & M & N \\
+%		\midrule
+%		Total Projections 	& 5436 & 8740 & 9177 & 7648 & 7866 & 6555 \\
+%		Time [\%] 			& 34.7 & 55.6 & 58.3 & 48.6 & 50 & 41.7 \\
+% 		\bottomrule
+%	\end{tabular*}
+%	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccccccccccccccc}
+%		\toprule
+%		Protocol 			& O & P & Q & R & S & T \\
+%		\midrule
+%		Total Projections 	& 6555 & 5244 & 4370 & 3933 & 2622 & 2185 \\
+%		Time [\%] 			& 41.7 & 33.3 & 27.8 & 25 & 16.7 & 13.9 \\
+%		\bottomrule
+%	\end{tabular*}
+%	\label{tab:projections}
+%\end{table*}
 
 \cbstart
-After the merging of the normalized projections, the merged projections were reconstructed into the virtual tomography slices using a standard filtered back-projection algorithm or a FFT-based gridrec algorithm on a 20-node server farm (five \SI{64}{\bit} Opteron machines with 4 cores and \SI{8}{\giga\byte} RAM each). The reconstruction results in an image stack of 1024 or 2048 image slices---depending on the binning---in tiff-format.
+\begin{table*}
+	\centering
+	\caption{Specification of different protocols and time used compared to gold standard. Protocol A corresponds to the Gold Standard, and would have been needed to cover the same FOV with 9 single scans with a detector width of 1024 pixels (plus an overlap of 100 pixels). This would result in a number of Projections $P=9*(1024+100)*\frac{\pi}{2}=15890$}
+	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccc}
+		\toprule
+		Protocol & A & B & C & D & E & F & G \\
+		\midrule
+		Total Projections & 15890 & 15732 & 13110 & 13110 & 10925 & 11799 & 9833 \\
+		Time [\%] &  100.0  &   99.0  &   82.5  &   82.5  &   68.8  &   74.3  &  61.9  \\
+		\bottomrule
+	\end{tabular*}
+	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}ccccccc}
+		\toprule
+		Protocol & H & I & J & K & L & M & N \\
+		\midrule
+		Total Projections & 10488 & 8740 & 9177 & 7648 & 7866 & 6555 & 6555 \\
+		Time [\%] & 66.0 & 55.0 & 57.8 & 48.1 & 49.5 & 41.3 & 41.3 \\
+		\bottomrule
+	\end{tabular*}
+	\begin{tabular*}{\textwidth}{l@{\extracolsep\fill}cccccc}
+		\toprule
+		Protocol & O & P & Q & R & S & T \\
+		\midrule
+		Total Projections & 5463 & 5244 & 4370 & 3933 & 2622 & 2185 \\
+		Time [\%] & 34.4 & 33.0 & 27.5 & 24.8 & 16.5 & 13.8 \\
+		\bottomrule
+	\end{tabular*}
+	\label{tab:projections}
+\end{table*}
+\cbend
+
+\cbstart
+All subscans of each protocol have been scanned without any user intervention, except input of the sample name at the start of the batch-scan. All parameters such as sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set in a preference-file. For all 19 scanned protocols (B--T) the sample on the sample holder has not been touched, so that a direct comparison of the reconstructed slices is possible.
+
+After acquisition of the three subscans per protocol, custom MATLAB functions read the parameters of the single subscans (e.g.\ sample name, amount of subscans, amount of dark and flat images) as well as the desired output-name and -suffix and performs all necessary calculations like loading of the correct projections from each subscan, normalizing, interpolation, cutline detection and correct stitching of the images into wide field projections. Exemplary results can be seen in figure~\ref{fig:subscans} and \ref{fig:merge-proj}. 
+
+The merged projections were reconstructed into virtual tomography slices using an FFT-based gridrec algorithm~\cite{Dowd1999} on a 20-node server farm (five \SI{64}{\bit} Opteron machines with 4 cores and \SI{8}{\giga\byte} RAM each). The reconstructions result in an image stack covering a large sample volume of approximately 3000$\times$3000$\times$1024 pixels, a nine-fold increase from the standard volume of 1024$\times$1024$\times$1024 pixels for one single scan.
 \cbend
 
 The reconstructions used for the assessment of the image quality of the 19 different scanned protocols of the same sample show a three-fold (2.93\(\times\)) increase in FOV from 1024\(\times\)1024 pixels to 2996\(\times\)2996 pixels. As a proof of concept, we also scanned and reconstructed a lung sample with 5 subscans, which led to a roughly five-fold (4.74\(\times\)) increase in available FOV from 2048\(\times\)2048 pixels to 9703\(\times\)9703 pixels (see figure~\ref{fig:LungSlabSophie}).

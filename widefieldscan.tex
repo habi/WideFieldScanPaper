@@ -38,7 +38,11 @@
 \usepackage{fancyhdr}
 	\pagestyle{fancy}
 \usepackage[pdftex,color]{changebar}
-	\cbcolor{red}
+	\ifhtml
+		\nochangebars % disables changebars for html-conversion
+	\else
+		\cbcolor{red}
+	\fi
 \usepackage[backref]{hyperref}
 \usepackage{hypernat}
 
@@ -103,12 +107,12 @@
 \linenumbers
 \modulolinenumbers[2]
 
-\input{wfs-introduction}
-\input{wfs-materials-and-methods}
-\input{wfs-results}
-\input{wfs-discussion}
-\input{wfs-summary}
-\input{wfs-acknowledgements}
+\include{wfs-introduction}
+\include{wfs-materials-and-methods}
+\include{wfs-results}
+\include{wfs-discussion}
+\include{wfs-summary}
+\include{wfs-acknowledgements}
 
 \bibliographystyle{unsrtnat}
 \bibliography{../references}
