@@ -144,7 +144,7 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The 19 different scans have been chosen according to the MATLAB-plot explained in section~\ref{seq:Image Acquisition}\footnote{note for myself: generated with ``MATLAB/WideFieldScanning/main.m'' for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans with 150px overlap}.
 \cbend
 
-Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to~\citet{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the 57 individual subscans. The error ($E_{Prot_{i}}$) shown in figure~\ref{fig:NormalizedErrorPlot} has been calculated according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b}. Using the thresholded slice $i$ of each protocol ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices. The sum of all pixels of this difference image ($D_{Prot_{i}}$) yields the error value ($E_{Prot_{norm_{i}}}$).
+Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to~\citet{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the individual subscans. The error ($E_{Prot_{i}}$) shown in figure~\ref{fig:NormalizedErrorPlot} has been calculated according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b}. Using the thresholded slice $i$ of each protocol ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices. The sum of all pixels of this difference image ($D_{Prot_{i}}$) yields the error value ($E_{Prot_{norm_{i}}}$).
 
 \begin{eqnarray}
        D_{Prot_{i}} &=& |Slice_{B_{i}}-Slice_{Prot_{i}}|\label{eq:errorcalculation-a}\\
@@ -267,6 +267,32 @@ The 19 different protocols which have been obtained from the same sample have be
 	\caption{Comparison of protocols B and T. Top row: overview. Center row: view of the isosurfaces of the segmented airways. Bottom row: Slices}%
 	\label{fig:BvsT}%
 \end{figure*}
+
+\cbstart
+\begin{figure*}
+	\centering
+		\subfloat[Overview B]{%
+			\includegraphics[width=\imsize]{img/comparisonBvsT/overview-b}%
+			}%
+		\subfloat[Overview T]{%
+			\includegraphics[width=\imsize]{img/comparisonBvsT/overview-t}%
+			}\\%
+		\subfloat[Detail B]{%
+			\includegraphics[width=\imsize]{img/comparisonBvsT/roi-b-nomedian}%
+			}%
+		\subfloat[Detail T]{%
+			\includegraphics[width=\imsize]{img/comparisonBvsT/roi-t-nomedian}%
+			}\\%
+		\subfloat[Detail B, median filtered ($3\times3\times3$)]{%
+			\includegraphics[width=\imsize]{img/comparisonBvsT/roi-b}%
+			}%
+		\subfloat[Detail T, median filtered ($3\times3\times3$)]{%
+			\includegraphics[width=\imsize]{img/comparisonBvsT/roi-t}%
+			}%
+	\caption{B vs.\ T, including detail}
+	\label{fig:BvsT2}
+\end{figure*}
+\cbend
 
 The two protocols shown in figure~\ref{fig:BvsT} are the two extremes of the 19 obtained protocols. The dataset shown on the left (B) has been reconstructed from 5244 merged projection images, the dataset shown on the right (T) has been reconstructed using only 874 merged slices. Albeit we have scanned protocol T while violating the sampling theorem, both samples still look nearly identical in the three dimensional visualization. Except for small differences at the most lateral parts of the sample (yellow segment) the segmented airways are identical, even if the scanning time of protocol T has been reduced to \SI{14}{\percent} of the scanning time of protocol B\todo{elaborate a bit more on this\ldots}.
 

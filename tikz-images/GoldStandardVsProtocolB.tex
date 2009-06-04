@@ -1,0 +1,60 @@
+%\documentclass{article}
+%\usepackage[demo]{graphicx}
+%\usepackage{subfig}
+%\usepackage{tikz}
+%\usepackage{multirow}
+%\usepackage{siunitx}
+%\begin{document}
+%\begin{figure}
+%\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\scale{0.618}
+\subfloat[Desired FOV]{%
+	\label{subfig:fovneed}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (6,6);
+		\fill [semitransparent] (3,3) circle (3);
+		\draw (3,3) circle (3);
+		\draw [white,ultra thick,<->] (0,3) -- node [above] {3072 px} (6,3);
+	%	\draw [step=2] (0,0) grid (6,6);
+	\end{tikzpicture}%
+}\hfill
+\subfloat[Gold Standard; covering the FOV with 9 independently reconstructed small scans.]{%
+	\label{subfig:goldstandard}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\fill [color=gray!25] (0,0) rectangle (6,6);
+		\foreach \x in {1,2,3}
+			\foreach \y in {1,2,3}
+				\draw [fill=gray] (2*\x-1,2*\y-1) circle (1) node {\x,\y};
+		\fill [semitransparent] (3,3) circle (3);
+		\draw (3,3) circle (3);
+		\draw [step=2] (0,0) grid (6,6);
+		\draw [white,ultra thick,<->] (2,3.5) -- node [above] {1024 px} (4,3.5);
+	\end{tikzpicture}%
+}\hfill
+\subfloat[Gold Standard; covering the FOV with merged projections from one central and two ring scans.]{%
+	\label{subfig:protocolb}%
+	\begin{tikzpicture}[scale=\scale]
+%		\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (6,6);
+		\fill [semitransparent] (3,3) circle (3);
+		\draw (3,3) circle (3);
+		\draw (0,3) -- (2,3);
+		\draw (4,3) -- (6,3);
+		\draw (3,3) circle (1);
+		\def\shift{0.3}
+		\node at (3,5-\shift) {ring scan 1};
+		\node at (3,1+\shift) {ring scan 2};
+		\node at (3,3+\shift) {central};
+		\node at (3,3-\shift) {scan};
+		\def\angle{155}
+		\draw [white,ultra thick,<->] (3,3) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
+%		\draw [red,ultra thick,<->] (0,3) -- node [above] {1024 px} (-10:110);
+	\end{tikzpicture}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%\caption{Projection Setup}
+%\end{figure}
+%\end{document}

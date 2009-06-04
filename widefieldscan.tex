@@ -37,7 +37,7 @@
 \usepackage{lineno}
 \usepackage{fancyhdr}
 	\pagestyle{fancy}
-\usepackage[pdftex,color]{changebar}
+\usepackage[pdftex,outerbars,color]{changebar}
 	\ifhtml
 		\nochangebars % disables changebars for html-conversion
 	\else
@@ -57,16 +57,26 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\includeonly{wfs-materials-and-methods}
+%1 wfs-introduction
+%2 wfs-materials-and-methods
+%3 wfs-results
+%4 wfs-discussion
+%5 wfs-summary
+%6 wfs-acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 \ifhtml % In case of web format output...
 	\DeclareGraphicsExtensions{.png}
-	\title{A broader vision for tomographic microscopy - Wide field synchrotron radiation x-ray tomographic microscopy}%
+	\title{A broader vision for tomographic microscopy - Quality driven wide field synchrotron radiation x-ray tomographic microscopy}%
 	%\title{Synchrotron radiation based x-ray tomographic microscopy: increasing the field of view while keeping a high resolution}
 	\author{David Haberthür \and Christoph Hintermüller \and Marco Stampanoni \and Johannes Schittny}
 \else
 	\journal{Journal}
 	\begin{frontmatter}
-		\title{A broader vision for tomographic microscopy - Wide field synchrotron radiation x-ray tomographic microscopy}%
+		\title{A broader vision for tomographic microscopy - Quality driven wide field synchrotron radiation x-ray tomographic microscopy}%
 		\author[ana]{David Haberthür}%
 			\ead{haberthuer@ana.unibe.ch}%
 		\author[psi]{Christoph Hintermüller}%
