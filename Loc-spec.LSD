@@ -1,3 +1,4 @@
+150px
 CH-5232
 Dawley
 EPICS-System
@@ -45,8 +46,14 @@ inline
 iso
 low-resolution
 midway,above
+overview-b
+overview-t
 pco
 prj2sin
+roi-b
+roi-b-nomedian
+roi-t
+roi-t-nomedian
 scanning-possibilities
 seven-fold
 sin2rec
