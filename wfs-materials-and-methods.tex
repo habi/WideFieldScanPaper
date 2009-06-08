@@ -142,26 +142,20 @@ To fully satisfy the sampling theorem for a scan with the detector width $D$ we 
 \cbend
 
 \subsection{Wide Field Scanning Setup}
+\label{subsec:wfs-setup}%
 \cbstart
-A custom MATLAB-script (MATLAB\textsuperscript{\textregistered} 7.6.0.321 (R2008a), The MathWorks, Inc.) has been written to enable the user to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. According to these presets, the scripts calculated the necessary projections to fulfill the sampling theorem for the chosen FOV as a gold-standard and computes different acquisition protocols with reduced amount of projections. For all these scanning protocols a reconstruction is simulated using a Shepp-Logan phantom~\cite{Shepp1974} and we calculate the expected reconstruction quality using the difference image for each simulated reconstruction with the gold standard (the original phantom). This expected reconstruction quality is then plotted against the acquisition time, such a plot is shown in figure~\ref{fig:2008c-qualityplot}.
+A custom MATLAB-script (MATLAB\textsuperscript{\textregistered} 7.6.0.321 (R2008a), The MathWorks, Inc.) has been written to enable the user to input the scanning parameters like desired FOV, detector width, desired overlap between the subscans, magnification and binning. According to these presets, the scripts calculated the necessary projections to fulfill the sampling theorem for the chosen FOV as a gold-standard and computes different acquisition protocols with reduced amount of projections. For all these scanning protocols a reconstruction is simulated using a Shepp-Logan phantom~\cite{Shepp1974} and we calculate the expected reconstruction quality using the difference image for each simulated reconstruction with the gold standard (the original phantom). This expected reconstruction quality is then plotted against the acquisition time, such a plot is shown in figure~\ref{fig:qualityplot}.
 
-After the user has chosen a suitable protocol which balances the requirements for reconstruction quality and need for fast acquisition time (corresponding to one dot in figure~\ref{fig:2008c-qualityplot}), a preference file is written. This preference file contains the details of the selected scan like amount of needed subscans and the positions of the sample, number of projections as well as start and stop angles of the rotation for each subscan. Subsequently, the preference file is parsed by a custom Python-script to interact with the EPICS-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which itself is used to control the hardware of the TOMCAT beamline, allowing for an unattended batch scan of all the desired subscans.
+After the user has chosen a suitable protocol which balances the requirements for reconstruction quality and need for fast acquisition time (corresponding to one dot in figure~\ref{fig:qualityplot}), a preference file is written. This preference file contains the details of the selected scan like amount of needed subscans and the positions of the sample, number of projections as well as start and stop angles of the rotation for each subscan. Subsequently, the preference file is parsed by a custom Python-script to interact with the EPICS-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which itself is used to control the hardware of the TOMCAT beamline, allowing for an unattended batch scan of all the desired subscans.
 \cbend
 
 \begin{figure*}
 	\centering
-	\input{tikz-images/plots/2008c-QualityPlot}%
-	\caption[Quality-Plot of 34 calculated protocols]{Quality-Plot of 34 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. A subset of 19 protocols have been scanned. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}%
-	\label{fig:2008c-qualityplot}%
+	\input{tikz-images/plots/19Protocols-QualityPlot}%
+	\caption{Quality-Plot of 19 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}%
+	\label{fig:qualityplot}%
 \end{figure*}
 
-\begin{figure*}
-	\centering
-	\input{tikz-images/plots/19Protocols-QualityPlot}%
-	\caption[Quality-Plot of 19 scanned protocols]{Quality-Plot of 19 scanned protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$.}%
-	\label{fig:2008c-qualityplot}%
-	\todo[inline]{maybe use ``this'' plot instead of fig.~\ref{fig:2008c-qualityplot}, since only the 19 really scanned protocols are shown?}
-\end{figure*}
 \cbstart
 Table~\ref{tab:projections} provides the numbers for 19 real-world examples that have been scanned from a quality-plot corresponding to the one shown in figure~\ref{fig:2008c-qualityplot}. Protocol A would correspond to the scanning configuration shown in figure~\ref{subfig:goldstandard}, which would require nine independent reconstructions and stitching of the resulting small reconstructions into one big slice. As shown above, we can equally satisfy the sampling theorem when enough projections are acquired for a simulated detector size that is three times the real detector size of 1024 pixels, so protocol A was omitted for this study. Including an overlap of 100 pixels between the central and the ring scan, we need to acquire $N_{B}=15419$ projections for the gold-standard protocol B (\[N_{B}=3(3072+200)\frac{\pi}{2}\]). All the other protocols from C--T have been linearly scaled down with a decreasing percentage of acquired total projections of the gold standard. The difference of total amount of projections resulting from this scaling to the amount of projections shown in the table arises through the fact that the amount of projections for each subscan has been chosen in such a way, that the stitching of the projections was possible, hence the small differences in total amount of scanned to total amount of calculated projections.
 

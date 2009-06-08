@@ -1,49 +1,9 @@
-%\documentclass{article}
-%\usepackage{tikz,pgfplots}
-%\usepackage[pdftex,active,tightpage]{preview}
-%\begin{document}
-%\begin{preview}
+\documentclass{article}
+\usepackage{tikz,pgfplots}
+\usepackage[pdftex,active,tightpage]{preview}
+\begin{document}
+\begin{preview}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\pgfplotsset{every axis plot/.append style={very thick}}
-%\begin{tikzpicture}%[scale=1/.618]
-%%\node at (1,1) {asdf};%
-%\begin{axis}[%
-%	%grid=both,%
-%	%xmajorgrids,%
-%	xtick=data,%
-%	xticklabels={T,S,R,Q,P,O,N,M,L,K,J,I,H,G,F,E,D,C,B},%
-%	title={linearly spaced (1:19)},
-%]
-%% Line plot
-%\addplot
-%	plot [ only marks,
-%	      	error bars/.cd,
-%	      	y dir=both,y explicit ]
-%	coordinates{
-%	(1 ,0.0013) +- (0,0.0169)   %T
-%	(2 ,0.3200) +- (0,0.0852)   %S
-%	(3 ,0.3700) +- (0,0.0386)   %R
-%	(4 ,0.2541) +- (0,0.0376)   %Q
-%	(5 ,0.5624) +- (0,0.0524)   %P
-%	(6 ,0.4278) +- (0,0.0778)   %O
-%	(7 ,0.4997) +- (0,0.1010)   %N 6555
-%	(8 ,0.5473) +- (0,0.0404)   %M 6555
-%	(9 ,0.6198) +- (0,0.0696)   %L
-%	(10,0.4236) +- (0,0.1020)   %K
-%	(11,0.6262) +- (0,0.1148)   %J
-%	(12,0.6038) +- (0,0.0589)   %I
-%	(13,0.7312) +- (0,0.0598)  %H
-%	(14,0.5873) +- (0,0.0856)   %G
-%	(15,0.6347) +- (0,0.0960)  %F
-%	(16,0.7222) +- (0,0.0316)  %E
-%	(17,0.8714) +- (0,0.0174)  %D
-%	(18,0.7733) +- (0,0.0389)  %C
-%	(19,1.0000) +- (0,0.0000)  %B
-%};
-%\pgfplotsset{every axis legend/.append style={at={(0.618,0.2)},anchor=base}}
-%\legend{$E_{norm}$}
-%\end{axis}
-%\end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}%[scale=1/.618]
 %\node at (1,1) {asdf};%
@@ -85,8 +45,22 @@
 	(15.83,0.7733) +- (0,0.0389) %C 13110
 	(19,1.0000)    +- (0,0.0000) %B 15732
 };
+
+% Protocols
+\addplot [ color = red, only marks, mark = *] 
+coordinates{
+ (2.612652,0.20) (3.135171,0.212284) (4.706357,0.460522) (5.225304,0.545201) (6.270361,0.607072) (6.532219,0.618107) (7.837956,0.674167) (7.841528,0.687811) (9.147265,0.718724) (9.405532,0.7528) (10.450589,0.761345) (10.976718,0.801592) (11.759917,0.780612) (12.540722,0.839645) (13.063241,0.804284) (14.111889,0.866889) (15.675893,0.849458) (15.675893,0.891421) (18.811083,1)
+};
+
+% Line plot
+\addplot [smooth,solid]
+coordinates{
+ (2.612652,0.168548) (3.135171,0.259575) (4.706357,0.466567) (5.225304,0.517347) (6.270361,0.599714) (6.532219,0.616854) (7.837956,0.686146) (7.841528,0.686305) (9.147265,0.735452) (9.405532,0.743455) (10.450589,0.771605) (10.976718,0.783754) (11.759917,0.800091) (12.540722,0.815005) (13.063241,0.824599) (14.111889,0.843973) (15.675893,0.87719) (15.675893,0.87719) (18.811083,0.998565)
+};
+
 \pgfplotsset{every axis legend/.append style={at={(0.618,0.2)},anchor=base}}
-\legend{$E_{norm}$}
+
+\legend{$E_{norm}$,From Simulation,Polynomial Fit from Simulation}
 
 \tikzstyle{every pin}=[font=\footnotesize]
 
@@ -141,5 +115,5 @@
 %    0.1010    0.0778    0.0524    0.0376    0.0386    0.0852    0.0169
 %    0.5003    0.5722    0.4376    0.7459    0.6300    0.6800    0.9987          	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\end{preview}
-%\end{document}
+\end{preview}
+\end{document}

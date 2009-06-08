@@ -21,14 +21,16 @@
 			% --------------------------------------------------------------
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-					{\includegraphics[width=\imagewidth]{R108C21Cb_s13358_normalize}};%
+					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_s13358_normalize}};%
+%					{\includegraphics[width=\imagewidth]{R108C21Cb_s13358_normalize}};%
 				\def\overlap{141}%
 				\fill [red, nearly transparent] (1024-\overlap,1) rectangle (1024,1024);%
 				\draw (1024-\overlap,1) rectangle (1024,1024);%
 			\end{tikzpicture}%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-					{\includegraphics[width=\imagewidth]{R108C21Cb_s23358_normalize}};%
+					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_s23358_normalize}};%
+%					{\includegraphics[width=\imagewidth]{R108C21Cb_s23358_normalize}};%
 				\def\overlap{141}%
 				\fill [green, nearly transparent] (1,1) rectangle (\overlap,1024);%
 				\draw (1,1) rectangle (\overlap,1024);%
@@ -39,7 +41,8 @@
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				% place image (integer coordinates refer to pixel centers):
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-					{\includegraphics[width=\imagewidth]{R108C21Cb_s33358_normalize}};%
+					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_s33358_normalize}};%
+%					{\includegraphics[width=\imagewidth]{R108C21Cb_s33358_normalize}};%
 				\def\overlap{138}%
 				\fill [yellow, nearly transparent] (1,1) rectangle (\overlap,1024);%
 				\draw (1,1) rectangle (\overlap,1024);%
@@ -57,7 +60,8 @@
 		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. Each merged projection has a size of 2793\(\times\)1024 pixels at a resolution of \SI{1.48}{\micro\meter\per pixel}. The width of the merged projections is slightly smaller than three times the width of the subscans due to the overlap needed to merge the projections (2793~px$=3\cdot3072$~px$-141$~px$-138$~px). Since the x-ray beam is extremely stable, the bands visible in the raw projections can be eliminated.]{%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-					{\includegraphics[width=\imagewidth]{R108C21Cb_mrg3333_normalize}};%
+					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_mrg3333_normalize}};%
+%					{\includegraphics[width=\imagewidth]{R108C21Cb_mrg3333_normalize}};%
 				\def\x{2693} % 2793-100
 				\def\y{922} % 1024*.9 = 921.6
 				\def\bar{338} % 100 px = 148 um
@@ -73,27 +77,28 @@
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				% place image (integer coordinates refer to pixel centers):
 				\node [anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-					{\includegraphics[width=\imagewidth]{R108C21Cb_mrg1024rec8bit}};% ``mogrify -shave 0x900 -normalize -format png R108C21Cb_mrg1024rec8bit.tif''
+					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_mrg1024rec8bit}};% ``mogrify -shave 0x900 -normalize -format png R108C21Cb_mrg1024rec8bit.tif''
+%					{\includegraphics[width=\imagewidth]{R108C21Cb_mrg1024rec8bit}};
 				\clip (0,0) rectangle (2792,992);				
-				\def\x{2692} % 2708-100
+				\def\x{2692} % 2792-100
 				\def\y{893} % 992 * .9 = 892.8
 				\def\bar{338} % 100 px = 148 um
 				%%%% scalebar
-					\draw[|-|,color=white] (\x-\bar,\y) -- (\x,\y) node [midway,above] {\SI{500}{\micro\meter}};
-					\draw[|-|,color=white] (1,20) -- (2792,20) node [midway,below] {\SI{4.13216}{\milli\meter}};
+					\draw[|-|,color=white] (\x-\bar,\y) -- (\x,\y) node [midway, above] {\SI{500}{\micro\meter}};
+					\draw[|-|,color=white] (1,20) -- (2792,20) node [midway, below] {\SI{4.13216}{\milli\meter}};
 				%%%% center
 					\fill [color=red] (2792/2,992/2) circle (5);
 				%%%% big circle
 					\draw [dashed,color=red] (2792/2,992/2) circle (512);
-					\def\angle{45}
-					\draw [white,<->] (2792/2,992/2) +(\angle:0) --  node (bigto) {} +(\angle:512); 
+					\def\angle{35}
+					\draw [white,thick,<->] (2792/2,992/2) +(\angle:0) --  node (bigto) {} +(\angle:512); 
 					\node [white] (bigfrom) at (256,256){$\frac{1024}{2}$px};
 					\draw [white,->,densely dotted] (bigfrom) to [bend left=45] (bigto);
 				%%%% big circle
 				%%%% 141px circle
 				\draw [dashed,color=red] (2792/2,992/2) circle (512-141);
-				\def\angle{45+90}
-					\draw [white,<->] (2792/2,992/2) +(\angle:0) -- node (smallto) {} +(\angle:512-141);
+				\def\angle{35+90}
+					\draw [white,thick,<->] (2792/2,992/2) +(\angle:0) -- node (smallto) {} +(\angle:512-141);
 					\node [white] (smallfrom) at (256,384) {$\frac{1024}{2}-141$px};
 					\draw [white,->,densely dotted] (smallfrom) to [bend left=45] (smallto);
 				%%%% 141px circle					

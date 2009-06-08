@@ -25,15 +25,17 @@ Multiple independently acquired projection images covering the desired FOV have 
 \cbstart
 \begin{figure*}
 	\input{img/merge/MergedProjections}
-	\caption{Different stages of a wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 21 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at \SI{12.6}{\kilo\electronvolt}, the images are taken from protocol B, described in table~\ref{tab:protocols}.}
+	\caption{Wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 21 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at \SI{12.6}{\kilo\electronvolt}, the protocol details conform to protocol ``B'', described in table~\ref{tab:protocols}.}
 	\label{fig:wide field scan results}	
 \end{figure*}
 \cbend
 
 \subsection{Increasing the FOV}
-With the FOV available up to now at TOMCAT we have only been able to fit partial acini inside our datasets. Increasing the available FOV three times allows us to obtain three dimensional reconstructions of entire acini which are only restricted by sample size, but not by the FOV of the imaging method. When comparing the green and red airway segments in figures~\ref{fig:FOV increase overview} and \ref{fig:FOV increase segments} with each other, we can see that with the conventional tomographic imaging, both segments are only partially in the FOV. We need to increase the FOV to be able to see the full central acinus inside the lung tissue. With the increased FOV we additionally see a third acinus (yellow segment) inside the lung segment. Both the red and yellow segment are only partial acini, but their size is limited by the dimensions of the lung sample, not by the FOV. The cutting lines are visible in the underside view of the wide field scanning visualization (Figure~\ref{subfig:down-merge}).
+\cbstart
+With the FOV available up to now at TOMCAT we have only been able to fit partial acini inside our datasets. Increasing the available FOV three times allows us to obtain three dimensional reconstructions of acini only restricted by the available sample size, but not by the FOV of the imaging method. From figure~\ref{subfig:overview-merge} it appears clearly that the FOV is increased, allowing the visualization of third acinus (yellow) which is not visible inside the FOV of a conventional scan (figure~\ref{subfig:overview-s2}). Additionally, it is also visible that both the red and green segment for the conventional scan are extend out of the FOV of the conventional scan, we need to record a wide field scan to visualize both these segments in three dimensions, as can be seen in figure~\ref{subfig:overview-merge}. The red and yellow segment visualized for the wide field scan are still only partial acini, but their size is only limited by the dimensions of the lung sample, not by the imaging method.
 
-Both aforementioned figures show, that we have been able to increase the FOV of TOMCAT in such a way that we are now able to obtain tomographic datasets of entire acini of rat lungs. We plan to use this now available data to gain a deep insight into the postnatal structural lung development, see section~\ref{sec:outlook} for details.
+The data obtained from wide field scanning permits the visualizations of entired acini inside the rat lung and will help to gain a deep insight into the postnatal structural lung development, see section~\ref{sec:outlook}.
+\cbend
 
 \renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
@@ -62,58 +64,59 @@ Both aforementioned figures show, that we have been able to increase the FOV of 
 				\draw[|-|,thick] (\x,\y) -- (224+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
 			\end{tikzpicture}%
 	}%
-	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The grey structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a region growing algorithm. \subref{subfig:overview-s2}: Conventional scan; all segments are only partial acini. \subref{subfig:overview-merge}: Wide field scan; the green and red segment show multiple acini fully inside the dataset.}%
+	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The gray structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a threshold interval based region growing algorithm. \subref{subfig:overview-s2}: Conventional scan; the extracted acini (green and red segments) contain only partial. \subref{subfig:overview-merge}: Wide field scan; the green and red segment show multiple acini fully inside the dataset, the yellow segment contains a partial acinus. The segmentation is only limited by the sample size and not by the FOV of the tomographic scan.}%
 	\label{fig:FOV increase overview}%
-	\todo[inline]{Do we need to add original slices to show the increase in the FOV, or is this clear enough?}
 \end{figure}
 
-\renewcommand{\imsize}{.5\linewidth}
-\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
-\pgfmathsetlength{\imagescale}{\imagewidth/723} % pixel width of imagefile used below
-\begin{figure*}
-	\centering
-	\subfloat[conventional scan]{%
-		\label{subfig:down-s2}%
-			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-			\def\x{500}%
-			\def\y{725}%
-    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};%
-				\draw[|-|,thick] (256,284) -- (259,588) node [left] {\SI{1.4336}{\milli\meter}};%
-				% 304 px = 1.4336 mm > 100 px = 472 um > 106 px = 500um
-				\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}};%
-			\end{tikzpicture}%
-	}%
-	\subfloat[wide field scan]{%
-		\label{subfig:down-merge}%%
-			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-			\def\x{500}%
-			\def\y{725}%
-    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};%
-		    	\draw[|-|,thick] (204,11) -- (206,770) node [left] {\SI{3.8444}{\milli\meter}};%
-			    % 759 px = 3.844 mm > 100 px =2066770 > 99 px = 500um
-				\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
-			\end{tikzpicture}%
-	}%
-	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:FOV increase overview}). View from the underside of the sample}%
-	\label{fig:FOV increase segments}%
-\end{figure*}
+%\renewcommand{\imsize}{.5\linewidth}
+%\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
+%\pgfmathsetlength{\imagescale}{\imagewidth/723} % pixel width of imagefile used below
+%\begin{figure*}
+%	\centering
+%	\subfloat[conventional scan]{%
+%		\label{subfig:down-s2}%
+%			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+%			\def\x{500}%
+%			\def\y{725}%
+%    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+%    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};%
+%				\draw[|-|,thick] (256,284) -- (259,588) node [left] {\SI{1.4336}{\milli\meter}};%
+%				% 304 px = 1.4336 mm > 100 px = 472 um > 106 px = 500um
+%				\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}};%
+%			\end{tikzpicture}%
+%	}%
+%	\subfloat[wide field scan]{%
+%		\label{subfig:down-merge}%%
+%			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+%			\def\x{500}%
+%			\def\y{725}%
+%    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+%    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};%
+%		    	\draw[|-|,thick] (204,11) -- (206,770) node [left] {\SI{3.8444}{\milli\meter}};%
+%			    % 759 px = 3.844 mm > 100 px =2066770 > 99 px = 500um
+%				\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
+%			\end{tikzpicture}%
+%	}%
+%	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:FOV increase overview}). View from the underside of the sample}%
+%	\label{fig:FOV increase segments}%
+%\end{figure*}
 
 \subsection{Quality guided protocol selection}
 \cbstart
-A sequence of 19 protocols with varying quality has been scanned to assess the simulations. The 19 different scans have been chosen according to the MATLAB-plot explained in section~\ref{seq:Image Acquisition}\footnote{note for myself: generated with ``MATLAB/WideFieldScanning/main.m'' for a protocol with the diameter of \SI{3.8}{mm} and three overlapping subscans with 150px overlap}.
+A sequence of 19 protocols with varying quality has been scanned to assess the predictions obtained through preliminary simulations and to assess the plot that is presented to choose a scanning protocol suited for the demands on scanning time and reconstruction quality, as defined in section~\ref{subsec:wfs-setup}.
 \cbend
 
-Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to~\citet{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the individual subscans. The error ($E_{Prot_{i}}$) shown in figure~\ref{fig:NormalizedErrorPlot} has been calculated according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-b}. Using the thresholded slice $i$ of each protocol ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices. The sum of all pixels of this difference image ($D_{Prot_{i}}$) yields the error value ($E_{Prot_{norm_{i}}}$).
+Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to~\citet{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the individual subscans, and enables us to only take into account the pixels that are differ between the 19 different protocols.
+
+The error ($E_{Prot_{i}}$) shown in figure~\ref{fig:NormalizedErrorPlot} has been calculated for each protocol $i=$1--19 according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-c}. Using a thresholded slice $i$ of each protocol ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices. The sum of all pixels of this difference image ($D_{Prot_{i}}$) yields a value (\(E_{Prot_{norm_{i}}}\)) for each slice, which assesses the difference of the examined slice with the corresponding slice of the gold standard protocol.).
 
 \begin{eqnarray}
        D_{Prot_{i}} &=& |Slice_{B_{i}}-Slice_{Prot_{i}}|\label{eq:errorcalculation-a}\\
 E_{Prot_{norm_{i}}} &=& \sum_{x}\sum_{y} D_{Prot_{i}}\label{eq:errorcalculation-b}\\
-    E_{Prot_{norm}} &=& \overline{E_{Prot_{norm_{i}}}} \pm \sigma(E_{Prot_{norm_{i}}})\label{eq:errorcalculation-c}
+    E_{Prot_{norm}} &=& \overline{E_{Prot_{norm_{i}}}}\label{eq:errorcalculation-c}
 \end{eqnarray}
 
-The error value ($E_{Prot_{norm}}$) has been calculated for 205 regularly spaced slices $i=1:5:1024$ of the full dataset (1024 slices). The mean ($\overline{E_{Prot_{norm_{i}}}}$) and standard deviation of the error have been normalized in such a way that the error has been scaled to arbitrary units from 0 to 1.
+The combined error value ($E_{Prot_{norm}}$) has been calculated for 205 regularly spaced slices $i=1:5:1024$ of the full dataset (1024 slices). The mean ($\overline{E_{Prot_{norm_{i}}}}$) error value for all slices has been normalized and plotted with the standard deviation (\(\sigma(E_{Prot_{norm_{i}}})\)), as can be seen in figure~\ref{fig:NormalizedErrorPlot}.
 
 We see that---as expected---the normalized error grows with decreasing amount of total obtained projections. The simulated scanning quality shown in figure~\ref{fig:2008c-qualityplot} shows the simulated quality to expect from the scan, while figure~\ref{fig:NormalizedErrorPlot} is a plot of the calculated error of the different protocols compared to protocol A, hence the outcome of the experiments using not a simulated phantom, but actual scans of lung tissue. Both the plots for the simulation and the normalized error show the same trend while not being entirely congruent. The simulation shows a exponential decrease in quality, while the calculated, normalized error show a more linear decrease in quality from protocol B towards protocol T.
 
@@ -122,7 +125,7 @@ For protocols with the same total amount of projections, but different configura
 \begin{figure*}
 	\centering
 	\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
-	\caption{Plot of normalized Error ($E_{norm}$ for the 19 scanned protocols. The normalized Error has been calculated in such a way that we calculated the difference image for Protocol 'x' compared to Protocol 'A',  and . The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol. Note that the error is plotted inversely, so the axes of this plot and the plot in figure~\ref{fig:2008c-qualityplot} are directly comparable.}
+	\caption{Plot of normalized Error (\(E_{norm}\)) for the 19 scanned protocols. The normalized Error has been calculated in such a way that we calculated the difference image for Protocol $i$ compared to Protocol B. The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol. Note that the error is plotted inversely, so the axes of this plot and the plot in figure~\ref{fig:qualityplot} are directly comparable.}
 	\label{fig:NormalizedErrorPlot}
 \end{figure*}
 
