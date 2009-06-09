@@ -1,6 +1,7 @@
 0pt
 0pt,outer
 150px
+1ex
 3100A0-109874
 B
 Biomed
@@ -53,9 +54,11 @@ Ouanella
 P
 ProjectionSetup
 ProjectionSetupInterpolate
+Prot
 Q
 R108C04C
 R108C04C-down-s2
+R108C04C-overview-merge
 R108C04C-overview-s2
 R108C04C-skeleton-merge
 R108C10B
@@ -67,6 +70,8 @@ R108C10B-s3
 R108C21
 R108C21Cb_mrg1024
 R108C21Ct_mrg1024
+R108C21_overview_B
+R108C21_overview_T
 R108C21_underside_iso_B
 R108C21_underside_iso_T
 RecoManager
@@ -117,8 +122,10 @@ end-user
 error-value
 ethanol
 experimenTs
+five-fold
 gridrec
 haberthuer@ana.unibe.ch
+i
 img
 inline
 instillation
@@ -131,7 +138,10 @@ midway,above
 midway,right
 numproj
 oversampling
+overview-b
 overview-merge
+overview-s2
+overview-t
 pco
 pgfsys-tex4ht.def
 png
@@ -139,6 +149,7 @@ post-natal
 prj2sin
 psi,eth
 quality-guided
+quality-steps
 r
 rAdiology
 rcccc

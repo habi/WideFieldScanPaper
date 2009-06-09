@@ -1,6 +1,7 @@
 0pt
 0pt,outer
 150px
+1ex
 3100A0-109874
 5-subscan-case
 B
@@ -58,10 +59,12 @@ P
 Pr
 ProjectionSetup
 ProjectionSetupInterpolate
+Prot
 Protocols,Polynomial
 Q
 R108C04C
 R108C04C-down-s2
+R108C04C-overview-merge
 R108C04C-overview-s2
 R108C04C-skeleton-merge
 R108C10B
@@ -71,7 +74,10 @@ R108C10B-s1
 R108C10B-s2
 R108C10B-s3
 R108C21
+R108C21Cb
 R108C21Cb_mrg1024
+R108C21Cb_mrg1024rec8bit
+R108C21Cb_mrg3333_normalize
 R108C21Ct_mrg1024
 R108C21_overview_B
 R108C21_overview_T
@@ -111,6 +117,8 @@ back-projection
 batch-scan
 beam-time
 beamline
+bigfrom
+bigto
 binarization
 binarized
 binned
@@ -145,6 +153,7 @@ haberthuer@ana.unibe.ch
 high-resolution
 http://www.ana.unibe.ch/~haberthuer/WideFieldScanPaper/MATLAB
 http://www.ana.unibe.ch/~haberthuer/WideFieldScanPaper/MeVisLab
+i
 img
 inline
 instillation
@@ -164,6 +173,7 @@ numproj
 oversampling
 overview-b
 overview-merge
+overview-s2
 overview-t
 pco
 pco.2000
@@ -178,6 +188,7 @@ psi,eth
 px
 quality-guided
 quality-plot
+quality-steps
 r
 r1
 r2
@@ -205,6 +216,8 @@ sin2rec
 sinogram
 sinograms
 sloped,midway,above
+smallfrom
+smallto
 sophie
 stacked-scan
 subfig

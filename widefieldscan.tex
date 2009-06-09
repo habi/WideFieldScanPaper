@@ -19,11 +19,14 @@
 	\usepackage{endfloat}
 	\usepackage[disable]{todonotes}
 	\renewcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+	\usepackage{changebar}
+	\nochangebars % disables changebars for html-conversion
 \else
 	\usepackage{todonotes}
+	\usepackage[pdftex,outerbars,color]{changebar}
+		\cbcolor{red}
 \fi
 
-%\usepackage[T1]{fontenc}
 \usepackage[latin1]{inputenc} 						% so I can write my Name without \"{u}
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -34,17 +37,9 @@
 \usepackage{multirow}                               % multirows in tables
 \usepackage{tikz} 									% extremely nice drawings
 \usepackage{pgfplots} 								% ditto for plots
-%\usepackage{flafter}								% floats only after their reference in the text
 \usepackage{lineno}
 \usepackage{fancyhdr}
 	\pagestyle{fancy}
-\usepackage[pdftex,outerbars,color]{changebar}
-\ifhtml
-	\usepackage{changebar}
-	\nochangebars % disables changebars for html-conversion
-\else
-	\cbcolor{red}
-\fi
 \usepackage[backref]{hyperref}
 \usepackage{hypernat}
 
@@ -60,7 +55,7 @@
 {$LastChangedBy$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\includeonly{wfs-results}
+\includeonly{wfs-results}
 %1 wfs-introduction
 %2 wfs-materials-and-methods
 %3 wfs-results
@@ -94,30 +89,30 @@
 		\address[eth]{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}
 \fi
 
-		\begin{abstract}
-			State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at high resolution by stacking several tomograms  and perform local tomographic reconstruction.
+\begin{abstract}
+State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at high resolution by stacking several tomograms  and perform local tomographic reconstruction.
 	
-			Such a stacking increases the field of view in vertical direction. The present work defines the acquisition protocols to increase the field of view of tomographic microscopy in horizontal direction. It is the base for acquiring three dimensional datasets of samples with sized bigger than the field of view of the tomographic microscope.
+Such a stacking increases the field of view in vertical direction. The present work defines the acquisition protocols to increase the field of view of tomographic microscopy in horizontal direction. It is the base for acquiring three dimensional datasets of samples with sized bigger than the field of view of the tomographic microscope.
 	
-			We show that the lateral field of view of tomographic microscopy can be increased up to five times and provide the possibility to acquire quality guided tomographic wide field scans of arbitrary samples in an unattended, automatic way based on objective criteria taking reconstruction quality and scanning time into account.
-		\end{abstract}
+We show that the lateral field of view of tomographic microscopy can be increased up to five times and provide the possibility to acquire quality guided tomographic wide field scans of arbitrary samples in an unattended, automatic way based on objective criteria taking reconstruction quality and scanning time into account.
+\end{abstract}
+		
 \ifhtml % In case of web format output...
 \else	
-		\begin{keyword}
-			%% keywords here, in the form: keyword \sep keyword
-			computed tomography \sep synchrotron \sep SRXTM \sep lung development \sep alveoli \sep acinus
-			%% PACS codes here, in the form: \PACS code \sep code
-	
-			%% MSC codes here, in the form: \MSC code \sep code
-			%% or \MSC[2008] code \sep code (2000 is the default)
-		\end{keyword}
+	\begin{keyword}
+		%% keywords here, in the form: keyword \sep keyword
+		computed tomography \sep synchrotron \sep SRXTM \sep lung development \sep alveoli \sep acinus
+		%% PACS codes here, in the form: \PACS code \sep code
+
+		%% MSC codes here, in the form: \MSC code \sep code
+		%% or \MSC[2008] code \sep code (2000 is the default)
+	\end{keyword}
 	\end{frontmatter}
 	
 	\listoftodos
+	\linenumbers
+	\modulolinenumbers[2]
 \fi
-
-\linenumbers
-\modulolinenumbers[2]
 
 \include{wfs-introduction}
 \include{wfs-materials-and-methods}

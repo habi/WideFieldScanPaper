@@ -1,119 +1,146 @@
-\documentclass{article}
-\usepackage{tikz,pgfplots}
-\usepackage[pdftex,active,tightpage]{preview}
-\begin{document}
-\begin{preview}
+%\documentclass{article}
+%\usepackage{tikz,pgfplots}
+%\usepackage[pdftex,active,tightpage]{preview}
+%\begin{document}
+%\begin{preview}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{tikzpicture}%[scale=1/.618]
-%\node at (1,1) {asdf};%
+\begin{tikzpicture}
+
 \begin{axis}[%
 	width=\linewidth,
 	height=0.618\linewidth,
-	%grid=both,%
-	%xmajorgrids,%
-	xtick=data,%
-	xticklabels={T,S,R,Q,P\ ,\ O,NM,,\ L,K\ ,J,I,H,G,F,E,DC,,B},%
-	yticklabels={1,0.8,0.6,0.4,0.2,0},
-	%title={spaced with total \#Projections (2185:15732)},%
-	xlabel={Protocol},%
-	ylabel={normalized Error}%
-]
-% Line plot
+%%%%%%%%	scale only axis,
+%%%%%%%%	xmin=0,xmax=110,
+%%%%%%%%	ymin=0,ymax=110,
+%%%%%%%%	axis y line = left,
+	xlabel={Scanning Time [\%\ of Gold Standard]},%
+	ylabel={%
+		\tikz \draw[fill=red,semitransparent] (0ex,0ex) circle (1ex);: %
+		Expected Quality of the Scan [\%], %
+		\tikz \draw[fill=blue] (0ex,0ex) circle (1ex);: %
+		Quality$-E_{norm}$%
+		}%
+	]
+
 \addplot
-	plot [ only marks,
-	      	error bars/.cd,
-	      	y dir=both,y explicit ]
-	coordinates{
-	(2.64,0.0013)  +- (0,0.0169) %T  2185
-	(3.17,0.3200)  +- (0,0.0852) %S  2622
-	(4.75,0.3700)  +- (0,0.0386) %R  3933
-	(5.28,0.2541)  +- (0,0.0376) %Q  4370
-	(6.33,0.5624)  +- (0,0.0524) %P  5244
-	(6.57,0.4278)  +- (0,0.0778) %O  5436
-	(7.92,0.4997)  +- (0,0.1010) %N  6555
-	(7.92,0.5473)  +- (0,0.0404) %M  6555
-	(9.5,0.6198)   +- (0,0.0696) %L  7866
-	(9.24,0.4236)  +- (0,0.1020) %K  7648
-	(11.08,0.6262) +- (0,0.1148) %J  9177
-	(10.56,0.6038) +- (0,0.0589) %I  8740
-	(12.67,0.7312) +- (0,0.0598) %H 10488
-	(11.88,0.5873) +- (0,0.0856) %G  9833
-	(14.25,0.6347) +- (0,0.0960) %F 11799
-	(13.19,0.7222) +- (0,0.0316) %E 10925
-	(15.83,0.8714) +- (0,0.0174) %D 13110
-	(15.83,0.7733) +- (0,0.0389) %C 13110
-	(19,1.0000)    +- (0,0.0000) %B 15732
-};
+plot [ only marks,
+	error bars/.cd,
+    y dir=both,y explicit ]
+    coordinates{
+	(13.75,20.0000) +- (0,0)      % T
+	(16.50,38.1358) +- (0,3.1135) % S
+	(24.77,30.2919) +- (0,1.3958) % R
+	(27.50,42.2255) +- (0,2.5278) % Q
+	(33.00,49.2247) +- (0,7.6789) % P
+	(34.38,53.0181) +- (0,6.8507) % O 
+	(41.27,41.5079) +- (0,4.7824) % N  
+	(41.25,51.6990) +- (0,4.7110) % M
+	(49.50,49.9058) +- (0,9.1839) % L
+	(48.14,66.1100) +- (0,8.1635) % K
+	(57.77,50.4137) +- (0,5.5671) % J
+	(55.00,56.2138) +- (0,3.2329) % I
+	(66.00,60.0243) +- (0,8.0805) % H
+	(61.89,65.7727) +- (0,6.2214) % H
+	(74.27,55.0069) +- (0,4.1882) % F
+	(68.75,79.6708) +- (0,3.0107) % E
+	(82.50,70.4018) +- (0,3.0863) % D
+	(82.50,74.3991) +- (0,6.8125) % C
+	(99.01,99.8987) +- (0,1.3487) % B
+	};
 
 % Protocols
-\addplot [ color = red, only marks, mark = *] 
-coordinates{
- (2.612652,0.20) (3.135171,0.212284) (4.706357,0.460522) (5.225304,0.545201) (6.270361,0.607072) (6.532219,0.618107) (7.837956,0.674167) (7.841528,0.687811) (9.147265,0.718724) (9.405532,0.7528) (10.450589,0.761345) (10.976718,0.801592) (11.759917,0.780612) (12.540722,0.839645) (13.063241,0.804284) (14.111889,0.866889) (15.675893,0.849458) (15.675893,0.891421) (18.811083,1)
+\addplot [ color = red, semitransparent, only marks, mark = *]
+	coordinates{
+		(13.7508,20)
+		(16.5009,21.2284)
+		(24.7703,46.0522)
+		(27.5016,54.5201)
+		(33.0019,60.7072)
+		(34.3801,61.8107)
+		(41.2524,67.4167)
+		(41.2712,68.7811)
+		(48.1435,71.8724)
+		(49.5028,75.28)
+		(55.0031,76.1345)
+		(57.7722,80.1592)
+		(61.8943,78.0612)
+		(66.0038,83.9645)
+		(68.7539,80.4284)
+		(74.2731,86.6889)
+		(82.5047,84.9458)
+		(82.5047,89.1421)
+		(99.0057,100)
 };
 
 % Line plot
-\addplot [smooth,solid]
-coordinates{
- (2.612652,0.168548) (3.135171,0.259575) (4.706357,0.466567) (5.225304,0.517347) (6.270361,0.599714) (6.532219,0.616854) (7.837956,0.686146) (7.841528,0.686305) (9.147265,0.735452) (9.405532,0.743455) (10.450589,0.771605) (10.976718,0.783754) (11.759917,0.800091) (12.540722,0.815005) (13.063241,0.824599) (14.111889,0.843973) (15.675893,0.87719) (15.675893,0.87719) (18.811083,0.998565)
+\addplot [smooth, solid, semitransparent]
+	coordinates{
+		(13.7508,16.8548)
+		(16.5009,25.9575)
+		(24.7703,46.6567)
+		(27.5016,51.7347)
+		(33.0019,59.9714)
+		(34.3801,61.6854) 
+		(41.2524,68.6146)
+		(41.2712,68.6305) 
+		(48.1435,73.5452)
+		(49.5028,74.3455)
+		(55.0031,77.1605)
+		(57.7722,78.3754)
+		(61.8943,80.0091)
+		(66.0038,81.5005)
+		(68.7539,82.4599)
+		(74.2731,84.3973)
+		(82.5047,87.719)
+		(82.5047,87.719)
+		(99.0057,99.8565)
 };
 
-\pgfplotsset{every axis legend/.append style={at={(0.618,0.2)},anchor=base}}
+\pgfplotsset{every axis legend/.append style={at={(0.75,0.1)},anchor=base}}
 
-\legend{$E_{norm}$,From Simulation,Polynomial Fit from Simulation}
+\legend{measured $E_{norm}$,calculated Quality, Polynomial Fit for Quality}
 
-\tikzstyle{every pin}=[font=\footnotesize]
-
-%\node [coordinate,pin=below right:C] at (axis cs:15.83,0.7733) {};
-%\node [coordinate,pin=above right:D] at (axis cs:15.83,0.8714) {};
-%\node [coordinate,pin=above right:M] at (axis cs:7.92 ,0.5773) {};
-%\node [coordinate,pin=below right:N] at (axis cs:7.92 ,0.4997) {};
-
-\scriptsize
-\draw [] (axis cs:15.83,0.7733) -- (axis cs:16.23,0.7733) node [right] {C};
-\draw [] (axis cs:15.83,0.8714) -- (axis cs:16.23,0.8714) node [right] {D};
-\draw [] (axis cs:7.92,0.5473) -- (axis cs:8.32,0.5473) node [right] {M};
-\draw [] (axis cs:7.92,0.4997) -- (axis cs:8.32,0.4997) node [right] {N};
+\draw [] (axis cs:82.50,74.3991) -- (axis cs:84.50,74.3991) node [right] {\scriptsize C};
+\draw [] (axis cs:82.50,70.4018) -- (axis cs:84.50,70.4018) node [right] {\scriptsize D};
+\draw [] (axis cs:41.25,51.6990) -- (axis cs:43.25,51.6990) node [right] {\scriptsize M};
+\draw [] (axis cs:41.27,41.5079) -- (axis cs:43.27,41.5079) node [right] {\scriptsize N};
 
 \end{axis}
 
 \end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% plot erstellt mit MATLAB-File p:\doc\MATLAB\WFS-CompareDMPs\wfs_Compare2008c.m (FromToTo = 1:5:1024)
-% und matlab2tikz
+% plot erstellt mit MATLAB-File p:\\MATLAB\WideFieldScan/Paper/wfs_Compare2008c_ErrorPlot.m
+% mit FromToTo = 1:5:1024
+% sowie matlab2tikz
 % Daten
-% neue Version
-%>> [ 1:19;mean(fliplr(max(max(NormCumulativeError))-NormCumulativeError));std(fliplr(NormCumulativeError))]
-%
-%ans =
-%
-%  Columns 1 through 12
-%
-%    1.0000    2.0000    3.0000    4.0000    5.0000    6.0000    7.0000    8.0000    9.0000   10.0000   11.0000   12.0000
-%    0.0013    0.3200    0.3700    0.2541    0.5624    0.4278    0.4997    0.5473    0.6198    0.4236    0.6262    0.6038
-%    0.0169    0.0852    0.0386    0.0376    0.0524    0.0778    0.1010    0.0404    0.0696    0.1020    0.1148    0.0589
-%
-%  Columns 13 through 19
-%
-%   13.0000   14.0000   15.0000   16.0000   17.0000   18.0000   19.0000
-%    0.7312    0.5873    0.6347    0.7222    0.8714    0.7733    1.0000
-%    0.0598    0.0856    0.0960    0.0316    0.0174    0.0389         0
-% Alte, falsch ausgerichtete Version
-%[ 1:19;std(NormCumulativeError);mean(NormCumulativeError)]
-%
-%ans =
+%%%%%%%%%%Time =
+%%%%%%%%%%  Columns 1 through 12
+%%%%%%%%%%
+%%%%%%%%%%   13.75   16.50   24.77   27.50   33   34.38   41.27   41.25   49.50   48.14   57.77   55
+%%%%%%%%%%
+%%%%%%%%%%  Columns 13 through 19
+%%%%%%%%%%
+%%%%%%%%%%   66   61.89   74.27   68.75   82.50   82.50   99.01
+%MeanCumulativeError =
 %
 %  Columns 1 through 12
 %
-%    1.0000    2.0000    3.0000    4.0000    5.0000    6.0000    7.0000    8.0000    9.0000   10.0000   11.0000   12.0000
-%         0    0.0389    0.0174    0.0316    0.0960    0.0856    0.0598    0.0589    0.1148    0.1020    0.0696    0.0404
-%         0    0.2267    0.1286    0.2778    0.3653    0.4127    0.2688    0.3962    0.3738    0.5764    0.3802    0.4527
+%   20.0000   38.1358   30.2919   42.2255   49.2247   53.0181   41.5079   51.6990   49.9058   66.1100   50.4137   56.2138
 %
 %  Columns 13 through 19
 %
-%   13.0000   14.0000   15.0000   16.0000   17.0000   18.0000   19.0000
-%    0.1010    0.0778    0.0524    0.0376    0.0386    0.0852    0.0169
-%    0.5003    0.5722    0.4376    0.7459    0.6300    0.6800    0.9987          	
+%   60.0243   65.7727   55.0069   79.6708   70.4018   74.3991   99.8987
+%
+%
+%StandardDeviationofCumulativeError =
+%
+%  Columns 1 through 12
+%
+%         0    3.1135    1.3958    2.5278    7.6789    6.8507    4.7824    4.7110    9.1839    8.1635    5.5671    3.2329
+%
+%  Columns 13 through 19
+%
+%    8.0805    6.2214    4.1882    3.0107    3.0863    6.8125    1.3487
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{preview}
-\end{document}
+%\end{preview}
+%\end{document}
