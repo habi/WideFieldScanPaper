@@ -46,11 +46,11 @@
 				\def\overlap{138}%
 				\fill [yellow, nearly transparent] (1,1) rectangle (\overlap,1024);%
 				\draw (1,1) rectangle (\overlap,1024);%
-				\draw[|-|,color=white] (1,200) -- (1024,200) node [midway,above] {\SI{1.51552}{\milli\meter}};%
+				\draw[|-|,thick] (1,200) -- (1024,200) node [color=white,midway,above] {\SI{1.51552}{\milli\meter}};%
 				\def\x{924}% 1024 - 100
 				\def\y{922}% 1024 * .9 = 921.6
 				\def\bar{338}% 100 px = 148 um
-				\draw[|-|,color=white] (\x-\bar,\y) -- (\x,\y) node [midway,above] {\SI{500}{\micro\meter}};%
+				\draw[|-|,thick,color=white] (\x-\bar,\y) -- (\x,\y) node [midway,above] {\SI{500}{\micro\meter}};%
 			\end{tikzpicture}%
 			\label{fig:subscans}%
 			}\\%
@@ -65,8 +65,8 @@
 				\def\x{2693} % 2793-100
 				\def\y{922} % 1024*.9 = 921.6
 				\def\bar{338} % 100 px = 148 um
-				\draw[|-|,color=white] (1,256) -- (2792,256) node [midway,above] {\SI{4.13364}{\milli\meter}};
-				\draw[|-|,color=white] (\x-\bar,\y) -- (\x,\y) node [midway,above] {\SI{500}{\micro\meter}};
+				\draw[|-|,thick,color=white] (1,256) -- (2792,256) node [midway,above] {\SI{4.13364}{\milli\meter}};
+				\draw[|-|,thick,color=white] (\x-\bar,\y) -- (\x,\y) node [midway,above] {\SI{500}{\micro\meter}};
 				\end{tikzpicture}%
 			\label{fig:merge-proj}%
 			}\\%
@@ -84,8 +84,8 @@
 				\def\y{893} % 992 * .9 = 892.8
 				\def\bar{338} % 100 px = 148 um
 				%%%% scalebar
-					\draw[|-|,color=white] (\x-\bar,\y) -- (\x,\y) node [midway, above] {\SI{500}{\micro\meter}};
-					\draw[|-|,color=white] (1,20) -- (2792,20) node [midway, below] {\SI{4.13216}{\milli\meter}};
+					\draw[|-|,thick,color=white] (\x-\bar,\y) -- (\x,\y) node [midway, above] {\SI{500}{\micro\meter}};
+					\draw[|-|,thick,color=white] (1,20) -- (2792,20) node [midway, below] {\SI{4.13216}{\milli\meter}};
 				%%%% center
 					\fill [color=red] (2792/2,992/2) circle (5);
 				%%%% big circle

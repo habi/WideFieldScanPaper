@@ -34,17 +34,17 @@ Figure~\ref{fig:skel} shows a three dimensional visualization of such a lung lob
 \renewcommand{\imsize}{\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 \pgfmathsetlength{\imagescale}{\imagewidth/1520} % pixel width of imagefile used below
-\begin{figure}
-	\centering
-	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-		\def\x{950}
-		\def\y{725}
-		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
-		{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-skeleton-merge}};
-	   	\draw[|-|,thick] (13,512) -- (705,572) node [midway,right] {\SI{3.8444}{\milli\meter}}; 
-	    % 695 px = 3.844 mm > 100 px = 554 um > 90 px = 500um
-		\draw[|-|,thick] (\x,\y) -- (180+\x,\y) node [midway,above] {\SI{1}{\milli\meter}}; 
+\begin{figure}[htp]
+	\centering%
+	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+		\def\x{939}% scalebar-x at golden ratio
+		\def\y{698}% scalebar-y at 90% of height
+		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+			{\includegraphics[width=\imagewidth]{P:\#Docs\WideFieldScanPaper\img\widefieldscanning\R108C04C-skeleton-merge.png}};%
+		% 714px = 4.0637mm > 100px = 569um > 88px = 500um
+		\draw[|-|,thick] (6,516) -- (712,618) node [sloped,midway,above] {\SI{4.0637}{\milli\meter}};%
+		\draw[|-|,thick] (\x,\y) -- (\x+88,\y) node [above] {\SI{500}{\micro\meter}};%
 	\end{tikzpicture}%
-		\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same sample as in figure~\ref{fig:FOV increase overview} and~\ref{fig:FOV increase segments}), including the airway skeletons of the extracted airways.}%
+	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same sample as in figure~\ref{fig:FOV increase overview} and~\ref{fig:FOV increase segments}), including the airway skeletons of the extracted airways.}%
 	\label{fig:skel}%
 \end{figure}
