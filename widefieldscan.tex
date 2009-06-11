@@ -1,4 +1,4 @@
-\documentclass[numbers,sort&compress,a4paper,preprint,review]{elsarticle}
+\documentclass[numbers,sort&compress,a4paper,final,review]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
@@ -12,7 +12,7 @@
 
 \newif\ifhtml
 	\htmltrue
-	\htmlfalse
+%	\htmlfalse
 	
 \ifhtml % In case of web format output...
 	\def\pgfsysdriver{pgfsys-tex4ht.def}
@@ -55,7 +55,7 @@
 {$LastChangedBy$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\includeonly{wfs-discussion}
+%\includeonly{wfs-materials-and-methods,wfs-discussion}
 %1 wfs-introduction
 %2 wfs-materials-and-methods
 %3 wfs-results
@@ -124,8 +124,7 @@ We show that the lateral field of view of tomographic microscopy can be increase
 \bibliographystyle{unsrtnat}
 \bibliography{../references}
 
-\appendix
-
-\include{wfs-appendix}
+%\appendix
+%\include{wfs-appendix}
 
 \end{document}

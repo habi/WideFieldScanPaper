@@ -9,7 +9,7 @@
 %\begin{figure}
 %	\centering
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\renewcommand{\imsize}{.33\linewidth}
+	\renewcommand{\imsize}{.3\linewidth}
 	\pgfmathsetlength{\imagewidth}{\imsize} % desired display width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/1024} % pixel width of image
 	\centering
@@ -54,7 +54,7 @@
 			\end{tikzpicture}%
 			\label{fig:subscans}%
 			}\\%
-		\renewcommand{\imsize}{\linewidth}%
+		\renewcommand{\imsize}{.9\linewidth}%
 		\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 		\pgfmathsetlength{\imagescale}{\imagewidth/2793}% pixel width of image
 		\subfloat[Merged and corrected image from the three subscans shown in subfigure~\subref{fig:subscans}. Each merged projection has a size of 2793\(\times\)1024 pixels at a resolution of \SI{1.48}{\micro\meter\per pixel}. The width of the merged projections is slightly smaller than three times the width of the subscans due to the overlap needed to merge the projections (2793~px$=3\cdot3072$~px$-141$~px$-138$~px). Since the x-ray beam is extremely stable, the bands visible in the raw projections can be eliminated.]{%
@@ -70,7 +70,6 @@
 				\end{tikzpicture}%
 			\label{fig:merge-proj}%
 			}\\%
-		\renewcommand{\imsize}{\linewidth}%
 		\pgfmathsetlength{\imagewidth}{\imsize}% desired displayed width of image
 		\pgfmathsetlength{\imagescale}{\imagewidth/2792}% pixel width of image (image has been resized from 2994*1123, so that scalebar is at the same height without calculating too much...)
 		\subfloat[Cropped part of one slice of the tomographic dataset reconstructed from 5244 merged projections shown in subfigure~\subref{fig:merge-proj}. Due to the coherence of the x-ray beam the air-to-paraffin interface is visible around the sample.]{%

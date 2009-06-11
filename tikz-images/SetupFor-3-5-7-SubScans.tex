@@ -1,0 +1,154 @@
+%\documentclass{article}
+%\usepackage{subfig}
+%\usepackage{tikz}
+%\begin{document}
+%\begin{figure}
+%\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\scale{0.65} % -> (3*.65=1.95)
+\def\size{3}
+\subfloat[FOV to be covered]{%
+	\label{subfig:fovneed3}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\draw (\size,\size) circle (\size);
+		\draw [white,ultra thick,<->] (0,\size) -- node [above] {3072 px} (2*\size,\size);
+	%	\draw [step=2] (0,0) grid (6,6);
+	\end{tikzpicture}%
+}\hfill
+\subfloat[Gold Standard; covering the FOV with 9 independently reconstructed small scans.]{%
+	\label{subfig:goldstandard3}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\fill [color=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\foreach \x in {1,2,3}
+			\foreach \y in {1,2,3}
+				\draw [fill=gray] (2*\x-1,2*\y-1) circle (1) node {\x,\y};
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\draw (\size,\size) circle (\size);
+		\draw [step=2] (0,0) grid (2*\size,2*\size);
+		\draw [white,ultra thick,<->] (\size-1,1.1*\size) -- node [above] {1024 px} (\size+1,1.1*\size);
+	\end{tikzpicture}%
+}\hfill
+\subfloat[Covering the FOV with merged projections from one central and two ring scans.]{%
+	\label{subfig:protocol3}%
+	\begin{tikzpicture}[scale=\scale]
+%		\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\foreach \r in {1,3}
+			\draw (\size,\size) circle (\r);
+		\draw (0,\size) -- (\size-1,\size);
+		\draw (\size+1,\size) -- (2*\size,\size);
+		\node at (\size,1) {r1};
+		\node at (\size,3) {central};
+		\node at (\size,5) {r2};
+		\def\angle{155}
+		\draw [white,ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
+	\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\scale{0.39} % 1.95/5
+\def\size{5}
+\subfloat[FOV to be covered]{%
+	\label{subfig:fovneed5}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\draw (\size,\size) circle (\size);
+		\draw [white,ultra thick,<->] (0,\size) -- node [above] {5120 px} (2*\size,\size);
+	%	\draw [step=2] (0,0) grid (6,6);
+	\end{tikzpicture}%
+}\hfill
+\subfloat[Gold Standard; covering the FOV with 25 independently reconstructed small scans.]{%
+	\label{subfig:goldstandard5}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\fill [color=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\foreach \x in {1,2,3,4,5}
+			\foreach \y in {1,2,3,4,5}
+				\draw [fill=gray] (2*\x-1,2*\y-1) circle (1) node {\x,\y};
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\draw (\size,\size) circle (\size);
+		\draw [step=2] (0,0) grid (2*\size,2*\size);
+		\draw [white,ultra thick,<->] (\size-1,1.1*\size) -- node [above] {1024 px} (\size+1,1.1*\size);
+	\end{tikzpicture}%
+}\hfill
+\subfloat[Covering the FOV with merged projections from one central and four ring scans.]{%
+	\label{subfig:protocol5}%
+	\begin{tikzpicture}[scale=\scale]
+%		\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\foreach \r in {1,3,5}
+			\draw (\size,\size) circle (\r);
+		\draw (0,\size) -- (\size-1,\size);
+		\draw (\size+1,\size) -- (2*\size,\size);
+		\node at (\size,1) {r3};
+		\node at (\size,3) {r1};
+		\node at (\size,5) {central};
+		\node at (\size,7) {r2};
+		\node at (\size,9) {r4};
+		\def\angle{155}
+		\draw [white,ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
+	\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\scale{0.27857142857142857142857142857143} % 1.95/7
+\def\size{7}
+\subfloat[FOV to be covered]{%
+	\label{subfig:fovneed7}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\draw (\size,\size) circle (\size);
+		\draw [white,ultra thick,<->] (0,\size) -- node [above] {7168 px} (2*\size,\size);
+	%	\draw [step=2] (0,0) grid (6,6);
+	\end{tikzpicture}%
+}\hfill
+\subfloat[Gold Standard; covering the FOV with 49 independently reconstructed small scans.]{%
+	\label{subfig:goldstandard7}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\fill [color=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\foreach \x in {1,2,3,4,5,6,7}
+			\foreach \y in {1,2,3,4,5,6,7}
+				\draw [fill=gray] (2*\x-1,2*\y-1) circle (1) node {\x,\y};
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\draw (\size,\size) circle (\size);
+		\draw [step=2] (0,0) grid (2*\size,2*\size);
+		\draw [white,ultra thick,<->] (\size-1,1.1*\size) -- node [above] {1024 px} (\size+1,1.1*\size);
+	\end{tikzpicture}%
+}\hfill
+\subfloat[Covering the FOV with merged projections from one central and six ring scans.]{%
+	\label{subfig:protocol7}%
+	\begin{tikzpicture}[scale=\scale]
+%		\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\foreach \r in {1,3,5,7}
+			\draw (\size,\size) circle (\r);
+		\draw (0,\size) -- (\size-1,\size);
+		\draw (\size+1,\size) -- (2*\size,\size);
+		\node at (\size,1) {r5};
+		\node at (\size,3) {r3};
+		\node at (\size,5) {r1};
+		\node at (\size,7) {central};
+		\node at (\size,9) {r2};
+		\node at (\size,11) {r4};
+		\node at (\size,13) {r6};
+		\def\angle{155}
+		\draw [white,ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
+	\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%\caption{Projection Setup}
+%\end{figure}
+%\end{document}
