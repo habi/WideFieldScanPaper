@@ -23,11 +23,11 @@
 Multiple independently acquired projection images covering the desired FOV have been merged into single projections covering the full FOV. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows one slice of the reconstructed dataset acquired from 5244 projections. Such a reconstructed slice covers a FOV of \SI{2792}{pixels} (\SI{4.13}{\milli\meter}) which is three times the size of what can be achieved with one single binned scan (\SI{1024}{pixels} or \SI{1.52}{\milli\meter}). %1024 * 1.48 um/px = 1.51552mm
 
 \cbstart
-\begin{figure}[htp]
+\begin{figure*}[htp]
 	\input{img/merge/MergedProjections}
 	\caption{Wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 21 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at \SI{12.6}{\kilo\electronvolt}, the protocol details conform to protocol ``B'', described in table~\ref{tab:protocols}.}
 	\label{fig:wide field scan results}	
-\end{figure}
+\end{figure*}
 \cbend
 
 \subsection{Increasing the FOV}
@@ -40,7 +40,7 @@ The data obtained from wide field scanning permits the visualizations of entire 
 \renewcommand{\imsize}{\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
 \pgfmathsetlength{\imagescale}{\imagewidth/1202} % pixel width of imagefile used below
-\begin{figure}[htp]%
+\begin{figure*}[htp]%
 	\centering%
 	\def\x{250}%
 	\def\y{575}%
@@ -68,40 +68,40 @@ The data obtained from wide field scanning permits the visualizations of entire 
 	}%
 	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat. The gray structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a threshold interval based region growing algorithm. \subref{subfig:overview-s2}: Conventional scan; the extracted acini (green and red segments) contain only partial. \subref{subfig:overview-merge}: Wide field scan; the green and red segment show multiple acini fully inside the dataset, the yellow segment contains a partial acinus. The segmentation is only limited by the sample size and not by the FOV of the tomographic scan.}%
 	\label{fig:FOV increase overview}%
-\end{figure}
+\end{figure*}
 
-%\renewcommand{\imsize}{.5\linewidth}
-%\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
-%\pgfmathsetlength{\imagescale}{\imagewidth/723} % pixel width of imagefile used below
-%\begin{figure}[htp]
-%	\centering
-%	\subfloat[conventional scan]{%
-%		\label{subfig:down-s2}%
-%			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-%			\def\x{500}%
-%			\def\y{725}%
-%    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-%    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};%
-%				\draw[|-|,thick] (256,284) -- (259,588) node [left] {\SI{1.4336}{\milli\meter}};%
-%				% 304 px = 1.4336 mm > 100 px = 472 um > 106 px = 500um
-%				\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}};%
-%			\end{tikzpicture}%
-%	}%
-%	\subfloat[wide field scan]{%
-%		\label{subfig:down-merge}%%
-%			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-%			\def\x{500}%
-%			\def\y{725}%
-%    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-%    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};%
-%		    	\draw[|-|,thick] (204,11) -- (206,770) node [left] {\SI{3.8444}{\milli\meter}};%
-%			    % 759 px = 3.844 mm > 100 px =2066770 > 99 px = 500um
-%				\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
-%			\end{tikzpicture}%
-%	}%
-%	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:FOV increase overview}). View from the underside of the sample}%
-%	\label{fig:FOV increase segments}%
-%\end{figure}
+\renewcommand{\imsize}{.5\linewidth}
+\pgfmathsetlength{\imagewidth}{\imsize} % desired displayed width of image
+\pgfmathsetlength{\imagescale}{\imagewidth/723} % pixel width of imagefile used below
+\begin{figure*}[htp]
+	\centering
+	\subfloat[conventional scan]{%
+		\label{subfig:down-s2}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+			\def\x{500}%
+			\def\y{725}%
+    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-s2}};%
+				\draw[|-|,thick] (256,284) -- (259,588) node [left] {\SI{1.4336}{\milli\meter}};%
+				% 304 px = 1.4336 mm > 100 px = 472 um > 106 px = 500um
+				\draw[|-|,thick] (\x,\y) -- (106+\x,+\y) node [midway,above] {\SI{500}{\micro\meter}};%
+			\end{tikzpicture}%
+	}%
+	\subfloat[wide field scan]{%
+		\label{subfig:down-merge}%%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+			\def\x{500}%
+			\def\y{725}%
+    			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+    			{\includegraphics[width=\imagewidth]{img/widefieldscanning/R108C04C-down-merge}};%
+		    	\draw[|-|,thick] (204,11) -- (206,770) node [left] {\SI{3.8444}{\milli\meter}};%
+			    % 759 px = 3.844 mm > 100 px =2066770 > 99 px = 500um
+				\draw[|-|,thick] (\x,\y) -- (198+\x,\y) node [midway,above] {\SI{1}{\milli\meter}};%
+			\end{tikzpicture}%
+	}%
+	\caption{Three dimensional visualization of the distal-medial edge of the right lower lung lobe of a Sprague Dawley rat (same as in figure~\ref{fig:FOV increase overview}). View from the underside of the sample}%
+	\label{fig:FOV increase segments}%
+\end{figure*}
 
 \subsection{Quality guided protocols}
 \cbstart
@@ -123,33 +123,33 @@ The calculated quality of the reconstructions from the different protocols decre
 \cbend
 
 \cbstart
-\begin{figure}[htp]
+\begin{figure*}[htp]
 	\centering
 	\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
 	\caption{Plot of normalized Error (\(E_{norm}\)) for the 19 scanned protocols overlaid over Quality-plot obtained from the simulation. The normalized Error has been calculated in such a way that we calculated the difference image for Protocol $i$ compared to Protocol B. The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol. Note that the scale of the error been normalized to 20--\SI{100}{\percent}, so that both the quality from the simulation and the error are directly comparable. The abscissa shows the scanning time in percentage of time used for the gold standard scan. The protocols would be shown are in decreasing order from T--B for increasing percentage.}
 	\label{fig:NormalizedErrorPlot}
-\end{figure}
+\end{figure*}
 \cbend
 
 \cbstart
 For protocols with the same total amount of projections, but different configurations of amount of projections for the central and the ring scan we see a difference in reconstruction quality (compare the marked protocols C and D as well as protocols M and N in figure~\ref{fig:NormalizedErrorPlot}). This difference arises through the fact that the differing amount of subscans acquired for the central and the subscan add up to the same total amount of projections, but contribute differently to the quality of the reconstruction. From this finding it seems desirable to choose a protocol with equal amounts of subscans for each of the three independent subscans instead of a protocol with the same total amount of projections, but a decreased amount of projections for the central scan. Since a reduced amount of projections for the central scan decrease the reconstruction quality for the central parts of the sample, this explanation seems natural. Additionally, the interpolation of missing projections could introduce artifacts in the reconstruction which are suppressed when simply stitching projections without interpolation.
 \cbend
 
-%\begin{table}%
-%	\centering
-%	\caption{Details of amount of projections for protocols C vs.\ D and M vs.\ N}%
-%	\begin{tabular}{rcccc}%
-%		\toprule%
-%							& C 	& D 	& M 	& N \\%
-%		\midrule%
-%		Central scan		& 2622 	& 4370	& 1311 	& 2185 \\%
-%		Ring scan	 		& 5244 	& 4370  & 2622 	& 2185 \\%
-%		\midrule%
-%		total Projections	& 13110	& 13110	& 6555	& 6555 \\%
-%		\bottomrule%
-%	\end{tabular}%
-%	\label{tab:detailsCDMN}%
-%\end{table}
+\begin{table}%
+	\centering
+	\caption{Details of amount of projections for protocols C vs.\ D and M vs.\ N}%
+	\begin{tabular}{rcccc}%
+		\toprule%
+							& C 	& D 	& M 	& N \\%
+		\midrule%
+		Central scan		& 2622 	& 4370	& 1311 	& 2185 \\%
+		Ring scan	 		& 5244 	& 4370  & 2622 	& 2185 \\%
+		\midrule%
+		total Projections	& 13110	& 13110	& 6555	& 6555 \\%
+		\bottomrule%
+	\end{tabular}%
+	\label{tab:detailsCDMN}%
+\end{table}
 
 \subsubsection{Three dimensional visualization of different protocols}
 \label{subsec:comparison}
@@ -157,7 +157,7 @@ The 19 different protocols have been three dimensionally visualized and analyzed
 \cbend
 
 \renewcommand{\imsize}{.5\linewidth}
-\begin{figure}[htp]
+\begin{figure*}[htp]
 	\centering
 	\pgfmathsetlength{\imagewidth}{\imsize}%
 	\pgfmathsetlength{\imagescale}{\imagewidth/1594}%
@@ -230,7 +230,7 @@ The 19 different protocols have been three dimensionally visualized and analyzed
 		}\\
 	\caption{Comparison of protocols B and T. Top row: overview. Center row: view of the isosurfaces of the segmented airways. Bottom row: Slices}%
 	\label{fig:BvsT}%
-\end{figure}
+\end{figure*}
 
 The protocols shown in figure~\ref{fig:BvsT} are the two extremes of the 19 obtained protocols \cbstart in terms of scanning time. Protocol B is the gold standard, obtained with in total 15732 projections recorded in 65 minutes. Protocol T has been obtained in just \SI{13.75}{\percent} of the scanning time, with in total 2185 projections recorded in 12 minutes (\SI{13.75}{\percent} of 65 minutes would be 9 minutes, the 3 minute difference arises through the movement of the sample which cannot be reduced with the recording of less projections). Hence, the dataset from protocol B has been reconstructed from 5244 merged projection images, the dataset from protocol T has been reconstructed using only 874 merged slices. Albeit we have scanned protocol T while violating the sampling theorem, both samples still appear to be nearly identical in the three dimensional visualization. Except for small differences at the most lateral parts of the sample (yellow segment) the segmented airways appear to identical, even if the scanning time of protocol T has been reduced to \SI{13.75}{\percent} of the scanning time of protocol B.
 
@@ -245,7 +245,7 @@ which arise through the breaching of the sampling theorem, since we have only ac
 
 \cbstart
 \renewcommand{\imsize}{.5\linewidth}
-\begin{figure}[htp]
+\begin{figure*}[htp]
 	\centering
 	\pgfmathsetlength{\imagewidth}{\imsize}          % desired displayed width of image
 	\pgfmathsetlength{\imagescale}{\imagewidth/1397} % pixel width of imagefile used
@@ -300,17 +300,18 @@ which arise through the breaching of the sampling theorem, since we have only ac
 	%\subfloat[Detail T, median filtered ($3\times3\times3$)]{%
 	%	\includegraphics[width=\imsize]{img/comparisonBvsT/roi-t}%
 	%	}%
-	\caption{Comparison of threedimensional visualizations of both protocols B and T. Top: Three independent airway segments (green, red, yellow) have been extracted using a region growing algorithm. A cubical region of interest (ROI, blue) with a side length of 128 pixels (corresponding to \SI{190}{\micro\meter}) is marked inside the leftmost segment for both protocols. Bottom: Detailed view of isosurfaces of the lung tissue inside the ROIs shown above. Note the artifacts in the reconstructions for protocol T in subfigure~\subref{subfig:DetailROIT}.}
+	\caption{Comparison of threedimensional visualizations of both protocols B and T. Top: Three independent airway segments (green, red, yellow) have been extracted using a region growing algorithm. A cubical region of interest (ROI, blue) with a side length of 128 pixels (corresponding to \SI{190}{\micro\meter}) is marked inside the leftmost segment for both protocols. Bottom: Detailed view of isosurfaces of the lung tissue inside the ROIs shown above. Note the artifacts in the reconstructions for protocol T in subfigure~\subref{subfig:DetailROIT}.}%
 	\label{fig:BvsT2}
-\end{figure}
+\end{figure*}
 \cbend
 
 As a proof of concept, we also scanned and reconstructed a lung sample with 5 subscans, which led to a roughly five-fold (4.74\(\times\)) increase in available FOV from 2048\(\times\)2048 pixels to 9703\(\times\)9703 pixels (see figure~\ref{fig:LungSlabSophie}). We have been able to reconstruct a sample with size of approximately 0.4\(\times\)3.4\(\times\)\SI{0.7}{\milli\meter} at a voxel side length of \SI{0.73}{\micro\meter}, see figure~\ref{fig:LungSlabSophie}.
 
-\begin{figure}[htp]
-	\renewcommand{\imsize}{\linewidth}
-	\pgfmathsetlength{\imagewidth}{\imsize} 		 % desired displayed width of image
-	\pgfmathsetlength{\imagescale}{\imagewidth/1589} % 1589*728 = width of imagefile used below
+\renewcommand{\imsize}{\linewidth}%
+\pgfmathsetlength{\imagewidth}{\imsize} 		 % desired displayed width of image
+\pgfmathsetlength{\imagescale}{\imagewidth/1589} % 1589*728 = width of imagefile used below
+
+\begin{figure*}[htp]
 	\centering
 	\subfloat[Volume Rendering of lung tissue slab, including two ROI]{%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
@@ -375,6 +376,6 @@ As a proof of concept, we also scanned and reconstructed a lung sample with 5 su
  		\subref{subfig:LungSlabDetailsGreen}: Close-up of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %
  		\subref{subfig:LungSlabDetailsRed}: Close-up of inset cube at a central position in the sample. Single alveoli are clearly visible. %
  		\subref{subfig:LungSlabDetailsRedBG}: Close-up of inset cube at a central position in the sample, including the background tissue.%
-	}%
+ 		}%
 	\label{fig:LungSlabSophie}%
-\end{figure}%
+\end{figure*}

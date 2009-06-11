@@ -60,7 +60,7 @@ For parallel beam geometry, tomographic images are obtained by rotating the samp
 
 If the sample to be imaged is larger than the available FOV of the camera (up to twice as large as the FOV), a \SI{360}{\degree}-scan is performed. Projections are obtained over a full rotation of the sample, while the sample is positioned in front of the camera in such a way that it only covers half the FOV of the detector. After acquisition of the projection images, half of the dataset has to be flipped and the projections at position $P_{x}$ and \[P_{x+\SI{180}{\degree}}\] are stitched together to projection images covering two times the FOV of the camera.
 
-\begin{figure}[htp]
+\begin{figure*}[htp]
 	\noindent\makebox[\textwidth]{%
 		\subfloat[Three different scanning configurations for increasing sample diameter.]{%
 			\input{tikz-images/scanning-possibilities}%
@@ -74,7 +74,7 @@ If the sample to be imaged is larger than the available FOV of the camera (up to
 	\caption[Covering the FOV of differently sized samples]{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom) The filled red, green and blue segments mark the region of the sample which is covered while scanning the respective positions. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.
 	}%
 	\label{fig:scanning-possibilities}%
-\end{figure}
+\end{figure*}
 
 If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera while performing several partial scans. This can be done as shown in figure~\ref{subfig:scanning-possibilities}, where we obtain three subscans to be able to reconstruct a sample as big as three FOVs.
 
@@ -90,7 +90,7 @@ To fulfill the sampling theorem, it is possible to record a differing amount of 
 
 To be able to reconstruct the sample, we need to stitch the individual sets of projections to projections spanning the desired FOV. Since there have are differing amounts of projections for each subscan, a stitching algorithm has to either interpolate projections from adjacent projections (as shown in figure~\ref{ProjectionSetupInterpolate}) or we have to acquire an equal amount of projections for each subscan, leading to oversampling for the central scan.
 
-\begin{figure}[htp]
+\begin{figure*}[htp]
 	\centering
 	\subfloat[]{%
 		\input{tikz-images/ProjectionSetup}%
@@ -102,7 +102,7 @@ To be able to reconstruct the sample, we need to stitch the individual sets of p
 		}%
 	\caption{Setup with one central (green) and two lateral scans (red and blue, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}). The colors of the three positions correspond to the colors shown in figure~\ref{subfig:scanning-possibilities}. \subref{subfig:ProjectionSetup}: scanned projections, \subref{subfig:ProjectionSetupInterpolate}: scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}
 	\label{fig:projections}
-\end{figure}
+\end{figure*}
 \cbend
 
 \subsubsection{Reduction of the acquisition time}
@@ -114,7 +114,7 @@ As a consequence from the differing amount of projections, we needed to devise a
 
 This approach facilitates the merging of the different subscans in such a way that we can stitch several projections from the inner subscan with projections from the outer subscans. If the amount of projections would not be a multiple of two, such a stitching would introduce additional processing steps to correctly stitch the projections or interpolate intermediate projections. \cbend Figure \ref{fig:amount of projections} shows how the projections from the different subscans relate to each other in the more complex case. In this case we would acquire 1500 projections for the central and two times 3000 projections for the two ring-scans to fully satisfy the sampling theorem while not oversampling the central part of the FOV. 
 
-\begin{figure}[htp]
+\begin{figure*}[htp]
 	\centering
 	\input{tikz-images/amountofprojections}%
 	\caption[Number of merged projections for one central- and two ring-scan.]{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 1500 projections for the central scan and thus acquire two times 1500 projections for each of the lateral scans. This enables us to stitch the projections $P_{1_{284}}$ % XXX XXX 17*3000/180 XXX
@@ -123,7 +123,7 @@ This approach facilitates the merging of the different subscans in such a way th
  		(blue line) of subscan 3 (ring scan, blue area) to one big projection $P_{merge_{284}}$ % XXX 17*3000/180 XXX
 		which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For illustration purposes we shifted the central projection (green) by \SI{2}{\degree}, otherwise the overlap between these particular projection would not be visible.}%
 	\label{fig:amount of projections}%
-\end{figure}
+\end{figure*}
 
 \cbstart
 \subsubsection{Generation of multiple scanning protocols}
@@ -133,12 +133,12 @@ To fully satisfy the sampling theorem for a scan with the detector width $D$ we 
 \cbend
 
 \cbstart
-\begin{figure}[htp]
-	\centering
-	\input{tikz-images/GoldStandardVsProtocolB}
-	\caption{Theoretical setup; desired FOV and two variants of covering the desired FOV.}
-	\label{fig:goldstandard}
-\end{figure}
+\begin{figure*}[htp]
+	\centering%
+	\input{tikz-images/GoldStandardVsProtocolB}%
+	\caption{Theoretical setup; desired FOV and two variants of covering the desired FOV.}%
+	\label{fig:goldstandard}%
+\end{figure*}
 \cbend
 
 \subsection{Wide Field Scanning Setup}
@@ -149,12 +149,12 @@ A custom MATLAB-script (MATLAB\textsuperscript{\textregistered} 7.6.0.321 (R2008
 After the user has chosen a suitable protocol which balances the requirements for reconstruction quality and need for fast acquisition time (corresponding to one dot in figure~\ref{fig:qualityplot}), a preference file is written. This preference file contains the details of the selected scan like amount of needed subscans and the positions of the sample, number of projections as well as start and stop angles of the rotation for each subscan. Subsequently, the preference file is parsed by a custom Python-script to interact with the EPICS-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which itself is used to control the hardware of the TOMCAT beamline, allowing for an unattended batch scan of all the desired subscans.
 \cbend
 
-\begin{figure}[htp]
-	\centering
+\begin{figure*}[htp]
+	\centering%
 	\input{tikz-images/plots/19Protocols-QualityPlot}%
 	\caption{Quality-Plot of 19 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. Details of these scans are shown in table~\ref{tab:projections} and are discussed in section~\ref{sec:Results}.}%
 	\label{fig:qualityplot}%
-\end{figure}
+\end{figure*}
 
 \cbstart
 Table~\ref{tab:projections} provides the numbers for 19 real-world examples that have been scanned from a quality-plot corresponding to the one shown in figure~\ref{fig:2008c-qualityplot}. Protocol A would correspond to the scanning configuration shown in figure~\ref{subfig:goldstandard}, which would require nine independent reconstructions and stitching of the resulting small reconstructions into one big slice. As shown above, we can equally satisfy the sampling theorem when enough projections are acquired for a simulated detector size that is three times the real detector size of 1024 pixels, so protocol A was omitted for this study. Including an overlap of 100 pixels between the central and the ring scan, we need to acquire $N_{B}=15419$ projections for the gold-standard protocol B (\[N_{B}=3(3072+200)\frac{\pi}{2}\]). All the other protocols from C--T have been linearly scaled down with a decreasing percentage of acquired total projections of the gold standard. The difference of total amount of projections resulting from this scaling to the amount of projections shown in the table arises through the fact that the amount of projections for each subscan has been chosen in such a way, that the stitching of the projections was possible, hence the small differences in total amount of scanned to total amount of calculated projections.
@@ -163,8 +163,8 @@ We were able to reduce the total acquisition time by \SI{86.25}{\percent} compar
 \cbend
 
 \cbstart
-\begin{table*}%
-	\centering
+\begin{table*}[htp]
+	\centering%
 	\label{tab:protocols}%
 	\caption{Specification of different protocols and time used compared to gold standard. Protocol A corresponds to the Gold Standard, and would have been needed to cover the same FOV with 9 independent scans with a detector width of 1024 pixels (plus an overlap of 100 pixels), resulting in a number of projections $N_{A}=9(1024+100)\frac{\pi}{2}=15890$. Protocol B corresponds to the protocol shown in figure~\ref{subfig:protocolb}, resulting in a total number of projections of $N_{B}=3(3072+200)\frac{\pi}{2}=15419$.}%
 	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}ccccccc}%
@@ -175,13 +175,15 @@ We were able to reduce the total acquisition time by \SI{86.25}{\percent} compar
 		Time [\%] & 100.00 & 99.01 & 82.50 & 82.50 & 68.75 & 74.27 & 61.89 \\
 		\bottomrule%
 	\end{tabular*}%
+	\\%
 	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}ccccccc}%
 		Protocol & H & I & J & K & L & M & N \\%
 		\midrule%
 		Total Projections & 10488 & 8740 & 9180 & 7650 & 7866 & 6555 & 6558 \\
 		Time [\%] & 66.00 & 55.00 & 57.77 & 48.14 & 49.50 & 41.25 & 41.27 \\
 		\bottomrule%
-	\end{tabular*}%			
+	\end{tabular*}%
+	\\%
 	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}cccccc}%				
 		Protocol & O & P & Q & R & S & T \\%
 		\midrule%
@@ -189,7 +191,7 @@ We were able to reduce the total acquisition time by \SI{86.25}{\percent} compar
 		Time [\%] & 34.38 & 33.00 & 27.50 & 24.77 & 16.50 & 13.75 \\
 		\bottomrule%
 	\end{tabular*}%
-\end{table*}%
+\end{table*}
 \cbend
 
 \cbstart
@@ -239,14 +241,13 @@ The merged projections were reconstructed on a 20-node server farm (five \SI{64}
 \cbend
 
 \hrule
-
 Marco said that \begin{quote}Generally, in the mehthods I'm missing a figure which shows the acquisition protocol for m = 3, 5, 7, 9, etc. This would help a lot.\end{quote}. What about figure~\ref{fig:goldstandard}? would such a figure help with the explanation?
 
-\begin{figure}[htp]
-	\centering
-	\input{tikz-images/3-5-7-SubScans.tex}
-	\caption{Setup for 3, 5 and 7 SubScans, desired by Marco}
-	\label{fig:goldstandard}
-\end{figure}
+\begin{figure*}[htp]
+	\centering%
+	\input{tikz-images/3-5-7-SubScans.tex}%
+	\caption{Setup for 3, 5 and 7 SubScans, desired by Marco}%
+	\label{fig:goldstandard}%
+\end{figure*}
 
 \hrule
