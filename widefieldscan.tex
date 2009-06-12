@@ -16,6 +16,7 @@
 %% \documentclass[final,3p,times]{elsarticle}
 %% \documentclass[final,3p,times,twocolumn]{elsarticle}
 %% \documentclass[final,5p,times]{elsarticle}
+
 %% \documentclass[final,5p,times,twocolumn]{elsarticle}
 	
 \ifhtml % In case of web format output...
@@ -23,11 +24,11 @@
 	\usepackage{endfloat}
 	\usepackage[numbers,sort&compress]{natbib}
 	\usepackage[disable]{todonotes}
-	\renewcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+		\renewcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}} % redefines todo for html-conversion
 	\usepackage{changebar}
-	\nochangebars % disables changebars for html-conversion
+		\nochangebars % disables changebars for html-conversion
 \else
-	\usepackage[disable]{todonotes}
+	\usepackage{todonotes}
 	\usepackage{lineno}
 		\linenumbers
 		\modulolinenumbers[2]
