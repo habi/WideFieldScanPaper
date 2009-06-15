@@ -18,14 +18,17 @@
 
 \section{Results}
 \label{sec:Results}
+
 \subsection{Image Merging and Reconstruction}
 \label{sec:Image Merging and Reconstruction}
+
 Multiple independently acquired projection images covering the desired FOV have been merged into single projections covering the full FOV. Figure~\ref{fig:subscans} shows exemplary projection images from overlapping subscans prior to correction and normalization. Figure~\ref{fig:merge-proj} shows a merged projection image prior to reconstruction and figure~\ref{fig:merge-rec} shows one slice of the reconstructed dataset acquired from 5244 projections. Such a reconstructed slice covers a FOV of \SI{2792}{pixels} (\SI{4.13}{\milli\meter}) which is three times the size of what can be achieved with one single binned scan (\SI{1024}{pixels} or \SI{1.52}{\milli\meter}). %1024 * 1.48 um/px = 1.51552mm
 
 \cbstart
 \begin{figure*}[htp]
 	\input{img/merge/MergedProjections}
-	\caption[Wide field scan method]{Wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 21 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at \SI{12.6}{\kilo\electronvolt}, the protocol details conform to protocol ``B'', described in table~\ref{tab:protocols}.}%
+%	\caption[Wide field scan method]
+	\caption{Wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 21 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at \SI{12.6}{\kilo\electronvolt}, the protocol details conform to protocol ``B'', described in table~\ref{tab:protocols}.}%
 	\label{fig:wide field scan results}%
 	\todo[inline]{this figure is much too big to fit on one page, but it's very hard to scale down. what can we do?}%
 	\todo[inline]{!!!ALLL subsequent 3D-figures have ``strange'' scalebars on them. The long scalebars are there so YOU can control my work, the short scalebars are the correct ones!!!}%
@@ -33,6 +36,7 @@ Multiple independently acquired projection images covering the desired FOV have 
 \cbend
 
 \subsection{Increasing the FOV}
+
 \cbstart
 With the FOV available up to now at TOMCAT we have only been able to fit partial acini inside our datasets. Increasing the available FOV three times allows us to obtain three dimensional reconstructions of acini only restricted by the available sample size, but not by the FOV of the imaging method. From figure~\ref{subfig:overview-merge} it appears clearly that the FOV is increased, allowing the visualization of third acinus (yellow) which is not visible inside the FOV of a conventional scan (figure~\ref{subfig:overview-s2}). Additionally, it is also visible that both the red and green segment for the conventional scan are extend out of the FOV of the conventional scan, we need to record a wide field scan to visualize both these segments in three dimensions, as can be seen in figure~\ref{subfig:overview-merge}. The red and yellow segment visualized for the wide field scan are still only partial acini, but their size is only limited by the dimensions of the lung sample, not by the imaging method.
 
@@ -68,7 +72,8 @@ The data obtained from wide field scanning permits the visualizations of entire 
 			\draw[|-|,thick] (\x,\y) -- (\x+222,\y) node [midway,above] {\SI{1}{\milli\meter}};
 		\end{tikzpicture}%
 	}%
-	\caption[3D visualization of the right lower lung lobe of a Sprague Dawley rat]{Three dimensional visualization of the distal-medial tip of the right lower lung lobe of a Sprague Dawley rat. The gray structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a threshold interval based region growing algorithm. \subref{subfig:overview-s2}: Conventional scan; the extracted acini (green and red segments) contain only partial. \subref{subfig:overview-merge}: Wide field scan; the green and red segment show multiple acini fully inside the dataset, the yellow segment contains a partial acinus. The segmentation is only limited by the sample size and not by the FOV of the tomographic scan.}%
+%	\caption[3D visualization of the right lower lung lobe of a Sprague Dawley rat]
+	\caption{Three dimensional visualization of the distal-medial tip of the right lower lung lobe of a Sprague Dawley rat. The gray structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways that have been extracted using a threshold interval based region growing algorithm. \subref{subfig:overview-s2}: Conventional scan; the extracted acini (green and red segments) contain only partial. \subref{subfig:overview-merge}: Wide field scan; the green and red segment show multiple acini fully inside the dataset, the yellow segment contains a partial acinus. The segmentation is only limited by the sample size and not by the FOV of the tomographic scan.}%
 	\label{fig:FOV increase overview}%
 \end{figure*}
 
@@ -106,17 +111,20 @@ The data obtained from wide field scanning permits the visualizations of entire 
 %\end{figure*}
 
 \subsection{Quality guided protocols}
+
 \cbstart
 A sequence of 19 protocols with varying quality has been scanned to assess the predictions obtained through preliminary simulations and to assess the plot that is presented to choose a scanning protocol suited for the demands on scanning time and reconstruction quality, as defined in section~\ref{subsec:wfs-setup}.
 
 Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to~\citet{Otsu1979}. The binarization of the images suppresses small variations in the gray values which occur through slight variation in the beam profile during the acquisition of the individual subscans, and enables us to only take into account the pixels that are differ between the 19 different protocols.
 
 The difference value ($E_{norm}$) plotted in figure~\ref{fig:NormalizedErrorPlot} has been calculated for each protocol $i=$1--19 according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-c}. Using a thresholded slice $i$ of each protocol $Prot$ ($Slice_{Prot_{i}}$) and the corresponding slice $i$ of the gold standard protocol $B$ ($Slice_{B_{i}}$) we calculated the absolute difference image ($D_{Prot_{i}}$) of these two slices $i$. The sum of all pixels of this difference image yields a value ($E_{Prot_{norm_{i}}}$) for each slice $i$ of each Protocol $Prot$, which assesses the difference of the examined slice with the corresponding slice of the gold standard protocol. 
+
 \begin{eqnarray}
-       D_{Prot_{i}} &=& |Slice_{B_{i}}-Slice_{Prot_{i}}|\label{eq:errorcalculation-a}\\
-E_{Prot_{norm_{i}}} &=& \sum_{x}\sum_{y} D_{Prot_{i}}\label{eq:errorcalculation-b}\\
+	D_{Prot_{i}} &=& |Slice_{B_{i}}-Slice_{Prot_{i}}|\label{eq:errorcalculation-a}\\
+	E_{Prot_{norm_{i}}} &=& \sum_{x}\sum_{y} D_{Prot_{i}}\label{eq:errorcalculation-b}\\
     E_{Prot_{norm}} &=& \overline{E_{Prot_{norm_{i}}}}\label{eq:errorcalculation-c}
 \end{eqnarray}
+
 Such a combined difference value ($E_{Prot_{norm_{i}}}$) has been calculated for 205 regularly spaced slices ($i=1:5:1024$) of the full dataset. The mean ($\overline{E_{Prot_{norm_{i}}}}$) difference value for all slices has been normalized to the scanned quality-steps from 20--\SI{100}{\percent} (as stated in table~\ref{tab:protocols}) and plotted as max$(E_{norm}-E_{Prot_{norm}})$ with its standard deviation ($\sigma(E_{Prot_{norm_{i}}})$), as can be seen in figure~\ref{fig:NormalizedErrorPlot}. The normalization and inversion has been done to make the plotted values directly comparable with the plotted simulated qualities shown in figure~\ref{fig:qualityplot}.
 \cbend
 
@@ -128,7 +136,8 @@ The calculated quality of the reconstructions from the different protocols decre
 \begin{figure*}[htp]
 	\centering
 	\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
-	\caption[Plot of normalized difference value for the 19 scanned protocols]{Plot of normalized difference Value ($E_{norm}$) for the 19 scanned protocols overlaid over Quality-plot obtained from the simulation. The normalized Error has been calculated in such a way that we calculated the difference image for Protocol $i$ compared to Protocol B. The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol. Note that the scale of the error been normalized to 20--\SI{100}{\percent}, so that both the quality from the simulation and the error are directly comparable. The abscissa shows the scanning time in percentage of time used for the gold standard scan. The protocols would be shown are in decreasing order from T--B for increasing percentage.}
+%	\caption[Plot of normalized difference value for the 19 scanned protocols]
+	\caption{Plot of normalized difference Value ($E_{norm}$) for the 19 scanned protocols overlaid over Quality-plot obtained from the simulation. The normalized Error has been calculated in such a way that we calculated the difference image for Protocol $i$ compared to Protocol B. The error bars for each protocol show the standard deviation of the error which was calculated for 205 of the 1024 slices for each protocol. Note that the scale of the error been normalized to 20--\SI{100}{\percent}, so that both the quality from the simulation and the error are directly comparable. The abscissa shows the scanning time in percentage of time used for the gold standard scan. The protocols would be shown are in decreasing order from T--B for increasing percentage.}
 	\label{fig:NormalizedErrorPlot}
 \end{figure*}
 \cbend
@@ -155,6 +164,7 @@ For protocols with the same total amount of projections, but different configura
 
 \subsubsection{Three dimensional visualization of different protocols}
 \label{subsec:comparison}
+
 The 19 different protocols have been three dimensionally visualized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany). Using a region growing algorithm~\cite{wiki:regiongrowing}, airway segments have been extracted from the tomographic dataset. \cbstart A seed point for the region growing algorithm has been manually defined inside the airway lumen to extract connected airway segments inside the tomographic datasets. The seed points (one for each airway segment) have been set at exactly the same coordinates for each protocol, so that the extracted airway segments can be compared with each other. For protocol B and T, segments which have been extracted like this are shown in figure~\ref{fig:BvsT}.
 \cbend
 
@@ -230,7 +240,8 @@ The 19 different protocols have been three dimensionally visualized and analyzed
 			\draw[|-|,color=white,thick] (\x,\y) -- (\x+338,\y) node [right] {\SI{500}{\micro\meter}};
 		\end{tikzpicture}%
 		}\\
-	\caption[Comparison of protocols B and T]{Comparison of protocols B and T. Top row: overview. Center row: view of the isosurfaces of the segmented airways. Bottom row: Slices}%
+%	\caption[Comparison of protocols B and T]
+	\caption{Comparison of protocols B and T. Top row: overview. Center row: view of the isosurfaces of the segmented airways. Bottom row: Slices}%
 	\label{fig:BvsT}%
 \end{figure*}
 
@@ -302,7 +313,8 @@ which arise through the breaching of the sampling theorem, since we have only ac
 	%\subfloat[Detail T, median filtered ($3\times3\times3$)]{%
 	%	\includegraphics[width=\imsize]{img/comparisonBvsT/roi-t}%
 	%	}%
-	\caption[Comparison of 3D visualizations of protocols B and T]{Comparison of three-dimensional visualizations of protocols B and T. Top: Three independent airway segments (green, red, yellow) have been extracted using a region growing algorithm. A cubical region of interest (ROI, blue) with a side length of 128 pixels (corresponding to \SI{190}{\micro\meter}) is marked inside the leftmost segment for both protocols. Bottom: Detailed view of isosurfaces of the lung tissue inside the ROIs shown above. Note the artifacts in the reconstructions for protocol T in subfigure~\subref{subfig:DetailROIT}.}%
+%	\caption[Comparison of 3D visualizations of protocols B and T]
+	\caption{Comparison of three-dimensional visualizations of protocols B and T. Top: Three independent airway segments (green, red, yellow) have been extracted using a region growing algorithm. A cubical region of interest (ROI, blue) with a side length of 128 pixels (corresponding to \SI{190}{\micro\meter}) is marked inside the leftmost segment for both protocols. Bottom: Detailed view of isosurfaces of the lung tissue inside the ROIs shown above. Note the artifacts in the reconstructions for protocol T in subfigure~\subref{subfig:DetailROIT}.}%
 	\label{fig:BvsT2}%
 \end{figure*}
 \cbend
@@ -372,7 +384,8 @@ As a proof of concept, we also scanned and reconstructed a lung sample with 5 su
 		\end{tikzpicture}%
 	 	\label{subfig:LungSlabDetailsRedBG}%
 		}%
-	\caption[Visualization of lung tissue slab.]{Visualization of lung tissue slab: %
+%	\caption[Visualization of lung tissue slab.]
+	\caption{Visualization of lung tissue slab: %
 		\subref{subfig:LungSlab}: Three dimensional volume rendering of slab of lung tissue with a size of 554$\times$4854$\times$1024 pixels at a voxel side length of \SI{0.73}{\micro\meter}. Both inset cubes have a side length of 256 pixels and were automatically segmented using a region growing algorithm. 
  		\subref{subfig:LungSlabDetailsGreenBG}: Close-up of inset cube at an outer position in the sample, including the background tissue. % 
  		\subref{subfig:LungSlabDetailsGreen}: Close-up of inset cube at an outer position in the sample. Albeit we have been able to automatically segment the lung tissue, segmentation artifacts are visible. Single alveoli can be distinguished. %

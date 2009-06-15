@@ -1,0 +1,139 @@
+\newif\ifhtml
+	\htmltrue
+%	\htmlfalse
+
+\ifhtml
+	\documentclass{article}
+\else
+	\documentclass{iucr}
+	\paperprodcode{a000000}      % Replace with production code if known
+	\paperref{xx9999}            % Replace xx9999 with reference code if known
+	\papertype{FA}
+	\paperlang{english}
+	\journalcode{S}
+	\journalyr{2009}
+	\journaliss{1}
+	\journalvol{65}
+	\journalfirstpage{000}
+	\journallastpage{000}
+	\journalreceived{0 XXXXXXX 0000}
+	\journalaccepted{0 XXXXXXX 0000}
+	\journalonline{0 XXXXXXX 0000}
+\fi
+
+\ifhtml % In case of web format output...
+	\def\pgfsysdriver{pgfsys-tex4ht.def}
+	\usepackage{endfloat}
+	\usepackage[numbers,sort&compress]{natbib}
+	\usepackage[disable]{todonotes}
+		\renewcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}} % redefines todo for html-conversion
+	\usepackage{changebar}
+		\nochangebars % disables changebars for html-conversion
+\else
+	\usepackage{todonotes}
+	\usepackage[pdftex,outerbars,color]{changebar}
+		\cbcolor{red}
+		\nochangebars
+\fi
+
+\usepackage[latin1]{inputenc} 						% so I can write my Name without \"{u}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{svn-multi}								% to add SVN-Versioning-Info
+\usepackage[caption=false,format=hang]{subfig}      % [font = small]
+\usepackage[alsoload=binary]{siunitx}		 		% typographically correct units (\milli\meter, \kilo\electronvolt), with [alsoload=binary] \SI{100}{\giga\byte}
+\usepackage{booktabs}		 						% nice tablesusepackage{multirow}                               % multirows in tables
+\usepackage{tikz} 									% extremely nice drawings
+\usepackage{pgfplots} 								% ditto for plots
+\usepackage{hyperref}
+\usepackage{hypernat}
+
+\newcommand{\imsize}{\linewidth}
+\newlength\imagewidth % needed for scalebars
+\newlength\imagescale % needed for scalebars
+
+%% Subversion Information
+\svnidlong
+{$HeadURL: http://code.ana.unibe.ch/svn/WideFieldScanPaper/widefieldscan.tex $}
+{$LastChangedDate: 2009-06-12 16:18:35 +0200 (Fr, 12 Jun 2009) $}
+{$LastChangedRevision: 162 $}
+{$LastChangedBy: $}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\includeonly{wfs-materials-and-methods,wfs-discussion}
+%1 wfs-introduction
+%2 wfs-materials-and-methods
+%3 wfs-results
+%4 wfs-discussion
+%5 wfs-summary
+%6 wfs-acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifhtml
+	\DeclareGraphicsExtensions{.png}
+	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}%
+	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}%
+	
+	\title{A broader vision for tomographic microscopy - Quality driven wide field synchrotron radiation x-ray tomographic microscopy}%
+	
+	\author{David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
+	  \and Christoph Hintermüller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}%
+	  \and Johannes C. Schnittny\footrecall{ana}%
+	  \and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}%
+	  }
+	
+	\begin{document}
+	
+	\maketitle
+\else
+	\begin{document}
+	
+	\title{A broader vision for tomographic microscopy - Quality driven wide feld synchrotron radiation x-ray tomographic microscopy}
+	\shorttitle{A broader vision for tomographic microscopy}
+	
+	\cauthor[a]{David}{Haberthür}{haberthuer@ana.unibe.ch}{}
+	\author[b]{Christoph}{Hintermüller}
+	\author[a]{Johannes C.}{Schittny}
+	\cauthor[b,c]{Marco}{Stampanoni}{marco.stampanoni@psi.ch}{}
+	
+	\aff[a]{Institute of Anatomy, University of Bern, \country{Switzerland}}
+	\aff[b]{Swiss Light Source, Paul Scherrer Institut, \city{Villigen}, \country{Switzerland}}
+	\aff[c]{Institute of Biomedical Engineering, University and ETH Zürich, \country{Switzerland}}
+		
+	\keyword{X-ray imaging}
+	\keyword{computed tomography}
+	\keyword{synchrotron microtomography}
+	\keyword{SRXTM}
+	\keyword{lung development}
+	\keyword{alveoli}
+	\keyword{acinus}
+	
+	\maketitle
+\fi
+
+\begin{abstract}
+State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at high resolution by stacking several tomograms  and perform local tomographic reconstruction. Such a stacking increases the field of view in vertical direction. The present work defines the acquisition protocols to increase the field of view of tomographic microscopy in horizontal direction. It is the base for acquiring three dimensional datasets of samples with sized bigger than the field of view of the tomographic microscope. We show that the lateral field of view of tomographic microscopy can be increased up to five times and provide the possibility to acquire quality guided tomographic wide field scans of arbitrary samples in an unattended, automatic way based on objective criteria taking reconstruction quality and scanning time into account.
+\end{abstract}
+		
+\input{wfs-introduction}
+\input{wfs-materials-and-methods}
+\input{wfs-results}
+\input{wfs-discussion}
+\input{wfs-summary}
+
+\ifhtml % In case of web format output...
+	\input{wfs-acknowledgements}
+	
+	\bibliographystyle{unsrtnat}
+	\bibliography{../references}
+\else
+	\ack{Acknowledgements}
+This work has been funded by grant 3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for the help with the preparation of the samples. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions. Dipl.-Ing.\ Sophie Rausch of the Institute for Computational Mechanics, Technische Universität München has provided the lung samples shown in figure~\ref{fig:LungSlabSophie}.
+
+	\let\oldharvardurl=\harvardurl%
+	\renewcommand{\harvardurl}[1]{}%
+	\referencelist[../references]%
+	\let\harvardurl=\oldharvardurl%
+\fi
+
+\end{document}
