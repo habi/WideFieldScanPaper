@@ -1,0 +1,30 @@
+%\documentclass{article}
+%\usepackage{subfig}
+%\usepackage{tikz}
+%\begin{document}
+%\begin{figure}
+%\centering
+\def\scale{0.39} % 1.95/5
+\def\size{5}
+%Covering the FOV with merged projections from one central and four ring scans.
+	\label{subfig:protocol5}%
+	\begin{tikzpicture}[scale=\scale]
+%		\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\foreach \r in {1,3,5}
+			\draw (\size,\size) circle (\r);
+		\draw (0,\size) -- (\size-1,\size);
+		\draw (\size+1,\size) -- (2*\size,\size);
+		\node at (\size,1) {r3};
+		\node at (\size,3) {r1};
+		\node at (\size,5) {central};
+		\node at (\size,7) {r2};
+		\node at (\size,9) {r4};
+		\def\angle{155}
+		\draw [white,ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
+	\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%\caption{Projection Setup}
+%\end{figure}
+%\end{document}

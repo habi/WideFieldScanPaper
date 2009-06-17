@@ -1,0 +1,33 @@
+%\documentclass{article}
+%\usepackage{subfig}
+%\usepackage{tikz}
+%\begin{document}
+%\begin{figure}
+%\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\scale{0.27857142857142857142857142857143} % 1.95/7
+\def\size{7}
+%Covering the FOV with merged projections from one central and six ring scans.
+	\label{subfig:protocol7}%
+	\begin{tikzpicture}[scale=\scale]
+%		\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\foreach \r in {1,3,5,7}
+			\draw (\size,\size) circle (\r);
+		\draw (0,\size) -- (\size-1,\size);
+		\draw (\size+1,\size) -- (2*\size,\size);
+		\node at (\size,1) {r5};
+		\node at (\size,3) {r3};
+		\node at (\size,5) {r1};
+		\node at (\size,7) {central};
+		\node at (\size,9) {r2};
+		\node at (\size,11) {r4};
+		\node at (\size,13) {r6};
+		\def\angle{155}
+		\draw [white,ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
+	\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%\caption{Projection Setup}
+%\end{figure}
+%\end{document}

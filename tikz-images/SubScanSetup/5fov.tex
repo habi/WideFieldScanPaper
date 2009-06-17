@@ -1,0 +1,23 @@
+%\documentclass{article}
+%\usepackage{subfig}
+%\usepackage{tikz}
+%\begin{document}
+%\begin{figure}
+%\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\scale{0.39} % 1.95/5
+\def\size{5}
+%FOV to be covered
+	\label{subfig:fovneed5}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\draw (\size,\size) circle (\size);
+		\draw [white,ultra thick,<->] (0,\size) -- node [above] {5120 px} (2*\size,\size);
+	%	\draw [step=2] (0,0) grid (6,6);
+	\end{tikzpicture}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%\caption{Projection Setup}
+%\end{figure}
+%\end{document}

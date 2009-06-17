@@ -6,7 +6,7 @@ Version=4
 MainFile=iucr-widefieldscan.tex
 UseBibTeX=1
 UseMakeIndex=0
-ActiveProfile=LaTeX => HTML
+ActiveProfile=LaTeX => PDF (Foxit)
 ProjectLanguage=en
 ProjectDialect=US
 

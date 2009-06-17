@@ -4,6 +4,7 @@
 1ex
 20-node
 3100A0-109874
+3D
 5-subscan-case
 B
 Beer-Lambert
@@ -101,11 +102,13 @@ SRXTM
 Saint-Gobain
 Scherrer
 Schittny
+Schittny1997
 Schittny1997,Schittny1998
 Schittny2008
 Shepp-Logan
 Sprague-Dawley
 Stampanoni
+Stampanoni2006a
 Stampanoni2006a,Stampanoni2007
 Stampanoni2007
 SubScans
@@ -120,6 +123,7 @@ Villigen
 WLGA
 Wetzlar
 WideFieldScanning
+XXXXXXX
 YAG
 Zürich
 agauga
@@ -127,6 +131,7 @@ air-to-paraffin
 ana
 and,15
 b
+b,c
 back-projection
 batch-scan
 beam-time
@@ -139,7 +144,9 @@ binned
 binning
 blue,nearly
 both,y
+c
 cPr
+cccc
 cccccc
 ccccccc
 cd
@@ -150,16 +157,21 @@ crop-green
 crop-green-background
 crop-red
 crop-red-background
+d
 data-processing
 dir
 distal-medial
+e
 end-result
 end-stations
 end-user
+english
 error-value
 ethanol
 experimenTs
+f
 five-fold
+full.png
 gold-standard
 gray,nearly
 green,nearly
@@ -180,6 +192,7 @@ low-resolution
 main.m
 marco.stampanoni@psi.ch
 merge-proj
+microtomography
 midway,above
 midway,right
 movefrom
@@ -193,8 +206,10 @@ overview-b
 overview-merge
 overview-s2
 overview-t
+p
 pco
 pco.2000
+permille
 pgfsys-tex4ht.def
 png
 post-natal
@@ -270,4 +285,5 @@ white,ultra
 wide-field
 widefieldscanning
 x
+xx9999
 y

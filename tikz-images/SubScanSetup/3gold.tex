@@ -1,0 +1,26 @@
+%\documentclass{article}
+%\usepackage{subfig}
+%\usepackage{tikz}
+%\begin{document}
+%\begin{figure}
+%\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\scale{0.65} % -> (3*.65=1.95)
+\def\size{3}
+%Gold Standard; covering the FOV with 9 independently reconstructed small scans.
+	\label{subfig:goldstandard3}%
+	\begin{tikzpicture}[scale=\scale]
+	%	\draw [dashed] (-1,-1) grid (7,7);
+		\fill [color=gray!25] (0,0) rectangle (2*\size,2*\size);
+		\foreach \x in {1,2,3}
+			\foreach \y in {1,2,3}
+				\draw [fill=gray] (2*\x-1,2*\y-1) circle (1) node {\x,\y};
+		\fill [semitransparent] (\size,\size) circle (\size);
+		\draw (\size,\size) circle (\size);
+		\draw [step=2] (0,0) grid (2*\size,2*\size);
+		\draw [white,ultra thick,<->] (\size-1,1.1*\size) -- node [above] {1024 px} (\size+1,1.1*\size);
+	\end{tikzpicture}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%\caption{Projection Setup}
+%\end{figure}
+%\end{document}
