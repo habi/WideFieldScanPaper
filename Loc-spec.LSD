@@ -127,6 +127,7 @@ back-projection
 batch-scan
 beam-time
 beamline
+beamtime
 binarization
 binarized
 binned
@@ -156,6 +157,7 @@ experimenTs
 f
 five-fold
 full.png
+gas-exchanging
 gold-standard
 gridrec
 haberthuer@ana.unibe.ch
@@ -167,14 +169,18 @@ inline
 instillation
 isosurface
 isosurfaces
+l
+lab-based
 low-resolution
 main.m
 marco.stampanoni@psi.ch
 merge-proj
+micro-computed
 microtomography
 midway,above
 midway,right
 nine-fold
+non-destructive
 numproj
 output-name
 oversampling
@@ -189,6 +195,7 @@ permille
 pgfsys-tex4ht.def
 png
 post-natal
+post-processing
 preference-file
 prj2sin
 psi,eth
@@ -220,6 +227,7 @@ sinograms
 sloped,midway,above
 sophie
 stacked-scan
+sub-micrometer
 subfig
 subfigure
 subscan
@@ -245,5 +253,6 @@ west,inner
 white,thick
 wide-field
 widefieldscanning
+workflow
 x
 xx9999

@@ -4,50 +4,37 @@
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
-%
-%\ifhtml
-%\else
-%\begin{center}
-%	\fbox{
-%		\begin{minipage}{.618\columnwidth}
-%		The section below is versioned at \url{\svnkw{HeadURL}} (last commit @ \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute, Revision: \svnkw{LastChangedRevision}).
-%		\end{minipage}
-%	} 
-%\end{center}
-%\fi
-%
-\section{Introduction}
+
+\ifhtml
+\else
+\begin{center}
+	\fbox{
+		\begin{minipage}{.618\columnwidth}
+		The section below is versioned at \url{\svnkw{HeadURL}} (last commit @ \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute, Revision: \svnkw{LastChangedRevision}).
+		\end{minipage}
+	} 
+\end{center}
+\fi
+
+\section{Introduction}%
 Synchrotron radiation based x-ray tomographic microscopy (SRXTM) is a powerful method for the non-destructive three-dimensional imaging of a broad kind of materials with a resolution on the sub-micrometer scale.
 
-\cbstart
-At TOMCAT---the beamline for TOmographic Microscopy and Coherent rAdiology experimenTs~\cite{Stampanoni2007} at the Swiss Light Source (SLS), Paul Scherrer Institute, Villigen, Switzerland---many user groups are presently working in diverse research areas, ranging from biology\todo{cite Pérez-Huerta2009?}, medicine~\cite{Schittny2008,Heinzer2008} and paleontology~\cite{Gostling2008,Friis2007,Hagadorn2006,Donoghue2006} to materials science~\cite{Gallucci2007}, geology~\cite{Carminati2007} to process engineering~\cite{Davenport2007,Vaucher2007} and simulation~\cite{Tsuda2008}.% SRXTM enables the user to have a qualitative and quantitative measurement and analysis of structures with big enough x-ray absorption contrast.
+At TOMCAT---the beamline for TOmographic Microscopy and Coherent rAdiology experimenTs~\cite{Stampanoni2007} at the Swiss Light Source (SLS), Paul Scherrer Institute, Villigen, Switzerland---many user groups are presently working in diverse research areas, ranging from biology~\cite{McDonald2009,PerezHuerta2009}, medicine~\cite{Schittny2008,Heinzer2008} and paleontology~\cite{Gostling2008,Friis2007,Hagadorn2006,Donoghue2006} to material science~\cite{Gallucci2007}, geology~\cite{Carminati2007} to process engineering~\cite{Davenport2007,Vaucher2007} and simulation~\cite{Tsuda2008}.% SRXTM enables the user to have a qualitative and quantitative measurement and analysis of structures with big enough x-ray absorption contrast.
 
-\subsection{Background}
+\subsection{Background}%
+The available field of view (FOV) of microscopy based imaging methods like synchrotron based tomographic beam lines and lab-based micro-computed tomography (\micro CT) stations is limited by the camera and microscope optics. In standard operation mode, images of larges samples have to be acquired at low magnifications providing a broad FOV.
 
-The available field of view (FOV) of microscopy based imaging methods like synchrotron based tomographic beam lines and lab-based micro-computed tomography (\micro CT) stations is limited by the camera and microscope optics. To be able to obtain images with a broad FOV one has to use lower magnifications to cover bigger samples.
+To achieve resolutions of \SI{1}{\micro\meter} the sample diameter has to be reduced to \SI{1}{\milli\meter}. In case the sample diameter exceeds the FOV of the camera, a so called local tomography (LOT) approach can be applied. The disadvantage of the LOT is that in the outer parts of the reconstructed slices image artifacts are introduced due to partial volume effects. Generally, the LOT approach is not suitable for studies investigating the development~\cite{Schittny2008,Mund2008} and structure~\cite{Tsuda2008} of lungs using SRXTM, which require high resolution datasets providing at the same time a large lateral FOV.
 
-To be able to record tomographic datasets at TOMCAT with a resolution of around \SI{1}{\micro\meter}, the sample diameter has to be below \SI{1}{\milli\meter}. When the sample diameter is bigger than the FOV of the camera, so called local tomography can be applied, which introduces image artifacts in the outer parts of the reconstructed slices due to partial volume effects. Additionally this does not solve the need for tomographic datasets with high resolution and large lateral FOV.
-\cbend
+\subsection{Motivation}%
+In our current studies we want to detect and visualize entire acini---the functional lung unit---over the course of the postnatal lung development in mammals.
 
-\subsection{Motivation}
+Until now, the investigation of the three dimensional structure of an acinus was either limited by the resolution of the imaging method (in the case of \micro CT) or the sample volume (in the case of SRXTM). For assessing the morphological change from air conducting to gas-exchanging airways, tomographic datasets have to span large sample volumes. Since we are interested in morphological details of the lung parenchyma like septal thickness, this requires tomographic datasets providing high resolution, contrast and low noise. To cover all these needs, we developed a synchrotron radiation x-ray tomographic microscopy method which combines several tomographic scans into one large three dimensional dataset increasing the scanned volume up to 25 times.
 
-\cbstart
-We have been studying lung development~\cite{Schittny2008,Mund2008} and lung structure~\cite{Tsuda2008} using SRXTM and are interested in into detecting and visualizing entire acini---the functional lung unit---over the course of the postnatal lung development in mammals.
+\subsection{Enhancing the Field of View}%
+\label{subsec:enhancing the field of view}%
+An increase of the FOV parallel to the rotation axis of the sample can be achieved through the stacking of multiple scans on top of each other. For this protocol, the scan time is linearly increasing with the number of scans required to cover the size of the sample. Due to the restrictions implied by the sampling theorem this approach can not directly be used to increase the FOV horizontal to the rotation axis.
 
-Until now, the investigation of the three dimensional structure of an entire acinus was either limited by the resolution of the imaging method (in the case of \micro CT) or the sample volume (in the case of SRXTM). To be able to assess the morphological change from air conducting to gas-exchanging airways we need to have access to tomographic datasets spanning a sample volume which is bigger than the volume achievable with one single scan at TOMCAT. Since we are also interested in the morphological details of the lung parenchyma like septal thickness we also need the high resolution and more importantly the high quality of tomographic datasets acquired with SRXTM.
+Generally, to be able to accurately reconstruct a sample, we have to fulfill the sampling theorem for computed tomography. It states that---for parallel beam geometry---the number of projections should roughly equal the detector width in pixels. At TOMCAT, this ideal condition is sometimes violated, in case of un-binned scans (2048$\times$2048 pixels) 1500 projection images are recorded for a sample rotation over \SI{180}{\degree}. In the binned case (1024$\times$1024 pixels)---where 2$\times$2 pixels are combined into one pixel---1000 projection images are recorded for one tomographic scan.
 
-To cover all these needs, we developed a synchrotron radiation x-ray tomographic microscopy method which combines several tomographic scans into one large three dimensional dataset to increase the scanned volume up to 25 times.
-\cbend
-
-\subsection{Enhancing the Field of View}
-\label{subsec:enhancing the field of view}
-
-\cbstart
-An increase of the FOV parallel to the rotation axis of the sample can be achieved through the stacking of multiple scans on top of each other. The reconstructions of the independently acquired scans are stacked on top of each other to yield a tomographic dataset covering an increased vertical FOV. For this protocol, the scanning time linearly increases with the sample size.
-
-If the FOV horizontal to the rotation axis of the sample is to be increased, the projections cannot simply be stacked laterally, since the sampling theorem implies some restrictions, which are described below.
-
-Generally, to be able to accurately reconstruct a sample, we have to fulfill the sampling theorem for computed tomography which states for parallel beam geometry, the number of projections should roughly equal the detector width in pixels. The ideal condition can be violated; for an un-binned scan---which equals a detector width of 2048 pixels---1500 projection images are recorded for a sample rotation over \SI{180}{\degree}. In the binned case---where 2$\times$2 pixels are combined into one pixel, equaling a detector width of 1024 pixels---1000 projection images are recorded for one tomographic scan.
-
-To enlarge the FOV of the tomographic images perpendicular to the rotation axis of the sample, it is not only necessary to stitch together several projection images, but it is also necessary to record more projections for the lateral parts of the sample compared to the central parts of the sample to be able to fulfill the sampling theorem. This leads to an increase in acquisition and post-processing time as compared to a standard scan with a single FOV.
-\cbend
+When enlarging the FOV perpendicular to the rotation axis it is necessary to record more projections to fulfill the sampling theorem. This leads to an increase in acquisition and post-processing time as compared to a standard scan.

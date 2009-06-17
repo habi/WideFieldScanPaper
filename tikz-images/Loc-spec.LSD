@@ -136,6 +136,7 @@ back-projection
 batch-scan
 beam-time
 beamline
+beamtime
 bigfrom
 bigto
 binarization
@@ -172,6 +173,7 @@ experimenTs
 f
 five-fold
 full.png
+gas-exchanging
 gold-standard
 gray,nearly
 green,nearly
@@ -188,10 +190,13 @@ instillation
 iso
 isosurface
 isosurfaces
+l
+lab-based
 low-resolution
 main.m
 marco.stampanoni@psi.ch
 merge-proj
+micro-computed
 microtomography
 midway,above
 midway,right
@@ -199,6 +204,7 @@ movefrom
 moveto
 mycolor1
 nine-fold
+non-destructive
 numproj
 output-name
 oversampling
@@ -213,6 +219,7 @@ permille
 pgfsys-tex4ht.def
 png
 post-natal
+post-processing
 preference-file
 prj2sin
 procotol
@@ -256,6 +263,7 @@ smallfrom
 smallto
 sophie
 stacked-scan
+sub-micrometer
 subfig
 subfigure
 subscan
@@ -284,6 +292,7 @@ white,thick
 white,ultra
 wide-field
 widefieldscanning
+workflow
 x
 xx9999
 y
