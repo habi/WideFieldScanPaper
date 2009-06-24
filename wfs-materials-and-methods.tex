@@ -280,47 +280,45 @@ Table~\ref{tab:protocols} provides the numbers for the 19 different protocols th
 
 We were able to reduce the total acquisition time by \SI{86.25}{\percent} compared to the gold standard, as can be seen in table~\ref{tab:protocols}. All 19 protocols have been scanned, reconstructed and visualized three-dimensionally to assess the artifacts which arise through the reduction of the amount of projections. Albeit the maximally assessed reduction in scanning time by \SI{86.25}{\percent} does introduce visible artifacts in the three-dimensional reconstruction (as shown in figure~\ref{fig:BvsT2}), an automated segmentation of the airways is still possible.
 
-%\onecolumn
-\begin{table}
-	\centering%
-	\caption{Specification of different protocols and time used compared to gold standard. Protocol A corresponds to the Gold Standard, and would have been needed to cover the same FOV with 9 independent scans with a detector width of 1024 pixels (plus an overlap of 100 pixels), resulting in a number of projections $N_{A}=9*(1024+100)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 15890$. Protocol B corresponds to the protocol shown in figure~\ref{subfig:protocol3}, resulting in a total number of projections of $N_{B} = 3(3072+200)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 15419$.}%
-	\label{tab:protocols}%
-	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}ccccccc}%
-	\toprule%
-		Protocol & A & B & C & D & E & F & G \\%
-		\midrule%
-		Total Projections & 15890 & 15732 & 13110 & 13110 & 10925 & 11802 & 9835 \\%
-		Time [\%] & 100.00 & 99.01 & 82.50 & 82.50 & 68.75 & 74.27 & 61.89 \\%
-		\bottomrule%
-	\end{tabular*}%
-	\\%
-	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}ccccccc}%
-		Protocol & H & I & J & K & L & M & N \\%
-		\midrule%
-		Total Projections & 10488 & 8740 & 9180 & 7650 & 7866 & 6555 & 6558 \\%
-		Time [\%] & 66.00 & 55.00 & 57.77 & 48.14 & 49.50 & 41.25 & 41.27 \\%
-		\bottomrule%
-	\end{tabular*}%
-	\\%
-	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}cccccc}%
-		Protocol & O & P & Q & R & S & T \\%
-		\midrule%
-		Total Projections & 5463 & 5244 & 4370 & 3936 & 2622 & 2185 \\%
-		Time [\%] & 34.38 & 33.00 & 27.50 & 24.77 & 16.50 & 13.75 \\%
-		\bottomrule%
-	\end{tabular*}%
-\end{table}%
-%\twocolumn
+%%\onecolumn
+%\begin{table}
+%	\centering%
+%	\caption{Specification of different protocols and time used compared to gold standard. Protocol A corresponds to the Gold Standard, and would have been needed to cover the same FOV with 9 independent scans with a detector width of 1024 pixels (plus an overlap of 100 pixels), resulting in a number of projections $N_{A}=9*(1024+100)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 15890$. Protocol B corresponds to the protocol shown in figure~\ref{subfig:protocol3}, resulting in a total number of projections of $N_{B} = 3(3072+200)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 15419$.}%
+%	\label{tab:protocols}%
+%	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}ccccccc}%
+%	\toprule%
+%		Protocol & A & B & C & D & E & F & G \\%
+%		\midrule%
+%		Total Projections & 15890 & 15732 & 13110 & 13110 & 10925 & 11802 & 9835 \\%
+%		Time [\%] & 100.00 & 99.01 & 82.50 & 82.50 & 68.75 & 74.27 & 61.89 \\%
+%		\bottomrule%
+%	\end{tabular*}%
+%	\\%
+%	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}ccccccc}%
+%		Protocol & H & I & J & K & L & M & N \\%
+%		\midrule%
+%		Total Projections & 10488 & 8740 & 9180 & 7650 & 7866 & 6555 & 6558 \\%
+%		Time [\%] & 66.00 & 55.00 & 57.77 & 48.14 & 49.50 & 41.25 & 41.27 \\%
+%		\bottomrule%
+%	\end{tabular*}%
+%	\\%
+%	\begin{tabular*}{\textwidth}{r@{\extracolsep\fill}cccccc}%
+%		Protocol & O & P & Q & R & S & T \\%
+%		\midrule%
+%		Total Projections & 5463 & 5244 & 4370 & 3936 & 2622 & 2185 \\%
+%		Time [\%] & 34.38 & 33.00 & 27.50 & 24.77 & 16.50 & 13.75 \\%
+%		\bottomrule%
+%	\end{tabular*}%
+%\end{table}%
+%%\twocolumn
 
 \begin{table}%
-	\centering%
-	\todo[inline]{or is this table better than table~\ref{tab:protocols} for the understanding?}%
 	\caption{Specification of different protocols and time used compared to gold standard. Protocol A corresponds to the Gold Standard, and would have been needed to cover the same FOV with 9 independent scans with a detector width of 1024 pixels (plus an overlap of 100 pixels), resulting in a number of projections $N_{A}=9*(1024+100)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 15890$. Protocol B corresponds to the protocol shown in figure~\ref{subfig:protocol3}, resulting in a total number of projections of $N_{B} = 3(3072+200)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 15419$.}%
-		\label{tab:protocols2}%
+		\label{tab:protocols}%
+	\centering%
 	\begin{tabular}{rccccc}%
-	\toprule%
 		Protocol & $s_{1}$ & $s_{2}$ & $s_{3}$ & $\sum s_{1}:s_{3}$ & Time [\%] \\%
-	\midrule%
+	\hline%
 		A &      &      &      & 15890 & 100.00 \\%
 		B & 5244 & 5244 & 5244 & 15732 & 99.01 \\%
 		C & 5244 & 2622 & 5244 & 13110 & 82.50 \\%
@@ -341,7 +339,6 @@ We were able to reduce the total acquisition time by \SI{86.25}{\percent} compar
 		R & 1312 & 1312 & 1312 &  3936 & 24.77 \\%
 		S &  874 &  874 &  874 &  2622 & 16.50 \\%
 		T &  874 &  437 &  874 &  2185 & 13.75 \\%
-	\bottomrule%
 	\end{tabular}%
 \end{table}%
 

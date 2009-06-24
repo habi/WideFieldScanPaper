@@ -1,11 +1,11 @@
-\newif\ifhtml
-	\htmltrue
-	\htmlfalse
-
-\ifhtml
-	\documentclass{article}
-\else
-	\documentclass[preprint]{iucr}
+\newif\ifhtml%
+	\htmltrue%
+	\htmlfalse%
+%
+\ifhtml%
+	\documentclass{article}%
+\else%
+	\documentclass[preprint]{iucr}%
 		\paperprodcode{a000000}      % Replace with production code if known
 		\paperref{xx9999}            % Replace xx9999 with reference code if known
 		\papertype{FA}
@@ -19,8 +19,8 @@
 		\journalreceived{0 XXXXXXX 2009}
 		\journalaccepted{0 XXXXXXX 2009}
 		\journalonline{0 XXXXXXX 2009}
-\fi
-
+\fi%
+%
 \ifhtml % In case of web format output...
 	\def\pgfsysdriver{pgfsys-tex4ht.def}
 	\usepackage{endfloat}
@@ -35,7 +35,7 @@
 %		\cbcolor{red}
 %		\nochangebars
 \fi
-
+%
 \usepackage[latin1]{inputenc} 						% so I can write my Name without \"{u}
 \usepackage{graphicx}
 \usepackage[english]{babel}
@@ -43,9 +43,9 @@
 %\usepackage[caption=false,format=hang]{subfig}      % [font = small]
 \let\Gray\relax
 \usepackage[alsoload=binary]{siunitx}		 		% typographically correct units (\milli\meter, \kilo\electronvolt), with [alsoload=binary] \SI{100}{\giga\byte}
-\usepackage{booktabs}		 						% nice tables
 \usepackage{multirow}								% multirows in tables
 \usepackage{tikz} 									% extremely nice drawings
+	\usetikzlibrary{patterns}
 \usepackage{pgfplots} 								% ditto for plots
 \usepackage{hyperref}
 \usepackage{hypernat}

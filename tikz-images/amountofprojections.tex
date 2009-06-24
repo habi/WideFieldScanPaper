@@ -2,6 +2,7 @@
 %%%\def\pgfsysdriver{pgfsys-tex4ht.def}
 %\usepackage[pdftex,active,tightpage]{preview}
 %\usepackage{tikz}
+%	\usetikzlibrary{patterns}
 %\begin{document}
 %\begin{preview}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
@@ -16,12 +17,14 @@
 	%% Fill & Projection CenterScan
 		\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
 		\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);
+%		\pattern [pattern=north east lines] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1,0) arc (180:0:\radius);
 	%% Fill & Projection RingScan 1
 		\draw [ultra thick,color=green](\projangle+180+\angleshift:\radius+\overlap) -- (\projangle+\angleshift:\radius+\overlap);
 		\fill [color=green,nearly transparent] (0,0) circle (\radius+\overlap);
 	%% Fill & Projection RingScan 2
 		\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius-\overlap);
 		\fill [color=blue,nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1+\overlap,0) arc (-180:0:\radius-\overlap);
+%		\pattern [pattern=north west lines] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1,0) arc (-180:0:\radius-\overlap);
 	%% inner ring
 		% ring
 			\draw (0,0) circle (\radius);
