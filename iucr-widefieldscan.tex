@@ -1,6 +1,9 @@
 \newif\ifhtml%
 	\htmltrue%
-	\htmlfalse%
+%	\htmlfalse%
+\newif\ifiucr%
+	\iucrtrue% figures according to iucr
+%	\iucrfalse% figures normal
 %
 \ifhtml%
 	\documentclass{article}%
@@ -23,6 +26,7 @@
 %
 \ifhtml % In case of web format output...
 	\def\pgfsysdriver{pgfsys-tex4ht.def}
+	\usepackage[caption=false,format=hang]{subfig}
 	\usepackage{endfloat}
 	\usepackage[numbers,sort&compress]{natbib}
 	\usepackage[disable]{todonotes}

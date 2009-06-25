@@ -14,17 +14,18 @@
 \def\angleshift{2}
 \begin{tikzpicture}[scale=1.5]
 	\small
-	%% Fill & Projection CenterScan
-		\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
+	%% Fill CenterScan
+		\pattern [pattern=checkerboard light gray] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1,0) arc (180:0:\radius);
 		\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);
-%		\pattern [pattern=north east lines] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1,0) arc (180:0:\radius);
-	%% Fill & Projection RingScan 1
-		\draw [ultra thick,color=green](\projangle+180+\angleshift:\radius+\overlap) -- (\projangle+\angleshift:\radius+\overlap);
+	%% Fill RingScan 1
 		\fill [color=green,nearly transparent] (0,0) circle (\radius+\overlap);
-	%% Fill & Projection RingScan 2
-		\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius-\overlap);
+	%% Fill RingScan 2
+		\pattern [pattern=horizontal lines gray] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1,0) arc (-180:0:\radius);
 		\fill [color=blue,nearly transparent] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1+\overlap,0) arc (-180:0:\radius-\overlap);
-%		\pattern [pattern=north west lines] (1,0) -- (3,0) arc (0:-180:3*\radius) -- (-1,0) arc (-180:0:\radius-\overlap);
+	%% Projections		
+		\draw [ultra thick,color=red](\projangle:\radius-\overlap) -- (\projangle:3*\radius);
+		\draw [ultra thick,color=green](\projangle+180+\angleshift:\radius+\overlap) -- (\projangle+\angleshift:\radius+\overlap);
+		\draw [ultra thick,color=blue](\projangle+180:3*\radius) -- (\projangle+180:\radius-\overlap);
 	%% inner ring
 		% ring
 			\draw (0,0) circle (\radius);

@@ -19,14 +19,25 @@
 \section{Materials and Methods}%
 \label{sec:materials and methods}%
 \subsection{Sample Preparation and Image Acquisition}%
-To validate our theoretical findings and to quantify the achievable resolution, contrast and reduction in acquisition time we used rat lung samples, prepared according  to~\citeasnoun{Schittny1997}\cite{Schittny1998}\todo{citations (taken from Schittny2008) still valid for our protocol?}. Briefly, lungs of Sprague-Dawley rats have been extracted after they have been perfused and filled with phosphate buffered saline by instillation via tracheotomy until the mid respiratory lung volume was reached. Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
+To validate our theoretical findings and to quantify the achievable resolution, contrast and reduction in acquisition time we used rat lung samples, prepared according  to%
+\ifhtml
+	~\citet{Schittny1997}
+\else
+	~\citeasnoun{Schittny1997}
+\fi%
+\cite{Schittny1998}\todo{citations (taken from Schittny2008) still valid for our protocol?}. Briefly, lungs of Sprague-Dawley rats have been extracted after they have been perfused and filled with phosphate buffered saline by instillation via tracheotomy until the mid respiratory lung volume was reached. Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
 
 The extracted lung lobes have been fixed in \SI{2.5}{\percent} glutaraldehyde (C$_5$H$_8$O$_2$). For the preparation of the imaging the samples have been postfixed---comparable to electron microscopy protocols---with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and stained with \SI{4}{\percent} uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and transferred into paraffin. The lung samples have been mounted onto standard electron microscopy sample mounts with a diameter of approximately \SI{13}{\milli\meter} (PLANO GmbH, Wetzlar, Germany) using paraffin.
 
-
 \subsection{SRXTM}%
 All experiments were performed at the TOMCAT beamline, Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. %; , which is located at the X02DA port of the SLS and is one of 17 currently operating beamlines.
-TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{1.22}{\angstrom}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth range of a few percent to a few permille. Detailed technical specifications of the beamline and beam characteristics have been described by~\citeasnoun{Stampanoni2006a}.
+TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{1.22}{\angstrom}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth range of a few percent to a few permille. Detailed technical specifications of the beamline and beam characteristics have been described by%
+\ifhtml
+	~\citet{Stampanoni2006a}
+\else
+	~\citeasnoun{Stampanoni2006a}
+\fi%
+.
 
 \subsubsection{Image acquisition and reconstruction}%
 \label{seq:Image Acquisition}%
@@ -46,7 +57,13 @@ The inversion of the Beer--Lambert law was used to calculate the corrected proje
 	\label{eq:cpr}
 \end{equation}
 
-A detailed description of the workflow and the steps necessary to compute a tomographic data set from a set of angular projections can be found in~\citeasnoun{Hintermueller2009}.
+A detailed description of the workflow and the steps necessary to compute a tomographic data set from a set of angular projections can be found in%
+\ifhtml
+	~\citet{Hintermueller2009}
+\else
+	~\citeasnoun{Hintermueller2009}
+\fi%
+.
 
 \subsubsection{Covering a broad FOV}%
 \label{subsec:covering a broad fov}%
@@ -54,44 +71,43 @@ For parallel beam geometry, tomographic images are obtained at equidistant angle
 
 Samples which are twice as large as the field of view can be imaged using scan protocols based on a \SI{360}{\degree} off-centre sample rotation. After the acquisition half of the images from the dataset have to be flipped and the projections at position $P_{x}$ and $P_{x+\SI{180}{\degree}}$ are stitched together to projection images covering two times the FOV of the camera.
 
-%%% iucr%%%
-%\onecolumn
-\begin{figure}
-	\centering
-	\caption{a): Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom) The filled red, green and blue segments mark the region of the sample which is covered while scanning the respective positions. b): Increasing the vertical FOV with stacked scanning.}%
-	\begin{tabular}{p{.4\linewidth}p{.4\linewidth}}%
-		\input{tikz-images/scanning-possibilities}%
-		\label{subfig:scanning-possibilities}%
-	&
-		\input{tikz-images/Scan-Stacked}%
-		\label{subfig:stacked-scan}%
-	\\
-		a) Three different scanning configurations for increasing sample diameter.%
-	&
-		b) Stacked scanning for long and thin samples.%
-	\\
-	\end{tabular}%
-	\label{fig:scanning-possibilities}%
-\end{figure}
-%\twocolumn
-%%% iucr%%%
-%%% normal figures %%%
-%%%\begin{figure}
-%%%	\noindent\makebox[\textwidth]{%
-%%%		\subfloat[Three different scanning configurations for increasing sample diameter.]{%
-%%%			\input{tikz-images/scanning-possibilities}%
-%%%			\label{subfig:scanning-possibilities}%
-%%%		}%
-%%%		\subfloat[Stacked scanning for long and thin samples.]{%
-%%%			\input{tikz-images/Scan-Stacked}%
-%%%			\label{subfig:stacked-scan}%
-%%%		}%
-%%%	}% end of \makebox
-%%%	\caption{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom) The filled red, green and blue segments mark the region of the sample which is covered while scanning the respective positions. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.
-%%%	}%
-%%%	\label{fig:scanning-possibilities}%
-%%%\end{figure}
-%%% normal figures %%%
+\ifiucr
+	%\onecolumn
+	\begin{figure}
+		\centering
+		\caption{a): Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom) The filled red, green and blue segments mark the region of the sample which is covered while scanning the respective positions. b): Increasing the vertical FOV with stacked scanning.}%
+		\begin{tabular}{p{.4\linewidth}p{.4\linewidth}}%
+			\input{tikz-images/scanning-possibilities}%
+			\label{subfig:scanning-possibilities}%
+		&
+			\input{tikz-images/Scan-Stacked}%
+			\label{subfig:stacked-scan}%
+		\\
+			a) Three different scanning configurations for increasing sample diameter.%
+		&
+			b) Stacked scanning for long and thin samples.%
+		\\
+		\end{tabular}%
+		\label{fig:scanning-possibilities}%
+	\end{figure}
+	%\twocolumn
+\else
+	\begin{figure}
+		\noindent\makebox[\textwidth]{%
+			\subfloat[Three different scanning configurations for increasing sample diameter.]{%
+				\input{tikz-images/scanning-possibilities}%
+				\label{subfig:scanning-possibilities}%
+			}%
+			\subfloat[Stacked scanning for long and thin samples.]{%
+				\input{tikz-images/Scan-Stacked}%
+				\label{subfig:stacked-scan}%
+			}%
+		}% end of \makebox
+		\caption{\subref{subfig:scanning-possibilities}: Covering the FOV of differently sized samples with one \SI{180}{\degree} scan (top), one \SI{360}{\degree} scan (center) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, bottom) The filled red, green and blue segments mark the region of the sample which is covered while scanning the respective positions. \subref{subfig:stacked-scan}: Increasing the vertical FOV with stacked scanning.
+		}%
+		\label{fig:scanning-possibilities}%
+	\end{figure}
+\fi
 
 If we want to achieve tomographic scans covering a sample size which is bigger than what can be achieved with a \SI{360}{\degree}-scan, we have to move the sample in relation to the beam and camera while performing several partial scans. This can be done as shown in figure~\ref{subfig:scanning-possibilities}, where we obtain three subscans to be able to reconstruct a sample as big as three FOVs.
 
@@ -102,36 +118,36 @@ The discussed scanning protocols are generated based on the assumption that a su
 
 To be able to reconstruct the sample, we need to stitch the individual sets of projections to projections spanning the desired FOV. Since each scan has a different number of projections $N_{i}$, a stitching algorithm has to interpolate projections from adjacent projections (as shown in figure~\ref{subfig:ProjectionSetupInterpolate}). Alternatively, the same number of projections has to be acquired for all subscans, leading to oversampling for the central scanning position.
 
-%%% iucr %%%
-\begin{figure}%
-	\caption{Setup with one central (green) and two lateral scans (red and blue, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}). The colors of the three positions correspond to the colors shown in figure~\ref{subfig:scanning-possibilities}. a): scanned projections, b): scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}%
-	\begin{tabular}{cc}%
-		\input{tikz-images/ProjectionSetup}%
-		\label{subfig:ProjectionSetup}%
-	&%
-		\input{tikz-images/ProjectionSetupInterpolate}%
-		\label{subfig:ProjectionSetupInterpolate}%
-	\\%
-	a) & b)\\%
-	\end{tabular}%
-	\label{fig:projections}%
-\end{figure}%
-%%% iucr %%%
-%%% normal figures %%%
-%%%\begin{figure*}[htp]
-%%%	\centering
-%%%	\subfloat[]{%
-%%%		\input{tikz-images/ProjectionSetup}%
-%%%		\label{subfig:ProjectionSetup}%
-%%%		}%
-%%%	\subfloat[]{%
-%%%		\input{tikz-images/ProjectionSetupInterpolate}%
-%%%		\label{subfig:ProjectionSetupInterpolate}%
-%%%		}%
-%%%%	\caption[Setup with one central and two lateral scans]
-%%%	\caption{Setup with one central (green) and two lateral scans (red and blue, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}). The colors of the three positions correspond to the colors shown in figure~\ref{subfig:scanning-possibilities}. \subref{subfig:ProjectionSetup}: scanned projections, \subref{subfig:ProjectionSetupInterpolate}: scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}
-%%%	\label{fig:projections}
-%%%\end{figure*}
+\ifiucr
+	\begin{figure}%
+		\caption{Setup with one central (green) and two lateral scans (red and blue, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}). The colors of the three positions correspond to the colors shown in figure~\ref{subfig:scanning-possibilities}. a): scanned projections, b): scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}%
+		\begin{tabular}{cc}%
+			\input{tikz-images/ProjectionSetup}%
+			\label{subfig:ProjectionSetup}%
+		&%
+			\input{tikz-images/ProjectionSetupInterpolate}%
+			\label{subfig:ProjectionSetupInterpolate}%
+		\\%
+		a) & b)\\%
+		\end{tabular}%
+		\label{fig:projections}%
+	\end{figure}%
+\else
+	\begin{figure*}[htp]
+		\centering
+		\subfloat[]{%
+			\input{tikz-images/ProjectionSetup}%
+			\label{subfig:ProjectionSetup}%
+			}%
+		\subfloat[]{%
+			\input{tikz-images/ProjectionSetupInterpolate}%
+			\label{subfig:ProjectionSetupInterpolate}%
+			}%
+	%	\caption[Setup with one central and two lateral scans]
+		\caption{Setup with one central (green) and two lateral scans (red and blue, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}). The colors of the three positions correspond to the colors shown in figure~\ref{subfig:scanning-possibilities}. \subref{subfig:ProjectionSetup}: scanned projections, \subref{subfig:ProjectionSetupInterpolate}: scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}
+		\label{fig:projections}
+	\end{figure*}
+\fi
 
 \subsubsection{Reduction of the acquisition time}%
 Since the total acquisition time per sample linearly scales with the total number of projections and the exposure time, we tend to avoid such an oversampling in the favor of increasing the number of samples which can be imaged during one beamtime. In order to reduce the time required for scanning one single sample compared to a gold standard scan, acquisition protocols with varying amount of projections for each of the three subscans have been designed.
@@ -140,115 +156,113 @@ To simplify the interpolation and merging of the projections from each subscan, 
 
 If the amount of projections would not be a multiple of two, stitching the projections of the inner scan with the projections from the outer ones would introduce additional processing steps to interpolate the required intermediate projections. Figure \ref{fig:amount of projections} shows how the projections from the different subscans relate to each other in the more complex case. In this case we would acquire 1500 projections for the central and two times 3000 projections for the two ring-scans to fully satisfy the sampling theorem in each scan while avoiding oversampling of the central scan. 
 
-%%% iucr %%%
-%\onecolumn
-\begin{figure}%
-	\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 1500 projections for the central scan and thus acquire two times 1500 projections for each of the lateral scans. This enables us to stitch the projections $P_{1_{284}}$ % XXX XXX 17*3000/180 XXX
- 		(red line) from subscan 1 (ring scan, red area), projection $P_{2_{142}}$ % XXX 17*1500/180 XXX
- 		(green line) from subscan 2 (central scan, green area) and projection $P_{3_{283}}$ % XXX 17*3000/180 XXX
- 		(blue line) of subscan 3 (ring scan, blue area) to one big projection $P_{merge_{284}}$ % XXX 17*3000/180 XXX
-		which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For illustration purposes we shifted the central projection (green) by \SI{2}{\degree}, otherwise the overlap between these particular projection would not be visible.}%
-	\input{tikz-images/amountofprojections}%
-	\label{fig:amount of projections}%
-\end{figure}%
-%\twocolumn
-%%% iucr %%%
-%%% normal figures %%%
-%%\begin{figure*}[htp]
-%%	\centering
-%%	\input{tikz-images/amountofprojections}%
-%%%	\caption[Number of merged projections for one central- and two ring-scan.]
-%%	\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 1500 projections for the central scan and thus acquire two times 1500 projections for each of the lateral scans. This enables us to stitch the projections $P_{1_{284}}$ % XXX XXX 17*3000/180 XXX
-%% 		(red line) from subscan 1 (ring scan, red area), projection $P_{2_{142}}$ % XXX 17*1500/180 XXX
-%% 		(green line) from subscan 2 (central scan, green area) and projection $P_{3_{283}}$ % XXX 17*3000/180 XXX
-%% 		(blue line) of subscan 3 (ring scan, blue area) to one big projection $P_{merge_{284}}$ % XXX 17*3000/180 XXX
-%%		which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For illustration purposes we shifted the central projection (green) by \SI{2}{\degree}, otherwise the overlap between these particular projection would not be visible.}%
-%%	\label{fig:amount of projections}%
-%%\end{figure*}
+\ifiucr
+	%\onecolumn
+	\begin{figure}%
+		\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 1500 projections for the central scan and thus acquire two times 1500 projections for each of the lateral scans. This enables us to stitch the projections $P_{1_{284}}$ % XXX XXX 17*3000/180 XXX
+	 		(red line) from subscan 1 (ring scan, red area), projection $P_{2_{142}}$ % XXX 17*1500/180 XXX
+	 		(green line) from subscan 2 (central scan, green area) and projection $P_{3_{283}}$ % XXX 17*3000/180 XXX
+	 		(blue line) of subscan 3 (ring scan, blue area) to one big projection $P_{merge_{284}}$ % XXX 17*3000/180 XXX
+			which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For illustration purposes we shifted the central projection (green) by \SI{2}{\degree}, otherwise the overlap between these particular projection would not be visible.}%
+		\input{tikz-images/amountofprojections}%
+		\label{fig:amount of projections}%
+	\end{figure}%
+	%\twocolumn
+\else
+	\begin{figure*}[htp]
+		\centering
+		\input{tikz-images/amountofprojections}%
+	%	\caption[Number of merged projections for one central- and two ring-scan.]
+		\caption{Number of merged projections for one central- and two ring-scan. We assume that we have obtained 1500 projections for the central scan and thus acquire two times 1500 projections for each of the lateral scans. This enables us to stitch the projections $P_{1_{284}}$ % XXX XXX 17*3000/180 XXX
+	 		(red line) from subscan 1 (ring scan, red area), projection $P_{2_{142}}$ % XXX 17*1500/180 XXX
+	 		(green line) from subscan 2 (central scan, green area) and projection $P_{3_{283}}$ % XXX 17*3000/180 XXX
+	 		(blue line) of subscan 3 (ring scan, blue area) to one big projection $P_{merge_{284}}$ % XXX 17*3000/180 XXX
+			which covers the full FOV. The areas of the three subscans overlap slightly as described above to account for variations in positioning. For illustration purposes we shifted the central projection (green) by \SI{2}{\degree}, otherwise the overlap between these particular projection would not be visible.}%
+		\label{fig:amount of projections}%
+	\end{figure*}
+\fi
 
 \subsubsection{Scanning Time Reduction}%
 To be able to further reduce the total scanning time, we developed different scanning protocols, which all relate to a gold standard protocol. Such a gold standard scan would cover the desired FOV while fulfilling the sampling theorem in all parts of the FOV, as shown in figure~\ref{subfig:fovneed3}. For this example we would like to achieve a FOV of 3072$\times$3072 pixels. The dark gray circle shown in aforementioned figure is the FOV that can be fully covered, the rest of the slice in light grey would be either missing or show artifacts arising from partial volume effects, depending on the chosen reconstruction algorithm. To cover this desired FOV with a standard scan obtained from a detector with the size of 1024 pixels, nine independent scans would be needed. Acquiring nine independent scans would show exactly the same ratio of coverage vs.\ potentially missing parts, but some of the missing parts would be lying inside the desired FOV (light gray parts of figure~\ref{subfig:goldstandard3} inside the ring covering the desired FOV). Nonetheless, this setup corresponds to the gold standard scan which has been defined as protocol A in table~\ref{tab:protocols}. Figure~\ref{subfig:protocol3} shows how the desired FOV can be covered with a wide-field scan obtained from merged projections as described above. No missing parts arising from partial volume effects are lying inside the desired FOV.
 
 To fully satisfy the sampling theorem for a scan with the detector width $D$ we need to acquire an amount of projections $P=D\frac{\pi}{2}$, which leads to the acquisition of totally 14476 projections for the setup shown in figure~\ref{subfig:goldstandard3}. For the scan shown in figure~\ref{subfig:protocol3} we also need to acquire 14476 projections, since we need to acquire three times $3072\frac{\pi}{2}$ projections if the single projections from each subscan are to be merged into one projections covering the FOV prior to reconstruction.
 
-%%% iucr %%%
-%\onecolumn
-\begin{figure}%
-	\centering%
-	\caption{Setup; desired FOV and two variants of covering the desired FOV with 9 independent small scans or 3 subscans.}%
-	\begin{tabular}{p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}}
-			\input{tikz-images/SubScanSetup/3fov} &%
-		\input{tikz-images/SubScanSetup/3gold} &%
-		\input{tikz-images/SubScanSetup/3wfs}\\%
-		a) FOV to be covered &%
-		b) Gold Standard; covering the FOV with 9 independently reconstructed small scans&%
-		c) Covering the FOV with merged projections from one central and two ring scans\\%
-	\end{tabular}%
-	\label{fig:Setup3SubScans}%
-\end{figure}%
-%\twocolumn
-%%% iucr %%%
-%%% normal figures %%%
-%%\begin{figure*}[htp]
-%%	\centering%
-%%	\input{tikz-images/Setup3SubScans}%
-%%	\caption{Setup; desired FOV and two variants of covering the desired FOV with 9 independent small scans or 3 subscans.}%
-%%	\label{fig:Setup3SubScans}%
-%%\end{figure*}
+\ifiucr
+	%\onecolumn
+	\begin{figure}%
+		\centering%
+		\caption{Setup; desired FOV and two variants of covering the desired FOV with 9 independent small scans or 3 subscans.}%
+		\begin{tabular}{p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}}
+				\input{tikz-images/SubScanSetup/3fov} &%
+			\input{tikz-images/SubScanSetup/3gold} &%
+			\input{tikz-images/SubScanSetup/3wfs}\\%
+			a) FOV to be covered &%
+			b) Gold Standard; covering the FOV with 9 independently reconstructed small scans&%
+			c) Covering the FOV with merged projections from one central and two ring scans\\%
+		\end{tabular}%
+		\label{fig:Setup3SubScans}%
+	\end{figure}%
+	%\twocolumn
+\else
+	\begin{figure*}[htp]
+		\centering%
+		\input{tikz-images/Setup3SubScans}%
+		\caption{Setup; desired FOV and two variants of covering the desired FOV with 9 independent small scans or 3 subscans.}%
+		\label{fig:Setup3SubScans}%
+	\end{figure*}
+\fi
 
 The protocols shown for increasing the FOV to three times the detector width can be iterated to bigger FOV. Figures~\ref{fig:Setup5SubScans} and \ref{fig:Setup7SubScans} show the setup if the FOV has to be increased five or seven times, respectively.
 
-%%% iucr %%%
-%\onecolumn
-\begin{figure}%
-	\centering%
-	\caption{Setup; desired FOV and two variants of covering the desired FOV with 25 independent small scans or 5 subscans.}%
-	\begin{tabular}{p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}}%
-		\input{tikz-images/SubScanSetup/5fov} &%
-		\input{tikz-images/SubScanSetup/5gold} &%
-		\input{tikz-images/SubScanSetup/5wfs}\\%
-		a) FOV to be covered &%
-		b) Gold Standard; covering the FOV with 25 independently reconstructed small scans &%
-		c) Covering the FOV with merged projections from one central and four ring scans \\%
-	\end{tabular}%
-	\label{fig:Setup5SubScans}%
-\end{figure}%
-%\twocolumn
-%%% iucr %%%
-%%% normal figures %%%
-%\begin{figure*}[htp]
-%	\centering%
-%	\input{tikz-images/Setup5SubScans}%
-%%	\caption[Setup for 5 SubScans]
-%	\caption{Setup; desired FOV and two variants of covering the desired FOV with 25 independent small scans or 5 subscans.}%
-%	\label{fig:Setup5SubScans}%
-%\end{figure*}
+\ifiucr
+	\begin{figure}%
+		\centering%
+		\caption{Setup; desired FOV and two variants of covering the desired FOV with 25 independent small scans or 5 subscans.}%
+		\begin{tabular}{p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}}%
+			\input{tikz-images/SubScanSetup/5fov} &%
+			\input{tikz-images/SubScanSetup/5gold} &%
+			\input{tikz-images/SubScanSetup/5wfs}\\%
+			a) FOV to be covered &%
+			b) Gold Standard; covering the FOV with 25 independently reconstructed small scans &%
+			c) Covering the FOV with merged projections from one central and four ring scans \\%
+		\end{tabular}%
+		\label{fig:Setup5SubScans}%
+	\end{figure}%
+\else
+	\begin{figure*}[htp]
+		\centering%
+		\input{tikz-images/Setup5SubScans}%
+	%	\caption[Setup for 5 SubScans]
+		\caption{Setup; desired FOV and two variants of covering the desired FOV with 25 independent small scans or 5 subscans.}%
+		\label{fig:Setup5SubScans}%
+	\end{figure*}
+\fi
 
-%%% iucr %%%
-%\onecolumn
-\begin{figure}%
-	\centering%
-	\caption{Setup; desired FOV and two variants of covering the desired FOV with 49 independent small scans or 7 subscans.}%
-	\begin{tabular}{p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}}%
-		\input{tikz-images/SubScanSetup/7fov} &%
-		\input{tikz-images/SubScanSetup/7gold} &%
-		\input{tikz-images/SubScanSetup/7wfs} \\%
-		a) FOV to be covered &%
-		b) Gold Standard; covering the FOV with 49 independently reconstructed small scans &%
-		c) Covering the FOV with merged projections from one central and six ring scans \\%
-	\end{tabular}%
-	\label{fig:Setup7SubScans}%
-\end{figure}%
-%\twocolumn
-%%% iucr %%%
-%%% normal figures %%%
-%\begin{figure*}[htp]
-%	\centering%
-%	\input{tikz-images/Setup7SubScans}%
-%%	\caption[Setup for 7 SubScans]
-%	\caption{Setup; desired FOV and two variants of covering the desired FOV with 49 independent small scans or 7 subscans.}%
-%	\label{fig:Setup7SubScans}%
-%\end{figure*}
+\ifiucr
+	%\onecolumn
+	\begin{figure}%
+		\centering%
+		\caption{Setup; desired FOV and two variants of covering the desired FOV with 49 independent small scans or 7 subscans.}%
+		\begin{tabular}{p{0.3\linewidth}p{0.3\linewidth}p{0.3\linewidth}}%
+			\input{tikz-images/SubScanSetup/7fov} &%
+			\input{tikz-images/SubScanSetup/7gold} &%
+			\input{tikz-images/SubScanSetup/7wfs} \\%
+			a) FOV to be covered &%
+			b) Gold Standard; covering the FOV with 49 independently reconstructed small scans &%
+			c) Covering the FOV with merged projections from one central and six ring scans \\%
+		\end{tabular}%
+		\label{fig:Setup7SubScans}%
+	\end{figure}%
+	%\twocolumn
+\else
+	\begin{figure*}[htp]
+		\centering%
+		\input{tikz-images/Setup7SubScans}%
+	%	\caption[Setup for 7 SubScans]
+		\caption{Setup; desired FOV and two variants of covering the desired FOV with 49 independent small scans or 7 subscans.}%
+		\label{fig:Setup7SubScans}%
+	\end{figure*}
+\fi
 
 \subsection{Wide Field Scanning Setup}%
 \label{subsec:wfs-setup}%
@@ -256,25 +270,29 @@ A custom MATLAB-script (MATLAB\textsuperscript{\textregistered} 7.6.0.321 (R2008
 
 After the user has chosen a suitable protocol which balances the requirements for reconstruction quality and need for fast acquisition time (corresponding to one dot in figure~\ref{fig:qualityplot}), a preference file is written. This preference file contains the details of the selected scan like amount of needed subscans, the positions of the sample, number of projections as well as start and stop angles of the rotation for each subscan. Subsequently, the preference file is parsed by a custom Python-script to interact with the EPICS-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which itself is used to control the hardware of the TOMCAT beamline, allowing for an unattended batch scan of all the desired subscans.
 
-After the multiple subscans have been recorded, the stitching of the different amount of projections recorded per subscans into big projections covering the desired FOV is performed with minimal user interaction using a second MATLAB-script. Further processing of the merged projections like sinogram generation and reconstruction into the tomographic dataset is integrated into the TOMCAT data-processing pipeline, as specified by~\citeasnoun{Hintermueller2009}).
+After the multiple subscans have been recorded, the stitching of the different amount of projections recorded per subscans into big projections covering the desired FOV is performed with minimal user interaction using a second MATLAB-script. Further processing of the merged projections like sinogram generation and reconstruction into the tomographic dataset is integrated into the TOMCAT data-processing pipeline, as specified by%
+\ifhtml
+	~\citet{Hintermueller2009}
+\else
+	~\citeasnoun{Hintermueller2009}
+\fi%
+).
 
-%%% iucr %%%
-\begin{figure}%
+\ifiucr
+	\begin{figure}%
+		\centering%
+		\caption{Quality-Plot of 19 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. Details of these scans are shown in table~\ref{tab:protocols} and are discussed in section~\ref{sec:Results}.}%
+		\input{tikz-images/plots/19Protocols-QualityPlot}%
+		\label{fig:qualityplot}%
+	\end{figure}%
+\else
+\begin{figure*}[htp]
 	\centering%
-	\caption{Quality-Plot of 19 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. Details of these scans are shown in table~\ref{tab:protocols} and are discussed in section~\ref{sec:Results}.}%
 	\input{tikz-images/plots/19Protocols-QualityPlot}%
+	\caption{Quality-Plot of 19 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. Details of these scans are shown in table~\ref{tab:protocols} and are discussed in section~\ref{sec:Results}.}%
 	\label{fig:qualityplot}%
-\end{figure}%
-%%% iucr %%%
-%%% normal figures %%%
-%\begin{figure*}[htp]
-%	\centering%
-%	\input{tikz-images/plots/19Protocols-QualityPlot}%
-%%	\caption[Quality-Plot of 19 calculated protocols.]
-%	\caption{Quality-Plot of 19 calculated protocols. The red dots show the expected quality of the different protocols, the black plot is a polynomial fit $p(x)$ with $n=4$ for $p(x)=p_{1}x^{n}+p_{2}x^{n-1}+\cdots+p_{n}x+p_{n+1}$. Details of these scans are shown in table~\ref{tab:protocols} and are discussed in section~\ref{sec:Results}.}%
-%	\label{fig:qualityplot}%
-%\end{figure*}
-%%% normal figures %%%
+	\end{figure*}
+\fi
 
 Table~\ref{tab:protocols} provides the numbers for the 19 different protocols that have been scanned for this manuscript. Protocol A would correspond to the scanning configuration shown in figure~\ref{subfig:goldstandard3}, which would require nine independent small scans, nine independent reconstructions and stitching of the resulting small datasets into one big dataset. As shown above, we can equally satisfy the sampling theorem when enough projections are acquired for a simulated detector size that is three times the real detector size of 1024 pixels, so protocol A was omitted for this study. Including an overlap of 100 pixels between the central and the ring scan, we need to acquire $N_{B}=15419$ projections for the gold-standard protocol B ($N_{B}=3(3072+200)\frac{\pi}{2}$). All the other protocols from C--T have been linearly scaled down with a decreasing percentage of acquired total projections of the gold standard. The difference of total amount of projections resulting from this scaling to the amount of projections shown in the table arises through the fact that the amount of projections for each subscan has been chosen in such a way, that the stitching of the projections was possible, hence the small differences in total amount of scanned to total amount of calculated projections.
 
