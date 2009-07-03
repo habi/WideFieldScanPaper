@@ -330,7 +330,7 @@ We were able to reduce the total acquisition time by \SI{86.25}{\percent} compar
 %\end{table}%
 %%\twocolumn
 
-\begin{table}%
+\begin{table}
 	\caption{Specification of different protocols and time used compared to gold standard. Protocol A corresponds to the Gold Standard, and would have been needed to cover the same FOV with 9 independent scans with a detector width of 1024 pixels (plus an overlap of 100 pixels), resulting in a number of projections $N_{A}=9*(1024+100)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 15890$. Protocol B corresponds to the protocol shown in figure~\ref{subfig:protocol3}, resulting in a total number of projections of $N_{B} = 3(3072+200)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 15419$.}%
 		\label{tab:protocols}%
 	\centering%
@@ -358,7 +358,7 @@ We were able to reduce the total acquisition time by \SI{86.25}{\percent} compar
 		S &  874 &  874 &  874 &  2622 & 16.50 \\%
 		T &  874 &  437 &  874 &  2185 & 13.75 \\%
 	\end{tabular}%
-\end{table}%
+\end{table}
 
 \subsection{Batch Acquisition of the Protocols}%
 All subscans of each protocol have been scanned without any user intervention, except input of the sample name at the start of the batch-scan. All parameters such as sample-position in relation to the beam, rotation angles and amount of projections to obtain for the subscans have been set in a preference-file. For all 19 scanned protocols (B--T) the sample on the sample holder has not been touched, so that a direct comparison of the reconstructed slices is possible.

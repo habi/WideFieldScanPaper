@@ -1,14 +1,14 @@
 \newif\ifhtml%
 	\htmltrue%
-%	\htmlfalse%
+	\htmlfalse%
 \newif\ifiucr%
 	\iucrtrue% figures according to iucr
 %	\iucrfalse% figures normal
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifhtml%
-	\documentclass{article}%
+	\documentclass[a4paper]{article}%
 \else%
-	\documentclass[preprint]{iucr}%
+	\documentclass[a4paper,preprint]{iucr}%
 		\paperprodcode{a000000}      % Replace with production code if known
 		\paperref{xx9999}            % Replace xx9999 with reference code if known
 		\papertype{FA}
@@ -27,7 +27,7 @@
 \ifhtml % In case of web format output...
 	\def\pgfsysdriver{pgfsys-tex4ht.def}
 	\usepackage[caption=false,format=hang]{subfig}
-	\usepackage{endfloat}
+	\usepackage[nolists]{endfloat}
 	\usepackage[numbers,sort&compress]{natbib}
 	\usepackage[disable]{todonotes}
 		\renewcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}} % redefines todo for html-conversion
@@ -79,22 +79,26 @@
 	\DeclareGraphicsExtensions{.png}
 	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}%
 	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}%
+\else
+	\begin{document}
+\fi
 	
-	\title{Quality driven expansion of the Field of View in synchrotron radiation x-ray tomographic microscopy}%
+\title{Quality driven expansion of the field of view in synchrotron radiation x-ray tomographic microscopy}%
 	
+\ifhtml
 	\author{David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
 	  \and Christoph Hintermüller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}%
 	  \and Johannes C. Schittny\footrecall{ana}%
 	  \and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}%
 	  }
-	
 	\begin{document}
 	
 	\maketitle
 \else
-	\begin{document}
-	
-	\title{A broader vision for tomographic microscopy - Quality driven wide field synchrotron radiation x-ray tomographic microscopy}
+\fi
+
+\ifhtml
+\else
 	\shorttitle{A broader vision for tomographic microscopy}
 	
 	\cauthor[a]{David}{Haberthür}{haberthuer@ana.unibe.ch}{}
