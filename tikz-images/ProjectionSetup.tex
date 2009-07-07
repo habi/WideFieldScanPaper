@@ -8,9 +8,9 @@
 %\begin{figure}
 %\centering
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\radius{1}
-\def\gap{0.05}
-\begin{tikzpicture}[ultra thick]
+\def\radius{1}%
+\def\gap{0.05}%
+\begin{tikzpicture}[ultra thick,scale=.618]%
 	\foreach \ang in {0,45,...,359}%
 		{%
 		\draw [color=green] (\ang:0) -- (\ang:\radius);%

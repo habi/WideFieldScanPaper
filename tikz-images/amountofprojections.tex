@@ -12,8 +12,8 @@
 \def\overlap{.075}
 \def\projangle{17}
 \def\angleshift{2}
-\begin{tikzpicture}[scale=1.5]
-	\small
+\begin{tikzpicture}[scale=1.6]
+	\scriptsize
 	%% Fill CenterScan
 		\pattern [pattern=checkerboard light gray] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1,0) arc (180:0:\radius);
 		\fill [color=red,nearly transparent] (1,0) -- (3,0) arc (0:180:3*\radius) -- (-1+\overlap,0) arc (180:0:\radius-\overlap);

@@ -10,7 +10,6 @@
 %\centering
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
-
 	%%%%%%%%%%%%%%%%%%%
 	%      grid       %
 	%%%%%%%%%%%%%%%%%%%
@@ -24,9 +23,10 @@
 		\def\startAtY{9}
 		\def\BeamLength{4}
 		\def\length{2}
+		\node [anchor=north] at (0.5,\startAtY) {a)};
 		%camera
 			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
-			\node at (0.5,\startAtY-.25) {camera};
+			\node [anchor=center] at (0.5,\startAtY+1+.25) {camera};
 		% beam
 			% inner rays
 			\foreach \x in {9,9.1,...,10}
@@ -41,11 +41,12 @@
 			\fill (0.5*\BeamLength+1,\startAtY+0.5) circle (0.025);
 			\draw [thick] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
 			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.25)   arc (-90:90:0.25);
-			\node at (0.5*\BeamLength+1,\startAtY-0.25) {sample};
+			\node at (0.5*\BeamLength+1,\startAtY+1+0.25) {sample};
 	%%%%%%%%%%%%%%%%%%%
 	%       360       %
 	%%%%%%%%%%%%%%%%%%%
 		\def\startAtY{6}
+		\node [anchor=north] at (0.5,\startAtY) {b)};
 		%camera
 			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
 %			\node at (0.5,\startAtY-.25) {camera};
@@ -68,6 +69,7 @@
 	% Wide Field Scan %
 	%%%%%%%%%%%%%%%%%%%
 		\def\startAtY{2}
+		\node [anchor=north] at (0.5,\startAtY) {c)};
 		%camera
 			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
 %			\node at (0.5,\startAtY-.25) {camera};

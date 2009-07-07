@@ -16,24 +16,26 @@
 			% Cutline between SubScan 1 and 2: 141 pixels
 			% Cutline between SubScan 2 and 3: 138 pixels
 			% --------------------------------------------------------------
+			\def\size{1023}%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
 					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_s13358_normalize}};%
 %					{\includegraphics[width=\imagewidth]{R108C21Cb_s13358_normalize}};%
 				\def\overlap{141}%
-				\fill [red, nearly transparent] (1024-\overlap,1) rectangle (1024,1024);%
-				\draw (1024-\overlap,1) rectangle (1024,1024);%
+				\fill [red, nearly transparent] (1024-\overlap,1) rectangle (\size,\size);%
+				\draw (1024-\overlap,1) rectangle (\size,\size);%
+				\node [anchor=center,color=white] at (100,1024-100) {a)};				
 			\end{tikzpicture}%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
 					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_s23358_normalize}};%
 %					{\includegraphics[width=\imagewidth]{R108C21Cb_s23358_normalize}};%
 				\def\overlap{141}%
-				\fill [green, nearly transparent] (1,1) rectangle (\overlap,1024);%
-				\draw (1,1) rectangle (\overlap,1024);%
+				\fill [green, nearly transparent] (1,1) rectangle (\overlap,\size);%
+				\draw (1,1) rectangle (\overlap,\size);%
 				\def\overlap{138}%
-				\fill [blue, nearly transparent] (1024-\overlap,1) rectangle (1024,1024);%
-				\draw (1024-\overlap,1) rectangle (1024,1024);%
+				\fill [blue, nearly transparent] (1024-\overlap,1) rectangle (\size,\size);%
+				\draw (1024-\overlap,1) rectangle (\size,\size);%
 			\end{tikzpicture}%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				% place image (integer coordinates refer to pixel centers):
@@ -41,9 +43,9 @@
 					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_s33358_normalize}};%
 %					{\includegraphics[width=\imagewidth]{R108C21Cb_s33358_normalize}};%
 				\def\overlap{138}%
-				\fill [yellow, nearly transparent] (1,1) rectangle (\overlap,1024);%
-				\draw (1,1) rectangle (\overlap,1024);%
-				\draw[|-|,thick] (1,200) -- (1024,200) node [color=white,midway,above] {\SI{1.51552}{\milli\meter}};%
+				\fill [yellow, nearly transparent] (1,1) rectangle (\overlap,\size);%
+				\draw (1,1) rectangle (\overlap,\size);%
+				\draw[|-|,thick] (5,200) -- (1021,200) node [color=white,midway,above] {\SI{1.51552}{\milli\meter}};%
 				\def\x{924}% 1024 - 100
 				\def\y{922}% 1024 * .9 = 921.6
 				\def\bar{338}% 100 px = 148 um

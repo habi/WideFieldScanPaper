@@ -8,7 +8,7 @@
 \ifhtml%
 	\documentclass[a4paper]{article}%
 \else%
-	\documentclass[a4paper,preprint]{iucr}%
+	\documentclass[s,preprint]{iucr}%
 		\paperprodcode{a000000}      % Replace with production code if known
 		\paperref{xx9999}            % Replace xx9999 with reference code if known
 		\papertype{FA}
@@ -122,13 +122,9 @@
 \fi
 
 \begin{abstract}
-State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at high resolution using local tomographic reconstruction or extending the field of view in vertical direction by combining the data of several scans.
-
-The present work defines the acquisition protocols by which the field of view can be increased in horizontal direction beyond the field of view of a standard synchrotron radiation based x-ray tomographic microscope.
-
-We show that the lateral field of view can be increased in horizontal direction up to five times to acquire wide field scans of arbitrary samples in an unattended, automatic way based on objective criteria like resolution and contrast of the reconstructed slices  and scanning time into account.
+High resolution Volumetric data may be acquired at micrometer level within a few minutes using synchrotron radiation based X-ray tomographic microscopy (SRXRM). This speed enables us to investigate large objects at high resolution by combining several tomograms. The field of view may be increased in direction of the rotational axis of the sample by stacking single tomograms. In the present work we developed an acquisition protocol to increase the field of view perpendicular to the rotational axis, too. 3--5 high resolution tomograms were take side by side. The projectional images of each rotational angle were stitched to one large projection, followed by the generation of sinograms and the reconstruction of the entire sample volume. The total number of projectional images taken was optimized based on objective criteria taking reconstruction quality, scanning time and computing time into account. This method will be called wide field-SRXTM. Wide field-SRXTM increases the lateral field of view up to five times and the reconstructed sample volume up to 25-fold. We successfully applied it for the three-dimensional imaging of entire rat lung acini of an diameter of 3--4 mm at a resolution of less than \SI{2}{\micro\meter}.
 \end{abstract}
-%
+
 \input{wfs-introduction}
 \input{wfs-materials-and-methods}
 \input{wfs-results}
@@ -147,7 +143,7 @@ We show that the lateral field of view can be increased in horizontal direction 
 	\bibliographystyle{unsrtnat}
 	\bibliography{../references}
 \else
-	\ack{This work has been funded by grant 3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for the help with the preparation of the samples. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions. Dipl.-Ing.\ Sophie Rausch of the Institute for Computational Mechanics, Technische Universität München has provided the lung samples shown in figure~\ref{fig:LungSlabSophie}.}
+	\ack{This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for expert technical assistance with the preparation of the samples. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions. Dipl.-Ing.\ Sophie Rausch of the Institute for Computational Mechanics, Technische Universität München has provided the lung samples shown in figure~\ref{fig:LungSlabSophie}.}
 
 	\let\oldharvardurl=\harvardurl%
 	\renewcommand{\harvardurl}[1]{\relax}%

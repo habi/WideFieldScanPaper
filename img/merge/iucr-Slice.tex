@@ -9,10 +9,9 @@
 %\begin{figure}
 %	\centering
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		\pgfmathsetlength{\imagewidth}{\imsize}% desired displayed width of image
-		\pgfmathsetlength{\imagescale}{\imagewidth/2792}% pixel width of image (image has been resized from 2994*1123, so that scalebar is at the same height without calculating too much...)
+		\pgfmathsetlength{\imagewidth}{\imsize}%
+		\pgfmathsetlength{\imagescale}{\imagewidth/2792}%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-				% place image (integer coordinates refer to pixel centers):
 				\node [anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
 					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_mrg1024rec8bit}};% ``mogrify -shave 0x900 -normalize -format png R108C21Cb_mrg1024rec8bit.tif''
 %					{\includegraphics[width=\imagewidth]{R108C21Cb_mrg1024rec8bit}};
@@ -22,7 +21,7 @@
 				\def\bar{338} % 100 px = 148 um
 				%%%% scalebar
 					\draw[|-|,thick,color=white] (\x-\bar,\y) -- (\x,\y) node [midway, above] {\SI{500}{\micro\meter}};
-					\draw[|-|,thick,color=white] (1,20) -- (2792,20) node [midway, below] {\SI{4.13216}{\milli\meter}};
+					\draw[|-|,thick,color=white] (5,30) -- (2787,30) node [midway, below] {\SI{4.13216}{\milli\meter}};
 				%%%% center
 					\fill [color=red] (2792/2,992/2) circle (5);
 				%%%% big circle
@@ -53,6 +52,7 @@
 %					{\includegraphics[width=\size]{R108C21Cb_mrg1024rec8bit}};
 %					\draw[white] (0,0) rectangle (\size,-\size);
 				%%%% inset
+				\node [anchor=center,color=white] at (100,1024-100) {c)};%
 				\end{tikzpicture}%
 			\label{fig:merge-rec}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
