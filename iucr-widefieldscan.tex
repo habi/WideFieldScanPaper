@@ -8,7 +8,10 @@
 \ifhtml%
 	\documentclass[a4paper]{article}%
 \else%
-	\documentclass[s,preprint]{iucr}%
+	\documentclass[draft,s,preprint]{iucr}%
+	%\documentclass[s,preprint]{iucr}%
+	%\documentclass[draft,s]{iucr}%
+	%\documentclass[s]{iucr}%
 		\paperprodcode{a000000}      % Replace with production code if known
 		\paperref{xx9999}            % Replace xx9999 with reference code if known
 		\papertype{FA}
@@ -143,7 +146,7 @@ High resolution Volumetric data may be acquired at micrometer level within a few
 	\bibliographystyle{unsrtnat}
 	\bibliography{../references}
 \else
-	\ack{This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for expert technical assistance with the preparation of the samples. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions. Dipl.-Ing.\ Sophie Rausch of the Institute for Computational Mechanics, Technische Universität München has provided the lung samples shown in figure~\ref{fig:LungSlabSophie}.}
+	\ack{This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for excellent technical assistance with the preparation of the samples. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions. Dipl.-Ing.\ Sophie Rausch of the Institute for Computational Mechanics, Technische Universität München provided the lung sample shown in figure~\ref{fig:LungSlabSophie}.}
 
 	\let\oldharvardurl=\harvardurl%
 	\renewcommand{\harvardurl}[1]{\relax}%
