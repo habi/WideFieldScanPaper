@@ -25,20 +25,14 @@ Rat lung samples, prepared according to %
 \else
 	\citeasnoun{Schittny1997} and \citeasnoun{Tschanz2002}
 \fi%
-were used as test objects. Briefly, lungs of Sprague-Dawley rats have been extracted after they have been perfused and filled with buffered \SI{2.5}{\percent} glutaraldehyde (C$_5$H$_8$O$_2$) solution by instillation via tracheotomy at a constant pressure of \SI{20}{\centi\meter} water column. Subsequently, the lungs were dissected free and immersed in toto in the same fixative for at least \SI{24}{\hour} at a temperature of \SI{4}{\celsius}.
+were used as test objects. Briefly, lungs of Sprague-Dawley rats have been filled with \SI{2.5}{\%} glutaraldehyde (C$_5$H$_8$O$_2$) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) by instillation via tracheotomy at a constant pressure of \SI{20}{\centi\meter} water column. In order to prevent a recoiling of the lung, the pressure was maintained during fixation (minimum of \SI{2}{\hour}). Subsequently, the lungs were dissected free and immersed in toto in the same fixative for at least \SI{24}{\hour} at a temperature of \SI{4}{\celsius}.
 
-The samples were been postfixed with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and stained with \SI{4}{\percent} uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and embedded in paraffin using Histoclear (SHANDON GmbH, Frankfurt, Germany) as an intermedium. The lung samples were mounted onto standard electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) using paraffin.
+The samples were postfixed with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and stained with \SI{4}{\percent} uranyl acetate (C$_4$H$_6$O$_6$U), dehydrated in a graded series of ethanol and embedded in paraffin using Histoclear (SHANDON GmbH, Frankfurt, Germany) as an intermedium. The lung samples were mounted onto standard electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) using paraffin.
 
 Handling of the animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern.
 
 \subsection{SRXTM}%
-All experiments were performed at the TOMCAT beamline, Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{1.22}{\angstrom}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth range of a few percent to a few permille. Detailed technical specifications of the beamline and beam characteristics have been described by%
-\ifhtml
-	~\citet{Stampanoni2006a}
-\else
-	~\citeasnoun{Stampanoni2006a}
-\fi%
-.
+All experiments were performed at the TOMCAT beamline~\cite{Stampanoni2006a}, Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet. The critical energy of this super-bending magnet is \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{1.22}{\angstrom}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt} with a bandwidth range of a few percent to a few permille.
 
 \subsubsection{Image acquisition and reconstruction}%
 \label{seq:Image Acquisition}%
@@ -89,7 +83,7 @@ Samples which are twice as large as the field of view can be imaged using scanni
 	\end{figure}
 \fi
 
-If we would like to achieve tomographic scans covering a size wider than two field of views, we have to combine three or more \SI{180}{\degree} scans taken at sligtly overlapping positions as shown figure~\ref{fig:scanning-possibilities}c).
+If we would like to achieve tomographic scans covering a size wider than two field of views, we have to combine three or more \SI{180}{\degree} scans taken at slightly overlapping positions as shown figure~\ref{fig:scanning-possibilities}c).
 
 The projection images of each subscan have to overlap by 20-100 pixels to allow an optimal stitching of the multiple projections of each rotational angle into one projection. Using the mean squared difference between adjacent subscan images~\cite{Hintermueller2009}, such a cutline has been calculated for all the adjacent subscans of every scanned protocol and used to merge the single projections into projections covering the full field of view.
 
@@ -100,7 +94,7 @@ To be able to reconstruct the sample, we need to stitch the individual sets of p
 
 \ifiucr
 	\begin{figure}%
-		\caption{Setup with three \SI{180}{\degree} scans; one central (green) and two lateral (red and blue, respectively). In this drawing, we chonse four projections for the central and eight projections for each of the lateral scans. The colors of the three positions correspond to the colors shown in figure~\ref{fig:scanning-possibilities}c). Panel a): scanned projections, panel b): scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}%
+		\caption{Setup with three \SI{180}{\degree} scans; one central (green) and two lateral (red and blue, respectively). In this drawing, we chose four projections for the central and eight projections for each of the lateral scans. The colors of the three positions correspond to the colors shown in figure~\ref{fig:scanning-possibilities}c). Panel a): scanned projections, panel b): scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}%
 		\begin{tabular}{cc}%
 			\input{tikz-images/ProjectionSetup}%
 		&%

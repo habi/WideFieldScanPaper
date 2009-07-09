@@ -32,6 +32,7 @@ Haberthür
 HeadURL
 Hintermueller2009
 Hintermüller
+Histoclear
 Imag
 Institut
 Int
@@ -87,6 +88,9 @@ R108C21Cb
 R108C21Cb_mrg1024
 R108C21Cb_mrg1024rec8bit
 R108C21Cb_mrg3333_normalize
+R108C21Cb_s13358_normalize
+R108C21Cb_s23358_normalize
+R108C21Cb_s33358_normalize
 R108C21Ct_mrg1024
 R108C21_overview_B
 R108C21_overview_T
@@ -117,6 +121,7 @@ TOMCAT-team
 TOmographic
 Technische
 Tel
+Tschanz2002,Schittny1997
 U
 Universität
 Villigen
@@ -128,6 +133,7 @@ YAG
 Zürich
 agauga
 air-to-paraffin
+alveolated
 ana
 and,15
 b
@@ -173,6 +179,7 @@ experimenTs
 f
 five-fold
 full.png
+gas-exchange
 gas-exchanging
 gold-standard
 gray,nearly
@@ -279,6 +286,7 @@ thresholded
 tiff-Files
 time-saving
 tomography
+toto
 ultra-high
 un-binned
 undersampling
@@ -288,6 +296,7 @@ voxel
 voxels
 wave-like
 west,inner
+white,midway,above
 white,thick
 white,ultra
 wide-field
@@ -296,3 +305,4 @@ workflow
 x
 xx9999
 y
+z
