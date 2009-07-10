@@ -8,10 +8,10 @@
 \ifhtml%
 	\documentclass[a4paper]{article}%
 \else%
-	\documentclass[draft,s,preprint]{iucr}%
-	%\documentclass[s,preprint]{iucr}%
-	%\documentclass[draft,s]{iucr}%
-	%\documentclass[s]{iucr}%
+%	\documentclass[draft,s,preprint]{iucr}%
+	\documentclass[s,preprint]{iucr}%
+%	\documentclass[draft,s]{iucr}%
+%	\documentclass[s]{iucr}%
 		\paperprodcode{a000000}      % Replace with production code if known
 		\paperref{xx9999}            % Replace xx9999 with reference code if known
 		\papertype{FA}
@@ -47,7 +47,6 @@
 \usepackage{graphicx}
 \usepackage[english]{babel}
 \usepackage{svn-multi}								% to add SVN-Versioning-Info
-%\usepackage[caption=false,format=hang]{subfig}		% [font = small]
 \let\Gray\relax
 \usepackage[alsoload=binary,alsoload=synchem]{siunitx}		% typographically correct units (\milli\meter, \kilo\electronvolt), [alsoload=binary] > \SI{100}{\giga\byte}, [alsoload=synchem] > \SI{0.03}{\Molar}
 \usepackage{multirow}								% multirows in tables
@@ -67,16 +66,6 @@
 {$LastChangedDate: 2009-06-12 16:18:35 +0200 (Fr, 12 Jun 2009) $}
 {$LastChangedRevision: 162 $}
 {$LastChangedBy: $}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\includeonly{wfs-materials-and-methods,wfs-discussion}
-%1 wfs-introduction
-%2 wfs-materials-and-methods
-%3 wfs-results
-%4 wfs-discussion
-%5 wfs-summary
-%6 wfs-acknowledgements}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifhtml
 	\DeclareGraphicsExtensions{.png}
@@ -105,8 +94,8 @@
 	\shorttitle{A broader vision for tomographic microscopy}
 	
 	\cauthor[a]{David}{Haberthür}{haberthuer@ana.unibe.ch}{}
-	\author[b]{Christoph}{Hintermüller}
-	\author[a]{Johannes C.}{Schittny}
+	\author[b]{Christoph}{Hintermüller}{}{}
+	\author[a]{Johannes C.}{Schittny}{}{}
 	\cauthor[b,c]{Marco}{Stampanoni}{marco.stampanoni@psi.ch}{}
 	
 	\aff[a]{Institute of Anatomy, University of Bern, \country{Switzerland}}
@@ -128,30 +117,24 @@
 High resolution Volumetric data may be acquired at micrometer level within a few minutes using synchrotron radiation based X-ray tomographic microscopy (SRXTM). This speed enables us to investigate large objects at high resolution by combining several tomograms. The field of view may be increased in direction of the rotational axis of the sample by stacking single tomograms. In the present work we developed an acquisition protocol to increase the field of view perpendicular to the rotational axis, too. 3--5 high resolution tomograms were take side by side. The projectional images of each rotational angle were stitched to one large projection, followed by the generation of sinograms and the reconstruction of the entire sample volume. The total number of projectional images taken was optimized based on objective criteria taking reconstruction quality, scanning time and computing time into account. This method will be called wide field-SRXTM. Wide field-SRXTM increases the lateral field of view up to five times and the reconstructed sample volume up to 25-fold. We successfully applied it for the three-dimensional imaging of entire rat lung acini of an diameter of 3--4 mm at a resolution of less than \SI{2}{\micro\meter}.
 \end{abstract}
 
-\input{wfs-introduction}
-\input{wfs-materials-and-methods}
-\input{wfs-results}
-\input{wfs-discussion}
-\input{wfs-summary}
-%		
-%\include{wfs-introduction}
-%\include{wfs-materials-and-methods}
-%\include{wfs-results}
-%\include{wfs-discussion}
-%\include{wfs-summary}
+\input{wfs-introduction}%
+\input{wfs-materials-and-methods}%
+\input{wfs-results}%
+\input{wfs-discussion}%
+\input{wfs-summary}%
 
-\ifhtml % In case of web format output...
-	\input{wfs-acknowledgements}
+\ifhtml
+	\input{wfs-acknowledgements}%
 	
-	\bibliographystyle{unsrtnat}
-	\bibliography{../references}
+	\bibliographystyle{unsrtnat}%
+	\bibliography{../references}%
 \else
-	\ack{This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for excellent technical assistance with the preparation of the samples. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions. Dipl.-Ing.\ Sophie Rausch of the Institute for Computational Mechanics, Technische Universität München provided the lung sample shown in figure~\ref{fig:LungSlabSophie}.}
-
-	\let\oldharvardurl=\harvardurl%
-	\renewcommand{\harvardurl}[1]{\relax}%
-	\referencelist[../references]%
-	\let\harvardurl=\oldharvardurl%
+	\ack{This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for excellent technical assistance with the preparation of the samples. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions. Dipl.-Ing.\ Sophie Rausch of the Institute for Computational Mechanics, Technische Universität München provided the lung sample shown in figure~\ref{fig:LungSlabSophie}.}%
+%
+\let\oldharvardurl=\harvardurl%
+\renewcommand{\harvardurl}[1]{\relax}%
+\referencelist[../references]%
+\let\harvardurl=\oldharvardurl%
 \fi
 
 \end{document}
