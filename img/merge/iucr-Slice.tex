@@ -13,7 +13,7 @@
 		\pgfmathsetlength{\imagescale}{\imagewidth/2792}%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 				\node [anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
-					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_mrg1024rec8bit}};% ``mogrify -shave 0x900 -normalize -format png R108C21Cb_mrg1024rec8bit.tif''
+					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_mrg1024rec8bit}};% ``mogrify -shave 0x900 -format png R108C21Cb_mrg1024rec8bit.tif''
 %					{\includegraphics[width=\imagewidth]{R108C21Cb_mrg1024rec8bit}};
 				\clip (0,0) rectangle (2792,992);				
 				\def\x{2692} % 2792-100
@@ -21,22 +21,22 @@
 				\def\bar{338} % 100 px = 148 um
 				%%%% scalebar
 					\draw[|-|,thick,color=white] (\x-\bar,\y) -- (\x,\y) node [midway, above] {\SI{500}{\micro\meter}};
-					\draw[|-|,thick,color=white] (5,30) -- (2787,30) node [midway, below] {\SI{4.13216}{\milli\meter}};
+%					\draw[|-|,thick,color=white] (5,30) -- (2787,30) node [midway, below] {\SI{4.13216}{\milli\meter}};
 				%%%% center
 					\fill [color=red] (2792/2,992/2) circle (5);
 				%%%% big circle
-					\draw [dashed, color=red] (2792/2,992/2) circle (512);
+					\draw [dashed, ultra thick, color=red] (2792/2,992/2) circle (512);
 					\def\angle{35}
-					\draw [white,thick,<->] (2792/2,992/2) +(\angle:0) --  node (bigto) {} +(\angle:512); 
+					\draw [white, thick, <->] (2792/2,992/2) +(\angle:0) --  node (bigto) {} +(\angle:512); 
 					\node [white] (bigfrom) at (256,256){$\frac{1024}{2}$px};
-					\draw [white,->,densely dotted] (bigfrom) to [bend left=45] (bigto);
+					\draw [white, ->, thick, densely dotted] (bigfrom) to [bend left=45] (bigto);
 				%%%% big circle
 				%%%% 141px circle
-				\draw [dashed, color=red] (2792/2,992/2) circle (512-141);
+				\draw [dashed, ultra thick, color=red] (2792/2,992/2) circle (512-141);
 				\def\angle{35+90}
 					\draw [white,thick,<->] (2792/2,992/2) +(\angle:0) -- node (smallto) {} +(\angle:512-141);
 					\node [white] (smallfrom) at (256,384) {$\frac{1024}{2}-141$px};
-					\draw [white,->,densely dotted] (smallfrom) to [bend left=45] (smallto);
+					\draw [white, ->, thick, densely dotted] (smallfrom) to [bend left=45] (smallto);
 				%%%% 141px circle					
 %				%%%% 138px circle
 %				\draw [dashed,color=red] (2792/2,992/2) circle (512-138);
@@ -52,7 +52,7 @@
 %					{\includegraphics[width=\size]{R108C21Cb_mrg1024rec8bit}};
 %					\draw[white] (0,0) rectangle (\size,-\size);
 				%%%% inset
-				\node [anchor=center, color=white] at (100,1024-100) {c)};%
+				\node [anchor=south west, color=white] at (0,1024) {c)};%
 				\end{tikzpicture}%
 			\label{fig:merge-rec}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	

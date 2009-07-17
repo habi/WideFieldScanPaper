@@ -17,12 +17,13 @@
 		}%
 	\foreach \ang in {0,22.5,...,179}%
 		{%
-		\draw [color=magenta] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
+		\draw [color=red] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
 		}%
 	\foreach \ang in {180,202.5,...,359}%
 		{%
 		\draw [color=blue] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
 		}%
+	\node [anchor=south west] at (-3,-3) {a)};
 \end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 %\caption{Projection Setup}
