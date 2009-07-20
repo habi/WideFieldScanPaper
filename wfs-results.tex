@@ -4,23 +4,23 @@
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
-
-\ifhtml
-\else
-\begin{center}
-	\fbox{
-		\begin{minipage}{.618\columnwidth}
-		The section below is versioned at \url{\svnkw{HeadURL}} (last commit @ \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute, Revision: \svnkw{LastChangedRevision}).
-		\end{minipage}
-	} 
-\end{center}
-\fi
-
+%
+%\ifhtml
+%\else
+%\begin{center}
+%	\fbox{
+%		\begin{minipage}{.618\columnwidth}
+%		The section below is versioned at \url{\svnkw{HeadURL}} (last commit @ \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute, Revision: \svnkw{LastChangedRevision}).
+%		\end{minipage}
+%	} 
+%\end{center}
+%\fi
+%
 \section{Results}%
 \label{sec:Results}%
 \subsection{Image Merging and Reconstruction}%
 \label{sec:Image Merging and Reconstruction}%
-Multiple independently acquired projection images covering the desired field of view have been merged into single projections covering the full field of view. Figure~\ref{fig:wide field scan results}a) shows corrected projection images from overlapping subscans with marked overlapping region. Figure~\ref{fig:wide field scan results}b) shows a merged projection image prior to reconstruction and figure~\ref{fig:wide field scan results}c) shows one slice of the reconstructed dataset of protocol B, acquired from 5244 projections. Such a reconstructed slice covers a field of view of 2792$\times$2792 pixels (4.13$\times$\SI{4.13}{\milli\meter}) which is three times the size of what can be achieved with one single binned scan (1024 pixels or \SI{1.52}{\milli\meter}). %1024 * 1.48 um/px = 1.51552mm
+Multiple independently acquired projection images covering the desired field of view have been merged into single projections covering the full field of view. Figure~\ref{fig:wide field scan results}a) shows corrected projection images from three overlapping subscans prior to merging (with marked overlapping regions). Figure~\ref{fig:wide field scan results}b) shows one merged projection image prior to reconstruction and figure~\ref{fig:wide field scan results}c) shows one slice of the reconstructed dataset of protocol B, acquired from 5244 projections. Such a reconstructed slice covers a field of view of 2792$\times$2792 pixels (4.13$\times$\SI{4.13}{\milli\meter}) which is three times the size of what can be achieved with one single binned scan (1024 pixels or \SI{1.52}{\milli\meter}). %1024 * 1.48 um/px = 1.51552mm
 
 \ifiucr
 	%\onecolumn
@@ -51,7 +51,7 @@ Multiple independently acquired projection images covering the desired field of 
 \fi
 
 \subsection{Increasing the field of view}
-The field of view of classic tomographic scans at TOMCAT did not allow to visualize an entire acini. Increasing the available field of view three times allows us to obtain three dimensional reconstructions of full acini inside the sample, we are not limited by the field of view, only by the available sample size. Figure~\ref{fig:s2-wfs} compares reconstructions of a conventional (fig.~\ref{fig:s2-wfs}a) and of a wide field scan (fig.~\ref{fig:s2-wfs}b). The increased field of view allows the visualization of third acinus (yellow) which is not visible inside the field of view of a conventional scan. In addition, it is also visible that both the red and green segment for the conventional scan are extend out of the field of view of the conventional scan, we need to record a wide field scan to visualize both these segments in three dimensions, as can be observed in figure~\ref{fig:s2-wfs}b). The red and yellow segment visualized for the wide field scan still only contain parts of an acinus, but their size is only limited by the dimensions of the lung sample, not by the imaging method.
+The field of view of classic tomographic scans at TOMCAT did not allow to visualize an entire acinus. Increasing the available field of view three times solved this limitation, it allows us to obtain three dimensional reconstructions of full acini inside the sample not limited by the field of view but only by the available sample size. Figure~\ref{fig:s2-wfs} compares reconstructions of a conventional (fig.~\ref{fig:s2-wfs}a) and of a wide field scan (fig.~\ref{fig:s2-wfs}b). The increased field of view allows the visualization of third acinus (yellow) which is not visible inside the field of view of a conventional scan. In addition, it is also visible that both the red and green segment for the conventional scan are extend out of the field of view of the conventional scan, we need to record a wide field scan to visualize both these segments in three dimensions, as can be observed in figure~\ref{fig:s2-wfs}b). The red and yellow segment visualized for the wide field scan still only contain parts of an acinus, but their size is only limited by the dimensions of the lung sample, not by the imaging method.
 
 \ifiucr
 	%\onecolumn
@@ -158,7 +158,7 @@ Protocol A (Gold standard) would correspond to a scanning configuration covering
 	\end{tabular}%
 \end{table}
 
-We were able to reduce the total acquisition time by \SI{83.86}{\percent} compared to the gold standard, as can be seen in table~\ref{tab:protocols}. All 19 protocols have been scanned, reconstructed and visualized three-dimensionally to assess the artifacts which arise through the reduction of the amount of projections. Even if the reduction in scanning time does introduce visible artifacts in the three-dimensional reconstruction, an automated segmentation of the airways is still possible.
+We were able to reduce the total acquisition time by \SI{83.86}{\percent} compared to the gold standard, as shown in table~\ref{tab:protocols}. All 19 protocols have been scanned, reconstructed and visualized three-dimensionally to assess the artifacts which arise through the reduction of the amount of projections. Even if the reduction in scanning time does introduce visible artifacts in the three-dimensional reconstruction, an automated segmentation of the airways is still possible.
 
 Differences between the protocols have been calculated using the difference image of binarized slices, segmented according to%
 \ifhtml
@@ -193,15 +193,13 @@ The calculated quality of the reconstructions from the different protocols decre
 	\end{figure}
 \fi
 
-For protocols with the same total amount of projections, but different configurations of amount of projections for the central and the ring scan we observed a difference in reconstruction quality (compare the marked protocols C and D as well as protocols M and N in figure~\ref{fig:NormalizedErrorPlot}). This difference arises through the fact that the differing amount of subscans acquired for the central and the subscan add up to the same total amount of projections, but contribute differently to the quality of the reconstruction\todo{Over\-sampling the center vs.\ undersampling it? $\rightarrow$ Discussion, additionally ``missing wedge''-problem?}. From this finding it seems desirable to choose a protocol with equal amounts of subscans for each of the three independent subscans instead of a protocol with the same total amount of projections, but a decreased amount of projections for the central scan. Since a reduced amount of projections for the central scan decrease the reconstruction quality for the central parts of the sample, this explanation seems natural. In addition, the interpolation of missing projections could introduce artifacts in the reconstruction which are suppressed when simply stitching projections without interpolation.
-
 \subsubsection{Three dimensional visualization of different protocols}%
 \label{subsec:comparison}%
-The tomograms of the different protocols have been three dimensionally visualized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany). Airway segments have been extracted using a seed point based region growing algorithm. A seed point for the region growing algorithm has been manually defined in the most proximal slice for each independent airway segment. The coordinates of the seed points have been kept constant for protocol B--T, allowing direct comparison of the airway segment reconstructions of the different protocols. Airway segments extracted for protocol B and T are shown in figure~\ref{fig:BvsT}.
+The tomograms of the different protocols have been three dimensionally visualized and analyzed using MeVisLab (Version 1.6.1 (2008-09-21 Release), MeVis Medical Solutions AG, Bremen, Germany). Airway segments have been extracted using a threshold interval based region growing algorithm. A seed point for the region growing algorithm has been manually defined in the most proximal slice for each independent airway segment. The coordinates of the seed points have been kept constant for protocol B--T, allowing direct comparison of the airway segment reconstructions of the different protocols. Airway segments extracted for protocol B and T are shown in figure~\ref{fig:BvsT}.
 
-The data shown in figure~\ref{fig:BvsT} are representing two extremes of the 19 protocols used. Protocol B corresponds to a slightly oversampled gold standard scan, obtained with in total 15732 projections recorded in 65 minutes. Protocol T has been obtained in just 12 minutes, with in total 2185 projections. The tomographic dataset from protocol B has been reconstructed from 5244 merged projection images, the dataset from protocol T has been reconstructed using only 874 merged projections. Even if we scanned protocol T while violating the sampling theorem, both samples still appear to be identical in the low-resolution three dimensional visualization as shown in figure~\ref{fig:BvsT}a) and b). Except for small differences at the most lateral parts of the sample (yellow segment) the segmented airways appear to identical, even if the scanning time of protocol T has been reduced to \SI{13.75}{\percent} of the scanning time of protocol B.
+The data shown in figure~\ref{fig:BvsT} represent two extremes of the 19 protocols used. Protocol B corresponds to a slightly oversampled gold standard scan, obtained with in total 15732 projections recorded in 65 minutes. Protocol T has been obtained in just 12 minutes, with in total 2185 projections. The tomographic dataset from protocol B has been reconstructed from 5244 merged projection images, the dataset from protocol T has been reconstructed using only 874 merged projections. Even if we scanned protocol T while violating the sampling theorem and with a total scanning time reduced by \SI{13.75}{\percent}, both samples still appear to be identical in the low-resolution three dimensional visualization as shown in figure~\ref{fig:BvsT}a) and b), except for small differences at the most lateral parts of the sample (yellow segment).
 
-The artifacts introduced through the great reduction in scanning time only become apparent at higher magnification. The blue cube inside the green airway segments in figures~\ref{fig:BvsT}a) and \ref{fig:BvsT}b) are shown as isosurface visualizations of the lung tissue (which exactly corresponds to the negative of the extracted airway segment) in figures~\ref{fig:BvsT}c) and \ref{fig:BvsT}d). Both regions of interest show a cube with a side length of \SI{190}{\micro\meter}. We observe that the isosurface of the ROI of protocol T shown in figure~\ref{fig:BvsT}d) appears rougher than the isosurface of protocol B shown in figure~\ref{fig:BvsT}c). This roughness is introduced through wave-like artifacts visible in the original slice of the dataset of protocol T (not shown\todo{since ``old'' figure 11 had been deleted\ldots}) which arise through the breaching of the sampling theorem, since we have only acquired 874 projections for the outer scan (2185 projections in total for protocol T) instead of the 5139 projections ($(3072-200)\frac{\pi}{2}$) that would be necessary to satisfy the sampling theorem. But even with this strong undersampling a segmentation, three dimensional reconstruction and visualization of the sample is still possible. Thus, if the user desired to gain a quick overview over his sample, e.g.\ to quickly assess the integrity of multiple samples over a short time, such a time-saving protocol could be used.
+The artifacts introduced through the reduction in scanning time only become apparent at higher magnification. The blue cube inside the green airway segments in figures~\ref{fig:BvsT}a) and \ref{fig:BvsT}b) are shown as isosurface visualizations of the lung tissue (which exactly corresponds to the negative of the extracted airway segment) in figures~\ref{fig:BvsT}c) and \ref{fig:BvsT}d). Both regions of interest show a cube with a side length of \SI{190}{\micro\meter}. We observe that the isosurface of the ROI of protocol T shown in figure~\ref{fig:BvsT}d) appears rougher than the isosurface of protocol B shown in figure~\ref{fig:BvsT}c). This roughness is introduced through wave-like artifacts visible in the original slice of the dataset of protocol T (not shown\todo{since ``old'' figure 11 had been deleted\ldots}) which arise through the breaching of the sampling theorem, since we have only acquired 874 projections for the two ring-scans (2185 projections in total for protocol T) instead of the 5139 projections ($(3072-200)\frac{\pi}{2}$) which would be necessary to satisfy the sampling theorem. But even with this strong undersampling a segmentation, three dimensional reconstruction and visualization of the sample is still possible. Thus, if the user desired to gain a quick overview over his sample, e.g.\ to quickly assess the integrity of multiple samples over a short time, such a time-saving protocol could be used.
 
 \ifiucr%%% iucr %%%
 	%\onecolumn%
@@ -217,7 +215,7 @@ The artifacts introduced through the great reduction in scanning time only becom
 			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/overview-b}};%
 			% 1391px = 4.0138mm > 100px = 288um > 173px = 500um
-			\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};%
+%			\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+173,\y) node [midway,above] {\SI{500}{\micro\meter}};%
 			\node [anchor=south west] at (0,899) {a)};%
 		\end{tikzpicture}%
@@ -225,7 +223,7 @@ The artifacts introduced through the great reduction in scanning time only becom
 			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/overview-t}};%
 			% 1391px = 4.0138mm > 100px = 288um > 173px = 500um
-			\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};%
+%			\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+173,\y) node [midway,above] {\SI{500}{\micro\meter}};%
 			\node [anchor=south west] at (0,899) {b)};%
 		\end{tikzpicture}%
@@ -238,7 +236,7 @@ The artifacts introduced through the great reduction in scanning time only becom
 			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/roi-b-nomedian}};%
 			% 746px = 0.18944mm > 100px = 25um > 196.9px = 50um
-			\draw[|-|,thick] (27,270) -- (773,272) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};%
+%			\draw[|-|,thick] (27,270) -- (773,272) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+196.9,\y) node [midway,above] {\SI{50}{\micro\meter}};%
 			\node [anchor=south west] at (0,802) {c)};%
 		\end{tikzpicture}%
@@ -246,7 +244,7 @@ The artifacts introduced through the great reduction in scanning time only becom
 			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/roi-t-nomedian}};%
 			% 744px = 0.18944mm > 100px = 25um > 196.5px = 50um
-			\draw[|-|,thick] (27,311) -- (771,311) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};%
+%			\draw[|-|,thick] (27,311) -- (771,311) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+196.5,\y) node [midway,above] {\SI{50}{\micro\meter}};%
 			\node [anchor=south west] at (0,802) {d)};%
 		\end{tikzpicture}%
@@ -266,7 +264,7 @@ The artifacts introduced through the great reduction in scanning time only becom
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 					{\includegraphics[width=\imagewidth]{img/comparisonBvsT/overview-b}};
 				% 1391px = 4.0138mm > 100px = 288um > 173px = 500um
-				\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};
+%				\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};
 				\draw[|-|,thick] (\x,\y) -- (\x+173,\y) node [midway,above] {\SI{500}{\micro\meter}};
 			\end{tikzpicture}%
 			}%
@@ -276,7 +274,7 @@ The artifacts introduced through the great reduction in scanning time only becom
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 					{\includegraphics[width=\imagewidth]{img/comparisonBvsT/overview-t}};
 				% 1391px = 4.0138mm > 100px = 288um > 173px = 500um
-				\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};
+%				\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};
 				\draw[|-|,thick] (\x,\y) -- (\x+173,\y) node [midway,above] {\SI{500}{\micro\meter}};
 			\end{tikzpicture}%
 			}\\%
@@ -289,7 +287,7 @@ The artifacts introduced through the great reduction in scanning time only becom
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 					{\includegraphics[width=\imagewidth]{img/comparisonBvsT/roi-b-nomedian}};
 				% 746px = 0.18944mm > 100px = 25um > 196.9px = 50um
-				\draw[|-|,thick] (27,270) -- (773,272) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};
+%				\draw[|-|,thick] (27,270) -- (773,272) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};
 				\draw[|-|,thick] (\x,\y) -- (\x+196.9,\y) node [midway,above] {\SI{50}{\micro\meter}};
 			\end{tikzpicture}%
 			}%
@@ -299,7 +297,7 @@ The artifacts introduced through the great reduction in scanning time only becom
 				\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 					{\includegraphics[width=\imagewidth]{img/comparisonBvsT/roi-t-nomedian}};
 				% 744px = 0.18944mm > 100px = 25um > 196.5px = 50um
-				\draw[|-|,thick] (27,311) -- (771,311) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};
+%				\draw[|-|,thick] (27,311) -- (771,311) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};
 				\draw[|-|,thick] (\x,\y) -- (\x+196.5,\y) node [midway,above] {\SI{50}{\micro\meter}};
 			\end{tikzpicture}%
 			}%
