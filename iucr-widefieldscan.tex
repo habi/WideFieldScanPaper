@@ -1,14 +1,13 @@
 \newif\ifhtml%
 \newif\ifiucr%
 	\htmltrue \iucrfalse% conversion to HTML
-	\htmlfalse \iucrtrue% keep it TeX
+%	\htmlfalse \iucrtrue% keep it TeX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifhtml%
-	%\documentclass[a4paper]{article}%
-	\documentclass[draft,a4paper]{article}%
+	\documentclass[a4paper]{article}%
 \else%
-%	\documentclass[draft,s,preprint]{iucr}%
-	\documentclass[s,preprint]{iucr}%
+	\documentclass[draft,s,preprint]{iucr}%
+ %	\documentclass[s,preprint]{iucr}%
 %	\documentclass[draft,s]{iucr}%
 %	\documentclass[s]{iucr}%
 		\paperprodcode{a000000}
@@ -29,10 +28,10 @@
 \ifhtml% In case of web format output...
 	\def\pgfsysdriver{pgfsys-tex4ht.def}%
 	\usepackage[caption=false,format=hang]{subfig}%
+	\usepackage[numbers]{natbib}%
 	\usepackage[nolists]{endfloat}%
-	\usepackage[numbers,sort&compress]{natbib}%
 	\usepackage[disable]{todonotes}%
-		\renewcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}% redefines todo for html-conversion
+	\renewcommand{\todo}[1]{\textcolor{red}{\ [TODO: #1]\ }}% redefines todo for html-conversion
 	\usepackage{hyperref}%
 %	\usepackage{changebar}
 %		\nochangebars % disables changebars for html-conversion
@@ -50,7 +49,7 @@
 \let\Gray\relax%
 \usepackage[alsoload=binary,alsoload=synchem]{siunitx}%		% typographically correct units (\milli\meter, \kilo\electronvolt), [alsoload=binary] > \SI{100}{\giga\byte}, [alsoload=synchem] > \SI{0.03}{\Molar}
 \usepackage{tikz}%
-\usetikzlibrary{patterns}%
+	\usetikzlibrary{patterns}%
 \usepackage{pgfplots}%
 %
 \newcommand{\imsize}{\linewidth}%
@@ -63,7 +62,7 @@
 {$LastChangedDate: 2009-06-12 16:18:35 +0200 (Fr, 12 Jun 2009) $}
 {$LastChangedRevision: 173 $}
 {$LastChangedBy: $}
-
+%
 \ifhtml%
 	\DeclareGraphicsExtensions{.png}%
 	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}%
@@ -120,18 +119,16 @@ High resolution Volumetric data may be acquired at micrometer level within a few
 \input{wfs-discussion}%
 \input{wfs-summary}%
 %
-%
 \ifhtml%
 	\section{Acknowledgements}%
 \else%
 	\ack{
 \fi
-%
 	This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions.%
-	%
 \ifhtml%
+	% do nothing
 \else%
-	}
+	}% close \ack{ from iucr.bst
 \fi	
 %
 \ifhtml%
