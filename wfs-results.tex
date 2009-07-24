@@ -16,10 +16,8 @@
 %\end{center}
 %\fi
 %
-\section{Results}%
-\label{sec:Results}%
-\subsection{Image Merging and Reconstruction}%
-\label{sec:Image Merging and Reconstruction}%
+\section{Results}\label{sec:Results}%
+\subsection{Image Merging and Reconstruction}\label{sec:Image Merging and Reconstruction}%
 Multiple independently acquired projection images covering the desired field of view have been merged into single projections covering the full field of view. Figure~\ref{fig:wide field scan results}a) shows corrected projection images from three overlapping subscans prior to merging (with marked overlapping regions). Figure~\ref{fig:wide field scan results}b) shows one merged projection image prior to reconstruction and figure~\ref{fig:wide field scan results}c) shows one slice of the reconstructed dataset of protocol B, acquired from 5244 projections. Such a reconstructed slice covers a field of view of 2792$\times$2792 pixels (4.13$\times$\SI{4.13}{\milli\meter}) which is three times the size of what can be achieved with one single binned scan (1024 pixels or \SI{1.52}{\milli\meter}). %1024 * 1.48 um/px = 1.51552mm
 
 \ifiucr
@@ -41,7 +39,7 @@ Multiple independently acquired projection images covering the desired field of 
 		\input{img/merge/iucr-Slice}%
 			\caption{Wide field scan of a rat lung sample obtained from a Sprague-Dawley rat 21 days after birth, showing the distal-medial edge of the right lower lung lobe. The sample has been scanned at \SI{12.6}{\kilo\electronvolt}, the protocol details conform to protocol B, described in table~\ref{tab:protocols}. %
 		a) Three uncorrected and independent projection images from subscans s$_1$--s$_3$, each with a size of 1024\(\times\)1024 pixels at a resolution of \SI{1.48}{\micro\meter} per pixel, each covering a field of view of \SI{1.52}{\milli\meter}. Subscans s$_1$ and s$_2$ overlap each other by 141 pixels (red and green overlay), subscans s$_2$ and s$_3$ overlap each other by 138 pixels (blue and yellow overlay). 5244 projections over a rotation of \SI{180}{\degree} have been acquired for all subscans. %
-		b) Merged and corrected image from the three subscans shown in subfigure a). Each merged projection has a size of 2793\(\times\)1024 pixels at a resolution of \SI{1.48}{\micro\meter} per pixel. The width of the merged projections is slightly smaller than three times the width of the subscans due to the overlap needed to merge the projections (2793~px$=3072$~px$-141$~px$-138$~px). Since the x-ray beam is extremely stable, the bands visible in the raw projections can be eliminated. %
+		b) Merged and corrected image from the three subscans shown in subfigure a). Each merged projection has a size of 2793\(\times\)1024 pixels at a resolution of \SI{1.48}{\micro\meter} per pixel. The width of the merged projections is slightly smaller than three times the width of the subscans due to the overlap needed to merge the projections (2793px=3072px-141px-138px). Since the x-ray beam is extremely stable, the bands visible in the raw projections can be eliminated. %
 		c) Cropped slice of the tomographic dataset reconstructed from 5244 merged projections shown in subfigure b). Due to the coherence of the x-ray beam the air-to-paraffin interface is visible around the sample.%
 		}%
 		\label{fig:wide field scan results}%
@@ -68,7 +66,7 @@ The field of view of classic tomographic scans at TOMCAT did not allow to visual
 			% 510px = 1.5155mm > 100px = 297um > 168px = 500um
 %			\draw[|-|,thick] (244,367) -- (718,554) node [sloped,midway,above] {\SI{1.5155}{\milli\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+168,\y) node [midway,above] {\SI{500}{\micro\meter}};%
-			\node [anchor=south west] at (0,680) {a)};				
+			\node [anchor=south west] at (0,680) {(a)};				
 		\end{tikzpicture}%
 		\\%
 		\renewcommand{\imsize}{\linewidth}%
@@ -82,7 +80,7 @@ The field of view of classic tomographic scans at TOMCAT did not allow to visual
 			% 906px = 4.0641mm > 100px = 449um > 111px = 500um
 %			\draw[|-|,thick] (39,454) -- (923,653) node [sloped,midway,above] {\SI{4.0641}{\milli\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+222,\y) node [midway,above] {\SI{1}{\milli\meter}};%
-			\node [anchor=south west] at (0,680) {b)};
+			\node [anchor=south west] at (0,680) {(b)};
 		\end{tikzpicture}\\%
 	\end{figure}%
 	%\twocolumn
@@ -215,7 +213,7 @@ The artifacts introduced through the reduction in scanning time only become appa
 			% 1391px = 4.0138mm > 100px = 288um > 173px = 500um
 %			\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+173,\y) node [midway,above] {\SI{500}{\micro\meter}};%
-			\node [anchor=south west] at (0,899) {a)};%
+			\node [anchor=south west] at (0,899) {(a)};%
 		\end{tikzpicture}%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
@@ -223,7 +221,7 @@ The artifacts introduced through the reduction in scanning time only become appa
 			% 1391px = 4.0138mm > 100px = 288um > 173px = 500um
 %			\draw[|-|,thick] (6,774) -- (1395,839) node [sloped,midway,above] {\SI{4.0138}{\milli\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+173,\y) node [midway,above] {\SI{500}{\micro\meter}};%
-			\node [anchor=south west] at (0,899) {b)};%
+			\node [anchor=south west] at (0,899) {(b)};%
 		\end{tikzpicture}%
 		\\%
 		\pgfmathsetlength{\imagescale}{\imagewidth/806}%
@@ -235,7 +233,7 @@ The artifacts introduced through the reduction in scanning time only become appa
 			% 746px = 0.18944mm > 100px = 25um > 196.9px = 50um
 %			\draw[|-|,thick] (27,270) -- (773,272) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+196.9,\y) node [midway,above] {\SI{50}{\micro\meter}};%
-			\node [anchor=south west] at (0,802) {c)};%
+			\node [anchor=south west] at (0,802) {(c)};%
 		\end{tikzpicture}%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
 			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
@@ -243,7 +241,7 @@ The artifacts introduced through the reduction in scanning time only become appa
 			% 744px = 0.18944mm > 100px = 25um > 196.5px = 50um
 %			\draw[|-|,thick] (27,311) -- (771,311) node [sloped,midway,above] {\SI{189.44}{\micro\meter}};%
 			\draw[|-|,thick] (\x,\y) -- (\x+196.5,\y) node [midway,above] {\SI{50}{\micro\meter}};%
-			\node [anchor=south west] at (0,802) {d)};%
+			\node [anchor=south west] at (0,802) {(d)};%
 		\end{tikzpicture}%
 		\label{fig:BvsT}%
 	\end{figure}%
