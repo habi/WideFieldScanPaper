@@ -230,12 +230,13 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 		\pgfmathsetlength{\imagescale}{\imagewidth/1607}%
 		\def\x{193}% scalebar-x at golden ratio of x=1607px
 		\def\y{546}% scalebar-y at 90% of height of y=607px
-		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
+		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/ob}};
-			% 1578px = 4.0138mm > 100px = 254um > 197px = 500um
-%			\draw[|-|,thick] (12,1) -- (1590,2) node [anchor=north east] {\SI{4.0138}{\milli\meter} (2712px)};
-			\draw[|-|,thick] (\x,\y) -- (\x+197,\y) node [midway,above] {\SI{500}{\micro\meter}};
+			% 1575px = 4.0138mm > 100px = 255um > 196px = 500um
+			\draw[|-|,thick] (13,573) -- (1589,571) node [sloped,midway,above] {\SI{4.0138}{\milli\meter} (2712px)};
+			% 1030px = 2.627mm > 100px = 255um > 196px = 500um
+			\draw[|-|,thick] (357,337) -- (1380,451) node [white,sloped,midway,above] {\SI{2.627}{\milli\meter} (1775px)};
 			\node [anchor=south west] at (0,607) {(a)};
 		\end{tikzpicture}%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
