@@ -59,7 +59,7 @@ A detailed description of the workflow at TOMCAT and the steps necessary to comp
 \fi%
 .
 
-\subsubsection{Covering a wide field of view perpendicular to the rotation axis}%
+\subsubsection{Covering a wide lateral field of view}%
 For parallel beam geometry, tomographic images are obtained at equidistant angles over a sample rotation of \SI{180}{\degree} as shown in figure~\ref{fig:scanning-possibilities}(a). After reconstruction the width of the image corresponds to the field of view of the camera.
 
 Samples which are twice as large as the field of view can be imaged using scanning protocols based on a \SI{360}{\degree} off-centre sample rotation as shown in figure~\ref{fig:scanning-possibilities}(b). Images recorded between \SI{180}{\degree} and \SI{360}{\degree} have to be flipped after acquisition and the projection images obtained at position $I_{x}$ and $I_{x+\SI{180}{\degree}}$ are stitched together to projection images covering two times the field of view of the camera.
@@ -82,18 +82,16 @@ Samples which are twice as large as the field of view can be imaged using scanni
 	\end{figure}
 \fi
 
-If we would like to achieve tomographic scans covering a size wider than two field of views, we have to combine three or more \SI{180}{\degree} scans taken at slightly overlapping positions as shown figure~\ref{fig:scanning-possibilities}(c).
-
-The projection images of each subscan have to overlap by 20--100 pixels to allow an optimal stitching of the multiple projections of each rotational angle into one projection. Using the mean squared difference between adjacent subscan images~\cite{Hintermueller2009}, such a cutline has been calculated for all the adjacent subscans of every scanned protocol and used to merge the single projections into projections covering the full field of view.
+If we would like to achieve tomographic scans covering a size wider than two field of views, we have to combine three or more \SI{180}{\degree} scans taken at slightly overlapping positions as shown figure~\ref{fig:scanning-possibilities}(c). The projection images of each subscan overlap each other slightly to allow an optimal stitching of the multiple projections of each rotational angle into one projection. Using the mean squared difference between adjacent subscan images~\cite{Hintermueller2009}, such a cutline has been calculated for the adjacent subscans and used to merge the single projections into projections covering the full field of view.
 
 \subsection{Generation of multiple scanning protocols}%
-The discussed scanning protocol for covering a wide field of view with three subscans is based on the assumption that a sufficient resolution and contrast can be achieved in the tomographic data sets when the sampling theorem is fulfilled for each of the three subscans individually. This results in a set of scans with $P_{i}$ projection images. A simple example with $P_{1}=4$ and $P_{2}=P_{3}=8$ is shown in figure~\ref{fig:projections}(a).
+The discussed scanning protocol for covering a wide field of view with three subscans is based on the assumption that a sufficient resolution and contrast can be achieved in the tomographic data set if the sampling theorem is individually fulfilled for each of the subscans. This results in a set of $i$ subscans with $P_{i}$ projection images. A simple example with $P_{1}=4$ and $P_{2}=P_{3}=8$ is shown in figure~\ref{fig:projections}(a).
 
 To be able to reconstruct the sample, we need to stitch the individual sets of projections to projections spanning the desired field of view. Since each scan has a different number of projections $P_{i}$, a stitching algorithm has to interpolate projections from adjacent projections (as shown in figure~\ref{fig:projections}(b)). Alternatively, the same number of projections has to be acquired for all subscans, leading to oversampling for the central scanning position.
 
 \ifiucr
 	\begin{figure}%
-		\caption{Setup with three \SI{180}{\degree} scans; one central (green) and two lateral (red and blue, respectively). In this drawing, we chose four projections for the central and eight projections for each of the lateral scans. The colors of the three positions correspond to the colors shown in figure~\ref{fig:scanning-possibilities}(c). Panel a): scanned projections, panel b): scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}%
+		\caption{Setup with three \SI{180}{\degree} scans; one central (green) and two lateral (red and blue, respectively). In this drawing, we chose four projections for the central and eight projections for each of the lateral scans. The colors of the three positions correspond to the colors shown in figure~\ref{fig:scanning-possibilities}(c). Panel a): scanned projections, panel b): scanned projections and additional interpolated projections (dashed) needed to merge all projections.}%
 		\input{tikz-images/ProjectionSetup}%
 		\input{tikz-images/ProjectionSetupInterpolate}%
 		\label{fig:projections}%
@@ -101,28 +99,22 @@ To be able to reconstruct the sample, we need to stitch the individual sets of p
 \else
 	\begin{figure*}[htp]
 		\centering
-		\subfloat[]{%
-			\input{tikz-images/ProjectionSetup}%
-			\label{subfig:ProjectionSetup}%
-			}%
-		\subfloat[]{%
-			\input{tikz-images/ProjectionSetupInterpolate}%
-			\label{subfig:ProjectionSetupInterpolate}%
-			}%
-	%	\caption[Setup with one central and two lateral scans]
-		\caption{Setup with one central (green) and two lateral scans (red and blue, respectively). For demonstration purposes, the central scan has four projections and the lateral scans have eight projections each (all acquired over \SI{180}{\degree}). The colors of the three positions correspond to the colors shown in figure~\ref{subfig:scanning-possibilities}. \subref{subfig:ProjectionSetup}: scanned projections, \subref{subfig:ProjectionSetupInterpolate}: scanned projections and additional interpolated projections (dashed) needed to correctly merge all projections.}
+		\input{tikz-images/ProjectionSetup}%
+		\input{tikz-images/ProjectionSetupInterpolate}%
+		\caption{Setup with three \SI{180}{\degree} scans; one central (green) and two lateral (red and blue, respectively). In this drawing, we chose four projections for the central and eight projections for each of the lateral scans. The colors of the three positions correspond to the colors shown in figure~\ref{fig:scanning-possibilities}(c). Panel a): scanned projections, panel b): scanned projections and additional interpolated projections (dashed) needed to merge all projections.}%
 		\label{fig:projections}
 	\end{figure*}
 \fi
 
-\subsubsection{Reduction of the acquisition time}\label{subsubsec:reduction-of-acquisition-time}%
+\subsubsection{Reduction of acquisition time}\label{subsubsec:reduction-of-acquisition-time}%
 Since the total acquisition time per sample linearly scales with the total amount of projections of the three subscans, we tend to avoid oversampling to reduce the total amount of beam time used for one sample. Our goal was to find a good compromise between scanning and processing time and image quality. In order to reduce the time required for scanning one sample, acquisition protocols with varying amount of projections for each of the three subscans have been designed.
 
-To simplify the interpolation and merging of the projections from each subscan, we selected protocols where the amount of projections from the inner ($P_{inner}$) to the outer subscans ($P_{outer}$) is always a multiple of two: $\frac{P_{outer}}{P_{inner}} \bmod 2 = 0$. In the simple case shown in figure~\ref{fig:projections}, we would acquire 4 projections for the central and 8 projections for each of the lateral scans, thus avoiding oversampling the central part of the sample. To be able to merge the projection images, we interpolate 4 projections (dashed) in between the acquired projections (green) prior to stitching. If the amount of projections would not be a multiple of two, stitching the projections of the inner scan with the projections from the outer ones would introduce additional processing steps to interpolate the required intermediate projections.
+To simplify the interpolation and merging of the projections from each subscan, we selected protocols where the fraction of the amount of projections of the inner ($P_{inner}$) to the outer subscans ($P_{outer}$) is always a multiple of two%: $\frac{P_{outer}}{P_{inner}} \bmod 2 = 0$
+. In the simple case shown in figure~\ref{fig:projections}, we would acquire 4 projections for the central and 8 projections for each of the lateral scans, thus avoiding oversampling the central part of the sample. To be able to merge the projection images, we need to interpolate 4 projections (dashed) prior to stitching. If the amount of projections acquired for the ring scans would not be a multiple of two of the amount of projections of the central scan, stitching of the projections would introduce additional processing steps to interpolate the required intermediate projections.
 
-To be able to further reduce the total scanning time, we developed different scanning protocols, which all relate to a gold standard protocol, which per definition would cover the desired field of view while fulfilling the sampling theorem in all parts of the field of view, as shown in figure~\ref{fig:SubScan-Setup}(a). For this example we would like to achieve a field of view of 3072 pixels. The dark gray circle shown in aforementioned figure is the field of view that can be fully covered, the rest of the slice (in light grey) would be either missing or show artifacts arising from partial volume effects, depending on the chosen reconstruction algorithm. Since the available detector has a size of 1024$\times$1024 pixels, we can cover the same field of view with nine independent scans. This would require nine independent reconstructions and stitching of those nine tomographic datasets into one dataset covering the full field of view. But we can also cover the chosen field of view using a detector of the size of 3072$\times$1024 pixels in one scan. Using scanning protocol from which we can obtain merged projections, we can cover the desired field of view using a much smaller detector. Figure~\ref{fig:SubScan-Setup}(b) shows how such a field of view can be covered with a wide-field scan composed of one central and two half ring-scans.
+To be able to further reduce the total scanning time, we developed different scanning protocols related to a gold standard protocol, which per definition would cover the desired field of view while fulfilling the sampling theorem in all parts of the field of view, as shown in figure~\ref{fig:SubScan-Setup}(a). For this example we would like to achieve a field of view of 3072 pixels. The dark gray circle shown in aforementioned figure is the field of view that can be fully covered, the rest of the slice (in light grey) would be either missing or show artifacts, depending on the chosen reconstruction algorithm. With a detector of the size of 1024$\times$1024 pixels, we could cover this field of view with nine independent scans. This would require nine independent reconstructions and stitching of those nine tomographic datasets into one dataset covering the full field of view. But we could also cover the chosen field of view using a detector of the size of 3072$\times$1024 pixels in one scan. Using a scanning protocol with three subscans from which we obtain merged projections, we can cover the desired field of view using a much smaller detector. Figure~\ref{fig:SubScan-Setup}(b) shows how the desired field of view of 3072 pixels can be covered with a wide-field scan composed of one central and two half ring-scans. A further increase in the field of view can be obtained by simple iteration. Figures~\ref{fig:SubScan-Setup}(c)--(f) show such a setup for a five- or seven-fold increase.
 
-To fully satisfy the sampling theorem for a scan with the detector width $D$ we need to acquire an amount of projections $P=D\frac{\pi}{2}$, which leads to the acquisition of totally 14476 projections for the setup shown in figure~\ref{fig:SubScan-Setup}(b) ($P=3(3072\frac{\pi}{2})$ projections if the single projections from each subscan are merged into one projection covering the field of view). A further increase in the field of view can be obtained by simple iteration. Figures~\ref{fig:SubScan-Setup}(c)--(f) show such a setup for a five- or seven-fold increase.
+%To fully satisfy the sampling theorem for a scan with the detector width $D$ we need to acquire an amount of projections $P=D\frac{\pi}{2}$, which leads to the acquisition of totally 14476 projections for the setup shown in figure~\ref{fig:SubScan-Setup}(b) ($P=3(3072\frac{\pi}{2})$ projections if the single projections from each subscan are merged into one projection covering the field of view). 
 
 \ifiucr
 	%\onecolumn
@@ -130,11 +122,11 @@ To fully satisfy the sampling theorem for a scan with the detector width $D$ we 
 		\centering%
 		\caption{Setup for different field of views. %
 		(a) Desired field of view of 3072 pixel diameter. %
-		(b) Gold standard scanning protocol for covering the desired field of view of panel (a) with merged projections from one central and two half ring scans. %
+		(b) Gold standard scanning protocol for covering the desired field of view of panel (a) with merged projections from one central and two half ring scans ($r_{1}$ and $r_{2}$). %
 		(c) Desired field of view of 5120 pixel diameter. %
-		(d) Gold standard scanning protocol for covering the desired field of view of panel (c) with merged projections from one central and four half ring scans. %
+		(d) Gold standard scanning protocol for covering the desired field of view of panel (c) with merged projections from one central and four half ring scans ($r_{1}$--$r_{4}$). %
 		(e) Desired field of view of 7168 pixel diameter. %
-		(f) Gold standard scanning protocol for covering the desired field of view of panel (e) with merged projections from one central and six half ring scans. %
+		(f) Gold standard scanning protocol for covering the desired field of view of panel (e) with merged projections from one central and six half ring scans ($r_{1}$--$r_{6}$).%
 		}%
 		\input{tikz-images/SubScanSetup/SetupFor-3-5-7-SubScans}
 		\label{fig:SubScan-Setup}%
@@ -144,7 +136,14 @@ To fully satisfy the sampling theorem for a scan with the detector width $D$ we 
 	\begin{figure*}[htp]
 		\centering%
 		\input{tikz-images/SubScanSetup/SetupFor-3-5-7-SubScans}
-		\caption{Setup; desired field of view and two variants of covering the desired field of view with 9 independent small scans or 3 subscans.}%
+		\caption{Setup for different field of views. %
+		(a) Desired field of view of 3072 pixel diameter. %
+		(b) Gold standard scanning protocol for covering the desired field of view of panel (a) with merged projections from one central and two half ring scans ($r_{1}$ and $r_{2}$). %
+		(c) Desired field of view of 5120 pixel diameter. %
+		(d) Gold standard scanning protocol for covering the desired field of view of panel (c) with merged projections from one central and four half ring scans ($r_{1}$--$r_{4}$). %
+		(e) Desired field of view of 7168 pixel diameter. %
+		(f) Gold standard scanning protocol for covering the desired field of view of panel (e) with merged projections from one central and six half ring scans ($r_{1}$--$r_{6}$).%
+		}%
 		\label{fig:SubScan-Setup}%
 	\end{figure*}
 \fi
@@ -155,7 +154,7 @@ A MATLAB-script (MATLAB\textsuperscript{\textregistered} 7.6.0.321 (R2008a), The
 
 Using a Shepp-Logan phantom~\cite{Shepp1974}, a reconstruction is calculated for protocol from this set. We calculate the expected reconstruction quality based on the difference between the simulated reconstructions and the gold standard (the original phantom). This calculated reconstruction quality is then plotted against the acquisition time, which enables the user to chose a suitable protocol balancing image quality and acquisition time.
 
-After the user has chosen a suitable protocol out of the presented set, a file containing the details of the scan is written to disk. This file contains the parameters like amount of needed subscans, the positions of the sample, number of projections as well as start and stop angles of the rotation for each subscan. A custom Python-script parses the file containing the details and interacts with the EPICS-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which itself is used to control the hardware of the TOMCAT beamline, allowing for an unattended batch scan of all the desired subscans.
+After the user has chosen a suitable protocol out of the presented set, a file containing the details of the scan is written to disk. This file contains the parameters needed to scan this protocol like amount of needed subscans, the positions of the sample, number of projections as well as start and stop angles of the rotation for each subscan. A custom Python-script (\url{http://python.org/}) parses the file containing the details and interacts with the EPICS-System (Experimental Physics and Industrial Control System, Argonne National Laboratory, Argonne, USA, \url{http://www.aps.anl.gov/epics/}), which itself is used to control the hardware of the TOMCAT beamline, allowing for an unattended batch scan of all the desired subscans.
 
 After the multiple subscans have been recorded, the stitching of the projections recorded per subscans into projections covering the desired field of view is performed with minimal user interaction using a second MATLAB-script. Further processing of the merged projections like sinogram generation and reconstruction into the tomographic dataset is integrated into the TOMCAT data-processing pipeline, as specified by%
 \ifhtml%
@@ -166,8 +165,8 @@ After the multiple subscans have been recorded, the stitching of the projections
 .
 
 \subsection{Batch Acquisition of the Protocols}%
-Multiple scanning protocols have been defined. The total amount of recorded projections for the different protocols has been linearly scaled down compared to a gold standard scan (for details, see section~\ref{subsec:quality-guided-protocols}). The three subscans (one central and two ring-scans) of each protocol have been scanned without any user intervention, except input of the sample name at the start of the batch-scan. All parameters such as sample-position in relation to the beam, rotation angles and amount of projections to obtain for each of the subscans have been set in a preference file generated using the aforementioned MATLAB-script. All 19 protocols (B--T) have been scanned as a batch scan, without manual intervention, permitting a direct comparison of the reconstructed slices.
+Multiple scanning protocols have been defined. The total amount of recorded projections for the different protocols has been linearly scaled down compared to a gold standard scan (for details, see section~\ref{subsec:quality-guided-protocols}). All parameters of each protocol such as sample-position in relation to the beam, rotation angles and amount of projections to obtain for each of the individual subscans have been set in a preference file generated using the aforementioned MATLAB-script. All 19 protocols (B--T) have been scanned as a batch scan without manual intervention, permitting a direct comparison of the reconstructed slices.
 
-After acquisition of the three subscans per protocol, custom MATLAB functions read the parameters of the single subscans (e.g.\ sample name, amount of subscans, amount of dark and flat images) as well as the desired output-name and -suffix and performs all necessary calculations like loading of the correct projections from each subscan, normalizing, interpolation, cutline detection and correct stitching of the images into wide field projections.
+After acquisition of the three subscans per protocol, custom MATLAB functions read the parameters of the single subscans (e.g.\ sample name, amount of subscans, amount of dark and flat images) as well as the desired output-name and -suffix and perform all necessary calculations like loading of the correct projections from each subscan, normalizing, interpolation, cutline detection, correct stitching of the images into wide field projections and writing these projections to disk.
 
-The corrected and merged projections have been rearranged into sinograms, where the $n$\textsuperscript{th} is composed of the $n$\textsuperscript{th} line of every corrected projection. The $n$\textsuperscript{th} slice of the tomographic scan was reconstructed from the $n$\textsuperscript{th} sinogram using an FFT-based regridding algorithm~\cite{Dowd1999}. The full tomographic dataset has been reconstructed on a 20-node server farm (five \SI{64}{\bit} Opteron machines with 4 cores and \SI{8}{\giga\byte} RAM each). The reconstructions result in an image stack covering a large sample volume of 2793$\times$2793$\times$1024 pixels, an approximately nine-fold increase from the standard volume of 1024$\times$1024$\times$1024 pixels for one conventional scan.
+The merged projections have been rearranged into sinograms, where the $n$\textsuperscript{th} is composed of the $n$\textsuperscript{th} line of every corrected projection. The $n$\textsuperscript{th} slice of the tomographic scan was reconstructed from the $n$\textsuperscript{th} sinogram using an FFT-based regridding algorithm~\cite{Dowd1999}. The 19 tomographic dataset have been reconstructed on a 20-node server farm (five \SI{64}{\bit} Opteron machines with 4 cores and \SI{8}{\giga\byte} RAM each). The reconstructions result in an image stack covering a large sample volume of 2793$\times$2793$\times$1024 pixels, an approximately nine-fold increase from the standard volume of 1024$\times$1024$\times$1024 pixels for one conventional scan.
