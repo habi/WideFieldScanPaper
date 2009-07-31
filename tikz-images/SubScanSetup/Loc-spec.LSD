@@ -1,9 +1,12 @@
 0pt
 0pt,outer
+1024px
 150px
 1ex
 20-node
 25-fold
+2793px
+3072px-141px-138px
 3100A0-109874
 3D
 5-subscan-case
@@ -54,6 +57,7 @@ MATLAB
 MATLAB-plot
 MATLAB-script
 MATLAB-scripts
+MEVIS
 Marone
 MathWorks
 MeVis
@@ -76,6 +80,9 @@ Protocols,Polynomial
 Python-script
 Q
 Quality-Plot
+Quality-driven
+Quality-plot
+R
 R108C04C
 R108C04C-down-merge
 R108C04C-down-s2
@@ -183,6 +190,7 @@ error-value
 ethanol
 experimenTs
 f
+field-SRXTM
 five-fold
 full.png
 gas-exchange
@@ -194,6 +202,7 @@ gridrec
 haberthuer@ana.unibe.ch
 high-quality
 high-resolution
+http://python.org/
 http://www.ana.unibe.ch/~haberthuer/WideFieldScanPaper/MATLAB
 http://www.ana.unibe.ch/~haberthuer/WideFieldScanPaper/MeVisLab
 http://www.aps.anl.gov/epics/
@@ -220,6 +229,7 @@ mycolor1
 nine-fold
 non-destructive
 numproj
+ot
 output-name
 oversampled
 oversampling
@@ -256,6 +266,7 @@ rcccc
 rccccc
 real-world
 red,nearly
+regridding
 rgb
 ring-scan
 ring-scans
@@ -263,6 +274,9 @@ roi-b
 roi-b-nomedian
 roi-t
 roi-t-nomedian
+roiB
+roiL
+roiT
 s
 s2
 sample-position
@@ -306,6 +320,9 @@ voxel
 voxels
 wave-like
 west,inner
+white,semitransparent,anchor
+white,semitransparent,right
+white,sloped,midway,above
 white,thick
 white,ultra
 wide-field
