@@ -1,58 +1,61 @@
-\newif\ifhtml
-	\htmltrue
-	\htmlfalse
-
-\ifhtml
-	\documentclass{article}
-\else
-	\documentclass[review,1p,numbers,sort&compress,a4paper]{elsarticle}
-\fi
-
-%% Use the option review to obtain double line spacing
-%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
-%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn for a journal layout:
-%% \documentclass[final,1p,times]{elsarticle}
-%% \documentclass[final,1p,times,twocolumn]{elsarticle}
-%% \documentclass[final,3p,times]{elsarticle}
-%% \documentclass[final,3p,times,twocolumn]{elsarticle}
-%% \documentclass[final,5p,times]{elsarticle}
-
-%% \documentclass[final,5p,times,twocolumn]{elsarticle}
-	
-\ifhtml % In case of web format output...
-	\def\pgfsysdriver{pgfsys-tex4ht.def}
-	\usepackage{endfloat}
-	\usepackage[numbers,sort&compress]{natbib}
-	\usepackage[disable]{todonotes}
-		\renewcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}} % redefines todo for html-conversion
-	\usepackage{changebar}
-		\nochangebars % disables changebars for html-conversion
-\else
-	\usepackage{todonotes}
-	\usepackage{lineno}
-		\linenumbers
-		\modulolinenumbers[2]
-	\usepackage[outerbars,color]{changebar}
-		\cbcolor{red}
-\fi
-
-\usepackage[latin1]{inputenc} 						% so I can write my Name without \"{u}
-\usepackage{graphicx}
-\usepackage[english]{babel}
-\usepackage{svn-multi}								% to add SVN-Versioning-Info
-\usepackage[caption=false,format=hang]{subfig}      % [font = small]
-\usepackage[alsoload=binary]{siunitx}		 		% typographically correct units (\milli\meter, \kilo\electronvolt), with [alsoload=binary] \SI{100}{\giga\byte}
-\usepackage{booktabs}		 						% nice tables
-\usepackage{multirow}                               % multirows in tables
-\usepackage{tikz} 									% extremely nice drawings
-	\usetikzlibrary{patterns}
-\usepackage{pgfplots} 								% ditto for plots
-\usepackage[backref]{hyperref}
-\usepackage{hypernat}
-
-\newcommand{\imsize}{\linewidth}
-\newlength\imagewidth % needed for scalebars
-\newlength\imagescale % needed for scalebars
+\newif\ifhtml%
+\newif\ifiucr%
+	\htmltrue \iucrfalse% conversion to HTML
+	\htmlfalse \iucrtrue% keep it TeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifhtml%
+	\documentclass[a4paper]{article}%
+\else%
+%	\documentclass[draft,s,preprint]{iucr}%
+%	\documentclass[s,preprint]{iucr}%
+%	\documentclass[draft,s]{iucr}%
+	\documentclass[s]{iucr}%
+		\paperprodcode{a000000}
+		\paperref{xx9999}
+		\papertype{FA}
+		\paperlang{english}
+		\journalcode{S}
+		\journalyr{2009}
+		\journaliss{1}
+		\journalvol{65}
+		\journalfirstpage{000}
+		\journallastpage{000}
+		\journalreceived{0 XXXXXXX 2009}
+		\journalaccepted{0 XXXXXXX 2009}
+		\journalonline{0 XXXXXXX 2009}
+\fi%
+%
+\ifhtml% In case of web format output...
+	\def\pgfsysdriver{pgfsys-tex4ht.def}%
+	\usepackage[caption=false,format=hang]{subfig}%
+	\usepackage[numbers]{natbib}%
+	\usepackage[nolists]{endfloat}%
+	\usepackage[disable]{todonotes}%
+	\renewcommand{\todo}[1]{\textcolor{red}{\ [TODO: #1]\ }}% redefines todo for html-conversion
+	\usepackage{hyperref}%
+%	\usepackage{changebar}
+%		\nochangebars % disables changebars for html-conversion
+\else%
+	\usepackage{todonotes}%
+%	\usepackage[pdftex,outerbars,color]{changebar}%
+%		\cbcolor{red}
+%		\nochangebars
+\fi%
+%
+\usepackage[latin1]{inputenc}% 						% so I can write my Name without \"{u}
+\usepackage{graphicx}%
+\usepackage[english]{babel}%
+\usepackage{svn-multi}%								% to add SVN-Versioning-Info
+\let\Gray\relax%
+\usepackage[alsoload=binary,alsoload=synchem]{siunitx}%		% typographically correct units (\milli\meter, \kilo\electronvolt), [alsoload=binary] > \SI{100}{\giga\byte}, [alsoload=synchem] > \SI{0.03}{\Molar}
+\usepackage{tikz}%
+	\usetikzlibrary{patterns}%
+\usepackage{pgfplots}%
+\usepackage{scrtime}%
+%
+\newcommand{\imsize}{\linewidth}%
+\newlength\imagewidth% needed for scalebars
+\newlength\imagescale% needed for scalebars
 
 %% Subversion Information
 \svnidlong
@@ -60,93 +63,94 @@
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\includeonly{wfs-materials-and-methods,wfs-discussion}
-%1 wfs-introduction
-%2 wfs-materials-and-methods
-%3 wfs-results
-%4 wfs-discussion
-%5 wfs-summary
-%6 wfs-acknowledgements}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\ifhtml
-	\DeclareGraphicsExtensions{.png}
-	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
-	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]} 
-	\title{A broader vision for tomographic microscopy - Quality driven wide field synchrotron radiation x-ray tomographic microscopy}%
+%
+\ifhtml%
+	\DeclareGraphicsExtensions{.png}%
+	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}%
+	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}%
+\else%
+	\begin{document}%
+\fi%
+%
+\title{%
+	Quality-driven expansion of the field of view in synchrotron radiation x-ray tomographic microscopy %
+	(Version: SVN\svnkw{LastChangedRevision}, compiled \today, \thistime)%
+	}%
+%
+\ifhtml%
 	\author{David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
-	  \and Christoph Hintermüller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}%
-	  \and Johannes C. Schittny\footrecall{ana}%
-	  \and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}%
-	  }
-	\begin{document}
-	\maketitle
-\else
-	\begin{document}
-	\journal{``Int J of Biomed Imag'' or ``X-Ray Opt \& Inst'' or ``J of Synch Rad''}
-	\begin{frontmatter}
-		\title{A broader vision for tomographic microscopy - Quality driven wide field synchrotron radiation x-ray tomographic microscopy}%
-		\author[ana]{David Haberthür}%
-			\ead{haberthuer@ana.unibe.ch}%
-		\author[psi]{Christoph Hintermüller}%
-			\ead{christoph.hintermueller@psi.ch}%
-		\author[ana]{Johannes Schittny}%\corref{cor1}}%
-			\ead{schittny@ana.unibe.ch}%
-		\author[psi,eth]{Marco Stampanoni\corref{cor2}}%
-			\ead{marco.stampanoni@psi.ch}%
-			\cortext[cor2]{Corresponding author at: Prof.\ Dr.\ Marco Stampanoni, Paul Scherrer Institut, WLGA/135, CH-5232 Villigen, Tel:  +41 56 310 47 24}%
-		\address[ana]{Institute of Anatomy, University of Bern, Switzerland}
-		\address[psi]{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}
-		\address[eth]{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}
-\fi
+		\and Christoph Hintermüller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}%
+		\and Johannes C. Schittny\footrecall{ana}%
+		\and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}%
+		}%
+	\begin{document}%
+%	
+	\maketitle%
+\else%
+\fi%
+%
+\ifhtml%
+\else%
+	\shorttitle{A broader vision for tomographic microscopy}%
+%	
+	\cauthor[a]{David}{Haberthür}{haberthuer@ana.unibe.ch}{}%
+	\author[b]{Christoph}{Hintermüller}{}{}%
+	\author[a]{Johannes C.}{Schittny}{}{}%
+	\cauthor[b,c]{Marco}{Stampanoni}{marco.stampanoni@psi.ch}{}%
+%	
+	\aff[a]{Institute of Anatomy, University of Bern, \country{Switzerland}}%
+	\aff[b]{Swiss Light Source, Paul Scherrer Institut, \city{Villigen}, \country{Switzerland}}%
+	\aff[c]{Institute of Biomedical Engineering, University and ETH Zürich, \country{Switzerland}}%
+%		
+	\keyword{X-ray imaging}%
+	\keyword{computed tomography}%
+	\keyword{synchrotron microtomography}%
+	\keyword{SRXTM}%
+	\keyword{lung development}%
+	\keyword{alveoli}%
+	\keyword{acinus}%
+	\keyword{at least five keywords}%
+%	
+	\maketitle%
+\fi%
+%
+\begin{synopsis}
+``One or two sentences of the main findings of the paper for inclusion in the Table of Contents.''
+
+Increasing the lateral field of view of microscopy based imaging methods also increases the acquisition time. This article presents scanning protocols to obtain hign-resolution tomographic scans with large lateral field of view at greatly decrease acquisition time.
+\end{synopsis}
 
 \begin{abstract}
-State-of-the-art synchrotron-based tomographic microscopy end-stations acquire volumetric data at micrometer level within a few minutes. It is therefore possible to investigate large objects at high resolution using local tomographic reconstruction or extending the field of view in vertical direction by combining the data of several scans.
-
-The present work defines the acquisition protocols by which the field of view can be increased in horizontal direction beyond the field of view of a standard synchrotron radiation based x-ray tomographic microscope.
-
-We show that the lateral field of view can be increased in horizontal direction up to five times to acquire wide field scans of arbitrary samples in an unattended, automatic way based on objective criteria like resolution and contrast of the reconstructed slices and scanning time into account.
+High resolution volumetric data may be acquired at micrometer level within a few minutes using synchrotron radiation based X-ray tomographic microscopy (SRXTM). This speed allows to investigate large objects at high resolution by combining several tomograms. The field of view can be easily increased in direction parallel to the rotation axis. An acquisition protocol to increase the field of view perpendicular to the rotational axis is presented in this paper. Stitching projection images of multiple positions in the sample to one large projection, followed by reconstruction of the sample enables us to increase the lateral field of view. The total number of projection images recorded was optimized based on objective criteria taking reconstruction quality, scanning time and computing time into account. This method called wide field-SRXTM increases the lateral field of view up to five times and the reconstructed sample volume up to 25-fold. The method has been successfully applied for the three-dimensional imaging of entire rat lung acini with a diameter of 3--4 mm at a voxel size of \SI{1.5}{\micro\meter}.
 \end{abstract}
-		
-\ifhtml
-\else	
-	\begin{keyword}
-		%% keywords here, in the form: keyword \sep keyword
-		X-ray imaging \sep
-		computed tomography \sep
-		synchrotron microtomography \sep 
-		SRXTM \sep
-		lung development \sep
-		alveoli \sep
-		acinus
-	\end{keyword}
-	\end{frontmatter}
-	
-	\listoftodos
-\fi
 
-%% \input without pagebreak
 \input{wfs-introduction}
 \input{wfs-materials-and-methods}
 \input{wfs-results}
 \input{wfs-discussion}
 \input{wfs-summary}
-\input{wfs-acknowledgements}
 
-%% \include with pagebreak
-%\include{wfs-introduction}
-%\include{wfs-materials-and-methods}
-%\include{wfs-results}
-%\include{wfs-discussion}
-%\include{wfs-summary}
-%\include{wfs-acknowledgements}
+\ifhtml%
+	\section{Acknowledgements}%
+\else%
+	\ack{
+\fi
+	This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions.%
+\ifhtml%
+	% do nothing
+\else%
+	}% close \ack{ from iucr.bst
+\fi	
+%
+\ifhtml%
+	\bibliographystyle{unsrtnat}%
+	\bibliography{../references}%
+\else%
+	\let\oldharvardurl=\harvardurl%
+	\renewcommand{\harvardurl}[1]{\relax}%
+	
+	\referencelist[../references]%
+	\let\harvardurl=\oldharvardurl%
+\fi%
 
-\bibliographystyle{unsrtnat}
-\bibliography{../references}
-
-%\appendix
-%\include{wfs-appendix}
-
-\end{document}
+\end{document}%

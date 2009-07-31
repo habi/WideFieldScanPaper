@@ -3,7 +3,7 @@ Type=TeXnicCenterProjectInformation
 Version=4
 
 [ProjectInfo]
-MainFile=iucr-widefieldscan.tex
+MainFile=widefieldscan.tex
 UseBibTeX=1
 UseMakeIndex=0
 ActiveProfile=LaTeX => PDF (Sumatra)
