@@ -4,7 +4,7 @@
 	\htmlfalse \iucrtrue% keep it TeX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifhtml%
-	\documentclass[a4paper]{article}%
+	\documentclass[draft,a4paper]{article}%
 \else%
 %	\documentclass[draft,s,preprint]{iucr}%
 %	\documentclass[s,preprint]{iucr}%
@@ -29,7 +29,7 @@
 	\def\pgfsysdriver{pgfsys-tex4ht.def}%
 	\usepackage[caption=false,format=hang]{subfig}%
 	\usepackage[numbers]{natbib}%
-	\usepackage[nolists]{endfloat}%
+	%\usepackage[nolists]{endfloat}%
 	\usepackage[disable]{todonotes}%
 	\renewcommand{\todo}[1]{\textcolor{red}{\ [TODO: #1]\ }}% redefines todo for html-conversion
 	\usepackage{hyperref}%
@@ -52,6 +52,7 @@
 	\usetikzlibrary{patterns}%
 \usepackage{pgfplots}%
 \usepackage{scrtime}%
+%\usepackage[]{draftwatermark} % try firstpage as option
 %
 \newcommand{\imsize}{\linewidth}%
 \newlength\imagewidth% needed for scalebars
@@ -130,7 +131,7 @@
 \fi
 
 \begin{abstract}
-High resolution volumetric data at micrometer level can be acquired within a few minutes using synchrotron radiation based X-ray tomographic microscopy (SRXTM). The field of view can be easily increased in direction parallel to the rotation axis by stacking several tomograms allowing to investivate long and thin objects at high resolution. An acquisition protocol to increase the field of view perpendicular to the rotational axis for large samples is presented in this paper. Stitching projection images of multiple positions in the sample to one large projection, followed by reconstruction of the sample increases the lateral field of view of SRXTM. The total number of projection images recorded was optimized based on objective criteria taking reconstruction quality, scanning time and computing time into account. This method called wide field-SRXTM increases the lateral field of view up to five times and the reconstructed sample volume up to 25-fold. The method has been successfully applied for the three-dimensional imaging of entire rat lung acini with a diameter of 3--4 mm at a voxel size of \SI{1.5}{\micro\meter}.
+High resolution volumetric data at micrometer level can be acquired within a few minutes using synchrotron radiation based X-ray tomographic microscopy (SRXTM). The field of view can be easily increased in direction parallel to the rotation axis by stacking several tomograms allowing to investigate long and thin objects at high resolution. An acquisition protocol to increase the field of view perpendicular to the rotational axis for large samples is presented in this paper. Stitching projection images of multiple positions in the sample to one large projection, followed by reconstruction of the sample increases the lateral field of view of SRXTM. The total number of projection images recorded was optimized based on objective criteria taking reconstruction quality, scanning time and computing time into account. This method called wide field-SRXTM increases the lateral field of view up to five times and the reconstructed sample volume up to 25-fold. The method has been successfully applied for the three-dimensional imaging of entire rat lung acini with a diameter of 3--4 mm at a voxel size of \SI{1.5}{\micro\meter}.
 \end{abstract}
 
 \input{wfs-introduction}
@@ -144,7 +145,7 @@ High resolution volumetric data at micrometer level can be acquired within a few
 \else%
 	\ack{
 \fi
-	This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions.%
+	This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance. Dr.\ Federica Marone, beamline scientist at TOMCAT, has been an expert help with the reconstructions. Dan Ward kindly checked the English of the manuscript.%
 \ifhtml%
 	% do nothing
 \else%
