@@ -5,17 +5,6 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 %
-%\ifhtml
-%\else
-%\begin{center}
-%	\fbox{
-%		\begin{minipage}{.618\columnwidth}
-%		The section below is versioned at \url{\svnkw{HeadURL}} (last commit @ \svnfileday.\svnfilemonth.\svnfileyear \space \svnfilehour:\svnfileminute, Revision: \svnkw{LastChangedRevision}).
-%		\end{minipage}
-%	} 
-%\end{center}
-%\fi
-%
 \section{Summary and Outlook}\label{summary and outlook}%
 
 A method to increase the lateral field of view of tomographic imaging has been established. The method enables the high-resolution tomographic imaging of large samples---wider than the field of view of the imaging setup---in multiple steps, which are automated into one tool chain. The enhanced field of view makes it possible to visualize entire acini inside rat lung samples, something which is not easily possible with the conventional tomographic setup present at TOMCAT.
@@ -23,5 +12,3 @@ A method to increase the lateral field of view of tomographic imaging has been e
 We have shown that an increase in the field of view, of up to five times what is conventionally available, is feasible. Further increases of the field of view are only theoretically limited, but face problems with the amount of data to process. The dataset with a five-fold increase in field of view mentioned at the end of section~\ref{sec:Results} is composed of 1024 tiff-files, each with a size of 4852$\times$4852 pixels, which adds up to a total size of nearly \SI{23}{\giga\byte}. Calculations and visualizations of datasets of this size require great optimizations of the processing queue and automation of calculations.
 
 Different scanning protocols based on the needs of the TOMCAT end-user are provided. The end-user has the possibility to choose a suitable scanning protocol depending on a balance between acquisition time and reconstruction quality. Depending on this balance, we managed to reduce the image acquisition time down to \SI{16}{\percent} of the comparable gold standard scan, while keeping the quality of the reconstructed tomographic dataset on a level that still permitted automated segmentation of the lung structure and surrounding airspace, as shown in section~\ref{subsec:comparison}.
-
-In addition to the multiple scans of the samples shown in this manuscript, we also recorded tomographic datasets with increased field of view from the distal-medial edges of the right lower lung lobes of Sprague Dawley rats obtained at post-natal days 4, 10, 21, 36 and 60. With these samples we started to study the skeleton of the terminal airways to quantitatively characterize the lung development at this post-natal stage.
