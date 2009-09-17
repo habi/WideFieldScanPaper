@@ -1,12 +1,13 @@
-%!TEX root = widefieldscan.tex
+% !TEX root = widefieldscan.tex
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
 %
-\section{Results}\label{sec:Results}%
-\subsection{Image Merging and Reconstruction}\label{sec:Image Merging and Reconstruction}%
+\section{Results}
+\label{sec:Results}
+\subsection{Image Merging and Reconstruction}\label{sec:Image Merging and Reconstruction}
 Multiple independently acquired projection images covering the desired field of view were merged into single projections covering the full field of view. Figure~\ref{fig:wide field scan results}(a) shows corrected projection images from three overlapping subscans prior to merging (with marked overlapping regions). Figure~\ref{fig:wide field scan results}(b) shows one merged projection image prior to reconstruction and figure~\ref{fig:wide field scan results}(c) shows one slice of the reconstructed dataset of protocol B, acquired from 5244 projections. Such a reconstructed slice covers a field of view of 2792$\times$2792 pixels (4.13$\times$\SI{4.13}{\milli\meter}), which is almost three times the size of what can be achieved with one single binned scan (1024 pixels or \SI{1.52}{\milli\meter}). %1024 * 1.48 um/px = 1.51552mm
 The dashed circles on the reconstructed slice mark the start and the end of the overlap region.
 
@@ -108,7 +109,8 @@ Figure~\ref{fig:s2-wfs} compares reconstructions of a conventional scan with rec
 	\end{figure}
 \fi
 
-\subsection{Quality guided protocols}\label{subsec:quality-guided-protocols}%
+\subsection{Quality guided protocols}
+\label{subsec:quality-guided-protocols}
 Nineteen different protocols were defined (details see table~\ref{tab:protocols}). These protocols were linearly scaled in total amount of projections from an oversampled gold standard scan down to \SI{16}{\percent} of acquired projections. Choosing one of these protocols enables the end-user to perform a scan with reduced total time while still being able to reconstruct his or her sample in three dimensions (as discussed later).
 
 Protocol A would correspond to a gold standard scan covering the chosen field of view, with nine independent local tomography scans with a field of view of 1024$\times$1024 pixels each. This protocol was omitted from this study, since the sampling theorem can be equally satisfied by acquiring the required amount of projections with one central and two ring scans, as defined in section~\ref{subsubsec:reduction-of-acquisition-time}. Including an overlap of 100 pixels between the central and the ring scan, 13534 projections need to be acquired for the gold-standard protocol ($P_{A}=3(3072-200)\frac{\pi}{2}$).
@@ -187,8 +189,8 @@ As can be seen in figure~\ref{fig:NormalizedErrorPlot}, the calculated quality o
 	\end{figure}
 \fi
 
-\subsubsection{Three dimensional visualization of different protocols}%
-\label{subsec:comparison}%
+\subsubsection{Three dimensional visualization of different protocols}
+\label{subsec:comparison}
 The tomograms of the different protocols were three dimensionally analyzed and visualized using MeVisLab (Version 2.0 (2009-06-09 Release), MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). Airway segments were extracted using a threshold interval based region growing algorithm. A seed point for the region growing algorithm was manually defined in the most proximal slice for each independent airway segment. The coordinates of the seed points were kept constant for protocol B--T, allowing direct comparison between the airway segment reconstructions of the different protocols. Airway segments extracted for protocol B, L and T are shown in figure~\ref{fig:BvsT}.
 
 The data shown in figure~\ref{fig:BvsT} represent three of the 19 scanned protocols. Protocol B corresponds to a slightly oversampled gold standard scan, obtained with 15732 projections for all three subscans, recorded in \SI{66}{\minute}. Protocol L was obtained in \SI{35}{\minute} with total 7866 projections. Protocol T was obtained in \SI{12}{\minute} with total 2185 projections. The tomographic dataset from protocol B was reconstructed from 5244 merged projection images, the dataset from protocol L was reconstructed from 2622 merged projections and the dataset from protocol T was reconstructed using only 874 merged projections. Even though protocols L and T were scanned while violating the sampling theorem and with a total scanning time reduction of \SI{40}{\percent} (or more than \SI{86}{\percent}), the samples still appear to be identical to the gold standard protocol in the low-resolution three dimensional visualization, as shown in figure~\ref{fig:BvsT}(a), (b) and (c).

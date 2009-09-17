@@ -1,13 +1,13 @@
-%!TEX root = widefieldscan.tex
+% !TEX root = widefieldscan.tex
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
 %
-\section{Materials and Methods}%
-\label{sec:materials and methods}%
-\subsection{Sample Preparation and Image Acquisition}%
+\section{Materials and Methods}
+\label{sec:materials and methods}
+\subsection{Sample Preparation and Image Acquisition}
 Rat lung samples, prepared according to %
 \ifhtml
 	\citet{Tschanz2002} and \citet{Luyet2002}
@@ -20,25 +20,14 @@ The samples were postfixed with \SI{1}{\percent} osmium tetroxide (OsO$_4$) and 
 
 The handling of animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern, Switzerland.
 
-\subsection{SRXTM}%
+\subsection{SRXTM}
 The experiments were performed on the TOMCAT beamline~\cite{Stampanoni2006a} at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet with a critical energy of \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{1.22}{\angstrom}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt}, with a bandwidth range of a few percent.
 
-\subsubsection{Image acquisition and reconstruction}%
-\label{seq:Image Acquisition}%
+\subsubsection{Image acquisition and reconstruction}
+\label{seq:Image Acquisition}
 The samples were scanned at an x-ray energy of \SI{12.6}{\kilo\electronvolt}, which results in high contrast of the stained tissue compared to the paraffin, and thus a high signal to noise ratio. After penetration of the sample, the x-rays were converted into visible light by a YAG:Ce scintillator (\SI{18}{\micro\meter} thickness, Crismatec Saint-Gobain, Nemours, France). The projection images were magnified by diffraction limited microscope optics and digitized by a high-resolution 2048$\times$2048 pixel CCD camera (pco.2000, PCO AG, Kelheim, Germany) with 14 bit dynamic range. The lung samples were imaged using a 10$\times$ magnification, with 2$\times$2 binning and \SI{175}{\milli\second} exposure time resulting in isotropic voxels with a side length of \SI{1.48}{\micro\meter}.
 
 Projection images $I_{Pr}$, essentially single radiographies of the sample, were recorded at several angular positions between \SI{0}{\degree} and \SI{180}{\degree}. The exact number of angular projections depended on the selected scan protocol, as described in section~\ref{subsec:quality-guided-protocols}. Additionally, a set of dark ($I_{D}$) and flat images ($I_{F}$) were recorded for each protocol. The dark images recorded at the start of the scan capture the noise and dark current of the camera. The flat images recorded at the start and at the end of the scan capture the beam profile and were used to baseline correct the raw projections.
-
-Corrected projection images $I_{cPr}$ were obtained by correcting $I_{Pr}$ with the average dark ($\overline{I_{D}}$) and average flat image ($\overline{I_{F}}$) using the Beer-Lambert law (see below) and the relation described in equation~\ref{eq:cpr}.
-
-The Beer-Lambert law relates the absorption of electromagnetic waves to the properties of the material through which the waves are traveling. Let $I_{0}$ and $I_{1}$ be the intensity of the incident electromagnetic wave and the intensity after penetration of the material, respectively. If $\mu$ describes the absorption coefficient of the substance and $l$ the path length that the wave travels through the material, then the intensity of the transmitted wave $I_{1}$ can be calculated using the Beer-Lambert law: \(I_{1}=I_{0}e^{-\mu l}\label{eq:beer-lambert}\). In general, $I_{0}$ and $\mu$ depend on the energy of the incident wave, so the equation only holds for a monochromatic beam, which is present at TOMCAT.
-
-The recorded projections, i.e.\ the measured data, are defined as $I_{P}=\mu l=-ln\left(\frac{I_{1}}{I_{0}}\right)$, which corresponds to the inverse Beer-Lambert law. Using the dark and flat images, the corrected projection images $I_{cPr}$ have been calculated as follows:
-\begin{equation}
-	I_{cPr} = -ln\left(\frac{I_{Pr}-\overline{I_{D}}}{\overline{I_{F}}-\overline{I_{D}}}\right)
-	= ln(\overline{I_{F}}-\overline{I_{D}})-ln(I_{Pr}-\overline{I_{D}})
-	\label{eq:cpr}
-\end{equation}
 
 A detailed description of the workflow at TOMCAT and the steps necessary to compute a tomographic data set from a set of angular projections can be found in%
 \ifhtml
@@ -48,7 +37,7 @@ A detailed description of the workflow at TOMCAT and the steps necessary to comp
 \fi%
 .
 
-\subsubsection{Covering a wide lateral field of view}%
+\subsubsection{Covering a wide lateral field of view}
 For parallel beam geometry, tomographic images are obtained at equidistant angles over a sample rotation of \SI{180}{\degree} as shown in figure~\ref{fig:scanning-possibilities}(a). After reconstruction, the width of the image corresponds to the field of view of the camera.
 
 Samples which are twice as large as the field of view can be imaged using scanning protocols based on a \SI{360}{\degree} off-center sample rotation as shown in figure~\ref{fig:scanning-possibilities}(b). Images recorded between \SI{180}{\degree} and \SI{360}{\degree} have to be flipped after acquisition, and the projection images obtained at position $I_{Pr_{x}}$ and $I_{Pr_{x+\SI{180}{\degree}}}$ are stitched together to projection images covering two times the field of view of the camera.
@@ -73,7 +62,7 @@ Samples which are twice as large as the field of view can be imaged using scanni
 
 If a tomographic scan covering a size wider than two field of views is desired, three or more \SI{180}{\degree} scans taken at slightly overlapping positions have to be combined, as shown figure~\ref{fig:scanning-possibilities}(c). The projection images of each subscan overlap each other slightly to allow an optimal stitching of the multiple projections of each rotational angle into one projection. Using the mean squared difference between adjacent subscan images~\cite{Hintermueller2009}, such a cutline was calculated for the adjacent subscans and used to merge the single projections into projections covering the full field of view.
 
-\subsection{Generation of multiple scanning protocols}%
+\subsection{Generation of multiple scanning protocols}
 The discussed scanning protocol for covering a wide field of view with three subscans is based on the assumption that a sufficient resolution and contrast can be achieved in the tomographic dataset, if the sampling theorem is individually fulfilled for each of the subscans. This results in a set of $i$ subscans with $P_{i}$ projection images. A simple example with $P_{1}=4$ and $P_{2}=P_{3}=8$ is shown in figure~\ref{fig:projections}(a).
 
 To be able to reconstruct the sample, we need to stitch the individual sets of projections to projections spanning the desired field of view. Since each subscan has a different number of projections $P_{i}$, a stitching algorithm has to interpolate projections from adjacent projections (dashed lines in figure~\ref{fig:projections}(b)). Alternatively, an equal amount of projections have to be acquired for all subscans, leading to oversampling for the central scanning position.
@@ -95,8 +84,9 @@ To be able to reconstruct the sample, we need to stitch the individual sets of p
 	\end{figure*}
 \fi
 
-\subsubsection{Reduction of acquisition time}\label{subsubsec:reduction-of-acquisition-time}%
-Since the total acquisition time per sample linearly scales with the total amount of recorded projections for all subscans, we tend to avoid oversampling, to reduce the total amount of beam time used for one sample. Our goal was to find a good compromise between scanning and processing time, and image quality. In order to reduce the time required for scanning one sample, acquisition protocols with varying number of projections for each of the three subscans were designed.
+\subsubsection{Reduction of acquisition time}
+\label{subsubsec:reduction-of-acquisition-time}
+Since the total acquisition time per sample linearly scales with the total amount of recorded projections for all subscans, we tend to avoid oversampling, to reduce the total amount of beam time used for one sample. Our goal was to find a good compromise between scanning time and image quality. In order to reduce the time required for scanning one sample, acquisition protocols with varying number of projections for each of the three subscans were designed.
 
 To simplify the interpolation and merging of the projections from each subscan, we selected protocols where the fraction of the amount of projections of the inner ($P_{inner}$) to the outer subscans ($P_{outer}$) is always a multiple of two%: $\frac{P_{outer}}{P_{inner}} \bmod 2 = 0$
 . In the simple case shown in figure~\ref{fig:projections}, we would acquire 4 projections for the central and 8 projections for each of the lateral scans, thus avoiding oversampling the central part of the sample. To be able to merge the projection images, we need to interpolate 4 projections (dashed) prior to stitching. If the number of projections acquired for the ring scans was not two times the number of projections of the central scan, the intermediate projections could not be interpolated equally from the rest of the projections in a 1:1-way. Instead, they would need to be interpolated in a 1:2 or 1:3-way, which would introduce additional processing overhead.
@@ -133,8 +123,8 @@ To be able to further reduce the total scanning time, we developed different sca
 	\end{figure*}
 \fi
 
-\subsection{Wide Field Scanning Pipeline}%
-\label{subsec:wfs-setup}%
+\subsection{Wide Field Scanning Pipeline}
+\label{subsec:wfs-setup}
 A MATLAB-script (MATLAB\textsuperscript{\textregistered} 7.6.0.321 (R2008a), The MathWorks, Inc.) reads several parameters like desired field of view, detector width, magnification and binning and calculates the number of projections needed to satisfy the sampling theorem for the chosen field of view. This gold-standard protocol is used to compute a set of acquisition protocols with reduced amount of projections.
 
 Using a Shepp-Logan phantom~\cite{Shepp1974} as base image, a simulated scan and subsequent reconstruction is calculated for each protocol of this set. The expected reconstruction quality is calculated, based on the difference between the simulated reconstructions and the gold standard (the original phantom). This calculated reconstruction quality is then plotted against the acquisition time, which enables the user to chose a suitable protocol balancing image quality and acquisition time.
@@ -149,7 +139,7 @@ After the multiple subscans have been recorded, the stitching of the projections
 \fi%
 .
 
-\subsection{Batch Acquisition of the Protocols}%
+\subsection{Batch Acquisition of the Protocols}
 Multiple scanning protocols were defined. The total amount of recorded projections for the different protocols were linearly scaled down compared to a gold standard scan (for details, see section~\ref{subsec:quality-guided-protocols}). All parameters of each protocol, such as sample-position in relation to the beam, rotation angles and amount of projections to obtain for each of the individual subscans were set in a preference-file, generated using the aforementioned MATLAB-script. All 19 protocols (B--T) were scanned as a batch scan without manual intervention, permitting a direct comparison of the reconstructed datasets.
 
 After acquisition of the three subscans per protocol, custom MATLAB functions read the parameters of the single subscans (e.g.\ sample name, amount of subscans, amount of dark and flat images) as well as the desired output-name and -suffix, and performed all necessary calculations, including: loading of the correct projections from each subscan; normalizing; interpolation; cutline detection; correct stitching of the images into wide field projections, and; writing these projections to disk.
