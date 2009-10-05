@@ -1,8 +1,10 @@
 0pt
+1-way
 1024px
 20-node
 25-fold
 2793px
+3-way
 3072px-141px-138px
 3100A0-109874
 Beer-Lambert
@@ -84,10 +86,12 @@ b
 b,c
 batch-scan
 beamline
+beamtime
 binarized
 binned
 binning
 c
+cccccc
 comparisonBvsT
 cone-beam
 d
@@ -103,6 +107,7 @@ f
 field-SRXTM
 five-fold
 gas-exchange
+glutaraldehyde-fixation
 gold-standard
 gridrec
 haberthuer@ana.unibe.ch
@@ -116,6 +121,7 @@ isosurface
 isosurfaces
 l
 lab-based
+lightgray
 low-resolution
 marco.stampanoni@psi.ch
 micro-computed
@@ -134,6 +140,7 @@ png
 post-natal
 post-processing
 potassium-phosphate
+preference-file
 quality-steps
 rAdiology
 rccccc
@@ -156,15 +163,18 @@ subscans
 super-bending
 th
 three-dimensionally
+three-dimensions
 three-fold
 thresholded
 tiff-Files
+time-frame
 time-saving
 tomography
 toto
 ultra-high
 un-binned
 undersampling
+unoptimized
 unsrtnat
 voxel
 voxels

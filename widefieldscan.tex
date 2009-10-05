@@ -56,8 +56,8 @@
 \usepackage{scrtime}%
 \usepackage{multirow}%
 %\usepackage[]{draftwatermark}
-%\SetWatermarkScale{3}
-%\SetWatermarkText{confidential}
+%	\SetWatermarkScale{3}
+%	\SetWatermarkText{confidential}
 %
 \newcommand{\imsize}{\linewidth}%
 \newlength\imagewidth% needed for scalebars
@@ -78,7 +78,7 @@
 \fi%
 %
 \title{%
-	Quality- and dosage-driven expansion of the field of view in synchrotron radiation x-ray tomographic microscopy %
+	Radiation dose controlled expansion of the field of view in synchrotron radiation x-ray tomographic microscopy %
 	\ifhtml
 	\else
 		(Version: SVN\svnkw{LastChangedRevision}, compiled \today, \thistime)%
@@ -133,13 +133,14 @@
 	\begin{synopsis}
 	``One or two sentences of the main findings of the paper for inclusion in the Table of Contents.''
 	
-	Increasing the lateral field of view of microscopy based imaging methods also increases the acquisition time. This article presents scanning protocols to obtain high-resolution tomographic scans with large lateral field of view at greatly decrease acquisition time.
+	Increasing the lateral field of view of microscopy based imaging methods greatly increases the acquisition time. This article presents scanning protocols to obtain high-resolution tomographic scans with large lateral field of view at greatly decrease acquisition time and thus reduced dose to the sample while resulting in high quality three-dimensional datasets.
 	\end{synopsis}
 \fi
 
 \begin{abstract}
-High resolution volumetric data at micrometer level can be acquired within a few minutes using synchrotron radiation based X-ray tomographic microscopy (SRXTM). The field of view can be easily increased in direction parallel to the rotation axis by stacking several tomograms, which allows to investigate long and thin objects at high resolution. This paper presents an acquisition protocol which increases the field of view perpendicular to the rotational axis. The acquisition protocol can be tuned as a function of the reconstruction quality, scanning time and computing time. Since the scanning time influences the radiation dose inflicted on the sample, this method can be used to increase the field of view of tomographic microscopy stations and to decrease the radiation dose for radiation sensitive samples while keeping the quality of the tomographic dataset on a very high level.
-This method called wide field-SRXTM increases the lateral field of view up to five times. The method has been successfully applied for the three-dimensional imaging of entire rat lung acini with a diameter of 3--4 mm at a voxel size of \SI{1.5}{\micro\meter}.
+High resolution volumetric data at micrometer level can be acquired within a few minutes using synchrotron radiation based X-ray tomographic microscopy. The field of view can be easily increased in direction parallel to the rotation axis by stacking several tomograms, which allows to investigate long and thin objects at high resolution. This paper presents an acquisition protocol which increases the field of view perpendicular to the rotational axis. The acquisition protocol can be tuned as a function of the reconstruction quality, scanning and computing time. Since the scanning time influences the radiation dose inflicted on the sample, this method can be used to increase the field of view of tomographic microscopy stations and to decrease the radiation dose for radiation sensitive samples while keeping the quality of the tomographic dataset on a very high level.
+
+This new wide field synchrotron radiation based X-ray tomographic microscopy-method increases the lateral field of view up to five times. The method has been successfully applied for the three-dimensional imaging of entire rat lung acini with a diameter of 3--4 mm at a voxel size of \SI{1.5}{\micro\meter}.
 \end{abstract}
 
 \input{wfs-introduction.tex}
