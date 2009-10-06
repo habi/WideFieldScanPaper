@@ -118,11 +118,11 @@ Protocol A would correspond to a gold standard scan covering the chosen field of
 Protocols C--T have been linearly scaled down with a decreasing percentage of acquired projections of the ring scans. As mentioned before, to facilitate the stitching of the individual projections, the amount of projections obtained for the central scan is reduced by a factor of two compared to the amount of projections recorded for the ring scans. As a consequence of the scaling and division by two, Protocol B actually corresponds to an oversampling of \SI{16}{\percent} as compared to a gold standard scan.
 
 \begin{table}
-	\caption{Specification of different protocols: Protocol A corresponds to the Gold Standard, and would be required to cover the field of view with 9 independent scans with a detector width of 1024 pixels (plus an overlap of 100 pixels), resulting in a number of projections $P_{A}=9*(1024-100)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 13020$. The gold standard wide field scanning protocol would correspond to covering the desired field of view with nine independent scans, resulting in a total number of projections of $P_{A} = 3(3072-200)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 13534$. The three rows with a gray background are shown in figure~\ref{fig:BvsT}.}%
+	\caption{Specification of different protocols: Protocol A corresponds to the Gold Standard, and would be required to cover the field of view with 9 independent scans with a detector width of 1024 pixels (plus an overlap of 100 pixels), resulting in a number of projections $P_{A}=9*(1024-100)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 13020$. The gold standard wide field scanning protocol would correspond to covering the desired field of view with nine independent scans, resulting in a total number of projections of $P_{A} = 3(3072-200)\ifhtml \pi/2 \else \frac{\pi}{2} \fi= 13534$. Three-dimensional reconstructions of the datasets marked with a light gray background are shown in figure~\ref{fig:BvsT}.}%
 	\label{tab:protocols}%
 	\begin{tabular}{cccccc}%
-		\multirow{2}{*}{Protocol} & \multicolumn{3}{c}{Projections for Subscan} & Total of & \multirow{2}{*}{Time [\%]}\\
-		        				  & $s_{1}$ & $s_{2}$ & $s_{3}$ & Projections & \\%
+		\multirow{2}{*}{Protocol} & \multicolumn{3}{c}{Projections for Subscan} & Total Number		& Time/Radiation\\
+		        				  & $s_{1}$ & $s_{2}$ & $s_{3}$ 				& of Projections	& Dose [\%]\\%
 		\hline
 		A\footnote{Gold Standard} & & &    & 13534 & 100\\%
 		\rowcolor{lightgray} B & 5244 & 5244 & 5244 & 15732 & 116\\%
@@ -147,7 +147,7 @@ Protocols C--T have been linearly scaled down with a decreasing percentage of ac
 	\end{tabular}%
 \end{table}
 
-A reduction of the total acquisition time by \SI{83.86}{\percent} compared to the gold standard was achieved, as shown in table~\ref{tab:protocols}. All 19 protocols were used to scan the same sample, which was then reconstructed and visualized three-dimensionally to assess the artifacts that arise through the reduction of the number of projections. Even if the reduction in scanning time does introduce minor artifacts in the three-dimensional reconstruction, an automated segmentation of the airways is still possible.
+A reduction of the total acquisition time by \SI{84}{\percent} compared to the gold standard was achieved, as shown in table~\ref{tab:protocols}. The same rat lung sample was batch-scanned with each of the 19 protocols. Three-dimensional reconstructions and visualizations have made been to assess the artifacts that arise through the reduction of the number of projections.
 
 The performance of the protocols was been quantified using the difference image of binarized slices of the tomographic datasets, segmented according to%
 \ifhtml%
@@ -214,7 +214,7 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 		\renewcommand{\imsize}{.33\linewidth}%
 		\pgfmathsetlength{\imagewidth}{\imsize}%
 		\pgfmathsetlength{\imagescale}{\imagewidth/1085}%
-		\def\x{651} % scalebar-x at golden ratio of x=1085px (-20px to fit to width...)
+		\def\x{551} % scalebar-x at golden ratio of x=1085px (671px = golden ratio: 551 is set to fit the one-column-width in the draft mode!!!)
 		\def\y{530} % scalebar-y at 90% of height of y=589px
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
