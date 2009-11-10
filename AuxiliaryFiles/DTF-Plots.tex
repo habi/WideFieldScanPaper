@@ -1,0 +1,96 @@
+\documentclass[paper=a4]{scrartcl}
+  
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{caption,subfig} % z.B. [font=scriptsize]
+\usepackage[alsoload=binary]{siunitx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{microtype}
+%  \DisableLigatures{encoding = *, family = * }
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+
+\newcommand{\imsize}{.5\linewidth}
+
+\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
+\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]} 
+
+\newlength\imagewidth           % needed for scalebars
+\newlength\imagescale           % ditto
+
+\title{Distance Transformation of ROIs}
+\author{David Haberthür}
+
+\begin{document}
+
+\maketitle
+
+I've extracted 4 regions of interest with a side length of 256 pixels (\SI{1.48}{\micro\meter\per pixel}, thus a volume of \SI{1.678e7}{px}) for the protocols B, L and T, as shown in figure~\ref{fig:roi3d}. Each of these ROIs has been thresholded using an Otsu-Threshold (see figure~\ref{fig:synchroview}, left), hence no bias has been introduced due to the obvserver\footnote{The threshold has been calculated to be ``52'', for the \SI{8}{\bit}-images}. Using a connected components analysis I've removed small particles inside the airway lumen and subsequently performed a euclidean distance transformation to analyze the ``thickness'' of the airways (see figure~\ref{fig:synchroview}, right).
+
+\renewcommand{\imsize}{\columnwidth}
+\begin{figure}[h]%
+	\centering
+	\pgfmathsetlength{\imagewidth}{\imsize}%
+	\pgfmathsetlength{\imagescale}{\imagewidth/1452}%
+	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\def\x{897} % scalebar-x at golden ratio of x=1452px
+		\def\y{684} % scalebar-y at 90% of height of y=760px
+		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+	     {\includegraphics[width=\imagewidth]{../img/dtf-roi/ROIs-3d}};
+		% 1357px = 4.0138mm > 100px = 296um > 169px = 500um
+		\draw[|-|,thick,red] (83,517) -- (1425,719) node [sloped,midway,below] {\SI{4.0138}{\milli\meter} (2712px)};
+		\draw[|-|,thick] (\x-500,\y) -- (\x+169-500,\y) node [midway,above] {\SI{500}{\micro\meter}};
+		\draw (368,360) node [fill=white,semitransparent] {ROI 1} node {ROI 1};
+		\draw (1038,312) node [fill=white,semitransparent] {ROI 2} node {ROI 2};
+		\draw (767,413) node [fill=white,semitransparent] {ROI 3} node {ROI 3};
+		\draw (684,139) node [fill=white,semitransparent] {ROI 4} node {ROI 4};
+	\end{tikzpicture}%
+	\caption{}%
+	\label{fig:roi3d}%
+\end{figure}
+
+\renewcommand{\imsize}{.618\columnwidth}
+\begin{figure}%
+	\centering
+	\includegraphics[width=\imsize]{../img/dtf-roi/synchroview}%
+	\caption{Left: Thresholded Slice, right: Euclidean distance transformation}%
+	\label{fig:synchroview}%
+\end{figure}
+
+\renewcommand{\imsize}{\columnwidth}
+\begin{figure}%
+	\centering
+	\includegraphics[width=\imsize]{../img/dtf-roi/histogram}%
+	\caption{Visualization of ROI, Histogram and local maxima of euclidean distance transformation in the left part of the screenshot, Histogram to be exported in the right part.}%
+	\label{fig:GUI}%
+\end{figure}
+
+The Histogram of the distance transformation (see figure~\ref{fig:GUI}) has been plotted for each of the 4 ROIs for each of the protocols (B, L and T). Using MATLAB, I've read all those histograms and plotted them (see figure~\ref{fig:MATLABhistograms}). Since it's extremely hard to spot any differences in the distance transformation histograms like this, I overlayed the plots for each region into one plot. Additionally, to better assess the differences in the different histograms, I've chosen a logarithmic scale for the y-axis, since the high values for the larger diameters occlude everything for the smaller diameters.
+
+\renewcommand{\imsize}{\columnwidth}
+\begin{figure}%
+	\centering
+	\includegraphics[width=\imsize]{../img/dtf-roi/MATLABhistograms.png}%
+	\caption{All Histograms, plotted with MATLAB (Colums: ROIs, Rows: Protocols)}%
+	\label{fig:MATLABhistograms}%
+\end{figure}
+
+
+Note that the x-axis has been scaled (in MeVisLab) with $10^6$, so the x-axis-scale is actuall \SI{e-2}{\milli\meter} instead of the stated \SI{e4}{\milli\meter}\ldots For ROI 4, the sum of the histogram is \SI{1.405e7}{pixels}, hence the y-values for the bins are are correct, but we might have some effects of underfilled bins! This is just a quick overview over the histograms, if we use this, there will be some more finetuning.
+
+Figure~\ref{fig:plots} shows a plot for each of the ROIs; the \textcolor{blue}{blue} plot shows the logarithmic histogram of the distance transformation of Protocol B, the \textcolor{green}{green} and \textcolor{red}{red} plot the same for protocols L and T, respectively. A discernible difference is only visible for the larger diameters ($>$\SI{3e-2}{\milli\meter} and even there only for ROIs 3 and 4.
+
+\begin{figure}%
+	\subfloat[ROI 1]{\input{../tikz-images/plots/DTF-Plots/edited-plot1}}
+	\subfloat[ROI 2]{\input{../tikz-images/plots/DTF-Plots/edited-plot2}}\\
+	\subfloat[ROI 3]{\input{../tikz-images/plots/DTF-Plots/edited-plot3}}
+	\subfloat[ROI 4]{\input{../tikz-images/plots/DTF-Plots/edited-plot4}}
+	\caption{Histogramplots for each of the of 4 ROIs, each showing the Histogram for Protocols B, L and T.}%
+	\label{fig:plots}%
+\end{figure}
+
+
+\end{document}

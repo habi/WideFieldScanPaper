@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage{tikz,pgfplots}
+\usepackage{savetrees}
+\usepackage{subfig}
+\begin{document}
+\begin{figure}%
+	\subfloat[ROI 1]{\input{edited_plot1}}
+	\subfloat[ROI 2]{\input{edited_plot2}}\\
+	\subfloat[ROI 3]{\input{edited_plot3}}
+	\subfloat[ROI 4]{\input{edited_plot4}}
+	\caption{DistanceTransformationPlot of 4 ROIs}%
+	\label{fig:DTF}%
+\end{figure}
+\end{document}
