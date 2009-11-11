@@ -6,8 +6,8 @@
 \ifhtml%
 	\documentclass[draft,a4paper]{article}%
 \else%
-	\documentclass[draft,s,preprint]{iucr}%
-%	\documentclass[s,preprint]{iucr}%
+%	\documentclass[draft,s,preprint]{iucr}%
+	\documentclass[s,preprint]{iucr}%
 %	\documentclass[draft,s]{iucr}%
 %	\documentclass[s]{iucr}%
 		\paperprodcode{a000000}
@@ -78,13 +78,13 @@
 \fi%
 %
 \title{%
-	Radiation dose controlled expansion of the field of view in synchrotron radiation x-ray tomographic microscopy %
+	Radiation dose optimized expansion of the field of view in synchrotron radiation x-ray tomographic microscopy%
 	\ifhtml
 	\else
-		(Version: SVN\svnkw{LastChangedRevision}, compiled \today, \thistime)%
+		(svn-revision: \svnkw{LastChangedRevision}, compiled \today, \thistime)%
 	\fi
 	}%
-
+%
 \ifhtml
 	\author{%
 		David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}
@@ -93,19 +93,19 @@
 		\and Johannes C. Schittny\footrecall{ana}
 		\and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}
 		}
-		
-	\begin{document}
-	
-	\begin{center}---Version: SVN\svnkw{LastChangedRevision}, compiled \today, \thistime---\end{center}
-	
-	\maketitle
-\else
-\fi
-
+%
+	\begin{document}%
+%
+	\begin{center}---snv-revision \svnkw{LastChangedRevision}, compiled \today, \thistime---\end{center}%
+%	
+	\maketitle%
+\else%
+\fi%
+%
 \ifhtml
 \else
 	\shorttitle{A broader vision for tomographic microscopy}
-
+%
 	\cauthor[a]{David}{Haberthür}{haberthuer@ana.unibe.ch}{}
 	\author[b]{Christoph}{Hintermüller}{}{}
 	\author[b]{Federica}{Marone}{}{}
@@ -127,7 +127,7 @@
 
 	\maketitle
 \fi
-
+%
 \ifhtml
 \else
 	\begin{synopsis}
@@ -154,7 +154,7 @@ This new wide field synchrotron radiation based X-ray tomographic microscopy-met
 \else%
 	\ack{
 \fi
-	This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance. Dan Ward kindly checked the English of the manuscript.%
+	This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance and Volker Dicken from Fraunhofer Mevis for the fruitful discussion concerning the euclidean distance transformation. Dan Ward kindly checked the English of the manuscript.%
 \ifhtml%
 	% do nothing
 \else%

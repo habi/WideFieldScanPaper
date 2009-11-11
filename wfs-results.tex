@@ -5,8 +5,7 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 %
-\section{Results}
-\label{sec:Results}
+\section{Results}\label{sec:Results}
 \subsection{Image Merging and Reconstruction}\label{sec:Image Merging and Reconstruction}
 Multiple independently acquired projection images covering the desired field of view were merged into single projections covering the full field of view. Figure~\ref{fig:wide field scan results}(a) shows corrected projection images from three overlapping subscans prior to merging (with marked overlapping regions). Figure~\ref{fig:wide field scan results}(b) shows one merged projection image prior to reconstruction and figure~\ref{fig:wide field scan results}(c) shows one slice of the reconstructed dataset of protocol B, acquired from 5244 projections. Such a reconstructed slice covers a field of view of 2792$\times$2792 pixels (4.13$\times$\SI{4.13}{\milli\meter}), which is almost three times the size of what can be achieved with one single binned scan (1024 pixels or \SI{1.52}{\milli\meter}). %1024 * 1.48 um/px = 1.51552mm
 The dashed circles on the reconstructed slice mark the start and the end of the overlap region.
@@ -197,7 +196,7 @@ The data shown in figure~\ref{fig:BvsT} represent three of the 19 scanned protoc
 
 Obviously, the artifacts introduced through the reduction in scanning time only become apparent at higher magnification. The blue cube inside the green airway segments in figures~\ref{fig:BvsT}(a), (b) and (c) are shown as isosurface visualizations of the lung tissue (which corresponds exactly to the negative of the extracted airway segment) in figures~\ref{fig:BvsT}(d), (e) and (f). The regions of interest show a cube with a side length of \SI{379}{\micro\meter} or 256 pixels.
 
-Even with the higher magnification, the reconstructions of protocol L in figure~\ref{fig:BvsT}(e) appears nearly identical to the reconstruction of the region of interest of protocol B (fig.~\ref{fig:BvsT}(d)). The isosurface of the region of interest of protocol T shown in figure~\ref{fig:BvsT}(f) appears rougher than the isosurface of protocol B. This roughness is introduced through wave-like artifacts visible in the original slice of the dataset of protocol T (not shown). These artifacts arise through the breaching of the sampling theorem, since only 874 projections were acquired for the two ring-scans instead of the 5139 projections ($(3072-200)\frac{\pi}{2}$) required to satisfy the sampling theorem. However, even with this strong undersampling, segmentation, three-dimensional reconstruction and visualization of the sample is still possible. Thus, if the user desires to gain a quick overview over his or her sample at a high resolution, e.g.\ to quickly assess the integrity of multiple samples over a short time, such a time-saving protocol could be used. It has to be mentioned that a quick overview could, in principle, also be obtained with a low-resolution scan, which usually automatically accommodates a larger field of view. However, the resolution would not be sufficient to detect interesting features.
+Even with the higher magnification, the reconstruction of protocol L in figure~\ref{fig:BvsT}(e) appears nearly identical to the reconstruction of the region of interest of protocol B (fig.~\ref{fig:BvsT}(d)). The isosurface of the region of interest of protocol T shown in figure~\ref{fig:BvsT}(f) appears rougher than the isosurface of protocol B. This roughness is introduced through wave-like artifacts visible in the original slice of the dataset of protocol T (not shown). These artifacts arise through the breaching of the sampling theorem, since only 874 projections were acquired for the two ring-scans instead of the 5139 projections ($(3072-200)\frac{\pi}{2}$) required to satisfy the sampling theorem. However, even with this strong undersampling, segmentation, three-dimensional reconstruction and visualization of the sample is still possible.\todo{Maybe switch this paragraph to Discussion?} Thus, if the user desires to gain a quick overview over his or her sample at a high resolution, e.g.\ to quickly assess the integrity of multiple samples over a short time, such a time-saving protocol could be used. It has to be mentioned that a quick overview could, in principle, also be obtained with a low-resolution scan, which usually automatically accommodates a larger field of view. However, the resolution would not be sufficient to detect interesting features.
 
 \ifiucr%%% iucr %%%
 %\onecolumn
@@ -221,8 +220,7 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/ob}};
 			% 1030px = 2.627mm > 100px = 255um > 196px = 500um
 %			\draw[|-|,thick] (30,339) -- (1054,454) node [white,sloped,midway,above] {\SI{2.627}{\milli\meter} (1775px)};
-			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [fill=white,semitransparent,right] {\SI{500}{\micro\meter}};
-			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [right] {\SI{500}{\micro\meter}};
+			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [fill=white,semitransparent,right] {\SI{500}{\micro\meter}} node [right] {\SI{500}{\micro\meter}};
 			\node [fill=white,semitransparent,anchor=south west] at (0,589) {(a)};
 			\node [anchor=south west] at (0,589) {(a)};
 		\end{tikzpicture}%
@@ -230,8 +228,7 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/ol}};
 			% 1030px = 2.627mm > 100px = 255um > 196px = 500um
-			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [fill=white,semitransparent,right] {\SI{500}{\micro\meter}};
-			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [right] {\SI{500}{\micro\meter}};
+			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [fill=white,semitransparent,right] {\SI{500}{\micro\meter}} node [right] {\SI{500}{\micro\meter}};
 			\node [fill=white,semitransparent,anchor=south west] at (0,589) {(b)};
 			\node [anchor=south west] at (0,589) {(b)};
 		\end{tikzpicture}%
@@ -239,8 +236,7 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/ot}};
 			% 1030px = 2.627mm > 100px = 255um > 196px = 500um
-			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [fill=white,semitransparent,right] {\SI{500}{\micro\meter}};
-			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [right] {\SI{500}{\micro\meter}};
+			\draw [|-|,thick] (\x,\y) -- (\x+196,\y) node [fill=white,semitransparent,right] {\SI{500}{\micro\meter}} node [right] {\SI{500}{\micro\meter}};
 			\node [fill=white,semitransparent,anchor=south west] at (0,589) {(c)};
 			\node [anchor=south west] at (0,589) {(c)};
 		\end{tikzpicture}%
@@ -254,8 +250,7 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/roiB}};
 			% 761px = 0.37888mm > 100px = 50um > 100.4px = 500um
 %			\draw[|-|,thick] (792,438) -- (31,435) node [sloped,midway,above] {\SI{378.88}{\micro\meter} (256px)};
-			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [fill=white,semitransparent,right] {\SI{50}{\micro\meter}};
-			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [right] {\SI{50}{\micro\meter}};
+			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [fill=white,semitransparent,right] {\SI{50}{\micro\meter}} node [right] {\SI{50}{\micro\meter}};
 			\node [fill=white,semitransparent,anchor=south west] at (0,815) {(d)};
 			\node [anchor=south west] at (0,815) {(d)};
 	\end{tikzpicture}%
@@ -263,8 +258,7 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/roiL}};
 			% 761px = 0.37888mm > 100px = 50um > 100.4px = 500um
-			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [fill=white,semitransparent,right] {\SI{50}{\micro\meter}};
-			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [right] {\SI{50}{\micro\meter}};
+			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [fill=white,semitransparent,right] {\SI{50}{\micro\meter}} node [right] {\SI{50}{\micro\meter}};
 			\node [fill=white,semitransparent,anchor=south west] at (0,815) {(e)};
 			\node [anchor=south west] at (0,815) {(e)};
 		\end{tikzpicture}%
@@ -272,8 +266,7 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
 				{\includegraphics[width=\imagewidth]{img/comparisonBvsT/roiT}};
 			% 761px = 0.37888mm > 100px = 50um > 100.4px = 500um
-			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [fill=white,semitransparent,right] {\SI{50}{\micro\meter}};
-			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [right] {\SI{50}{\micro\meter}};
+			\draw[|-|,thick] (\x,\y) -- (\x+100.4,\y) node [fill=white,semitransparent,right] {\SI{50}{\micro\meter}} node [right] {\SI{50}{\micro\meter}};
 			\node [fill=white,semitransparent,anchor=south west] at (0,815) {(f)};
 			\node [anchor=south west] at (0,815) {(f)};
 		\end{tikzpicture}%
@@ -303,6 +296,48 @@ Even with the higher magnification, the reconstructions of protocol L in figure~
 		\label{fig:BvsT}%
 	\end{figure}
 \fi%
+
+For further analysis four regions of interest with a side length of 256 pixels (at \SI{1.48}{\micro\meter\per pixel}, thus containing a volume of \SI{1.678e7}{px}) have been extracted for each of the protocols B, L and T. The three-dimensional placement of these ROIs inside the sample is shown in figure~\ref{fig:roi3d}. Each of the ROIs has been binarized using an automatically determined threshold~\cite{Otsu1979} and small particles inside the segmented airspace lumen have been removed using a connected components analysis. Subsequently, the euclidean distance transformation has been calculated for each ROI\todo{Or is this too much for ``Results'', should we put this into ``Mat\&Meth.''?}.
+
+\renewcommand{\imsize}{\columnwidth}
+\begin{figure}%
+	\centering%
+	\pgfmathsetlength{\imagewidth}{\imsize}%
+	\pgfmathsetlength{\imagescale}{\imagewidth/1452}%
+	\caption{Here be the caption}%
+	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\def\x{897} % scalebar-x at golden ratio of x=1452px
+		\def\y{684} % scalebar-y at 90% of height of y=760px
+		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+	     {\includegraphics[width=\imagewidth]{img/dtf-roi/ROIs-3d}};
+		% 1357px = 4.0138mm > 100px = 296um > 169px = 500um
+		% \draw[|-|,thick,red] (83,517) -- (1425,719) node [sloped,midway,below] {\SI{4.0138}{\milli\meter} (2712px)};
+		\draw[|-|,thick] (\x,\y) -- (\x+169,\y) node [midway,above] {\SI{500}{\micro\meter}};
+		\draw ( 368,360) node [fill=white,semitransparent] {ROI 1} node {ROI 1};
+		\draw (1038,312) node [fill=white,semitransparent] {ROI 2} node {ROI 2};
+		\draw ( 767,413) node [fill=white,semitransparent] {ROI 3} node {ROI 3};
+		\draw ( 684,139) node [fill=white,semitransparent] {ROI 4} node {ROI 4};
+	\end{tikzpicture}%
+	\label{fig:roi3d}%
+\end{figure}
+
+For each of the four ROIs for the three protocols, the histogram of the euclidean distance transformation has been plotted, as can be seen in figure~\ref{fig:DTFplots}\footnote{Note that the x-axis has been scaled (in MeVisLab) with $10^6$, so the x-axis-scale is actually \SI{e-2}{\milli\meter} instead of the stated \SI{e4}{\milli\meter}\ldots For ROI 4, the sum of the histogram is \SI{1.405e7}{pixels}, hence the y-values for the bins are are correct, but we might have some effects of underfilled bins!}
+
+Figure~\ref{fig:DTFplots} shows a plot for each of the ROIs; the blue plot shows the logarithmic histogram of the distance transformation of Protocol B, the green and red plot the same for protocols L and T, respectively. A discernible difference is only visible for the larger diameters ($>$\SI{3e-2}{\milli\meter} and even there only for ROIs 3 and 4.
+
+%\onecolumn
+\begin{figure}%
+	\centering
+		\begin{tabular}{cc}
+			\input{tikz-images/plots/DTF-Plots/edited-plot1}&
+			\input{tikz-images/plots/DTF-Plots/edited-plot2}\\
+			\input{tikz-images/plots/DTF-Plots/edited-plot3}&
+			\input{tikz-images/plots/DTF-Plots/edited-plot4}
+		\end{tabular}
+	\caption{Histogramplots for each of the of 4 ROIs, each showing the Histogram for Protocols B, L and T.}%
+	\label{fig:DTFplots}%
+\end{figure}
+%\twocolumn
 
 The field of view can be increased even further; we also scanned and reconstructed a rat lung sample with 5 scanning positions, resulting in a five-fold (4.74$\times$) increase in available field of view from 1024$\times$1024 pixels to 4852$\times$4852 pixels (data not shown). We have been able to reconstruct a sample with a size of 0.82$\times$7.18$\times$\SI{1.52}{\milli\meter} %(cropped from 4852$\times$4852$\times$1024 down to 552$\times$4852$\times$1024 pixels) 
 at a voxel side length of \SI{1.48}{\micro\meter}.
