@@ -10,6 +10,7 @@
 Beer-Lambert
 Crismatec
 Dawley
+Dicken
 EPICS-System
 FFT
 FFT-based
@@ -39,6 +40,7 @@ MathWorks
 MeVis
 MeVisLab
 Merck
+Mevis
 N
 O
 Opteron
@@ -74,6 +76,7 @@ TOmographic
 Tschanz2002
 U
 Villigen
+Volker
 WF-SRXTM
 Wetzlar
 XXXXXXX
@@ -97,6 +100,7 @@ cone-beam
 d
 data-processing
 distal-medial
+dtf-roi
 e
 end-stations
 end-user
@@ -115,6 +119,7 @@ high-quality
 high-resolution
 http://python.org/
 http://www.aps.anl.gov/epics/
+humongous
 img
 instillation
 isosurface

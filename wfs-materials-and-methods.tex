@@ -84,9 +84,9 @@ To be able to reconstruct the sample, we need to stitch the individual sets of p
 	\end{figure*}
 \fi
 
-\subsubsection{Reduction of acquisition time}
+\subsubsection{Reduction of acquisition time and radiation dose}
 \label{subsubsec:reduction-of-acquisition-time}
-Since the total acquisition time per sample linearly scales with the total amount of recorded projections for all subscans, we tend to avoid oversampling, to reduce the total amount of beam time used for one sample. Our goal was to find a good compromise between scanning time and image quality. In order to reduce the radiation dose on the sample, acquisition protocols with varying number of projections and thus varying acquisition time were designed.
+Since the total acquisition time per sample linearly scales with the total amount of recorded projections for all subscans, we tend to avoid oversampling, to reduce the total amount of beam time used for one sample. Our goal was to find a good compromise between scanning time and image quality. Acquisition protocols with varying number of projections and thus varying acquisition time were designed in order to reduce the radiation dose on the sample.
 
 To simplify the interpolation and merging of the projections from each subscan, we selected protocols where the fraction of the amount of projections of the inner ($P_{inner}$) to the outer subscans ($P_{outer}$) is always a multiple of two%: $\frac{P_{outer}}{P_{inner}} \bmod 2 = 0$
 . In the simple case shown in figure~\ref{fig:projections}, we would acquire 4 projections for the central and 8 projections for each of the lateral scans, thus avoiding oversampling the central part of the sample. To be able to merge the projection images, we need to interpolate 4 projections (dashed) prior to stitching. If the number of projections acquired for the ring scans was not two times the number of projections of the central scan, the intermediate projections could not be interpolated equally from the rest of the projections in a 1:1-way. Instead, they would need to be interpolated in a 1:2 or 1:3-way, which would introduce additional processing overhead.
@@ -122,8 +122,6 @@ To further reduce the total scanning time, we developed different scanning proto
 		\label{fig:SubScan-Setup}%
 	\end{figure*}
 \fi
-
-A reduction in total scanning time not only enables the user to perform more measurements during the allotted beamtime, but also reduces the radiation dose inflicted on the sample during the measurements\todo{Elaborate more here, or is the part in the Discussion enough? Here it's only M\&M\ldots}.
 
 \subsection{Wide Field Scanning Pipeline}
 \label{subsec:wfs-setup}

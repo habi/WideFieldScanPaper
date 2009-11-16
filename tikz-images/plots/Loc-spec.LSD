@@ -21,6 +21,7 @@ Crismatec
 D
 Dawley
 DetailROIT
+Dicken
 Dipl
 E
 EPICS-System
@@ -65,6 +66,7 @@ MathWorks
 MeVis
 MeVisLab
 Merck
+Mevis
 München
 N
 O
@@ -141,6 +143,7 @@ Tschanz2002,Schittny1997
 U
 Universität
 Villigen
+Volker
 WF-SRXTM
 WLGA
 Wetzlar
@@ -186,6 +189,7 @@ d
 data-processing
 dir
 distal-medial
+dtf-roi
 e
 end-result
 end-stations
@@ -212,6 +216,7 @@ http://python.org/
 http://www.ana.unibe.ch/~haberthuer/WideFieldScanPaper/MATLAB
 http://www.ana.unibe.ch/~haberthuer/WideFieldScanPaper/MeVisLab
 http://www.aps.anl.gov/epics/
+humongous
 i
 img
 inline
