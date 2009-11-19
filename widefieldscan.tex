@@ -43,7 +43,6 @@
 %		\nochangebars
 \fi%
 %
-\usepackage[latin1]{inputenc}%							% so I can write my Name without \"{u}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}%
 \usepackage[english]{babel}%
@@ -55,10 +54,11 @@
 \usepackage{pgfplots}%
 \usepackage{scrtime}%
 \usepackage{multirow}%
+\usepackage[version=3]{mhchem}
 %\usepackage[]{draftwatermark}
 %	\SetWatermarkScale{3}
 %	\SetWatermarkText{confidential}
-%
+
 \newcommand{\imsize}{\linewidth}%
 \newlength\imagewidth% needed for scalebars
 \newlength\imagescale% needed for scalebars
@@ -87,11 +87,11 @@
 %
 \ifhtml
 	\author{%
-		David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}
-		\and Christoph Hintermüller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}
+		David Haberth\"{u}r\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}
+		\and Christoph Hinterm\"{u}ller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}
 		\and Federica Marone\footrecall{psi}
 		\and Johannes C. Schittny\footrecall{ana}
-		\and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Zürich, Switzerland}
+		\and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Z\"{u}rich, Switzerland}
 		}
 %
 	\begin{document}%
@@ -106,15 +106,15 @@
 \else
 	\shorttitle{A broader vision for tomographic microscopy}
 %
-	\cauthor[a]{David}{Haberthür}{haberthuer@ana.unibe.ch}{}
-	\author[b]{Christoph}{Hintermüller}{}{}
+	\cauthor[a]{David}{Haberth\"{u}r}{haberthuer@ana.unibe.ch}{}
+	\author[b]{Christoph}{Hinterm\"{u}ller}{}{}
 	\author[b]{Federica}{Marone}{}{}
 	\author[a]{Johannes C.}{Schittny}{}{}
 	\cauthor[b,c]{Marco}{Stampanoni}{marco.stampanoni@psi.ch}{}
 
 	\aff[a]{Institute of Anatomy, University of Bern, \country{Switzerland}}
 	\aff[b]{Swiss Light Source, Paul Scherrer Institut, \city{Villigen}, \country{Switzerland}}
-	\aff[c]{Institute of Biomedical Engineering, University and ETH Zürich, \country{Switzerland}}
+	\aff[c]{Institute of Biomedical Engineering, University and ETH Z\"{u}rich, \country{Switzerland}}
 
 	\keyword{X-ray imaging}
 	\keyword{computed tomography}
@@ -143,11 +143,11 @@ High resolution volumetric data at micrometer level can be acquired within a few
 This new wide field synchrotron radiation based X-ray tomographic microscopy method increases the lateral field of view up to five times. The method has been successfully applied for the three-dimensional imaging of entire rat lung acini with a diameter of 3--4 mm at a voxel size of \SI{1.48}{\micro\meter}.
 \end{abstract}
 
-\input{wfs-introduction.tex}
+%\input{wfs-introduction.tex}
 \input{wfs-materials-and-methods.tex}
 \input{wfs-results.tex}
 \input{wfs-discussion.tex}
-\input{wfs-summary.tex}
+%\input{wfs-summary.tex}
 
 \ifhtml%
 	\section{Acknowledgements}%

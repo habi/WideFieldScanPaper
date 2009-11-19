@@ -1,0 +1,72 @@
+% This file was created by matlab2tikz v0.0.4.
+%\documentclass{article}
+%\usepackage{tikz,pgfplots,lipsum}
+%\usepackage[pdftex,active,tightpage]{preview}
+%\begin{document}
+%\begin{preview}
+%%%%%%%%%%%%
+\begin{tikzpicture}
+
+% Axis at [0.13 0.11 0.78 0.81]
+\begin{axis}[
+xmajorgrids,xminorgrids,
+ymajorgrids,yminorgrids,
+axis on top,
+scale only axis,
+width=5.5cm,
+%height=3.56562in,
+%xmin=0.5, xmax=4.5,
+%ymin=0.65, ymax=1,
+xtick={1,2,3,4},
+xticklabels={Original,%
+	$\frac{\textrm{Central}}{2}$,%
+	$\frac{\textrm{Central}}{4}$,%
+	$\frac{\textrm{Central}}{8}$},
+xlabel={Protocols},
+ylabel={SSIM(A,*)},
+title={mean SSIM for 18 Slices $\pm$ Std-Dev},
+legend entries={A,B,C,D}
+]
+
+\addplot [ color=red, only marks, mark=*]
+plot[error bars/.cd, y dir = both, y explicit]
+coordinates{
+ (0.925,1) +- (0,0)
+ (1.925,0.870644) +- (0,0.0155253)
+ (2.925,0.85813) +- (0,0.0163216)
+ (3.925,0.841459) +- (0,0.0251378)
+};
+
+\addplot [ color=green, solid, only marks, mark=square*]
+plot[error bars/.cd, y dir = both, y explicit]
+coordinates{
+ (0.975,0.955859) +- (0,0.00451414)
+ (1.975,0.853525) +- (0,0.0184261)
+ (2.975,0.840652) +- (0,0.0198974)
+ (3.975,0.825281) +- (0,0.0293097)
+};
+
+\addplot [ color=blue, solid, only marks, mark=diamond*]
+plot[error bars/.cd, y dir = both, y explicit]
+coordinates{
+ (1.025,0.896816) +- (0,0.0204368)
+ (2.025,0.79298) +- (0,0.0322583)
+ (3.025,0.78324) +- (0,0.032939)
+ (4.025,0.760095) +- (0,0.0424208)
+};
+
+\addplot [ color=magenta, solid, only marks, mark=triangle*]
+plot[error bars/.cd, y dir = both, y explicit]
+coordinates{
+ (1.075,0.837564) +- (0,0.0323791)
+ (2.075,0.74749) +- (0,0.0465387)
+ (3.075,0.745587) +- (0,0.0392654)
+ (4.075,0.710318) +- (0,0.056185)
+};
+
+\end{axis}
+
+\end{tikzpicture}
+%%%%%%%%%%%%
+%\end{preview}
+%\end{document}
