@@ -3,109 +3,86 @@
 	\htmltrue \iucrfalse% conversion to HTML
 	\htmlfalse \iucrtrue% keep it TeX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifhtml%
-	\documentclass[draft,a4paper]{article}%
-\else%
-%	\documentclass[draft,s,preprint]{iucr}%
-	\documentclass[s,preprint]{iucr}%
-%	\documentclass[draft,s]{iucr}%
-%	\documentclass[s]{iucr}%
-		\paperprodcode{a000000}
-		\paperref{xx9999}
-		\papertype{FA}
-		\paperlang{English}
-		\journalcode{S}
-		\journalyr{2009}
-		\journaliss{1}
-		\journalvol{65}
-		\journalfirstpage{000}
-		\journallastpage{000}
-		\journalreceived{0 XXXXXXX 2009}
-		\journalaccepted{0 XXXXXXX 2009}
-		\journalonline{0 XXXXXXX 2009}
-\fi%
-%
-\ifhtml% In case of web format output...
-	\def\pgfsysdriver{pgfsys-tex4ht.def}%
-	\usepackage[caption=false,format=hang]{subfig}%
-	\usepackage[numbers]{natbib}%
-	\usepackage[nolists]{endfloat}%
-	\usepackage[disable]{todonotes}%
+\ifhtml
+	\documentclass[draft,a4paper]{article}
+\else
+%	\documentclass[draft,s,preprint]{iucr}
+	\documentclass[s,preprint]{iucr}
+%	\documentclass[draft,s]{iucr}
+%	\documentclass[s]{iucr}
+\fi
+
+\ifhtml
+	\def\pgfsysdriver{pgfsys-tex4ht.def}
+	\usepackage[caption=false,format=hang]{subfig}
+	\usepackage[numbers]{natbib}
+	\usepackage[disable]{todonotes}
 	\renewcommand{\todo}[1]{\textcolor{red}{\ [TODO: #1]\ }}% redefines todo for html-conversion
-	\usepackage{hyperref}%
-%	\usepackage{changebar}
-%		\nochangebars % disables changebars for html-conversion
-\else%
+%	\usepackage[nolists]{endfloat}
+	\usepackage{hyperref}
+\else
 	\usepackage[table]{xcolor}								% for highlighting table rows with \rowcolor{color}
-	\usepackage{todonotes}%
-%	\usepackage[pdftex,outerbars,color]{changebar}%
-%		\cbcolor{red}
-%		\nochangebars
-\fi%
-%
+	\usepackage{todonotes}
+\fi
+
 \usepackage[T1]{fontenc}
-\usepackage{graphicx}%
-\usepackage[english]{babel}%
-\usepackage{svn-multi}%									% to add SVN-Versioning-Info
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{svn-multi}
 \let\Gray\relax%
-\usepackage[alsoload=binary,alsoload=synchem]{siunitx}%	% typographically correct units (\milli\meter, \kilo\electronvolt), [alsoload=binary] > \SI{100}{\giga\byte}, [alsoload=synchem] > \SI{0.03}{\Molar}
-\usepackage{tikz}%
-	\usetikzlibrary{patterns}%
-\usepackage{pgfplots}%
-\usepackage{scrtime}%
-\usepackage{multirow}%
+\usepackage[alsoload=binary,alsoload=synchem]{siunitx}
+\usepackage{tikz}
+	\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+\usepackage{scrtime}
+\usepackage{multirow}
 \usepackage[version=3]{mhchem}
 %\usepackage[]{draftwatermark}
 %	\SetWatermarkScale{3}
 %	\SetWatermarkText{confidential}
 
-\newcommand{\imsize}{\linewidth}%
+\newcommand{\imsize}{\linewidth}
 \newlength\imagewidth% needed for scalebars
 \newlength\imagescale% needed for scalebars
-%
+
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
-%
-\ifhtml%
-	\DeclareGraphicsExtensions{.png}%
-	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}%
-	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}%
-\else%
-	\begin{document}%
-\fi%
-%
+
+\ifhtml
+	\DeclareGraphicsExtensions{.png}
+	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
+	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
+\else
+	\begin{document}
+\fi
+
 \title{%
 	Radiation dose optimized expansion of the field of view in synchrotron radiation x-ray tomographic microscopy %
 	\ifhtml
 	\else
 		(SVN-revision: \svnkw{LastChangedRevision}, compiled \today, \thistime)%
 	\fi
-	}%
-%
+	}
+
 \ifhtml
-	\author{%
-		David Haberth\"{u}r\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}
-		\and Christoph Hinterm\"{u}ller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}
+	\author{
+		David Haberth\"ur\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}
+		\and Christoph Hinterm\"uller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}
 		\and Federica Marone\footrecall{psi}
 		\and Johannes C. Schittny\footrecall{ana}
-		\and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Z\"{u}rich, Switzerland}
+		\and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Z\"urich, Switzerland}
 		}
-%
 	\begin{document}%
-%
 	\begin{center}---SVN-revision \svnkw{LastChangedRevision}, compiled \today, \thistime---\end{center}%
-%	
-	\maketitle%
-\else%
-\fi%
-%
+	\maketitle
+\else
+\fi
+
 \ifhtml
 \else
-	\shorttitle{A broader vision for tomographic microscopy}
-%
 	\cauthor[a]{David}{Haberth\"{u}r}{haberthuer@ana.unibe.ch}{}
 	\author[b]{Christoph}{Hinterm\"{u}ller}{}{}
 	\author[b]{Federica}{Marone}{}{}
@@ -127,13 +104,13 @@
 
 	\maketitle
 \fi
-%
+
 \ifhtml
 \else
 	\begin{synopsis}
 	``One or two sentences of the main findings of the paper for inclusion in the Table of Contents.''
 	
-	Increasing the lateral field of view of microscopy based imaging methods greatly increases the acquisition time. This article presents scanning protocols to obtain high-resolution tomographic scans with large lateral field of view at greatly decrease acquisition time and thus reduced dose to the sample while resulting in high quality three-dimensional datasets.
+	Increasing the lateral field of view of microscopy based imaging methods greatly increases the acquisition time. This article presents scanning protocols to obtain high-resolution tomographic scans with large lateral field of view at greatly decrease acquisition time and thus reduced radiation dose while resulting in high quality three-dimensional datasets viable for semi-automatic segmentation of the terminal airways in the mammalian lung.
 	\end{synopsis}
 \fi
 
@@ -155,21 +132,19 @@ This new wide field synchrotron radiation based X-ray tomographic microscopy met
 	\ack{
 \fi
 	This work has been funded by grant \#3100A0-109874 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance and Volker Dicken from Fraunhofer Mevis for the fruitful discussion concerning the euclidean distance transformation. Dan Ward kindly checked the English of the manuscript.%
-\ifhtml%
-	% do nothing
-\else%
+\ifhtml
+\else
 	}% close \ack{ from iucr.bst
-\fi	
-%
-\ifhtml%
-	\bibliographystyle{unsrtnat}%
-	\bibliography{../references}%
-\else%
-	\let\oldharvardurl=\harvardurl%
-	\renewcommand{\harvardurl}[1]{\relax}%
-	
-	\referencelist[../references]%
-	\let\harvardurl=\oldharvardurl%
-\fi%
+\fi
 
-\end{document}%
+\ifhtml
+	\bibliographystyle{unsrtnat}
+	\bibliography{../references}
+\else
+	\let\oldharvardurl=\harvardurl
+	\renewcommand{\harvardurl}[1]{\relax}
+	\referencelist[../references]
+	\let\harvardurl=\oldharvardurl
+\fi
+
+\end{document}

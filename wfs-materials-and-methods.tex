@@ -20,8 +20,8 @@ The samples were postfixed with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) an
 
 The handling of animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern, Switzerland.
 
-\subsecsion{SRXTM}
-%The experiments were performed on the TOMCAT beamline~\cite{Stampanoni2006a} at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet with a critical energy of \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{1.22}{\angstrom}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt}, with a bandwidth range of a few percent.
+\subsection{SRXTM}
+The experiments were performed on the TOMCAT beamline~\cite{Stampanoni2006a} at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland. TOMCAT receives photons from a \SI{2.9}{\tesla} super-bending magnet with a critical energy of \SI{11.1}{\kilo\electronvolt} (corresponding to a wavelength of \SI{1.22}{\angstrom}). A double crystal multilayer monochromator covers an energy range between 6 and \SI{45}{\kilo\electronvolt}, with a bandwidth range of a few percent.
 
 \subsubsection{Image acquisition and reconstruction}
 \label{seq:Image Acquisition}
@@ -42,23 +42,15 @@ For parallel beam geometry, tomographic images are obtained at equidistant angle
 
 Samples which are twice as large as the field of view can be imaged using scanning protocols based on a \SI{360}{\degree} off center sample rotation as shown in figure~\ref{fig:scanning-possibilities}(b). Images recorded between \SI{180}{\degree} and \SI{360}{\degree} have to be flipped after acquisition, and the projection images obtained at position $I_{Pr_{x}}$ and $I_{Pr_{x+\SI{180}{\degree}}}$ are stitched together to projection images covering two times the field of view of the camera.
 
-\ifiucr
-	%\onecolumn
-	\begin{figure}
-		\centering
-		\caption{Covering the field of view of differently sized samples with one \SI{180}{\degree} scan (a), one \SI{360}{\degree} scan (b) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, c). The filled segments mark the region of the sample that is covered while scanning the respective positions (Position 1: red/checkerboard, Position 2: green, Position 3: blue/striped).}%
+\begin{figure}
+	\centering
+	\caption{Covering the field of view of differently sized samples with one \SI{180}{\degree} scan (a), one \SI{360}{\degree} scan (b) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, c). The filled segments mark the region of the sample that is covered while scanning the respective positions (Position 1: red/checkerboard, Position 2: green, Position 3: blue/striped).}%
+	\ifiucr		
 		\input{tikz-images/scanning-possibilities}%
-		\label{fig:scanning-possibilities}%
-	\end{figure}
-	%\twocolumn
-\else
-	\begin{figure}
-		\input{tikz-images/scanning-possibilities}%
-		\label{subfig:scanning-possibilities}%
-		\caption{Covering the field of view of differently sized samples with one \SI{180}{\degree} scan (a), one \SI{360}{\degree} scan (b) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, c). The filled segments mark the region of the sample that is covered while scanning the respective positions (Position 1: red/checkerboard, Position 2: green, Position 3: blue/striped).}%
-		\label{fig:scanning-possibilities}%
-	\end{figure}
-\fi
+	\else
+	\fi
+	\label{fig:scanning-possibilities}%
+\end{figure}
 
 If a tomographic scan covering a size wider than two field of views is desired, three or more \SI{180}{\degree} scans taken at slightly overlapping positions have to be combined, as shown figure~\ref{fig:scanning-possibilities}(c). The projection images of each subscan overlap each other slightly to allow an optimal stitching of the multiple projections of each rotational angle into one projection. Using the mean squared difference between adjacent subscan images~\cite{Hintermueller2009}, such a cutline was calculated for the adjacent subscans and used to merge the single projections into projections covering the full field of view.
 
@@ -67,22 +59,16 @@ The discussed scanning protocol for covering a wide field of view with three sub
 
 To be able to reconstruct the sample, the individual sets of projections need to be stitched to projections spanning the desired field of view. Since each subscan has a different number of projections $P_{i}$, a stitching algorithm has to interpolate projections from adjacent projections (dashed lines in figure~\ref{fig:projections}(b)). Alternatively, an equal amount of projections have to be acquired for all subscans, leading to oversampling for the central scanning position.
 
-\ifiucr
-	\begin{figure}%
-		\caption{Setup with three \SI{180}{\degree} scans; one central (green) and two lateral (red and blue, respectively). In this drawing, four projections for the central and eight projections for each of the lateral scans have been chosen. The colors of the three positions correspond to the colors shown in figure~\ref{fig:scanning-possibilities}(c). Panel a): scanned projections, panel b): scanned projections and additional interpolated projections (dashed) required to merge all projections.}%
+\begin{figure}
+	\centering
+	\caption{Setup with three \SI{180}{\degree} scans; one central (green) and two lateral (red and blue, respectively). In this drawing, four projections for the central and eight projections for each of the lateral scans have been chosen. The colors of the three positions correspond to the colors shown in figure~\ref{fig:scanning-possibilities}(c). Panel a): scanned projections, panel b): scanned projections and additional interpolated projections (dashed) required to merge all projections.}
+	\ifiucr
 		\input{tikz-images/ProjectionSetup}%
-		\input{tikz-images/ProjectionSetupInterpolate}%
-		\label{fig:projections}%
-	\end{figure}%
-\else
-	\begin{figure*}[htp]
-		\centering
-		\input{tikz-images/ProjectionSetup}%
-		\input{tikz-images/ProjectionSetupInterpolate}%
-		\caption{Setup with three \SI{180}{\degree} scans; one central (green) and two lateral (red and blue, respectively). In this drawing, four projections for the central and eight projections for each of the lateral scans have been chosen. The colors of the three positions correspond to the colors shown in figure~\ref{fig:scanning-possibilities}(c). Panel a): scanned projections, panel b): scanned projections and additional interpolated projections (dashed) required to merge all projections.}%
-		\label{fig:projections}
-	\end{figure*}
-\fi
+		\input{tikz-images/ProjectionSetupInterpolate}
+	\else
+	\fi
+	\label{fig:projections}
+\end{figure}
 
 \subsubsection{Reduction of acquisition time and radiation dose}
 \label{subsubsec:reduction-of-acquisition-time}
@@ -93,35 +79,21 @@ To simplify the interpolation and merging of the projections from each subscan, 
 
 To further reduce the total scanning time, we developed different scanning protocols related to a gold standard protocol, which per definition would cover the desired field of view while fulfilling the sampling theorem in all parts of the field of view, as shown in figure~\ref{fig:SubScan-Setup}(a). For this example, we would like to achieve a field of view of 3072 pixels. The dark gray circle, shown in the aforementioned figure is the field of view that can be fully covered. The rest of the slice (in light grey) would be either missing or show artifacts, depending on the chosen reconstruction algorithm. With a detector of the size of 1024$\times$1024 pixels, this field of view could be covered with nine independent scans. This would require nine independent reconstructions and stitching of those nine tomographic datasets into one dataset covering the full field of view. However, the chosen field of view could also be covered using a detector of the size of 3072$\times$1024 pixels in one scan. Using a scanning protocol with three subscans from which we obtain merged projections, we can cover the desired field of view using a much smaller detector. Figure~\ref{fig:SubScan-Setup}(b) shows how the desired field of view of 3072 pixels can be covered with a wide-field scan, composed of one central and two half ring-scans, recorded with a detector with a size of 1024$\times$1024 pixels. A further increase in the field of view can be obtained by simple iteration. Figures~\ref{fig:SubScan-Setup}(c)--(f) show such a setup for a five- or seven-fold increase.
 
-\ifiucr
-	\begin{figure}%
-		\centering%
-		\caption{Setup for different field of views. %
+\begin{figure}
+	\centering
+	\caption{Setup for different field of views. %
 		(a) Desired field of view of 3072 pixel diameter. %
 		(b) Gold standard scanning protocol for covering the desired field of view of panel (a) with merged projections from one central and two half ring scans ($r_{1}$ and $r_{2}$). %
 		(c) Desired field of view of 5120 pixel diameter. %
 		(d) Gold standard scanning protocol for covering the desired field of view of panel (c) with merged projections from one central and four half ring scans ($r_{1}$--$r_{4}$). %
 		(e) Desired field of view of 7168 pixel diameter. %
-		(f) Gold standard scanning protocol for covering the desired field of view of panel (e) with merged projections from one central and six half ring scans ($r_{1}$--$r_{6}$).%
-		}%
+		(f) Gold standard scanning protocol for covering the desired field of view of panel (e) with merged projections from one central and six half ring scans ($r_{1}$--$r_{6}$).}%
+	\ifiucr		
 		\input{tikz-images/SubScanSetup/SetupFor-3-5-7-SubScans}
-		\label{fig:SubScan-Setup}%
-	\end{figure}%
-\else
-	\begin{figure*}[htp]
-		\centering%
-		\input{tikz-images/SubScanSetup/SetupFor-3-5-7-SubScans}
-		\caption{Setup for different field of views. %
-		(a) Desired field of view of 3072 pixel diameter. %
-		(b) Gold standard scanning protocol for covering the desired field of view of panel (a) with merged projections from one central and two half ring scans ($r_{1}$ and $r_{2}$). %
-		(c) Desired field of view of 5120 pixel diameter. %
-		(d) Gold standard scanning protocol for covering the desired field of view of panel (c) with merged projections from one central and four half ring scans ($r_{1}$--$r_{4}$). %
-		(e) Desired field of view of 7168 pixel diameter. %
-		(f) Gold standard scanning protocol for covering the desired field of view of panel (e) with merged projections from one central and six half ring scans ($r_{1}$--$r_{6}$).%
-		}%
-		\label{fig:SubScan-Setup}%
-	\end{figure*}
-\fi
+	\else
+	\fi
+	\label{fig:SubScan-Setup}
+\end{figure}
 
 \subsection{Wide Field Scanning Pipeline}
 \label{subsec:wfs-setup}
