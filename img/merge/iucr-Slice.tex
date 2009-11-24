@@ -22,8 +22,6 @@
 				%%%% scalebar
 					\draw[|-|,thick,color=white] (\x-\bar,\y) -- (\x,\y) node [midway, above] {\SI{500}{\micro\meter}};
 %					\draw[|-|,thick,color=white] (5,30) -- (2787,30) node [midway, below] {\SI{4.13216}{\milli\meter}};
-				%%%% center
-					\fill [color=red] (2792/2,992/2) circle (5);
 				%%%% big circle
 					\draw [dashed, ultra thick, color=red] (2792/2,992/2) circle (512);
 					\def\angle{35}
@@ -45,6 +43,9 @@
 %					\node [white] (vsmallfrom) at (2972-768,992-512) {$\frac{1024}{2}-138$px};
 %					\draw [white,->,densely dotted] (vsmallfrom) to [bend right=45] (vsmallto);
 %				%%%% 138px circle
+				%%%% center
+				\fill [color=red] (2792/2,992/2) circle (5);
+				%%%% center
 				%%%% inset
 %				\newcommand{\size}{.2\imagewidth}%
 %				\clip (256,256) rectangle (512,512);

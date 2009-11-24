@@ -1,6 +1,7 @@
 0pt
 0pt,outer
 1-way
+1.678e7
 1024px
 150px
 1ex
@@ -11,6 +12,7 @@
 3072px-141px-138px
 3100A0-109874
 3D
+3d
 5-subscan-case
 B
 Beer-Lambert
@@ -42,10 +44,12 @@ HeadURL
 Hintermueller2009
 Hintermüller
 Histoclear
+Histogram-Plots
 Imag
 Institut
 Int
 J
+JCS
 K
 KGaA
 Kelheim
@@ -117,6 +121,10 @@ R108C21_overview_B
 R108C21_overview_T
 R108C21_underside_iso_B
 R108C21_underside_iso_T
+R108C36B-A-mrg1024_rec_8bit.png
+R108C36B-Aa-mrg1024_rec_8bit.png
+R108C36B-Ab-mrg1024_rec_8bit.png
+R108C36B-Ac-mrg1024_rec_8bit.png
 R2008a
 ROIs
 RecoManager
@@ -167,6 +175,7 @@ b
 b,c
 back-projection
 batch-scan
+batch-scanned
 beam-time
 beamline
 beamtime
@@ -196,6 +205,7 @@ d
 data-processing
 dir
 distal-medial
+dosage-reduced
 dtf-roi
 e
 end-result
@@ -226,6 +236,7 @@ http://www.aps.anl.gov/epics/
 humongous
 i
 img
+immunostaining
 inline
 instillation
 iso
@@ -240,6 +251,7 @@ main.m
 marco.stampanoni@psi.ch
 merge-proj
 micro-computed
+microscopy-based
 microtomography
 midway,above
 midway,right
@@ -260,6 +272,7 @@ overview-t
 p
 pco
 pco.2000
+pdf
 permille
 pgfsys-tex4ht.def
 png
@@ -302,9 +315,11 @@ s2
 sample-position
 scanning-possibilities
 schittny@ana.unibe.ch
+semi-automated
 sep
 seven-fold
 shade,semitransparent
+side-length
 sin2rec
 sinogram
 sinograms
@@ -338,6 +353,8 @@ un-binned
 undersampling
 unoptimized
 unsrtnat
+use-case
+use-cases
 versioned
 voxel
 voxels

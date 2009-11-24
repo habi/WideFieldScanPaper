@@ -1,5 +1,6 @@
 0pt
 1-way
+1.678e7
 1024px
 20-node
 25-fold
@@ -7,6 +8,7 @@
 3-way
 3072px-141px-138px
 3100A0-109874
+3d
 Beer-Lambert
 CH2
 CH2CHO
@@ -26,8 +28,10 @@ Haberthür
 Hintermueller2009
 Hintermüller
 Histoclear
+Histogram-Plots
 Institut
 J
+JCS
 K
 KGaA
 Kelheim
@@ -64,6 +68,10 @@ R
 R108C04C
 R108C04C-overview-merge
 R108C04C-overview-s2
+R108C36B-A-mrg1024_rec_8bit.png
+R108C36B-Aa-mrg1024_rec_8bit.png
+R108C36B-Ab-mrg1024_rec_8bit.png
+R108C36B-Ac-mrg1024_rec_8bit.png
 R2008a
 ROIs
 S
@@ -95,6 +103,7 @@ ana
 b
 b,c
 batch-scan
+batch-scanned
 beamline
 beamtime
 binarized
@@ -107,6 +116,7 @@ cone-beam
 d
 data-processing
 distal-medial
+dosage-reduced
 dtf-roi
 e
 end-stations
@@ -128,6 +138,7 @@ http://python.org/
 http://www.aps.anl.gov/epics/
 humongous
 img
+immunostaining
 instillation
 isosurface
 isosurfaces
@@ -138,6 +149,7 @@ lightgray
 low-resolution
 marco.stampanoni@psi.ch
 micro-computed
+microscopy-based
 microtomography
 nine-fold
 non-destructive
@@ -147,6 +159,7 @@ oversampled
 oversampling
 pco
 pco.2000
+pdf
 permille
 pgfsys-tex4ht.def
 png
@@ -163,8 +176,10 @@ roiB
 roiL
 roiT
 sample-position
+semi-automated
 sep
 seven-fold
+side-length
 sinogram
 sinograms
 sloped,midway,above
@@ -189,6 +204,8 @@ un-binned
 undersampling
 unoptimized
 unsrtnat
+use-case
+use-cases
 voxel
 voxels
 wave-like
