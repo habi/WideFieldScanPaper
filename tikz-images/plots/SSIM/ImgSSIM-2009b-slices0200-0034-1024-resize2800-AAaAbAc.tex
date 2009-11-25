@@ -1,0 +1,80 @@
+% This file was created by matlab2tikz v0.0.4.
+
+\documentclass{article}
+\usepackage{tikz,pgfplots}
+\usepackage[pdftex,active,tightpage]{preview}
+\begin{document}
+\begin{preview}
+%%%%%%%%%%%%
+\begin{tikzpicture}
+
+% Axis at [0.13 0.11 0.78 0.81]
+\begin{axis}[
+axis on top,
+scale only axis,
+width=4.52083in,
+height=3.56562in,
+xmin=0.5, xmax=4.5,
+ymin=0.55, ymax=1,
+xtick={1,2,3,4},
+xticklabels={A,B,C,D},
+xlabel={$Reduced \# of Projections for central SubScan$},
+ylabel={$mean SSIM(A,*)$},
+title={$mean SSIM for 25 Slices \pm Std-Dev$},
+legend entries={$**$,$*a$,$*c$,$*d$}
+]
+
+\addplot [
+color=red,
+solid
+]
+plot[error bars/.cd, y dir = both, y explicit]
+coordinates{
+ (1,1) +- (0,0)
+ (2,0.930057) +- (0,0.00648658)
+ (3,0.856407) +- (0,0.0197452)
+ (4,0.806686) +- (0,0.0254092)
+};
+
+\addplot [
+color=green,
+solid
+]
+plot[error bars/.cd, y dir = both, y explicit]
+coordinates{
+ (1,0.792335) +- (0,0.0197033)
+ (2,0.771221) +- (0,0.0229399)
+ (3,0.704536) +- (0,0.0313107)
+ (4,0.669546) +- (0,0.0430564)
+};
+
+\addplot [
+color=blue,
+solid
+]
+plot[error bars/.cd, y dir = both, y explicit]
+coordinates{
+ (1,0.773316) +- (0,0.0204757)
+ (2,0.754166) +- (0,0.0237006)
+ (3,0.695346) +- (0,0.030527)
+ (4,0.672877) +- (0,0.0333978)
+};
+
+\addplot [
+color=magenta,
+solid
+]
+plot[error bars/.cd, y dir = both, y explicit]
+coordinates{
+ (1,0.75192) +- (0,0.0287801)
+ (2,0.735686) +- (0,0.0321475)
+ (3,0.670378) +- (0,0.0388817)
+ (4,0.633997) +- (0,0.0496304)
+};
+
+\end{axis}
+
+\end{tikzpicture}
+%%%%%%%%%%%%
+\end{preview}
+\end{document}

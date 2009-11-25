@@ -1,0 +1,24 @@
+% !TEX root = widefieldscan.tex
+\svnidlong
+{$HeadURL: http://code.ana.unibe.ch/svn/WideFieldScanPaper/wfs-introduction.tex $}
+{$LastChangedDate: 2009-11-24 16:58:41 +0100 (Di, 24 Nov 2009) $}
+{$LastChangedRevision: 199 $}
+{$LastChangedBy: $}
+%
+\section{Introduction}
+
+The available field of view of microscopy-based imaging methods like synchrotron based tomographic beam lines and lab-based micro-computed tomography stations (\micro CT) is limited by the camera and optics. Commonly, a larger field of view, resulting in a large sample volume, is traded against a lower magnification. 
+
+As a consequence, the investigation of the three-dimensional structure of the terminal airways in the mammalian lung has up to now either been limited by the resolution of the imaging method (in the case of \micro CT) or by the sample volume (in the case of synchrotron radiation based x-ray tomographic microscopy (SRXTM)). 
+
+Using SRXTM, it is possible to study the structural alterations of the lung parenchyma throughout development. We are, in particular interested in the development of the functional respiratory lung unit---the acinus---over the course of the postnatal lung development in mammals. It is defined as the complex of alveolated airways distal to the terminal bronchiole~\cite{Rodriguez1987}, where the gas-exchange in the lung takes place. While SRXTM provides the high resolution needed to study the terminal airways with a thickness of approximately \SI{5}{\micro\meter}\todo{citation from JCS?}, the field of view of SRXTM (1.52$\times$\SI{1.52}{\milli\meter} at a voxel size of \SI{0.74}{\micro\meter}) is not big enough to include a full acinus over the developmental period we are interested in.
+
+In this paper we present a method to increase the lateral field of view of SRXTM, which is a powerful method for the non-destructive three-dimensional imaging of a wide range of materials at sub-micrometer resolutions. Additionally, through optimization of the image acquisition process, our method allows to decrease the radiation dose inflicted on the sample while keeping the quality of the resulting three-dimensional dataset on a level comparable to the unoptimized acquisition process.
+
+At TOMCAT---the beamline for TOmographic Microscopy and Coherent rAdiology experimenTs~\cite{Stampanoni2007} at the Swiss Light Source, Paul Scherrer Institute, Villigen, Switzerland---the sample volume is limited to a cylinder with a diameter of \SI{1.52}{\milli\meter} and a height of \SI{1.52}{\milli\meter}, when using a lens with 10$\times$ magnification and acquiring a tomogram at a voxel size of \SI{0.74}{\micro\meter} (or \SI{1.48}{\micro\meter} with binned acquisition). Samples of a diameter larger than the field of view in the direction perpendicular to the rotational axis require local tomography of a region of interest. Generally, a local tomography approach is not suitable for studies investigating the development~\cite{Schittny2008,Mund2008,Haberthuer2009c} and structure~\cite{Tsuda2008} of lungs using SRXTM, which require high resolution datasets and a large lateral field of view.
+
+An increase in the field of view along the rotation axis of the sample can be achieved through the stacking of multiple tomographic scans on top of each other. With this scanning mode, the total time needed to acquire a tomogram linearly increases with the number of required scans. Additionally, this scanning mode is limited to long and thin samples or regions of interest. Due to the restrictions implied by the sampling theorem, the stacking approach cannot be used to increase the field of view horizontal to the rotation axis. The sampling theorem states that we need to acquire an amount of projections $P=D\frac{\pi}{2}$ for a detector width $D$~\cite[page 186]{Kak2002}. As a consequence, when enlarging the field of view perpendicular to the rotation axis it is necessary to record more projections of the lateral parts of the sample than of the central parts of the sample, to equally fulfill the sampling theorem. This leads to an increased acquisition and post-processing time, as compared to a standard scan.
+
+Using the method presented in this article, we can overcome these limitations. Multiple scanning protocols to decrease the acquisition time and perform high-quality three-dimensional reconstructions of arbitrary samples, with an increased lateral field of view of up to \SI{7}{\milli\meter}, at a voxel size of \SI{1.48}{\micro\meter} have been defined and validated using rat lung tissue.
+
+The increase in the lateral field of view permits an unrestricted high-resolution three-dimensional view inside the terminal rat lung airways only limited by the sample size. A decrease in the total acquisition time also reduces the radiation dose inflicted on the sample, which is one of the crucial steps towards in vivo synchrotron radiation based x-ray tomographic microscopy.

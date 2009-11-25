@@ -4,7 +4,7 @@
 	\htmlfalse \iucrtrue% keep it TeX
 %%%%%%%%%%
 \ifhtml
-	\documentclass[draft,a4paper]{article}
+	\documentclass[a4paper]{article}
 \else
 %	\documentclass[draft,s,preprint]{iucr}
 	\documentclass[s,preprint]{iucr}
@@ -19,7 +19,6 @@
 	\usepackage[disable]{todonotes}
 	\renewcommand{\todo}[1]{\textcolor{red}{\ [TODO: #1]\ }}% redefines todo for html-conversion
 %	\usepackage[nolists]{endfloat}
-	\usepackage{hyperref}
 \else
 	\usepackage[table]{xcolor}								% for highlighting table rows with \rowcolor{color}
 	\usepackage{todonotes}
@@ -37,6 +36,7 @@
 \usepackage{scrtime}
 \usepackage{multirow}
 \usepackage[version=3]{mhchem}
+\usepackage{microtype}
 %\usepackage[]{draftwatermark}
 %	\SetWatermarkScale{3}
 %	\SetWatermarkText{confidential}
@@ -52,6 +52,7 @@
 {$LastChangedBy$}
 
 \ifhtml
+	\usepackage{hyperref}
 	\DeclareGraphicsExtensions{.png}
 	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
 	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
