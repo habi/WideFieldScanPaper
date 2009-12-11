@@ -178,6 +178,7 @@ batch-scan
 batch-scanned
 beam-time
 beamline
+beamlines
 beamtime
 bigfrom
 bigto
@@ -263,6 +264,7 @@ non-destructive
 numproj
 ot
 output-name
+oversample
 oversampled
 oversampling
 overview-b
@@ -356,6 +358,7 @@ unsrtnat
 use-case
 use-cases
 versioned
+vice-versa
 voxel
 voxels
 wave-like

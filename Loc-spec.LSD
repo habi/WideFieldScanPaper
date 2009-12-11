@@ -105,6 +105,7 @@ b,c
 batch-scan
 batch-scanned
 beamline
+beamlines
 beamtime
 binarized
 binned
@@ -128,6 +129,7 @@ f
 field-SRXTM
 five-fold
 gas-exchange
+gas-exchanging
 glutaraldehyde-fixation
 gold-standard
 gridrec
@@ -155,6 +157,7 @@ nine-fold
 non-destructive
 ot
 output-name
+oversample
 oversampled
 oversampling
 pco
@@ -206,6 +209,7 @@ unoptimized
 unsrtnat
 use-case
 use-cases
+vice-versa
 voxel
 voxels
 wave-like
