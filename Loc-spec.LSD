@@ -36,6 +36,7 @@ K
 KGaA
 Kelheim
 LastChangedRevision
+Latex-pdf-version
 Luyet2002
 M
 MATLAB
@@ -74,6 +75,7 @@ R108C36B-Ab-mrg1024_rec_8bit.png
 R108C36B-Ac-mrg1024_rec_8bit.png
 R2008a
 ROIs
+ROIs-3d
 S
 SLS
 SRXTM
@@ -112,6 +114,7 @@ binned
 binning
 c
 cccccc
+ccccccc
 comparisonBvsT
 cone-beam
 d
@@ -148,6 +151,7 @@ l
 lab-based
 lcccclccc
 lightgray
+logfiles
 low-resolution
 marco.stampanoni@psi.ch
 micro-computed
@@ -155,6 +159,7 @@ microscopy-based
 microtomography
 nine-fold
 non-destructive
+off-center
 ot
 output-name
 oversample
@@ -172,6 +177,7 @@ potassium-phosphate
 preference-file
 quality-steps
 rAdiology
+ray-like
 rccccc
 regridding
 ring-scans
@@ -189,6 +195,7 @@ sloped,midway,above
 sub-micrometer
 subfig
 subfigure
+subfigures
 subscan
 subscans
 super-bending
@@ -209,6 +216,7 @@ unoptimized
 unsrtnat
 use-case
 use-cases
+user-defined
 vice-versa
 voxel
 voxels
