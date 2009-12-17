@@ -1,4 +1,4 @@
-% !TEX root = widefieldscan.tex
+% !TeX root = widefieldscan.tex
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
@@ -25,12 +25,13 @@ The dashed circles on the reconstructed slice mark the start and the end of the 
 	\label{fig:wide-field-scan-results}
 \end{figure}
 
-Figure~\ref{fig:s2-wfs} clearly shows the advantages provided by the wide field acquisition scheme. With---in this particular case---an enlargement of the field of view by almost a factor of 3, it is possible to visualize several full acini at high resolution. For a conventional scan (fig.~\ref{fig:s2-wfs}(a)), the airway segments in the sample are only partially contained inside the dataset (green and red segment). Increasing the field of view (fig.~\ref{fig:s2-wfs}(b)) allows the visualization of those segments to their full extent. A third acinus (yellow) which was not visible in Figure~\ref{fig:s2-wfs}(a) can now easily be visualized.
+Figure~\ref{fig:s2-wfs} clearly shows the advantages provided by the wide field acquisition scheme. With---in this particular case---an enlargement of the field of view by almost a factor of 3, it is possible to visualize several full acini at high resolution. For a conventional scan (fig.~\ref{fig:s2-wfs}(a)), the airway segments in the sample are only partially contained inside the dataset (green and red segment\todo{color?}). Increasing the field of view (fig.~\ref{fig:s2-wfs}(b)) allows the visualization of those segments to their full extent. A third acinus (yellow\todo{color?}) which was not visible in Figure~\ref{fig:s2-wfs}(a) can now easily be visualized.
 
 %\onecolumn
 \begin{figure}
 	\centering
 	\caption{Three-dimensional visualization of the distal-medial tip of the right lower lung lobe of a Sprague Dawley rat. The gray structure in the background shows a semitransparent view of the sample with segmented airways. The foreground shows isosurfaces of terminal airways. (a): Conventional scan; the extracted airway segments (green and red) are only partially contained inside the total sample volume. This conventional scan corresponds to a reconstruction of the central of the three wide field scan subscans. (b): Wide field scan with increased field of view; the green and red segment show multiple full acini inside the dataset, the yellow segment contains a partially cut acinus.}
+\todo[inline]{colors?}
 	\ifiucr
 		\renewcommand{\imsize}{\linewidth}%
 		\pgfmathsetlength{\imagewidth}{\imsize}%
@@ -89,6 +90,7 @@ Even with the higher magnification, the reconstruction of protocol L in Figure~\
 	\caption{Comparison of three-dimensional visualizations. %
 			(a)--(c): Three independent airway segments (green, red, yellow) of tomographic datasets obtained with protocol B, L and T, extracted using a region growing algorithm. A cubical region of interest (ROI, blue) with a side length of 256 pixels (corresponding to \SI{379}{\micro\meter}) is marked inside the leftmost segment for all protocols. %
 			(d)--(f): Detailed view of isosurfaces of the lung tissue inside the ROIs for protocol B, L and T, respectively. Note the artifacts in the alveolar surfaces in subfigures (e) and (f).}%
+	\todo[inline]{colors?}
 	\ifiucr			
 		\renewcommand{\imsize}{.33\linewidth}%
 		\pgfmathsetlength{\imagewidth}{\imsize}%
@@ -168,21 +170,19 @@ For further analysis four regions of interest with a side length of 256 pixels (
 	\centering
 	\caption{Overview of the placement of the four regions of interest where the histogram of the euclidean distance transformation distribution has been calculated. Grey: Semitransparent volume rendering of the lung tissue sample. Red: Four regions of interest, extracted to calculate the distance transformation. The labels of the ROIs conform to the legends in Figure~\ref{fig:DTFplots}.}%
 	\ifiucr
-		\pgfmathsetlength{\imagewidth}{\imsize}
-		\pgfmathsetlength{\imagescale}{\imagewidth/1452}
+		\pgfmathsetlength{\imagewidth}{\imsize}%
+		\pgfmathsetlength{\imagescale}{\imagewidth/1563}%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-			\def\x{297} % scalebar-x at golden ratio of x=1452px
-			\def\y{684} % scalebar-y at 90% of height of y=760px
-			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
-		     {\includegraphics[width=\imagewidth]{img/dtf-roi/ROIs-3d}};
-			% 1357px = 4.0138mm > 100px = 296um > 169px = 500um
-			% \draw[|-|,thick,red] (83,517) -- (1425,719) node [sloped,midway,below] {\SI{4.0138}{\milli\meter} (2712px)};
-			\draw[|-|,thick] (\x,\y) -- (\x+169,\y) node [midway, above] {\SI{500}{\micro\meter}};
-			%\draw[|-|,thick, white] (\x+645,\y-180) -- (\x+645+128,\y-180) node [midway, below] {\SI{256}{pixels}};
-			\draw ( 368,360) node [fill=white, semitransparent] {ROI 1} node {ROI 1};
-			\draw (1038,312) node [fill=white, semitransparent] {ROI 2} node {ROI 2};
-			\draw ( 767,413) node [fill=white, semitransparent] {ROI 3} node {ROI 3};
-			\draw ( 684,139) node [fill=white, semitransparent] {ROI 4} node {ROI 4};
+			\def\x{966-750} % scalebar-x at golden ratio of x=1563px
+			\def\y{768} % scalebar-y at 90% of height of y=853px
+			\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)
+				{\includegraphics[width=\imagewidth]{img/dtf-roi/ROIs-3d}};
+			% 1551px = 4.0138mm > 100px = 259um > 193px = 500um, 39px = 100um
+			\draw[|-|,thick] (\x,\y) -- (\x+193,\y) node [midway,above] {\SI{500}{\micro\meter}};
+			\draw ( 300,400) node [fill=white, semitransparent] {523-497-743} node {523-497-743};
+			\draw ( 740,460) node [fill=white, semitransparent] {1382-546-743} node {1382-546-743};
+			\draw ( 760,160) node [fill=white, semitransparent] {1324-266-289} node {1324-266-289};
+			\draw (1080,350) node [fill=white, semitransparent] {1863-237-604} node {1863-237-604};
 		\end{tikzpicture}%
 	\else
 	\fi		
@@ -196,13 +196,11 @@ For comparison, the histogram of the euclidean distance transformation has been 
 \begin{figure}
 	\centering
 	\caption{Histogram-Plots for each of the of 4 ROIs, each showing the histogram of the distance transformation for the protocols B, L and T.}%
-	\ifiucr
-		\begin{tabular}{cc}
-			\input{tikz-images/plots/DTF-Plots/edited-plot-roi1}&%
-			\input{tikz-images/plots/DTF-Plots/edited-plot-roi2}\\%
-			\input{tikz-images/plots/DTF-Plots/edited-plot-roi3}&%
-			\input{tikz-images/plots/DTF-Plots/edited-plot-roi4}%
-		\end{tabular}
+	\ifiucr%
+		\input{tikz-images/plots/DTF-Plots/ROI-0523-0497-0743}%
+		\input{tikz-images/plots/DTF-Plots/ROI-1382-0546-0743}\\%
+		\input{tikz-images/plots/DTF-Plots/ROI-1324-0266-0289}%
+		\input{tikz-images/plots/DTF-Plots/ROI-1863-0237-0604}%
 	\else
 	\fi	
 	\label{fig:DTFplots}
