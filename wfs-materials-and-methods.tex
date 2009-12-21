@@ -69,7 +69,7 @@ As a by-product, such an optimization of the individual number of projections $P
 	\label{fig:projections}
 \end{figure}
 
-We defined a gold standard as well as several scanning protocols in order to compare different acquisition schemes. The gold standard protocol covers the desired field of view fulfilling the sampling theorem in its regions, as shown in Figure~\ref{fig:SubScan-Setup}(a). ¨§In this case we need to achieve a field of view of 3072 pixels. The dark gray circle is the field of view that could be covered using a detector with a diameter of 3072 pixels.
+We defined a gold standard as well as several scanning protocols in order to compare different acquisition schemes. The gold standard protocol covers the desired field of view fulfilling the sampling theorem in its regions, as shown in Figure~\ref{fig:SubScan-Setup}(a). ï¿½ï¿½In this case we need to achieve a field of view of 3072 pixels. The dark gray circle is the field of view that could be covered using a detector with a diameter of 3072 pixels.
 
 Using a detector with a size of 1024 pixels, this desired field of view could be covered with nine independent scans. Such an approach would require nine independent reconstructions and stitching of those nine tomographic datasets into one dataset covering the full field of view. Stitching 9 smaller reconstructions like this would also introduce artifacts from the reconstruction algorithm (contained in the light gray parts filling the room between the square and the circle) which would lie inside the sample to be imaged.
 
@@ -117,43 +117,43 @@ Protocols B--T have been linearly scaled down with a decreasing number of acquir
 	\label{tab:protocols}%
 	\begin{tabular}{ccccccc}%
 		\multirow{2}{*}{Protocol} & \multicolumn{3}{c}{Projections for Subscan} & Total Number		& Time/Radiation & Simulated\\
-		        				  & $\textrm{s}_{1}$ & $\textrm{s}_{2}$ & $\textrm{s}_{3}$ 				& of Projections	& Dose [\%] & Quality\\%
+		        				  & $\textrm{s}_{1}$ & $\textrm{s}_{2}$ & $\textrm{s}_{3}$ 				& of Projections	& Dose [\%] & Quality [\%]\\%
 		\hline
-		A\footnote{Gold Standard} & & &    & 13534 & 100 & 1\\%
+		A\footnote{Gold Standard} & & &    & 13534 & 100 & \\%
 		\ifiucr
 			\rowcolor{lightgray} B 
 		\else
 		 	B
 		 \fi
-	      & 5244 & 5244 & 5244 & 15732 & 116 & 1\\%
-		C & 5244 & 2622 & 5244 & 13110 &  97 & 1\\%
-		D & 4370 & 4370 & 4370 & 13110 &  97 & 1\\%
-		E & 4370 & 2185 & 4370 & 10925 &  81 & 1\\%
-		F & 3934 & 3934 & 3934 & 11802 &  87 & 1\\%
-		G & 3934 & 1967 & 3934 & 9835  &  73 & 1\\%
-		H & 3496 & 3496 & 3496 & 10488 &  77 & 1\\%
-		I & 3496 & 1748 & 3496 & 8740  &  65 & 1\\%
-		J & 3060 & 3060 & 3060 & 9180  &  68 & 1\\%
-		K & 3060 & 1530 & 3060 & 7650  &  57 & 1\\%
+		& 5244 & 5244 & 5244 & 15732 & 116 & 100\\%
+		C & 5244 & 2622 & 5244 & 13110 &  97 & 89\\%
+		D & 4370 & 4370 & 4370 & 13110 &  97 & 85\\%
+		E & 4370 & 2185 & 4370 & 10925 &  81 & 87\\%
+		F & 3934 & 3934 & 3934 & 11802 &  87 & 80\\%
+		G & 3934 & 1967 & 3934 & 9835  &  73 & 84\\%
+		H & 3496 & 3496 & 3496 & 10488 &  77 & 78\\%
+		I & 3496 & 1748 & 3496 & 8740  &  65 & 80\\%
+		J & 3060 & 3060 & 3060 & 9180  &  68 & 76\\%
+		K & 3060 & 1530 & 3060 & 7650  &  57 & 75\\%
 		\ifiucr
 			\rowcolor{lightgray} L 
 		\else
 		 	L
 		 \fi
-		  & 2622 & 2622 & 2622 & 7866  &  58 & 1\\%
-		M & 2622 & 1311 & 2622 & 6555  &  48 & 1\\%
-		N & 2186 & 2186 & 2186 & 6558  &  48 & 1\\%
-		O & 2185 & 1093 & 2185 & 5463  &  40 & 1\\%
-		P & 1748 & 1748 & 1748 & 5244  &  39 & 1\\%
-		Q & 1748 & 874  & 1748 & 4370  &  32 & 1\\%
-		R & 1312 & 1312 & 1312 & 3936  &  29 & 1\\%
-		S & 874  & 874  & 874  & 2622  &  19 & 1\\%
+		  & 2622 & 2622 & 2622 & 7866  &  58 & 72\\%
+		M & 2622 & 1311 & 2622 & 6555  &  48 & 69\\%
+		N & 2186 & 2186 & 2186 & 6558  &  48 & 67\\%
+		O & 2185 & 1093 & 2185 & 5463  &  40 & 62\\%
+		P & 1748 & 1748 & 1748 & 5244  &  39 & 61\\%
+		Q & 1748 & 874  & 1748 & 4370  &  32 & 55\\%
+		R & 1312 & 1312 & 1312 & 3936  &  29 & 46\\%
+		S & 874  & 874  & 874  & 2622  &  19 & 21\\%
 		\ifiucr
 			\rowcolor{lightgray} T
 		\else
 		 	T
 		 \fi
-          & 874  & 437  & 874  & 2185  &  16  & 1\\%
+          & 874  & 437  & 874  & 2185  &  16  & 20\\%
 	\end{tabular}%
 \end{table}
 
