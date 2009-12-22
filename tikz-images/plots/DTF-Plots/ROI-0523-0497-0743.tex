@@ -7,8 +7,7 @@
 %%%%%%%%%%%%
 \begin{tikzpicture}
 
-\pgfplotsset{every axis legend/.append style={
-at={(0.5,1.1)},anchor=south}}
+%\pgfplotsset{every axis legend/.append style={at={(0.5,1.1)},anchor=south}}
 
 % Axis at [0.13 0.11 0.78 0.81]
 \begin{semilogyaxis}[
@@ -19,9 +18,9 @@ ymin=1, ymax=1e+007,
 xlabel={Thickness [$\micro$m]},
 ylabel={Pixel Count},
 legend entries={%
-    Bx523-779y497-753z743-999,%
-    Lx523-779y497-753z743-999,%
-    Tx523-779y497-753z743-999}
+    B ROI 1,%
+    L ROI 1,%
+    T ROI 1}
 ]
 
 \addplot [

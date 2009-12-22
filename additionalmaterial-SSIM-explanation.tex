@@ -15,17 +15,17 @@ To assess this claim, we additionally scanned a rat lung sample with four differ
 	\centering
 	\caption{Details of the protocols with artificially reduced amount of projections for the central scan to simulate influence of merging and interpolation.}
 	\begin{tabular}{lcccclccc}
-		Protocol & $\textrm{s}_{1}$ & $\textrm{s}_{2}$ & $\textrm{s}_{3}$ &  &  Protocol & $\textrm{s}_{1}$ & $\textrm{s}_{2}$ & $\textrm{s}_{3}$ \\
-		A & 5040 & 5040 & 5040 &  &  B & 4536 & 4536 & 4536 \\
-		A$\frac{\textrm{Central}}{2}$ & 5040 & 2520 & 5040 &  & B$\frac{\textrm{Central}}{2}$ & 4536 & 2268 & 4536 \\
-		A$\frac{\textrm{Central}}{4}$ & 5040 & 1260 & 5040 &  & B$\frac{\textrm{Central}}{4}$ & 4536 & 1134 & 4536 \\
-		A$\frac{\textrm{Central}}{8}$ & 5040 & 630 & 5040 &  & B$\frac{\textrm{Central}}{8}$ & 4536 & 567 & 4536 \\
+		Protocol & $\textrm{s}_{1}$ & $\textrm{s}_{2}$ & $\textrm{s}_{3}$ & & Protocol & $\textrm{s}_{1}$ & $\textrm{s}_{2}$ & $\textrm{s}_{3}$ \\
+		A & 5040 & 5040 & 5040 & & B & 4536 & 4536 & 4536 \\
+		A$\frac{\textrm{Central}}{2}$ & 5040 & 2520 & 5040 & & B$\frac{\textrm{Central}}{2}$ & 4536 & 2268 & 4536 \\
+		A$\frac{\textrm{Central}}{4}$ & 5040 & 1260 & 5040 & & B$\frac{\textrm{Central}}{4}$ & 4536 & 1134 & 4536 \\
+		A$\frac{\textrm{Central}}{8}$ & 5040 & 630 & 5040 & & B$\frac{\textrm{Central}}{8}$ & 4536 & 567 & 4536 \\
 		\hline
-		C & 4032 & 4032 & 4032 &  &  D & 3528 & 3528 & 3528 \\
-		C$\frac{\textrm{Central}}{2}$ & 4032 & 2016 & 4032 &  & D$\frac{\textrm{Central}}{2}$ & 3528 & 1764 & 3528 \\
-		C$\frac{\textrm{Central}}{4}$ & 4032 & 1008 & 4032 &  & D$\frac{\textrm{Central}}{4}$ & 3528 & 882 & 3528 \\
-		C$\frac{\textrm{Central}}{8}$ & 4032 & 504 & 4032 &  & D$\frac{\textrm{Central}}{8}$ & 3528 & 441 & 3528 \\
-	\end{tabular}  
+		C & 4032 & 4032 & 4032 & & D & 3528 & 3528 & 3528 \\
+		C$\frac{\textrm{Central}}{2}$ & 4032 & 2016 & 4032 & & D$\frac{\textrm{Central}}{2}$ & 3528 & 1764 & 3528 \\
+		C$\frac{\textrm{Central}}{4}$ & 4032 & 1008 & 4032 & & D$\frac{\textrm{Central}}{4}$ & 3528 & 882 & 3528 \\
+		C$\frac{\textrm{Central}}{8}$ & 4032 & 504 & 4032 & & D$\frac{\textrm{Central}}{8}$ & 3528 & 441 & 3528 \\
+	\end{tabular} 
 	\label{tab:abcd}
 \end{table}
 
@@ -58,8 +58,7 @@ We assessed the structural similarity index \cite{Wang2004} of every 35\textsupe
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 			\def\x{316} % scalebar-x at golden ratio of x=512px
 			\def\y{461} % scalebar-y at 90% of height of y=512px
-			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
-	    		{\includegraphics[width=\imagewidth]{img/ripples/R108C36B-Aa-mrg1024_rec_8bit.png}};
+			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/ripples/R108C36B-Aa-mrg1024_rec_8bit.png}};
 			% 513px = 0.75776mm > 100px = 148um > 338px = 500um, 68px = 100um
 			%\draw[color=white,|-|,thick] (0,118) -- (512,117) node [sloped,midway,above] {\SI{0.75776}{\milli\meter} (512px)};
 			\draw[color=white,|-|,thick] (\x,\y) -- (\x+136,\y) node [midway, above] {\SI{200}{\micro\meter}};
@@ -70,8 +69,7 @@ We assessed the structural similarity index \cite{Wang2004} of every 35\textsupe
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 			\def\x{316} % scalebar-x at golden ratio of x=512px
 			\def\y{461} % scalebar-y at 90% of height of y=512px
-			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
-	    		{\includegraphics[width=\imagewidth]{img/ripples/R108C36B-Ab-mrg1024_rec_8bit.png}};
+			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/ripples/R108C36B-Ab-mrg1024_rec_8bit.png}};
 			% 513px = 0.75776mm > 100px = 148um > 338px = 500um, 68px = 100um
 			%\draw[color=white,|-|,thick] (0,118) -- (512,117) node [sloped,midway,above] {\SI{0.75776}{\milli\meter} (512px)};
 			\draw[color=white,|-|,thick] (\x,\y) -- (\x+136,\y) node [midway, above] {\SI{200}{\micro\meter}};
@@ -82,8 +80,7 @@ We assessed the structural similarity index \cite{Wang2004} of every 35\textsupe
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 			\def\x{316} % scalebar-x at golden ratio of x=512px
 			\def\y{461} % scalebar-y at 90% of height of y=512px
-			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)
-	    		{\includegraphics[width=\imagewidth]{img/ripples/R108C36B-Ac-mrg1024_rec_8bit.png}};
+			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/ripples/R108C36B-Ac-mrg1024_rec_8bit.png}};
 			% 513px = 0.75776mm > 100px = 148um > 338px = 500um, 68px = 100um
 			%\draw[color=white,|-|,thick] (0,118) -- (512,117) node [sloped,midway,above] {\SI{0.75776}{\milli\meter} (512px)};
 			\draw[color=white,|-|,thick] (\x,\y) -- (\x+136,\y) node [midway, above] {\SI{200}{\micro\meter}};
