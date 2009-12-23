@@ -12,7 +12,7 @@
 		\pgfmathsetlength{\imagewidth}{\imsize}%
 		\pgfmathsetlength{\imagescale}{\imagewidth/2792}%
 			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]%
-				\node [anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0)%
+				\node [anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0)%
 					{\includegraphics[width=\imagewidth]{img/merge/R108C21Cb_mrg1024rec8bit}};% ``mogrify -shave 0x900 -format png R108C21Cb_mrg1024rec8bit.tif''
 %					{\includegraphics[width=\imagewidth]{R108C21Cb_mrg1024rec8bit}};
 				\clip (0,0) rectangle (2792,992);				
@@ -20,7 +20,7 @@
 				\def\y{893} % 992 * .9 = 892.8
 				\def\bar{338} % 100 px = 148 um
 				%%%% scalebar
-					\draw[|-|,thick,color=white] (\x-\bar,\y) -- (\x,\y) node [midway, above] {\SI{500}{\micro\meter}};
+					\draw[|-|,thick, color=white] (\x-\bar,\y) -- (\x,\y) node [midway, above] {\SI{500}{\micro\meter}};
 %					\draw[|-|,thick,color=white] (5,30) -- (2787,30) node [midway, below] {\SI{4.13216}{\milli\meter}};
 				%%%% big circle
 					\draw [dashed, ultra thick, color=red] (2792/2,992/2) circle (512);
@@ -32,7 +32,7 @@
 				%%%% 141px circle
 				\draw [dashed, ultra thick, color=red] (2792/2,992/2) circle (512-141);
 				\def\angle{35+90}
-					\draw [white,thick,<->] (2792/2,992/2) +(\angle:0) -- node (smallto) {} +(\angle:512-141);
+					\draw [white, thick,<->] (2792/2,992/2) +(\angle:0) -- node (smallto) {} +(\angle:512-141);
 					\node [white] (smallfrom) at (349,384) {$\frac{1024}{2}-141$px};
 					\draw [white, ->, thick, densely dotted] (smallfrom) to [bend left=45] (smallto);
 				%%%% 141px circle					

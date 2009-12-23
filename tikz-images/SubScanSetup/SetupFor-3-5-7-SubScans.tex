@@ -1,5 +1,4 @@
 %\documentclass{article}
-%\usepackage{subfig}
 %\usepackage{tikz}
 %\begin{document}
 %\begin{figure}
@@ -7,13 +6,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\width{2.2}
 \def\size{3}%
+\def\angle{155}
 \def\scale{\width/\size}
 	\begin{tikzpicture}[scale=\scale]
 	%	\draw [dashed] (-1,-1) grid (7,7);
 		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
 		\fill [semitransparent] (\size,\size) circle (\size);
 		\draw (\size,\size) circle (\size);
-		\draw [white,ultra thick,<->] (0,\size) -- node [above] {3072 px} (2*\size,\size);
+		\draw [white, ultra thick,<->] (0,\size) -- node [above] {3072 px} (2*\size,\size);
 		\node [anchor=south west] at (0,0) {(a)};%
 	%	\draw [step=2] (0,0) grid (6,6);
 	\end{tikzpicture}%
@@ -27,10 +27,10 @@
 		\draw (0,\size) -- (\size-1,\size);
 		\draw (\size+1,\size) -- (2*\size,\size);
 		\node at (\size,1) {$r_{1}$};
-		\node at (\size,3) {central};
+		%\node [rotate=270+\angle] at (\size,3) {central};
+		\node [rotate=45] at (\size,3) {central};
 		\node at (\size,5) {$r_{2}$};
-		\def\angle{155}
-		\draw [white,ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
+		\draw [white, ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
 		\node [anchor=south west] at (0,0) {(b)};%
 	\end{tikzpicture}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3 SUBSCANS
@@ -43,7 +43,7 @@
 		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
 		\fill [semitransparent] (\size,\size) circle (\size);
 		\draw (\size,\size) circle (\size);
-		\draw [white,ultra thick,<->] (0,\size) -- node [above] {5120 px} (2*\size,\size);
+		\draw [white, ultra thick,<->] (0,\size) -- node [above] {5120 px} (2*\size,\size);
 		\node [anchor=south west] at (0,0) {(c)};%
 	%	\draw [step=2] (0,0) grid (6,6);
 	\end{tikzpicture}%
@@ -58,11 +58,11 @@
 		\draw (\size+1,\size) -- (2*\size,\size);
 		\node at (\size,1) {$r_{3}$};
 		\node at (\size,3) {$r_{1}$};
-		\node at (\size,5) {central};
+		%\node [rotate=270+\angle] at (\size,5) {central};
+		\node [rotate=45] at (\size,5) {central};
 		\node at (\size,7) {$r_{2}$};
 		\node at (\size,9) {$r_{4}$};
-		\def\angle{155}
-		\draw [white,ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
+		\draw [white, ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
 		\node [anchor=south west] at (0,0) {(d)};%
 	\end{tikzpicture}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5 SUBSCANS
@@ -75,7 +75,7 @@
 		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
 		\fill [semitransparent] (\size,\size) circle (\size);
 		\draw (\size,\size) circle (\size);
-		\draw [white,ultra thick,<->] (0,\size) -- node [above] {7168 px} (2*\size,\size);
+		\draw [white, ultra thick,<->] (0,\size) -- node [above] {7168 px} (2*\size,\size);
 	%	\draw [step=2] (0,0) grid (6,6);
 		\node [anchor=south west] at (0,0) {(e)};%
 	\end{tikzpicture}%
@@ -91,12 +91,12 @@
 		\node at (\size,1) {$r_{5}$};
 		\node at (\size,3) {$r_{3}$};
 		\node at (\size,5) {$r_{1}$};
-		\node at (\size,7) {central};
+		%\node [rotate=270+\angle] at (\size,7) {central};
+		\node [rotate=45] at (\size,7) {central};
 		\node at (\size,9) {$r_{2}$};
 		\node at (\size,11) {$r_{4}$};
 		\node at (\size,13) {$r_{6}$};
-		\def\angle{155}
-		\draw [white,ultra thick,<->] (\size,\size) + (\angle:3) -- node [sloped,midway,above] {1024 px} +(\angle:5);
+		\draw [white, ultra thick,<->] (\size,\size) + (\angle:3) -- node [sloped,midway,above] {1024 px} +(\angle:5);
 		\node [anchor=south west] at (0,0) {(f)};%
 	\end{tikzpicture}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7 SUBSCANS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
