@@ -13,7 +13,7 @@
 
 \ifhtml
 	\def\pgfsysdriver{pgfsys-tex4ht.def}
-	\usepackage[caption=false,format=hang]{subfig}
+%	\usepackage[caption=false,format=hang]{subfig}
 	\usepackage[numbers]{natbib}
 	\usepackage[disable]{todonotes}
 	\renewcommand{\todo}[1]{\textcolor{red}{\ [TODO: #1]\ }}% redefines todo for html-conversion
@@ -56,7 +56,6 @@
 {$LastChangedBy$}
 
 \ifhtml
-	\usepackage{hyperref}
 	\DeclareGraphicsExtensions{.png}
 	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
 	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
@@ -81,8 +80,8 @@
 		\and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Z\"{u}rich, Switzerland}
 		}
 	\begin{document}%
-	\begin{center}---Revision \svnkw{LastChangedRevision}, compiled \today, \thistime---\end{center}%
 	\maketitle
+	\begin{center}---Revision \svnkw{LastChangedRevision}, compiled \today, \thistime---\end{center}%
 \else
 \fi
 
@@ -114,7 +113,7 @@
 \ifhtml
 \else
 	\begin{synopsis}
-	``One or two sentences of the main findings of the paper for inclusion in the Table of Contents.''
+	(One or two sentences of the main findings of the paper for inclusion in the Table of Contents.)
 	
 	Increasing the lateral field of view of microscopy based imaging methods greatly increases the acquisition time. This article presents scanning protocols to obtain high-resolution tomographic scans with large lateral field of view at greatly decrease acquisition time and thus reduced radiation dose while resulting in high quality three-dimensional datasets viable for semi-automatic segmentation of the terminal airways in the mammalian lung.
 	\end{synopsis}
