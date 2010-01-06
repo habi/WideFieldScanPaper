@@ -69,7 +69,11 @@ Figure~\ref{fig:s2-wfs} shows the advantages of the wide field acquisition schem
 \end{figure}
 %\twocolumn
 
-As expected, the calculated quality of the reconstructions representing the different protocols decreases as a function of total number of obtained projections (Figure~\ref{fig:NormalizedErrorPlot}). The calculated error of the different protocols, compared to a gold standard protocol (blue diamonds) shows experimental results not derived using simulations with a phantom, but rather real data obtained from actual scans of lung tissue. The plots for the simulation and the normalized difference value are not perfectly in agreement, but show the same trend. The simulation shows an exponential decrease in quality, while the calculated, normalized error shows a more linear decrease in quality from protocol B towards protocol T.
+As expected, the calculated quality of the reconstructions representing the different protocols decreases as a function of total number of obtained projections (Figure~\ref{fig:NormalizedErrorPlot}). The calculated error of the different protocols (blue diamonds) shows the experimental results
+\cbstart
+obtained from actual scans of lung tissue. The plots for the simulation (19 protocols, as defined in section~\ref{sec:quality guided protocols}, red dots) and
+\cbend
+the normalized difference value are not perfectly in agreement, but show the same trend. The simulation shows an exponential decrease in quality, while the calculated, normalized error shows a more linear decrease in quality from protocol B towards protocol T.
 
 \begin{figure}
 	\centering
@@ -220,4 +224,8 @@ Figure~\ref{fig:DTFplots} shows logarithmic plots of the histogram distributions
 
 Even when reducing the sample acquisition time by \SI{84}{\percent} of the gold standard scan (T vs. B), the distance transformation histograms of the shown regions of interest are very similar and therefore no relevant structural differences are introduced.
 
-As a further proof of concept we scanned and reconstructed a rat lung sample with five scanning positions, resulting in a five-fold (4.74$\times$) increase in field of view from 1024$\times$1024 pixels to 4852$\times$4852 pixels (1.52$\times$\SI{1.52}{\milli\meter} to 7.18$\times$\SI{7.18}{\milli\meter}) at a voxel side length of \SI{1.48}{\micro\meter} (data not shown).
+As a further proof of concept we scanned and reconstructed a rat lung sample with five scanning positions, resulting in a five-fold (4.74$\times$)
+\cbstart
+increase in field of view from slices with a size of 1024$\times$1024 pixels to a size of 4852$\times$4852 pixels (1.52$\times$\SI{1.52}{\milli\meter} to 7.18$\times$\SI{7.18}{\milli\meter})
+\cbend
+at a voxel side length of \SI{1.48}{\micro\meter} (data not shown).

@@ -6,7 +6,7 @@ Version=4
 MainFile=widefieldscan.tex
 UseBibTeX=1
 UseMakeIndex=0
-ActiveProfile=LaTeX => PDF (Sumatra)
+ActiveProfile=LaTeX => PDF (Foxit)
 ProjectLanguage=en
 ProjectDialect=US
 

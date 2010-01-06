@@ -50,7 +50,7 @@ For tomographic scans covering a size wider than two fields of view, three or mo
 
 A straightforward acquisition scheme would record an equal amount of projections for each of the individual subscans. As a consequence of fulfilling the sampling theorem in the lateral parts of the sample we would thus oversample the central parts of the sample. 
 
-Since the total acquisition time per sample linearly scales with the total amount of recorded projections such an acquisition scheme obviously increases the total amount of beamtime for one sample without increasing the quality of the reconstructed tomographic data. Thus, such an unnecessary oversampling is generally avoided.
+Since the total acquisition time per sample linearly scales with the total amount of recorded projections such an acquisition scheme obviously increases the total amount of beamtime for one sample without relevantly increasing the quality of the reconstructed tomographic data. Thus, such an oversampling is generally avoided.
 
 Our goal was to find a good compromise between scanning time and image quality. We thus devised an acquisition scheme for covering a wide field of view based on the assumption that a sufficient resolution and contrast can be achieved in the tomographic dataset, if the sampling theorem is individually fulfilled for each of the subscans. This results in a set of $i$ subscans with $P_{i}$ projections each. A simple example with $P_{2}=4$ and $P_{1}=P_{3}=8$ is shown in Figure~\ref{fig:projections}(a). Since each subscan $i$ has a different number of projections $P_{i}$, the stitching algorithm has to interpolate missing projections from adjacent projections (represented by the dotted lines in Figure~\ref{fig:projections}(b)) to generate a complete set of merged projections for reconstruction.
 
@@ -67,9 +67,9 @@ As a by-product, such an optimization of the individual number of projections $P
 	\label{fig:projections}
 \end{figure}	
 
-We defined a gold standard protocol and several additional scanning protocols in order to compare different acquisition schemes. The gold standard protocol covers the desired field of view while fulfilling the sampling theorem in all its regions, as shown in Figure~\ref{fig:SubScan-Setup}(a). In this case we need to achieve a field of view of 3072 pixels. The dark gray circle is the field of view that could be covered using a detector with a diameter of 3072 pixels.
+We defined a gold standard protocol and several additional scanning protocols in order to compare different acquisition schemes. The gold standard protocol covers the desired field of view while fulfilling the sampling theorem (which states that for a detector width of $D$ pixels, we need to acquire a number of projections $P=D\frac{\pi}{2}$~\cite{Kak2002}) in all its regions, as shown in Figure~\ref{fig:SubScan-Setup}(a). In this case we need to achieve a field of view of 3072 pixels. The dark gray circle is the field of view that could be covered using a detector with a diameter of 3072 pixels.
 
-Using a detector with a size of 1024 pixels, this desired field of view could be covered with nine independent scans. Such an approach would require nine independent reconstructions and stitching of those nine tomographic datasets into one dataset covering the full field of view. Stitching nine smaller reconstructions like this would also introduce artifacts from the reconstruction algorithm (contained in the light gray parts filling the room between the square and the circle) which would lie inside the sample to be imaged.
+Using a detector with a size of 1024 pixels, this desired field of view could be covered with nine independent local tomography scans. Such an approach would require nine independent reconstructions and stitching of those nine reconstructed tomographic datasets into one dataset covering the full field of view. Such a method would also introduce artifacts at the edges of each of the nine sub-datasets which would lie inside the sample to be imaged.
 
 While the chosen field of view of 3072$\times$3072 pixels can be covered using a detector of the size of 3072 pixels in one scan, we can cover the desired field of view with a much smaller detector, using a scanning protocol with three subscans from which we obtain merged projections. Figure~\ref{fig:SubScan-Setup}(b) shows how the desired field of view of 3072 pixels can be covered with a wide-field scan, composed of one central and two half ring-scans, recorded with a detector with a size of 1024 pixels. A further increase in the field of view can be obtained by simple iteration. Figures~\ref{fig:SubScan-Setup}(c)--(f) show such a setup for a five- or seven-fold increase.
 
@@ -118,11 +118,11 @@ Protocols B--T have been linearly scaled down with a decreasing number of acquir
 		\multirow{2}{*}{Protocol}   & \multicolumn{3}{c}{Projections for Subscan} & Total Number    & Time/Radiation & Simulated\\
                                     & $\textrm{s}_{1}$ & $\textrm{s}_{2}$ & $\textrm{s}_{3}$        & of Projections & Dose [\%] & Quality [\%]\\%
 		\hline
-		A\footnote{Gold Standard} & & & & 13534 & 100 & \\%
+		A\footnote{Equal field of view as the other protocols, but recorded with a hypothetically large detector (3072$\times$1024 pixels).} & & & & 13534 & 100 & \\%
 		\ifiucr
-			\rowcolor{lightgray} B 
+			\rowcolor{lightgray} B\footnote{Gold Standard} 
 		\else
-		 	B
+		 	B\footnote{Gold Standard}
 		 \fi
 		  & 5244 & 5244 & 5244 & 15732 & 116 & 100\\%
 		C & 5244 & 2622 & 5244 & 13110 &  97 & 89\\%
