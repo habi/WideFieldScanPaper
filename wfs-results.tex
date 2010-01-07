@@ -28,7 +28,7 @@ The dashed circles on the reconstructed slice mark the start and the end of the 
 Figure~\ref{fig:s2-wfs} shows the advantages of the wide field acquisition scheme. With---in this particular case---an enlargement of the field of view by almost a factor of three, it is possible to visualize entire acini at high resolution. For a conventional scan (fig.~\ref{fig:s2-wfs}(a)), the airway segments in the sample are only partially contained inside the dataset (magenta and yellow). Semitransparent airway segments are contained in the sample, but are not visible in the field of view of a dataset obtained with a conventional scan. Increasing the field of view (fig.~\ref{fig:s2-wfs}(b)) allows the visualization of those segments to their full extent. A third acinus (cyan) which was not visible in Figure~\ref{fig:s2-wfs}(a) can now easily be visualized.
 
 %\onecolumn
-\renewcommand{\imsize}{.618\linewidth}%
+\renewcommand{\imsize}{.75\linewidth}%
 \begin{figure}
 	\centering
 	\caption{Three-dimensional visualization of the distal-medial tip of the right lower rat lung lobe. The gray structure in the background shows a semitransparent view of the tomographic dataset with segmented airways. The foreground shows isosurfaces of terminal airways. The wireframe cube has a side length of 1024 pixels and encloses the field of view of one conventional scan. (a): Conventional scan; the extracted airway segments (magenta and yellow) are only partially contained inside the total sample volume. Airway segments not contained in the dataset, but present in the sample are shown semitransparent. This conventional scan corresponds to a reconstruction of the central of the three wide field scan subscans. (b): Wide field scan with increased field of view; the magenta and yellow segment show entire acini inside the dataset, the cyan segment contains a partially cut acinus. All airway segments inside the sample are contained in the tomographic dataset.}
@@ -69,11 +69,7 @@ Figure~\ref{fig:s2-wfs} shows the advantages of the wide field acquisition schem
 \end{figure}
 %\twocolumn
 
-As expected, the calculated quality of the reconstructions representing the different protocols decreases as a function of total number of obtained projections (Figure~\ref{fig:NormalizedErrorPlot}). The calculated error of the different protocols (blue diamonds) shows the experimental results
-\cbstart
-obtained from actual scans of lung tissue. The plots for the simulation (19 protocols, as defined in section~\ref{sec:quality guided protocols}, red dots) and
-\cbend
-the normalized difference value are not perfectly in agreement, but show the same trend. The simulation shows an exponential decrease in quality, while the calculated, normalized error shows a more linear decrease in quality from protocol B towards protocol T.
+As expected, the calculated quality of the reconstructions representing the different protocols decreases as a function of total number of obtained projections (Figure~\ref{fig:NormalizedErrorPlot}). The calculated error of the different protocols (blue diamonds) shows the experimental results obtained from actual scans of lung tissue. The plots for the simulation (19 protocols, as defined in section~\ref{sec:quality guided protocols}, red dots) and the normalized difference value are not perfectly in agreement, but show the same trend. The simulation shows an exponential decrease in quality, while the calculated, normalized error shows a more linear decrease in quality from protocol B towards protocol T.
 
 \begin{figure}
 	\centering
