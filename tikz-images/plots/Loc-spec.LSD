@@ -14,6 +14,7 @@ Dicken
 E
 F
 FFT
+FFT-based
 Federica
 G
 GmbH
@@ -21,6 +22,7 @@ Gobain
 H
 Haberthür
 Hintermueller2009
+Hintermueller2010
 Hintermüller
 Histoclear
 Histogram-Plots
@@ -38,6 +40,7 @@ Lung-slab
 Luyet2002
 M
 MATLAB
+MATLAB-script
 Marone
 MeVis
 MeVisLab
@@ -57,10 +60,13 @@ Q
 Quality-plot
 R
 R108C21Cb
+R108C21Cb_mrg1024rec8bit
+R108C21Cb_mrg3333_normalize
 ROIs
 ROIs-3d
 S
 SRXTM
+Saint-Gobain
 Scherrer
 Schittny
 Sprague-Dawley
@@ -101,6 +107,7 @@ dtf-roi
 e
 end-stations
 end-user
+end-users
 english
 ethanol
 f
@@ -132,6 +139,7 @@ oversample
 oversampled
 oversampling
 pco
+pco.2000
 pdf
 pgfsys-tex4ht.def
 png
@@ -147,8 +155,10 @@ roiL
 roiT
 sample-position
 scan-conventional
+scan-widefield
 semi-automated
 semi-automatic
+semi-automatically
 sep
 seven-fold
 sinogram
@@ -157,6 +167,7 @@ sloped,midway,above
 smallfrom
 smallto
 standard-equivalent
+sub-datasets
 subfigure
 subfigures
 subscan
@@ -172,6 +183,7 @@ tomography
 toto
 ultra-high
 un-binned
+unbinned
 undersampling
 unsrtnat
 use-case
@@ -184,4 +196,5 @@ wide-field
 widefield
 wireframe
 workflow
+xx9999
 y
