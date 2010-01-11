@@ -16,25 +16,22 @@
 	\journalaccepted{0 XXXXXXX 2010}
 	\journalonline{0 XXXXXXX 2010}
 
-\usepackage[T1]{fontenc}
+\let\Gray\relax%
+\usepackage[alsoload=binary]{siunitx}
 \usepackage[english]{babel}
 \usepackage{graphicx}
-\usepackage[table]{xcolor}% for highlighting table rows with \rowcolor{color}
+\usepackage{colortbl}% for highlighting table rows with \rowcolor{color}
 \usepackage{svn-multi}
-	\let\Gray\relax % if \Gray isn't relaxed, siunitx throws an error
-\usepackage[obeyall,alsoload=binary,alsoload=synchem]{siunitx}
-\usepackage{tikz}\usetikzlibrary{patterns} % patterns are used for fig. 1
+\usepackage{tikz}\usetikzlibrary{patterns}% patterns are needed for fig. 1
 \usepackage{pgfplots}
-\usepackage{multirow}
 \usepackage{scrtime}
+\usepackage{multirow}
 \usepackage[version=3]{mhchem}
-\usepackage{todonotes}
+\usepackage{hyperref}
 
 \newcommand{\imsize}{\linewidth}
-\newlength\imagewidth
-\newlength\imagescale
-\newcommand{\ie}{i.\,e. }
-\newcommand{\eg}{e.\,g. }
+\newlength\imagewidth% needed for scalebars
+\newlength\imagescale% needed for scalebars
 
 \svnidlong
 {$HeadURL$}
@@ -44,8 +41,8 @@
 
 \begin{document}
 
-\title{Radiation dose optimized lateral expansion of the field of view in synchrotron radiation x-ray tomographic microscopy %
-	-- svn\svnkw{LastChangedRevision}, compiled \today, \thistime}
+\title{Radiation dose optimized lateral expansion of the field of view in synchrotron radiation x-ray tomographic microscopy}
+	%-- svn\svnkw{LastChangedRevision}, compiled \today, \thistime
 
 \cauthor[a]{David}{Haberth\"{u}r}{haberthuer@ana.unibe.ch}{}
 \author[b]{Christoph}{Hinterm\"{u}ller}{}{}
@@ -79,12 +76,10 @@ Volumetric data at micrometer level can be acquired within a few minutes using s
 
 This approach, dubbed wide field synchrotron radiation tomographic microscopy, can increase the lateral field of view up to five times. The method has been successfully applied for the three-dimensional imaging of entire rat lung acini with a diameter of \SI{4.1}{\milli\meter} at a voxel size of \SI{1.48}{\micro\meter}.
 \end{abstract}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Introduction%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%Introduction%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
+
 The functional respiratory lung unit---the so-called acinus---is defined as the complex of alveolated airways distal of a last purely conducting airway (terminal bronchiole)~\cite{Rodriguez1987}. The total of all acini forms the lung parenchyma, the area where the pulmonary gas-exchange takes place. While the structural development of the gas-exchange region including the alveolar septa is quite well characterized~\cite{Schittny2007a,Schittny2008,Mund2008}, the development of the three-dimensional structure of its functional unit---of the acini---was not much studied due to the lack of suitable methods. 
 
 It is our goal to study the branching pattern of the acinar airways as well as the airflow within it. Tomographic methods, in particular synchrotron radiation based tomographic microscopy can access this kind of information nondestructively and noninvasively.
@@ -98,15 +93,14 @@ Increasing the field of view perpendicular to the rotation axis of the sample ca
 We developed a method to merge several independently acquired sets of projections to increase the field of view of the resulting tomographic dataset. In addition, by optimization of the number of recorded projections, we established different scanning protocols with an user-defined balance between acquisition time and image quality.
 
 Because the total acquisition time is directly linked to the radiation imparted to the sample, it is obvious that such protocols also affect radiation damage and constitute an important optimization tool for radiation sensitive experiments.
-%Introduction%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Materials and Methods%%%%%%%%%%%%
+%%%%%%Introduction%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%Materials and Methods%%%%%%%%%%%%
 \section{Materials and Methods}\label{sec:materials and methods}
 \subsection{Sample Preparation}
-Rat lung samples, prepared according to \citeasnoun{Tschanz2002} and \citeasnoun{Luyet2002} were used as test objects. Briefly, lungs of Sprague-Dawley rats were filled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) by instillation via tracheotomy at a constant pressure of \SI{20}{\centi\meter} water column. In order to prevent recoiling of the lung, this pressure was maintained during glutaraldehyde-fixation for a minimum of two hours. Subsequently, the lungs were dissected free and immersed in toto in the same fixative at a temperature of \SI{4}{\celsius} for at least \SI{24}{\hour}.
+Rat lung samples, prepared according to \citeasnoun{Tschanz2002} and \citeasnoun{Luyet2002} were used as test objects. Briefly, lungs of Sprague-Dawley rats were filled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{M} potassium-phosphate buffer (pH 7.4) by instillation via tracheotomy at a constant pressure of \SI{20}{\centi\meter} water column. In order to prevent recoiling of the lung, this pressure was maintained during glutaraldehyde-fixation for a minimum of two hours. Subsequently, the lungs were dissected free and immersed in toto in the same fixative at a temperature of \SI{4}{\celsius} for at least \SI{24}{\hour}.
 
 The samples were postfixed with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) and stained with \SI{4}{\percent} uranyl nitrate (\cf{UO2(NO3)2}) to increase the x-ray absorption contrast, dehydrated in a graded series of ethanol and embedded in paraffin using Histoclear (Merck KGaA, Darmstadt, Germany) as an intermedium. The lung samples were mounted onto standard scanning electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) using paraffin~\cite{Tsuda2008}.
 
@@ -147,7 +141,7 @@ Samples twice as large as the field of view can be imaged using scanning protoco
 			\fill [color=gray, nearly transparent] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
 			\fill (0.5*\BeamLength+1,\startAtY+0.5) circle (0.025);
 			\draw [thick] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
-			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.25)   arc (-90:90:0.25);
+			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.25) arc (-90:90:0.25);
 			\node at (0.5*\BeamLength+1,\startAtY+1+0.25) {sample};
 	%%%%%%%%%%%%%%%%%%%
 	%       360       %
@@ -188,13 +182,13 @@ Samples twice as large as the field of view can be imaged using scanning protoco
 			{
 				\fill [color=\color, very nearly transparent] (0.5*\BeamLength+1,\y) circle (1.5);
 			}
-		\fill [color=magenta, semitransparent]   (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
+		\fill [color=magenta, semitransparent] (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
 		\pattern [pattern=checkerboard, pattern color=gray, semitransparent] (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
-		\fill [color=cyan, semitransparent]  (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
+		\fill [color=cyan, semitransparent] (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
 		\fill [pattern=horizontal lines, pattern color=gray] (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
 		\fill [color=yellow] (0.5*\BeamLength+1,3-0.5) circle (0.5);	
-%		\fill [color=magenta, semitransparent]   (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
-%		\fill [color=cyan, semitransparent]  (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
+%		\fill [color=magenta, semitransparent] (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
+%		\fill [color=cyan, semitransparent] (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
 %		\fill [color=yellow, nearly transparent] (0.5*\BeamLength+1,3-0.5) circle (0.5);
 		\foreach \y/\position/\color/\pattern in {\startAtY-0.5/1/magenta/checkerboard,\startAtY+0.5/2/yellow/,\startAtY+1.5/3/cyan/horizontal lines}
 			{
@@ -210,7 +204,7 @@ Samples twice as large as the field of view can be imaged using scanning protoco
 	\label{fig:scanning-possibilities}
 \end{figure}
 
-For tomographic scans covering a size wider than two fields of view, three or more \SI{180}{\degree}-scans taken at slightly overlapping positions are combined, as shown Figure~\ref{fig:scanning-possibilities}(c). The projections of each subscan overlap slightly to facilitate the stitching of multiple projections into a single one. The cutline, \ie the position where the merging takes place, is automatically determined according to a mean squared difference method~\cite{Hintermueller2010}.
+For tomographic scans covering a size wider than two fields of view, three or more \SI{180}{\degree}-scans taken at slightly overlapping positions are combined, as shown Figure~\ref{fig:scanning-possibilities}(c). The projections of each subscan overlap slightly to facilitate the stitching of multiple projections into a single one. The cutline, i.\,e. the position where the merging takes place, is automatically determined according to a mean squared difference method~\cite{Hintermueller2010}.
 
 A straightforward acquisition scheme would record an equal amount of projections for each of the individual subscans. As a consequence of fulfilling the sampling theorem in the lateral parts of the sample we would thus oversample the central parts of the sample. 
 
@@ -395,7 +389,7 @@ Protocols B--T have been linearly scaled down with a decreasing number of acquir
 	\caption{Specification of different protocols: Protocol A corresponds to the gold standard, and would be required to cover the field of view with nine independent scans with a detector width of 1024 pixels (plus an overlap of 100 pixels), resulting in a number of projections $P_{gold standard}=9(1024-100)\frac{\pi}{2}= 13063$. The gold standard-equivalent wide field scanning protocol A only uses three subscans, resulting in a total number of projections of $P_{A} = 3(3072-200)\frac{\pi}{2}= 13534$. Three-dimensional reconstructions of the datasets marked with a light gray background are shown in Figure~\ref{fig:BvsT}.}
 	\label{tab:protocols}
 	\begin{tabular}{ccccccc}
-		\multirow{2}{*}{Protocol}   & \multicolumn{3}{c}{Projections for Subscan} & Total Number    & Time/Radiation & Simulated\\
+		\multirow{2}{*}{Protocol} & \multicolumn{3}{c}{Projections for Subscan} & Total Number & Time/Radiation & Simulated\\
                                     & $\textrm{s}_{1}$ & $\textrm{s}_{2}$ & $\textrm{s}_{3}$        & of Projections & Dose [\%] & Quality [\%]\\
 		\hline
 		A\footnote{Equal field of view as the other protocols, but recorded with a hypothetically large detector (3072$\times$1024 pixels).} & & & & 13534 & 100 & \\
@@ -435,14 +429,14 @@ This combined difference value ($E_{i_{norm_{k}}}$) was calculated for 205 regul
 every fifth slice) of the full dataset. The mean ($\overline{E_{i_{norm_{k}}}}$) difference value for all slices was normalized to the scanned quality-steps from 16.14--\SI{116.24}{\percent} (as stated in Table~\ref{tab:protocols}) and plotted with the standard deviation ($\sigma(E_{i_{norm_{k}}})$). For the purpose of comparison, data has been normalized.
 
 \subsection{Projection merging and tomographic reconstruction}
-After acquisition of the three subscans per protocol, custom MATLAB functions read the parameters of the single subscans (\eg sample name, amount of subscans, amount of dark and flat images) as well as the desired output-name and -suffix, and performed all necessary calculations, including: loading of the correct projections from each subscan; normalizing; interpolation; cutline detection; correct stitching of the images into wide field projections, and writing these merged projections as well as log files needed for the reconstruction to disk.
+After acquisition of the three subscans per protocol, custom MATLAB functions read the parameters of the single subscans (e.\,g. sample name, amount of subscans, amount of dark and flat images) as well as the desired output-name and -suffix, and performed all necessary calculations, including: loading of the correct projections from each subscan; normalizing; interpolation; cutline detection; correct stitching of the images into wide field projections, and writing these merged projections as well as log files needed for the reconstruction to disk.
 
-The merged projections were rearranged into sinograms, where the $n$\textsuperscript{th} sinogram is composed of the $n$\textsuperscript{th} line of every corrected projection. The $n$\textsuperscript{th} slice of the tomographic scan was reconstructed from the $n$\textsuperscript{th} sinogram using an FFT-based regridding algorithm~\cite{Dowd1999}. The 19 tomographic datasets were reconstructed on a 20-node server farm composed of five \SI{64}{\bit} Opteron machines with four cores and \SI{8}{\giga\byte} RAM each. The reconstructions resulted in an image stack covering a large sample volume of 2792$\times$2792$\times$1024 pixels, a nine-fold increase from the standard volume of 1024$\times$1024$\times$1024 pixels for one conventional scan.
-%Materials and Methods%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Results%%%%%%%%%%%%%%%%%%%%%%%%%%
+The merged projections were rearranged into sinograms, where the $n$\textsuperscript{th} sinogram is composed of the $n$\textsuperscript{th} line of every corrected projection. The $n$\textsuperscript{th} slice of the tomographic scan was reconstructed from the $n$\textsuperscript{th} sinogram using an FFT-based regridding algorithm~\cite{Dowd1999}. The 19 tomographic datasets were reconstructed on a computing cluster composed of five \SI{64}{\bit} Opteron machines with four cores and \SI{8}{\giga\byte} RAM each. The reconstructions resulted in an image stack covering a large sample volume of 2792$\times$2792$\times$1024 pixels, a nine-fold increase from the standard volume of 1024$\times$1024$\times$1024 pixels for one conventional scan.
+%%%%%%Materials and Methods%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%Results%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}\label{sec:Results}
 \subsection{Image Merging and Reconstruction}\label{sec:Image Merging and Reconstruction}
 Figure~\ref{fig:wide-field-scan-results}(a) shows corrected projections from three overlapping subscans prior to merging, including regions where the subscans are overlapping. Figure~\ref{fig:wide-field-scan-results}(b) shows one merged projection prior to reconstruction and Figure~\ref{fig:wide-field-scan-results}(c) shows one slice of the reconstructed dataset. In Figure~\ref{fig:wide-field-scan-results} protocol B is show, because it was scanned using the highest number of projections. A reconstructed slice covers a field of view of 2792$\times$2792 pixels (4.13$\times$\SI{4.13}{\milli\meter}), which is almost three times the size of what can be achieved with one single binned scan (1024 pixels or \SI{1.52}{\milli\meter}). %1024 * 1.48 um/px = 1.51552mm
@@ -520,7 +514,7 @@ The dashed circles on the reconstructed slice mark the start and the end of the 
 			%%%% big circle
 				\draw [dashed, ultra thick, color=red] (2792/2,992/2) circle (512);
 				\def\angle{35}
-				\draw [white, thick, <->] (2792/2,992/2) +(\angle:0) --  node (bigto) {} +(\angle:512); 
+				\draw [white, thick, <->] (2792/2,992/2) +(\angle:0) -- node (bigto) {} +(\angle:512); 
 				\node [white] (bigfrom) at (349,256){$\frac{1024}{2}$px};
 				\draw [white, ->, thick, densely dotted] (bigfrom) to [bend left=45] (bigto);
 			%%%% big circle
@@ -710,12 +704,12 @@ Figure~\ref{fig:DTFplots} shows logarithmic plots of the histogram distributions
 Even when reducing the sample acquisition time by \SI{84}{\percent} of the gold standard scan (T vs. B), the distance transformation histograms of the shown regions of interest are very similar and therefore no relevant structural differences are introduced.
 
 As a further proof of concept we scanned and reconstructed a rat lung sample with five scanning positions, resulting in a five-fold (4.74$\times$) increase in field of view from slices with a size of 1024$\times$1024 pixels to a size of 4852$\times$4852 pixels (1.52$\times$\SI{1.52}{\milli\meter} to 7.18$\times$\SI{7.18}{\milli\meter}) at a voxel side length of \SI{1.48}{\micro\meter} (data not shown).
-%Results%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Discussion%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%Results%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%Discussion%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}\label{sec:Discussion}
 
 We present a method to laterally increase the field of view of tomographic imaging systems operated in parallel beam geometry and would like to call this method wide field synchrotron radiation based x-ray tomographic microscopy (WF-SRXTM). We defined scanning protocols for the optimization of the total imaging time versus the expected imaging quality, enabling a very fast acquisition of lower quality tomographic datasets, or acquisition of very high quality datasets in a longer time.
@@ -730,37 +724,34 @@ Reducing the amount of projections for the central of the three subscans may be 
 % H--I = 8740/10488 = 0.8303; 78%--80%
 We show that the interpolation of mission projections does not introduce relevant errors in the resulting tomographic datasets.
 
-For protocols with an equal amount of total projections, but differing amount of projections for the individual subscans (C/D and M/N, marked in Figure~\ref{fig:NormalizedErrorPlot}) we observed minor differences in reconstruction quality. The qualities $E_{i_{norm}}$ of protocols C and D lie within their respective standard deviation (\SI{89}{\percent} vs. \SI{85}{\percent}), and the qualities of protocols M and N are comparable (\SI{69}{\percent} vs. \SI{67}{\percent}). Both protocols C and M are scanned without oversampling the central subscan, making interpolation necessary, while for protocols B and N we simply stitched the projections of the three subscans. When deciding between two protocols with the same amount of total projections, it is thus desirable to favor the protocol where the central scan is not oversampled (\ie choosing protocol C instead of D). Even if this introduces additional computing time to interpolate projections prior to reconstruction, these protocols show an increased quality compared to protocols where the central scan is oversampled. Since an oversampling of the central scan does not add much to the total reconstruction quality and the outer parts of the sample contribute more to the total area of the projections, it seems to be more sensible to choose a protocol where the sampling theorem is satisfied better for those parts of the sample.
+For protocols with an equal amount of total projections, but differing amount of projections for the individual subscans (C/D and M/N, marked in Figure~\ref{fig:NormalizedErrorPlot}) we observed minor differences in reconstruction quality. The qualities $E_{i_{norm}}$ of protocols C and D lie within their respective standard deviation (\SI{89}{\percent} vs. \SI{85}{\percent}), and the qualities of protocols M and N are comparable (\SI{69}{\percent} vs. \SI{67}{\percent}). Both protocols C and M are scanned without oversampling the central subscan, making interpolation necessary, while for protocols B and N we simply stitched the projections of the three subscans. When deciding between two protocols with the same amount of total projections, it is thus desirable to favor the protocol where the central scan is not oversampled (i.\,e. choosing protocol C instead of D). Even if this introduces additional computing time to interpolate projections prior to reconstruction, these protocols show an increased quality compared to protocols where the central scan is oversampled. Since an oversampling of the central scan does not add much to the total reconstruction quality and the outer parts of the sample contribute more to the total area of the projections, it seems to be more sensible to choose a protocol where the sampling theorem is satisfied better for those parts of the sample.
 
 With the defined protocols we open the possibility for the end-user to choose an acquisition mode suited to fulfill the constraints on beamtime and number of samples to be scanned within the allocated beamtime. 
 
-Additionally, two special use-cases for different protocols are worth mentioning. First, if the user needs a very quick overview over samples at high resolution, a time-saving protocol can be used. This is especially the case, if the integrity of the sample can only be judged with a tomographic scan. Based on the quick scan the right samples for high resolution scans may be selected. It has to be mentioned that a quick overview could---in principle---be obtained with a low-resolution scan, which usually automatically accommodates a larger field of view. However, the resolution of such an overview scan is not always sufficient to detect interesting features in the samples which might be compromised.  Second the dose of radiation dose has to be taken into consideration. If the end-user desires to have a tomographic scan at high resolution and large field of view, but strives to reduce the radiation dose, he or she now may choose the desired protocol. 
+Additionally, two special use-cases for different protocols are worth mentioning. First, if the user needs a very quick overview over samples at high resolution, a time-saving protocol can be used. This is especially the case, if the integrity of the sample can only be judged with a tomographic scan. Based on the quick scan the right samples for high resolution scans may be selected. It has to be mentioned that a quick overview could---in principle---be obtained with a low-resolution scan, which usually automatically accommodates a larger field of view. However, the resolution of such an overview scan is not always sufficient to detect interesting features in the samples which might be compromised.
 
 The second special use-case worth mentioning is when the radiation dose inflicted on the sample has to be taken into consideration. If the end-user desires to have a tomographic scan at high resolution and large field of view, but strives to reduce the radiation dose inflicted on the sample, we now provide the possibility to perform such a scan during a reduced time in a semi-automated, objective way.
 
 We have shown that the field of view of parallel beam tomographic end-stations can be increased up to five-fold and have three-dimensionally reconstructed multiple tomograms with a three-fold increase in field of view. The shown acquisition protocols are theoretically expandable for more than five subscans, although the reconstruction of wide field scans with seven or more subscans would require an extremely powerful data processing infrastructure. The datasets shown in Figure~\ref{fig:BvsT} are binned scans resulting in datasets of 1024 slices, each with a size of 2792$\times$2792 pixels at a \SI{8}{\bit} depth. It adds up to a total size of the dataset of approximately \SI{7.5}{\giga\byte}. If we assume an unbinned scan with seven overlapping subscans, the size of one stitched projection will be approximately 14000$\times$14000 pixels. The full dataset will consist of 2048 such slices, which would add up to a total size for the full dataset of approximately \SI{383}{\giga\byte}. All datasets in this manuscript were reconstructed at \SI{8}{\bit}. Reconstructing this sample at \SI{16}{bit}---which is possible at TOMCAT---would result in one single dataset with a size of \SI{0.75}{\tera\byte} for a seven-fold increase in field of view.
 
-Even if the amount of data to handle is huge, a wide field scan with a five-fold increase in field of view remains interesting, since it would enable the end-user to selectively reconstruct only regions of interest from large samples with ultra-high resolution. Up to now, a two-step process was required to scan such regions from samples larger than the field of view. In a first step, a registered overview scan of the sample at lower resolution (e.g. using the 2$\times$ lens)---and thus large field of view---was acquired. Then, using a custom-made software~\cite{Heinzer2008}, a region of interest was defined in this low-resolution dataset, and a high resolution local tomography scan (\eg using the 10$\times$ or 20$\times$ lens)---with small field of view---was performed for this marked region. This two-step method is one of the big disadvantages of this method compared to WF-SRXTM, since it needs an extremely precise registration method to register the two datasets. Additionally, for a WF-SRXTM scan all the data is recorded in a one-step process, avoiding a return to the beamline for a second scan and sparing precious time at TOMCAT.
-%Discussion%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Summary%%%%%%%%%%%%%%%%%%%%%%%%%%
+Even if the amount of data to handle is huge, a wide field scan with a five-fold increase in field of view remains interesting, since it would enable the end-user to selectively reconstruct only regions of interest from large samples with ultra-high resolution. Up to now, a two-step process was required to scan such regions from samples larger than the field of view. In a first step, a registered overview scan of the sample at lower resolution (e.g. using the 2$\times$ lens)---and thus large field of view---was acquired. Then, using a custom-made software~\cite{Heinzer2008}, a region of interest was defined in this low-resolution dataset, and a high resolution local tomography scan (e.\,g. using the 10$\times$ or 20$\times$ lens)---with small field of view---was performed for this marked region. This two-step method is one of the big disadvantages of this method compared to WF-SRXTM, since it needs an extremely precise registration method to register the two datasets. Additionally, for a WF-SRXTM scan all the data is recorded in a one-step process, avoiding a return to the beamline for a second scan and sparing precious time at TOMCAT.
+%%%%%%Discussion%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%Summary%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Summary}\label{summary}
 A method to increase the lateral field of view of tomographic imaging has been established, which enables the high-resolution tomographic imaging of large samples that are wider than the field of view of the optical setup in multiple semi-automatically combined steps. Tomographic datasets of entire rat lung acini have been acquired with an enhanced field of view using WF-SRXTM.
 
 Different optimized scanning protocols for covering a large field of view have been validated and are now provided for the end-users of the TOMCAT beamline. End-user now have the possibility to choose suitable scanning protocols depending on a balance between acquisition time and expected reconstruction quality. Depending on this balance, we manage to reduce the image acquisition time by \SI{84}{\percent} of the comparable gold standard scan, while keeping the quality of the reconstructed tomographic dataset on a level still permitting automated segmentation of the lung structure and surrounding airspace, as shown in section~\ref{subsec:comparison}. The reduction in acquisition time obviously reduces the time during which the sample is irradiated by the synchrotron radiation and thus reduces the radiation dose inflicted on the sample.
-%Summary%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ack{This work has been funded by the grants 3100A0-109874 and 310030-125397 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance and Volker Dicken from Fraunhofer MEVIS for the fruitful discussion concerning the euclidean distance transformation. Dan Ward kindly checked the English of the manuscript.}
+%%%%%%Summary%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\let\oldharvardurl=\harvardurl
-\renewcommand{\harvardurl}[1]{\relax}
-\referencelist[../references]
+\ack{This work has been funded by the grants 3100A0-109874 and 310030-125397 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance and Volker Dicken from Fraunhofer MEVIS for the fruitful discussion concerning the euclidean distance transformation. Dan Ward kindly checked the English of the manuscript.}%
+
+\let\oldharvardurl=\harvardurl%
+\renewcommand{\harvardurl}[1]{\relax}%
+\referencelist[../references]%
 \let\harvardurl=\oldharvardurl
 
 \end{document}
