@@ -83,7 +83,7 @@ plot [ error bars/.cd, y dir=both, y explicit ]
 	( 67.83,50.4137) +- (0,5.5671) % J
 	( 64.58,56.2138) +- (0,3.2329) % I
 	( 77.49,60.0243) +- (0,8.0805) % H
-	( 72.67,65.7727) +- (0,6.2214) % H
+	( 72.67,65.7727) +- (0,6.2214) % G
 	( 87.20,55.0069) +- (0,4.1882) % F
 	( 80.72,79.6708) +- (0,3.0107) % E
 	( 96.87,70.4018) +- (0,3.0863) % D
@@ -95,10 +95,35 @@ plot [ error bars/.cd, y dir=both, y explicit ]
 
 \legend{calc.\ Quality, Polynomial Fit, $E_{i_{norm}}$}
 
-\draw [<-] (axis cs:97.87,74.3991) -- (axis cs:99.87,74.3991) node [anchor=text] {\tiny C}; 
-\draw [<-] (axis cs:97.87,70.4018) -- (axis cs:99.87,70.4018) node [anchor=text] {\tiny D};
-\draw [<-] (axis cs:49.43,51.6990) -- (axis cs:51.43,51.6990) node [anchor=text] {\tiny M};
-\draw [<-] (axis cs:49.46,41.5079) -- (axis cs:51.46,41.5079) node [anchor=text] {\tiny N};
+% \draw [<-] (axis cs:97.87,74.3991) -- (axis cs:99.87,74.3991) node [anchor=text] {\tiny C}; 
+% \draw [<-] (axis cs:97.87,70.4018) -- (axis cs:99.87,70.4018) node [anchor=text] {\tiny D};
+% \draw [<-] (axis cs:81.72,79.6708) -- (axis cs:82.72,79.6708) node [anchor=text] {\tiny E};
+% \draw [<-] (axis cs:78.49,60.0243) -- (axis cs:79.49,60.0243) node [anchor=text] {\tiny H};
+% \draw [<-] (axis cs:65.58,56.2138) -- (axis cs:66.58,56.2138) node [anchor=text] {\tiny I};
+% \draw [<-] (axis cs:49.43,51.6990) -- (axis cs:51.43,51.6990) node [anchor=text] {\tiny M};
+% \draw [<-] (axis cs:49.46,41.5079) -- (axis cs:51.46,41.5079) node [anchor=text] {\tiny N};
+
+%\tikzstyle{every pin}=[fill=white,draw=black,font=\tiny]
+\tikzstyle{every pin}=[font=\scriptsize]
+\node[coordinate,pin=below right:{B}] at (axis cs:116.24,99.8987) {}; % B
+\node[coordinate,pin=above right:{C}] at (axis cs:96.87,74.3991) {}; % C
+\node[coordinate,pin=below right:{D}] at (axis cs:96.87,70.4018) {}; % D
+\node[coordinate,pin=below right:{E}] at (axis cs:80.72,79.6708) {}; % E
+\node[coordinate,pin=below right:{F}] at (axis cs:87.20,55.0069) {}; % F
+\node[coordinate,pin=above right:{G}] at (axis cs:72.67,65.7727) {}; % G
+\node[coordinate,pin=below right:{H}] at (axis cs:77.49,60.0243) {}; % H
+\node[coordinate,pin=above right:{I}] at (axis cs:64.58,56.2138) {}; % I
+\node[coordinate,pin=below right:{J}] at (axis cs:67.83,50.4137) {}; % J
+\node[coordinate,pin=below right:{K}] at (axis cs:56.52,66.1100) {}; % K
+\node[coordinate,pin=below right:{L}] at (axis cs:58.12,49.9058) {}; % L
+\node[coordinate,pin=below right:{M}] at (axis cs:48.43,51.6990) {}; % M
+\node[coordinate,pin=below right:{N}] at (axis cs:48.46,41.5079) {}; % N  
+\node[coordinate,pin=above right:{O}] at (axis cs:40.37,53.0181) {}; % O
+\node[coordinate,pin=below right:{P}] at (axis cs:38.75,49.2247) {}; % P
+\node[coordinate,pin=below right:{Q}] at (axis cs:32.29,42.2255) {}; % Q
+\node[coordinate,pin=below right:{R}] at (axis cs:29.08,30.2919) {}; % R
+\node[coordinate,pin=above right:{S}] at (axis cs:19.37,38.1358) {}; % S
+\node[coordinate,pin=below right:{T}] at (axis cs:16.14,20.0000) {}; % T
 
 \end{axis}
 
