@@ -66,9 +66,11 @@ ROIs
 ROIs-3d
 S
 SRXTM
+SVN-revision
 Saint-Gobain
 Scherrer
 Schittny
+Shepp-Logan
 Sprague-Dawley
 Stampanoni
 Subscan
@@ -129,6 +131,7 @@ lightgray
 low-resolution
 marco.stampanoni@psi.ch
 micro-computed
+microtomography
 mrg1024rec8bit
 mrg3333
 nine-fold
@@ -184,7 +187,9 @@ toto
 ultra-high
 un-binned
 unbinned
+undersample
 undersampling
+unoptimized
 unsrtnat
 use-case
 use-cases
