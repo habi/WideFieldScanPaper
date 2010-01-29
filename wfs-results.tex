@@ -153,7 +153,7 @@ This combined difference value ($E_{i_{norm_{k}}}$) was calculated for 205 regul
 %$i=1:5:1024$%
 every fifth slice) of the full dataset. The mean ($\overline{E_{i_{norm_{k}}}}$) difference value for all slices was normalized to the scanned quality-steps from 16--\SI{116}{\percent} (as stated in Table~\ref{tab:protocols}) and plotted with its standard deviation ($\sigma(E_{i_{norm_{k}}})$). For the purpose of comparison, data has been normalized.
 
-As expected, the calculated quality of the reconstructions representing the different protocols decreases as a function of total number of obtained projections (Figure~\ref{fig:NormalizedErrorPlot}). The calculated error of the different protocols (normalized difference value, blue diamonds) shows the experimental results obtained from actual scans of lung tissue. The plots for the simulation as defined in section~\ref{sec:quality guided protocols} (red dots) and the normalized difference \cbstart value are not perfectly in agreement, but show the same trend. The linear interpolation for the simulation shows a steeper decrease for the quality ($y_{Sim}=0.6936x+26.891$) than the linear interpolation for the experimental data ($y_{Exp}=0.5833x+20.226$). The coefficients of determination for both the linear interpolations are comparable ($R^{2}_{Sim}=0.8287$, $R^{2}_{Exp}=0.7868$).
+As expected, the calculated quality of the reconstructions representing the different protocols decreases as a function of total number of obtained projections (Figure~\ref{fig:NormalizedErrorPlot}). The calculated error of the different protocols (normalized difference value, blue diamonds) shows the experimental results obtained from actual scans of lung tissue. The plots for the simulation as defined in section~\ref{sec:quality guided protocols} (red dots) and the normalized difference value are not perfectly in agreement, but show the same trend. The linear regression for the simulation shows a steeper decrease for the quality ($y_{Sim}=0.6936x+26.891$) than the linear interpolation for the experimental data ($y_{Exp}=0.5833x+20.226$). The linear regression coefficient for both the linear interpolations are comparable ($R^{2}_{Sim}=0.8287$, $R^{2}_{Exp}=0.7868$).
 
 \begin{figure}
 	\centering
@@ -161,7 +161,6 @@ As expected, the calculated quality of the reconstructions representing the diff
 	\input{tikz-images/plots/2008c-MeanNormalizedErrorPlot}
 	\label{fig:NormalizedErrorPlot}
 \end{figure}
-\cbend
 
 \subsection{Three-dimensional visualization of different protocols}
 \label{subsec:comparison}
