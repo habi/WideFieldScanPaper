@@ -26,90 +26,7 @@ Samples twice as large as the field of view can be imaged using scanning protoco
 \begin{figure}
 	\centering
 	\caption{Covering the field of view of differently sized samples with one \SI{180}{\degree} scan (a), one \SI{360}{\degree} scan (b) or---in the case of the so called wide field scanning---with multiple subscans (three subscans, c). The filled segments mark the region of the sample that is covered while scanning the respective positions (Position 1: magenta/checkerboard, Position 2: yellow, Position 3: cyan/striped).}
-\begin{tikzpicture}
-	%%%%%%%%%%%%%%%%%%%
-	%       180       %
-	%%%%%%%%%%%%%%%%%%%
-		\def\startAtY{9}
-		\def\BeamLength{4}
-		\def\length{2}
-		\node [anchor=north] at (0.25,\startAtY) {(a)};
-		%camera
-			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
-			\node [anchor=center] at (0.5,\startAtY+1+.25) {camera};
-		% beam
-			% inner rays
-			\foreach \x in {9,9.1,...,10} draw[gray!50,<-] (1,\x) -- (\BeamLength+1,\x);
-			% outer rays
-			\foreach \x in {0,1} \draw[<-] (1,\startAtY+\x) -- (\BeamLength+1,\startAtY+\x);
-			% label				
-			\node at (\BeamLength+0.5,\startAtY+1+.25) {beam};
-		%sample
-			\fill [color=gray, nearly transparent] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
-			\fill (0.5*\BeamLength+1,\startAtY+0.5) circle (0.025);
-			\draw [thick] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
-			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.25) arc (-90:90:0.25);
-			\node at (0.5*\BeamLength+1,\startAtY+1+0.25) {sample};
-	%%%%%%%%%%%%%%%%%%%
-	%       360       %
-	%%%%%%%%%%%%%%%%%%%
-		\def\startAtY{6}
-		\node [anchor=north] at (0.25,\startAtY) {(b)};
-		%camera
-			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
-		% beam
-			% inner rays
-			\foreach \x in {6,6.1,...,7}
-				\draw[gray!50,<-] (1,\x) -- (\BeamLength+1,\x);
-			% outer rays
-			\foreach \x in {0,1}
-				\draw[<-] (1,\startAtY+\x) -- (\BeamLength+1,\startAtY+\x);
-			% label				
-		%sample
-			\fill [color=gray, nearly transparent] (0.5*\BeamLength+1,\startAtY+1) circle (1);
-			\fill (0.5*\BeamLength+1,\startAtY+1) circle (0.025);
-			\draw [thick] (0.5*\BeamLength+1,\startAtY+1) circle (1);
-			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.75) arc (-85:265:0.25);
-	%%%%%%%%%%%%%%%%%%%
-	% Wide Field Scan %
-	%%%%%%%%%%%%%%%%%%%
-		\def\startAtY{2}
-		\node [anchor=north] at (0.25,\startAtY-1.5) {(c)};
-		%camera
-			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
-		% beam
-			% inner rays
-			\foreach \x in {2,2.1,...,3}
-				\draw[gray!50,<-] (1,\x) -- (\BeamLength+1,\x);
-			% outer rays
-			\foreach \x in {0,1}
-				\draw[<-] (1,\startAtY+\x) -- (\BeamLength+1,\startAtY+\x);
-		% shaded samples
-		\foreach \y/\position/\color in {\startAtY-0.5/1/magenta,\startAtY+0.5/2/yellow,\startAtY+1.5/3/cyan}
-			{
-				\fill [color=\color, nearly transparent] (0.5*\BeamLength+1,\y) circle (1.5);
-			}
-		%Pattern Fills in Circles
-			% Position1
-				\fill [color=magenta, semitransparent] (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
-				\fill [pattern=checkerboard, semitransparent, pattern color=gray] (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
-			% Position 3
-				\fill [color=cyan, semitransparent] (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
-				\fill [pattern=horizontal lines, semitransparent, pattern color=gray] (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
-			% Position 2
-				\fill [color=yellow, nearly opaque] (0.5*\BeamLength+1,3-0.5) circle (0.5);
-		% Labels
-		\foreach \y/\position/\color/\pattern in {\startAtY-0.5/1/magenta/checkerboard,\startAtY+0.5/2/yellow/,\startAtY+1.5/3/cyan/horizontal lines}
-			{
-				\draw[thick] (0.5*\BeamLength+1,\y) circle (1.5) circle (0.5);
-				\draw[thick,->] (0.5*\BeamLength+1,\y-0.25) arc (-90:90:0.25);
-				\node [fill=\color,semitransparent] at (\BeamLength+2+.005,\y-.005) {Position \position};
-				\node [fill=\color,pattern=\pattern,semitransparent, pattern color=gray] at (\BeamLength+2+.005,\y-.005) {Position \position};
-				\node at (\BeamLength+2+.01,\y-.01) {Position \position};
-				\node [color=white] at (\BeamLength+2,\y) {Position \position};
-				\fill (0.5*\BeamLength+1,\y) circle (0.025);
-			}
-	\end{tikzpicture}
+	\includegraphics{img-for-submission/Fig01-FOV}
 	\label{fig:scanning-possibilities}
 \end{figure}
 
@@ -128,54 +45,7 @@ As a by-product, such an optimization of the individual number of projections $P
 	\caption{Wide field scan setup with three \SI{180}{\degree} scans; one central (yellow) and two lateral scans (magenta and cyan or top and bottom, respectively). In this drawing, four projections for the central and eight projections for each of the lateral scans have been recorded. The colors of the three positions correspond to the colors shown in Figure~\ref{fig:scanning-possibilities}(c). %
 	(a): scanned projections %
 	(b): scanned projections and additional interpolated projections (dotted) required to merge all projections.}
-	\def\radius{1}%
-	\def\gap{0.05}%
-	\begin{tikzpicture}
-		\foreach \ang in {0,45,...,359}%
-			{%
-			\draw [ultra thick] (\ang:0) -- (\ang:\radius);%
-			}%
-		\foreach \ang in {0,45,...,359}%
-			{%
-			\draw [very thick, color=yellow, shorten >=0.25pt] (\ang:0) -- (\ang:\radius);%
-			}%
-		\foreach \ang in {0,22.5,...,179}%
-			{%
-			\draw [ultra thick] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
-			\draw [very thick, color=magenta, shorten >=0.25pt,shorten <=0.25pt] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
-			}%
-		\foreach \ang in {180,202.5,...,359}%
-			{%
-			\draw [ultra thick] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%		
-			\draw [very thick, color=cyan, shorten >=0.25pt,shorten <=0.25pt] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
-			}%
-		\node [anchor=south west] at (-3.05,-3.05) {(a)};
-	\end{tikzpicture}
-	\begin{tikzpicture}
-		\foreach \ang in {22.5,67.5,...,359}%
-			{%
-			\draw [ultra thick, dotted] (\ang:0) -- (\ang:\radius);%
-			}%
-		\foreach \ang in {0,45,...,359}%
-			{%
-			\draw [ultra thick] (\ang:0) -- (\ang:\radius);%
-			}%
-		\foreach \ang in {0,45,...,359}%
-			{%
-			\draw [very thick, color=yellow, shorten >=0.25pt] (\ang:0) -- (\ang:\radius);%
-			}%
-		\foreach \ang in {0,22.5,...,179}%
-			{%
-			\draw [ultra thick] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%		
-			\draw [very thick, color=magenta, shorten >=0.25pt,shorten <=0.25pt] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
-			}%
-		\foreach \ang in {180,202.5,...,359}%
-			{%
-			\draw [ultra thick] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
-			\draw [very thick, color=cyan, shorten >=0.25pt,shorten <=0.25pt] (\ang:\radius+\gap) -- (\ang:3*\radius+\gap);%
-			}%
-		\node [anchor=south west] at (-3.05,-3.05) {(b)};
-	\end{tikzpicture}
+	\includegraphics{img-for-submission/Fig02-Interpolation}
 	\label{fig:projections}
 \end{figure}	
 
@@ -194,88 +64,7 @@ While the chosen field of view of 3072$\times$3072 pixels can be covered using a
 		(d): Wide field scanning protocol for covering the desired field of view of panel (c) with merged projections from one central and four half ring scans ($r_{1}$--$r_{4}$). %
 		(e): Desired field of view of 7168 pixel diameter. %
 		(f): Wide field scanning protocol for covering the desired field of view of panel (e) with merged projections from one central and six half ring scans ($r_{1}$--$r_{6}$).}%
-	\def\width{2.75}
-	\def\size{3}%
-	\def\angle{150}
-	\def\scale{\width/\size}
-	\begin{tikzpicture}[scale=\scale]
-		%\draw [dashed] (-1,-1) grid (7,7);
-		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
-		\fill [semitransparent] (\size,\size) circle (\size);
-		\draw (\size,\size) circle (\size);
-		\draw [white, ultra thick,<->] (0,\size) -- node [above] {3072 px} (2*\size,\size);
-		\node [anchor=south west] at (0,0) {(a)};%
-	\end{tikzpicture}%
-	%	\hfill%
-	\begin{tikzpicture}[scale=\scale]
-		%\draw [dashed] (-1,-1) grid (7,7);
-		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
-		\fill [semitransparent] (\size,\size) circle (\size);
-		\foreach \r in {1,3} \draw (\size,\size) circle (\r);
-		\draw (0,\size) -- (\size-1,\size);
-		\draw (\size+1,\size) -- (2*\size,\size);
-		\node at (\size,1) {$r_{1}$};
-		\node [rotate=270+\angle] at (\size,3) {central};
-		\node at (\size,5) {$r_{2}$};
-		\draw [white, ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
-		\node [anchor=south west] at (0,0) {(b)};%
-	\end{tikzpicture}%
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3 SUBSCANS
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5 SUBSCANS
-	\def\size{5}%
-	\def\scale{\width/\size}
-	\begin{tikzpicture}[scale=\scale]%
-		%\draw [dashed] (-1,-1) grid (7,7);
-		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
-		\fill [semitransparent] (\size,\size) circle (\size);
-		\draw (\size,\size) circle (\size);
-		\draw [white, ultra thick,<->] (0,\size) -- node [above] {5120 px} (2*\size,\size);
-		\node [anchor=south west] at (0,0) {(c)};%
-	\end{tikzpicture}%
-	\begin{tikzpicture}[scale=\scale]
-		%\draw [dashed] (-1,-1) grid (7,7);
-		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
-		\fill [semitransparent] (\size,\size) circle (\size);
-		\foreach \r in {1,3,5} \draw (\size,\size) circle (\r);
-		\draw (0,\size) -- (\size-1,\size);
-		\draw (\size+1,\size) -- (2*\size,\size);
-		\node at (\size,1) {$r_{3}$};
-		\node at (\size,3) {$r_{1}$};
-		\node [rotate=270+\angle] at (\size,5) {central};
-		\node at (\size,7) {$r_{2}$};
-		\node at (\size,9) {$r_{4}$};
-		\draw [white, ultra thick,<->] (\size,\size) +(\angle:1) -- node [sloped,midway,above] {1024 px} +(\angle:3); 
-		\node [anchor=south west] at (0,0) {(d)};%
-	\end{tikzpicture}%
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5 SUBSCANS
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7 SUBSCANS
-	\def\size{7}%
-	\def\scale{\width/\size}
-	\begin{tikzpicture}[scale=\scale]%
-		%\draw [dashed] (-1,-1) grid (7,7);
-		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
-		\fill [semitransparent] (\size,\size) circle (\size);
-		\draw (\size,\size) circle (\size);
-		\draw [white, ultra thick,<->] (0,\size) -- node [above] {7168 px} (2*\size,\size);
-		\node [anchor=south west] at (0,0) {(e)};%
-	\end{tikzpicture}%
-	\begin{tikzpicture}[scale=\scale]
-		%\draw [dashed] (-1,-1) grid (7,7);
-		\draw [fill=gray!25] (0,0) rectangle (2*\size,2*\size);
-		\fill [semitransparent] (\size,\size) circle (\size);
-		\foreach \r in {1,3,5,7} \draw (\size,\size) circle (\r);
-		\draw (0,\size) -- (\size-1,\size);
-		\draw (\size+1,\size) -- (2*\size,\size);
-		\node at (\size,1) {$r_{5}$};
-		\node at (\size,3) {$r_{3}$};
-		\node at (\size,5) {$r_{1}$};
-		\node [rotate=270+\angle] at (\size,7) {central};
-		\node at (\size,9) {$r_{2}$};
-		\node at (\size,11) {$r_{4}$};
-		\node at (\size,13) {$r_{6}$};
-		\draw [white, ultra thick,<->] (\size,\size) + (\angle:3) -- node [sloped,midway,above] {1024 px} +(\angle:5);
-		\node [anchor=south west] at (0,0) {(f)};%
-	\end{tikzpicture}%
+	\includegraphics[width=.8\linewidth]{img-for-submission/Fig03-3-5-7}
 	\label{fig:SubScan-Setup}
 \end{figure}
 

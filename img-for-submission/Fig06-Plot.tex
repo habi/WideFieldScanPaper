@@ -1,0 +1,111 @@
+\documentclass{scrartcl}
+\usepackage{tikz,pgfplots}
+\usepackage[graphics,tightpage,active]{preview}
+	\PreviewEnvironment{tikzpicture}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+
+\pgfplotsset{every axis legend/.append style={at={(0.8,0.08)},anchor=base}}
+
+\begin{axis}[%
+	xmajorgrids,
+  ymajorgrids,
+	width=\linewidth,
+	height=0.618\linewidth,
+	%scale only axis,
+	%xmin=0,%xmax=129,
+	%ymin=0,%ymax=125,
+	xlabel={Scanning Time [\%\ of Gold Standard]},%
+	ylabel={Expected Quality [\%], Quality$-E_{i_{norm}}$}%
+	]
+
+% Protocols
+\addplot [ fill=red, only marks, mark = *]
+	coordinates{
+		(16.14,20)
+		(19.37,21.2284)
+		(29.08,46.0522)
+		(32.29,54.5201)
+		(38.75,60.7072)
+		(40.37,61.8107)
+		(48.46,67.4167)
+		(48.43,68.7811)
+		(58.12,71.8724)
+		(56.52,75.28)
+		(67.83,76.1345)
+		(64.58,80.1592)
+		(77.49,78.0612)
+		(72.67,83.9645)
+		(87.20,80.4284)
+		(80.72,86.6889)
+		(96.87,84.9458)
+		(96.84,89.1421)
+		(116.24,100)
+};
+
+\addplot [domain=16.14:116.24,color=red, semitransparent,ultra thick]
+	{0.6936*x+26.891}; 
+
+\addplot [ color=blue, only marks, mark=diamond ]
+plot [ error bars/.cd, y dir=both, y explicit ]
+    coordinates{
+	( 16.14,20.0000) +- (0,0)      % T
+	( 19.37,38.1358) +- (0,3.1135) % S
+	( 29.08,30.2919) +- (0,1.3958) % R
+	( 32.29,42.2255) +- (0,2.5278) % Q
+	( 38.75,49.2247) +- (0,7.6789) % P
+	( 40.37,53.0181) +- (0,6.8507) % O 
+	( 48.46,41.5079) +- (0,4.7824) % N  
+	( 48.43,51.6990) +- (0,4.7110) % M
+	( 58.12,49.9058) +- (0,9.1839) % L
+	( 56.52,66.1100) +- (0,8.1635) % K
+	( 67.83,50.4137) +- (0,5.5671) % J
+	( 64.58,56.2138) +- (0,3.2329) % I
+	( 77.49,60.0243) +- (0,8.0805) % H
+	( 72.67,65.7727) +- (0,6.2214) % G
+	( 87.20,55.0069) +- (0,4.1882) % F
+	( 80.72,79.6708) +- (0,3.0107) % E
+	( 96.87,70.4018) +- (0,3.0863) % D
+	( 96.87,74.3991) +- (0,6.8125) % C
+	(116.24,99.8987) +- (0,1.3487) % B
+};
+
+\addplot [domain=16.14:116.24,color=blue, semitransparent,ultra thick]
+	{0.5833*x+20.226}; 
+
+\legend{%
+	Simulation,%
+	linear Interpolation,%
+	$E_{i_{norm}}$,%
+	linear Interpolation}
+
+\tikzstyle{every pin}=[pin distance=2ex,font=\scriptsize]
+\node[coordinate, pin=below right:{B}] at (axis cs:116.24,99.8987) {}; % B
+\node[coordinate, pin=-22.5:{C}] at (axis cs:96.87,74.3991) {}; % C
+\node[coordinate, pin=below right:{D}] at (axis cs:96.87,70.4018) {}; % D
+\node[coordinate, pin=-5:{E}] at (axis cs:80.72,79.6708) {}; % E
+\node[coordinate, pin=below right:{F}] at (axis cs:87.20,55.0069) {}; % F
+\node[coordinate, pin=above right:{G}] at (axis cs:72.67,65.7727) {}; % G
+\node[coordinate, pin=below right:{H}] at (axis cs:77.49,60.0243) {}; % H
+\node[coordinate, pin=above right:{I}] at (axis cs:64.58,56.2138) {}; % I
+\node[coordinate, pin=below right:{J}] at (axis cs:67.83,50.4137) {}; % J
+\node[coordinate, pin=right:{K}] at (axis cs:56.52,66.1100) {}; % K
+\node[coordinate, pin=below right:{L}] at (axis cs:58.12,49.9058) {}; % L
+\node[coordinate, pin=above right:{M}] at (axis cs:48.43,51.6990) {}; % M
+\node[coordinate, pin=below right:{N}] at (axis cs:48.46,41.5079) {}; % N  
+\node[coordinate, pin=above right:{O}] at (axis cs:40.37,53.0181) {}; % O
+\node[coordinate, pin=below right:{P}] at (axis cs:38.75,49.2247) {}; % P
+\node[coordinate, pin=below right:{Q}] at (axis cs:32.29,42.2255) {}; % Q
+\node[coordinate, pin=below right:{R}] at (axis cs:29.08,30.2919) {}; % R
+\node[coordinate, pin=right:{S}] at (axis cs:19.37,38.1358) {}; % S
+\node[coordinate, pin=below right:{T}] at (axis cs:16.14,20.0000) {}; % T
+
+\node[coordinate, pin=above left:{$R^2=0.8287$}] at (axis cs:106.24,100.5791) {};
+\node[coordinate, pin=below right:{$R^2=0.7868$}] at (axis cs:106.24, 82.1958) {};
+
+\end{axis}
+
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

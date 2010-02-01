@@ -1,0 +1,94 @@
+\documentclass{scrartcl}
+\usepackage{graphicx,tikz}
+	\usetikzlibrary{patterns}
+\usepackage{siunitx}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+	%%%%%%%%%%%%%%%%%%%
+	%       180       %
+	%%%%%%%%%%%%%%%%%%%
+		\def\startAtY{9}
+		\def\BeamLength{4}
+		\def\length{2}
+		\node [anchor=north] at (0.25,\startAtY) {(a)};
+		%camera
+			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
+			\node [anchor=center] at (0.5,\startAtY+1+.25) {camera};
+		% beam
+			% inner rays
+			\foreach \x in {9,9.1,...,10} draw[gray!50,<-] (1,\x) -- (\BeamLength+1,\x);
+			% outer rays
+			\foreach \x in {0,1} \draw[<-] (1,\startAtY+\x) -- (\BeamLength+1,\startAtY+\x);
+			% label				
+			\node at (\BeamLength+0.5,\startAtY+1+.25) {beam};
+		%sample
+			\fill [color=gray, nearly transparent] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
+			\fill (0.5*\BeamLength+1,\startAtY+0.5) circle (0.025);
+			\draw [thick] (0.5*\BeamLength+1,\startAtY+0.5) circle (0.5);
+			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.25) arc (-90:90:0.25);
+			\node at (0.5*\BeamLength+1,\startAtY+1+0.25) {sample};
+	%%%%%%%%%%%%%%%%%%%
+	%       360       %
+	%%%%%%%%%%%%%%%%%%%
+		\def\startAtY{6}
+		\node [anchor=north] at (0.25,\startAtY) {(b)};
+		%camera
+			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
+		% beam
+			% inner rays
+			\foreach \x in {6,6.1,...,7}
+				\draw[gray!50,<-] (1,\x) -- (\BeamLength+1,\x);
+			% outer rays
+			\foreach \x in {0,1}
+				\draw[<-] (1,\startAtY+\x) -- (\BeamLength+1,\startAtY+\x);
+			% label				
+		%sample
+			\fill [color=gray, nearly transparent] (0.5*\BeamLength+1,\startAtY+1) circle (1);
+			\fill (0.5*\BeamLength+1,\startAtY+1) circle (0.025);
+			\draw [thick] (0.5*\BeamLength+1,\startAtY+1) circle (1);
+			\draw [thick,->] (0.5*\BeamLength+1,\startAtY+0.75) arc (-85:265:0.25);
+	%%%%%%%%%%%%%%%%%%%
+	% Wide Field Scan %
+	%%%%%%%%%%%%%%%%%%%
+		\def\startAtY{2}
+		\node [anchor=north] at (0.25,\startAtY-1.5) {(c)};
+		%camera
+			\draw [fill=gray] (0,\startAtY) rectangle (1,\startAtY+1);
+		% beam
+			% inner rays
+			\foreach \x in {2,2.1,...,3}
+				\draw[gray!50,<-] (1,\x) -- (\BeamLength+1,\x);
+			% outer rays
+			\foreach \x in {0,1}
+				\draw[<-] (1,\startAtY+\x) -- (\BeamLength+1,\startAtY+\x);
+		% shaded samples
+		\foreach \y/\position/\color in {\startAtY-0.5/1/magenta,\startAtY+0.5/2/yellow,\startAtY+1.5/3/cyan}
+			{
+				\fill [color=\color, nearly transparent] (0.5*\BeamLength+1,\y) circle (1.5);
+			}
+		%Pattern Fills in Circles
+			% Position1
+				\fill [color=magenta, semitransparent] (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
+				\fill [pattern=checkerboard, semitransparent, pattern color=gray] (0.5*\BeamLength+1,3) arc (90:-90:1.5) -- ++(0,1) arc (-90:90:0.5);
+			% Position 3
+				\fill [color=cyan, semitransparent] (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
+				\fill [pattern=horizontal lines, semitransparent, pattern color=gray] (0.5*\BeamLength+1,3+2) arc (90:270:1.5) -- ++(0,1) arc (270:90:0.5);
+			% Position 2
+				\fill [color=yellow, nearly opaque] (0.5*\BeamLength+1,3-0.5) circle (0.5);
+		% Labels
+		\foreach \y/\position/\color/\pattern in {\startAtY-0.5/1/magenta/checkerboard,\startAtY+0.5/2/yellow/,\startAtY+1.5/3/cyan/horizontal lines}
+			{
+				\draw[thick] (0.5*\BeamLength+1,\y) circle (1.5) circle (0.5);
+				\draw[thick,->] (0.5*\BeamLength+1,\y-0.25) arc (-90:90:0.25);
+				\node [fill=\color,semitransparent] at (\BeamLength+2+.005,\y-.005) {Position \position};
+				\node [fill=\color,pattern=\pattern,semitransparent, pattern color=gray] at (\BeamLength+2+.005,\y-.005) {Position \position};
+				\node at (\BeamLength+2+.01,\y-.01) {Position \position};
+				\node [color=white] at (\BeamLength+2,\y) {Position \position};
+				\fill (0.5*\BeamLength+1,\y) circle (0.025);
+			}
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
