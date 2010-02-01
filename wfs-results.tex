@@ -136,13 +136,7 @@ Figure~\ref{fig:s2-wfs} shows the advantages of the wide field acquisition schem
 %\twocolumn
 
 \subsection{Performance of the scanned protocols}
-The performance of the 19 protocols has been quantified using the difference image between binarized slices of the gold standard protocol and each protocol to be assessed. The slices have been thresholded according to%
-\ifhtml%
-	~\citet{Otsu1979}%
-\else%
-	~\citeasnoun{Otsu1979}%
-\fi%
-. The difference value ($E_{norm}$) plotted in Figure~\ref{fig:NormalizedErrorPlot} was calculated for each protocol $i=$1--19 (B--T) according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-c}. Using a thresholded slice $k$ of each protocol $i$ ($Slice_{i_{k}}$) and the corresponding slice $k$ of the gold standard protocol $B$ ($Slice_{B_{k}}$) the absolute difference image ($D_{i_{k}}$) of these two slices $k$ was calculated. The sum of all pixels of this difference image yields a value ($E_{i_{norm_{k}}}$) for the difference of the examined slice $k$ of protocol $i$ with the corresponding slice of the gold standard protocol B.
+The performance of the 19 protocols has been quantified using the difference image between binarized slices of the gold standard protocol and each protocol to be assessed. The slices have been thresholded according to \citeasnoun{Otsu1979}. The difference value ($E_{norm}$) plotted in Figure~\ref{fig:NormalizedErrorPlot} was calculated for each protocol $i=$1--19 (B--T) according to equations~\ref{eq:errorcalculation-a}--\ref{eq:errorcalculation-c}. Using a thresholded slice $k$ of each protocol $i$ ($Slice_{i_{k}}$) and the corresponding slice $k$ of the gold standard protocol $B$ ($Slice_{B_{k}}$) the absolute difference image ($D_{i_{k}}$) of these two slices $k$ was calculated. The sum of all pixels of this difference image yields a value ($E_{i_{norm_{k}}}$) for the difference of the examined slice $k$ of protocol $i$ with the corresponding slice of the gold standard protocol B.
 \begin{eqnarray}
 	D_{i_{k}} &=& |Slice_{B_{k}}-Slice_{i_{k}}|\label{eq:errorcalculation-a}\\%
 	E_{i_{norm_{k}}} &=& \sum_{x}\sum_{y} D_{i_{k}}\label{eq:errorcalculation-b}\\%

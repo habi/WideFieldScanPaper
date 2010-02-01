@@ -1,44 +1,25 @@
-\newif\ifhtml%
-\newif\ifiucr%
-	\htmltrue% conversion to HTML
-	\htmlfalse% keep it TeX
-%%%%%%%%%%
-\ifhtml
-	\documentclass[a4paper]{article}
-\else
-	%\documentclass[preprint,draft,s]{iucr}
-	\documentclass[preprint,s]{iucr}
-	%\documentclass[draft,s]{iucr}
-	%\documentclass[s]{iucr}
-		\paperprodcode{a000000}
-		\paperref{xx9999}
-		\papertype{FA}
-		\paperlang{english}
-		\journalcode{S}
-		\journalyr{2010}
-		\journaliss{0}
-		\journalvol{0}
-		\journalfirstpage{0}
-		\journallastpage{0}
-		\journalreceived{29 January 2010}
-		\journalaccepted{0 XXXXXXX 2010}
-		\journalonline{0 XXXXXXX 2010}
-\fi
-	
-\ifhtml
-	\def\pgfsysdriver{pgfsys-tex4ht.def}
-	\usepackage[numbers]{natbib}
-	\usepackage[disable]{todonotes}
-	\renewcommand{\todo}[1]{\textcolor{red}{\ [TODO: #1]\ }}% redefines todo for html-conversion
-	\usepackage{changebar}
-		\nochangebars
-\else
-	\usepackage[table]{xcolor}
-	\usepackage{todonotes}
-	\usepackage[color]{changebar}
-		\cbcolor{red}
-\fi
+%\documentclass[preprint,draft,s]{iucr}
+\documentclass[preprint,s]{iucr}
+%\documentclass[draft,s]{iucr}
+%\documentclass[s]{iucr}
+	\paperprodcode{a000000}
+	\paperref{xx9999}
+	\papertype{FA}
+	\paperlang{english}
+	\journalcode{S}
+	\journalyr{2010}
+	\journaliss{0}
+	\journalvol{0}
+	\journalfirstpage{0}
+	\journallastpage{0}
+	\journalreceived{29 January 2010}
+	\journalaccepted{0 XXXXXXX 2010}
+	\journalonline{0 XXXXXXX 2010}
 
+\usepackage[table]{xcolor}
+\usepackage{todonotes}
+\usepackage[color]{changebar}
+	\cbcolor{red}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage[english]{babel}
@@ -64,72 +45,38 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\ifhtml
-	\usepackage{hyperref}
-	\DeclareGraphicsExtensions{.png}
-	\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
-	\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
-\else
-	\begin{document}
-\fi
+\begin{document}
 
-\title{%
-	Radiation dose optimized lateral expansion of the field of view in synchrotron radiation x-ray tomographic microscopy %
-	%\ifhtml
-	%\else
-	%	(SVN-revision: \svnkw{LastChangedRevision}, compiled \today, \thistime)%
-	%\fi
-	}
+\title{Radiation dose optimized lateral expansion of the field of view in synchrotron radiation x-ray tomographic microscopy}
 
-\ifhtml
-	\author{
-		David Haberth\"ur\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}
-		\and Christoph Hinterm\"uller\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}
-		\and Federica Marone\footrecall{psi}
-		\and Johannes C. Schittny\footrecall{ana}
-		\and Marco Stampanoni\footrecall{psi} \footnote{Institute of Biomedical Engineering, University and ETH Z\"urich, Switzerland}
-		}
-	\begin{document}%
-	\begin{center}---SVN-revision \svnkw{LastChangedRevision}, compiled \today, \thistime---\end{center}%
-	\maketitle
-\else
-	\cauthor[a]{David}{Haberth\"{u}r}{haberthuer@ana.unibe.ch}{}
-	\author[b]{Christoph}{Hinterm\"{u}ller}{}{}
-	\author[b]{Federica}{Marone}{}{}
-	\author[a]{Johannes C.}{Schittny}{}{}
-	\cauthor[b,c]{Marco}{Stampanoni}{marco.stampanoni@psi.ch}{}
+\cauthor[a]{David}{Haberth\"{u}r}{haberthuer@ana.unibe.ch}{}
+\author[b,c]{Christoph}{Hinterm\"{u}ller}{}{}
+\author[b]{Federica}{Marone}{}{}
+\author[a]{Johannes C.}{Schittny}{}{}
+\cauthor[b,c]{Marco}{Stampanoni}{marco.stampanoni@psi.ch}{}
 
-	\aff[a]{Institute of Anatomy, University of Bern, \country{Switzerland}}
-	\aff[b]{Swiss Light Source, Paul Scherrer Institut, \city{Villigen}, \country{Switzerland}}
-	\aff[c]{Institute of Biomedical Engineering, University and ETH Z\"{u}rich, \country{Switzerland}}
+\aff[a]{Institute of Anatomy, University of Bern, \country{Switzerland}}
+\aff[b]{Swiss Light Source, Paul Scherrer Institut, \city{Villigen}, \country{Switzerland}}
+\aff[c]{Institute of Biomedical Engineering, University and ETH Z\"{u}rich, \country{Switzerland}}
 
-	\keyword{X-ray imaging}
-	\keyword{computed tomography}
-	\keyword{synchrotron microtomography}
-	\keyword{SRXTM}
-	\keyword{field of view}
-	\keyword{radiation dose}
-	\keyword{lung}
-	\keyword{lung development}
-	\keyword{alveoli}
-	\keyword{acinus}
+\keyword{X-ray imaging}
+\keyword{computed tomography}
+\keyword{synchrotron microtomography}
+\keyword{SRXTM}
+\keyword{field of view}
+\keyword{radiation dose}
+\keyword{lung}
+\keyword{lung development}
+\keyword{alveoli}
+\keyword{acinus}
 
-	\maketitle
-\fi
+\maketitle
 
-\ifhtml
-	\begin{abstract} % to have synopsis in Abstract
-	\section{Synopsis}
-\else
-	\begin{synopsis}
-\fi
+\begin{synopsis}
 Increasing the lateral field of view of tomography based imaging methods greatly increases the acquisition time. This article presents scanning protocols to obtain high-resolution tomographic scans with large lateral field of view at greatly decrease acquisition time and thus reduced radiation dose while resulting in high quality three-dimensional tomographic datasets.
-\ifhtml
-	\section{Abstract}
-\else
-	\end{synopsis}
-	\begin{abstract}
-\fi
+\end{synopsis}
+
+\begin{abstract}
 Volumetric data at micrometer level resolution can be acquired within a few minutes using synchrotron radiation based tomographic microscopy. The field of view along the rotation axis of the sample can easily be increased by stacking several tomograms, allowing  the investigation of long and thin objects at high resolution. On the contrary, an extension of the field of view in the perpendicular direction is non trivial. This paper presents an acquisition protocol which increases the field of view of the tomographic dataset perpendicular to its rotation axis. The acquisition protocol can be tuned as a function of the reconstruction quality and scanning time. Since the scanning time is proportional to the radiation dose imparted to the sample, this method can be used to increase the field of view of tomographic microscopy instruments while optimizing the radiation dose for radiation sensitive samples and keeping the quality of the tomographic dataset on the required level. This approach, dubbed wide field synchrotron radiation tomographic microscopy, can increase the lateral field of view up to five times. The method has been successfully applied for the three-dimensional imaging of entire rat lung acini with a diameter of \SI{4.1}{\milli\meter} at a voxel size of \SI{1.48}{\micro\meter}.
 \end{abstract}
 
@@ -139,22 +86,13 @@ Volumetric data at micrometer level resolution can be acquired within a few minu
 \input{wfs-discussion.tex}
 \input{wfs-summary.tex}
 
-\ifhtml%
-	\section{Acknowledgements}%
-\else%
-	\ack{%
-\fi%
+\ack{%
 This work has been funded by the grants 3100A0-109874 and 310030-125397 of the Swiss National Science Foundation. We thank Mohammed Ouanella for his excellent technical assistance and Volker Dicken from Fraunhofer MEVIS for the fruitful discussion concerning the euclidean distance transformation. Dan Ward kindly checked the English of the manuscript.%
-\ifhtml%
-	\bibliographystyle{unsrtnat}%
-	\bibliography{../references}%
-\else%
-	}% close \ack{ from iucr.bst
+}
 
-	\let\oldharvardurl=\harvardurl%
-	\renewcommand{\harvardurl}[1]{\relax}%
-	\referencelist[../references]%
-	\let\harvardurl=\oldharvardurl%
-\fi%
+\let\oldharvardurl=\harvardurl%
+\renewcommand{\harvardurl}[1]{\relax}%
+\referencelist[../references]%
+\let\harvardurl=\oldharvardurl%
 
 \end{document}
