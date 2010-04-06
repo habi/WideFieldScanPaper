@@ -33,6 +33,7 @@ JCS
 K
 KGaA
 Kelheim
+Kohn1893
 L
 Lab-based
 LastChangedRevision
@@ -92,6 +93,7 @@ b,c
 beamline
 beamlines
 beamtime
+beamtimes
 bigfrom
 bigto
 binarized
@@ -105,6 +107,7 @@ d
 distal-medial
 dtf-roi
 e
+emphysematic
 end-stations
 end-user
 end-users
@@ -152,6 +155,7 @@ ring-scans
 roiB
 roiL
 roiT
+run-out
 sample-position
 scan-conventional
 scan-widefield
@@ -184,6 +188,7 @@ ultra-high
 un-binned
 unbinned
 undersample
+undersampled
 undersampling
 unoptimized
 unsrtnat
