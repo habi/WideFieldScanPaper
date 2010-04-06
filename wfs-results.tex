@@ -57,7 +57,7 @@ As expected, the calculated quality of the reconstructions representing the diff
 
 \subsection{Three-dimensional visualization of different protocols}
 \label{subsec:comparison}
-The tomograms of the different protocols were three-dimensionally analyzed and visualized using MeVisLab (Version 2.0 (2009-06-09 Release), MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). Airway segments were extracted using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined in the most proximal slice for each independent airway segment. The coordinates of the seed points were kept constant for protocol B--T, allowing direct comparison between the airway segment reconstructions of the different protocols. Airway segments extracted for protocol B, L and T are shown in Figure~\ref{fig:BvsT}.
+The tomograms of the different protocols were three-dimensionally analyzed and visualized using MeVisLab (Version 2.0 (2009-06-09 Release), MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). Airway segments were extracted using a threshold interval based region growing algorithm \cite{Zucker1976}. A seed point for the region growing algorithm was manually defined in the most proximal slice for each independent airway segment. The coordinates of the seed points were kept constant for protocol B--T, allowing direct comparison between the airway segment reconstructions of the different protocols. Airway segments extracted for protocol B, L and T are shown in Figure~\ref{fig:BvsT}.
 
 Protocol B corresponds to a slightly oversampled gold standard scan, obtained with total 15732 projections, recorded in \SI{66}{\minute}. Protocol L was obtained in \SI{35}{\minute} with total 7866 projections. Protocol T was obtained in \SI{12}{\minute} with 2185 projections for all three subscans. The tomographic dataset from protocol B was reconstructed from 5244 merged projections, the dataset from protocol L was reconstructed from 2622 merged projections and the dataset from protocol T was reconstructed using only 874 merged projections. Even though protocols L and T were scanned while violating the sampling theorem and with a total scanning time reduction of \SI{40}{\percent} (L) or more than \SI{86}{\percent} (T), the samples still appear to be identical to the gold standard protocol in the low-resolution three-dimensional visualizations shown in Figure~\ref{fig:BvsT}(a)--(c).
 
@@ -85,7 +85,7 @@ For further analysis four regions of interest with a side length of 256 pixels h
 	\label{fig:roi3d}
 \end{figure}
 
-Each of the ROIs has been binarized using an algorithmically determined threshold~\cite{Otsu1979} and small particles inside the segmented airspace lumen have been removed using a connected component analysis. Subsequently, the euclidean distance transformation~\cite{Danielsson1980} has been calculated for each thresholded ROI.
+Each of the ROIs has been binarized using an algorithmically determined threshold \cite{Otsu1979} and small particles inside the segmented airspace lumen have been removed using a connected component analysis. Subsequently, the euclidean distance transformation \cite{Danielsson1980} has been calculated for each thresholded ROI.
 
 For comparison, the histogram of the euclidean distance transformation has been plotted for all four regions of interest in each protocol (B, L and T).
 
