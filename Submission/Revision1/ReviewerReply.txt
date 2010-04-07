@@ -1,0 +1,7 @@
+We would like to thank the reviewers for their work and valuable suggestions to our manuscript. Attached is the revised manuscript where we've added the suggestions. The additions are marked with red bars in the margin.
+
+One reviewer suggested that we clarify the metric of "Expected Quality", especially on the background of holes between adjacent alveoli in terms of diseases. As suggested, we added additional text in the Discussion (p.23f), where we discuss the biological implication of the artifacts introduced through the undersampling. For phenomena in biological and medical research, the size of the introduced artifacts is smaller than the structures which need to be visualized and can thus be neglected for our case. If other structures are to be studied, the desired level of image quality has to be defined according to the smallest structure present in the sample, a clarification which we've also added to the discussion.
+
+A second request by the reviewer suggested a more thorough specification of the accuracy of the mechanical beamline setup at TOMCAT. In Materials and Methods on page 4 we've added a reference to Marco Stampanonis proceeding on TOMCAT and explicitly stated the relevant details in the discussion on page 24f.
+
+We aimed to fulfill the requests of the reviewers with these additions and think that they have added to the value of the discussion.
